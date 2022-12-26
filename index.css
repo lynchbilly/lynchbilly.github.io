@@ -1,6 +1,6 @@
 img{
-  border-radius: 1%;
-  border : 2px;
+  border-radius: 20%;
+  
 
     }
 
@@ -27,5 +27,5 @@ p {
 div {
   background-color: white;
   width: 300px;
-  color: blue;
+  color: orange;
 }
