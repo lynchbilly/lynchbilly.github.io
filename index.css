@@ -13,14 +13,15 @@ img{
 
 body {
   background-color: black;
+  text-align:center;
 
 }
 
 p {
   font-family: arial;
   font-size: 15px;
-  color: white;
-  
+  color: orange;
+  text-align: center;
 }
 
 div {
