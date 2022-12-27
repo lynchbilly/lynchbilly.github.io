@@ -1,6 +1,7 @@
 img {
   border: 5px dashed orange;
-  border-radius: 50%;
+  border-radius: 4px;
+  padding: 5px;
   
 
   
