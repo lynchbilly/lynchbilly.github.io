@@ -1,6 +1,6 @@
 img {
   border: 5px dashed orange;
-  border-radius: 50%
+  border-radius: 50%;
   
 
   
@@ -25,11 +25,13 @@ p {
 
 div {
   background-color: white;
-  width: 600px;
+  width: 1200px;
+  height: 600px;
   color: orange;
 }
 div {
  background-color: white;
-width: 600px; 
+width: 1200px; 
+height: 600px;
 color: orange;
 
