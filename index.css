@@ -24,6 +24,11 @@ p {
   
 }
 
+li{
+ height: 100px
+ width: 100px
+}
+
 div {
   background-color: white;
   width: 600px;
