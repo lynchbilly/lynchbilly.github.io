@@ -1,5 +1,6 @@
 img {
   border: 5px dashed orange;
+  margin 0 auto;
   
 
   
@@ -20,14 +21,7 @@ body {
 p {
   font-family: arial;
   font-size: 15px;
-  color: orange;
-  
-}
-
-li{
- height: 100px
- width: 100px
-}
+  }
 
 div {
   background-color: white;
@@ -36,6 +30,6 @@ div {
 }
 div {
  background-color: white;
-width: 300px; 
+width: 600px; 
 color: orange;
 
