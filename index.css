@@ -1,17 +1,6 @@
 img{
   border dashed orange 2px;
-.border-offset {
-  // Distance from text
-  padding-bottom: 2px;
-  
-  text-decoration: none;
-  
-  box-shadow: none;
-  transition: box-shadow .33s ease-out;
-  
-  &:hover {
-   box-shadow: 0 5px 0 -4px currentColor;
-  }
+
 }
   
   h1{
