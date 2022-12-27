@@ -1,4 +1,5 @@
 img{
+  border dashed orange 2px;
 .border-offset {
   // Distance from text
   padding-bottom: 2px;
@@ -19,7 +20,7 @@ img{
   }
 
 
-body {
+body{
   background-color: black;
   
 
