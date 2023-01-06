@@ -1,6 +1,6 @@
 
 .banner {
- border: 10px dashed orange;
+ border: 5 px dashed orange;
  marign-align:right auto;
  marign-align:left auto;
  padding: 5px;
@@ -11,7 +11,7 @@
 .home {
   border: 5px dashed orange;
   display:inline;
-  margin=right: auto;
+  margin-right: auto;
   marign-left: auto;
   padding 1px;
   }
