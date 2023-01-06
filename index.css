@@ -1,6 +1,6 @@
 
 .banner {
-  border: 5px solid orange;
+  border: 5px outset orange;
   marign-right auto;
   marign-left auto;
   border-radius: 50%;
