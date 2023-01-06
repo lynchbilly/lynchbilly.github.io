@@ -13,7 +13,7 @@
 .home {
   
   border: none;
-  width:  300px;
+  width:  400px;
   height: 100px;
   float: left;
   
@@ -24,8 +24,7 @@
 .about {
   
   border: none;
-  padding: 1px;
-  width:  300px;
+  width:  400px
   height: 100px;
   
   
@@ -34,8 +33,7 @@
 .contact  {
 
    border: none;
-   padding: 1 px;
-   width: 300px;
+   width: 400px;
    height: 100px;
    
    
@@ -45,8 +43,7 @@
  
 .links  {
   border: none;
-  padding: 1px;
-  width: 300px;
+  width: 400px;
   height: 100px;
   
 }
