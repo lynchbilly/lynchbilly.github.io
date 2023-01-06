@@ -19,13 +19,12 @@
   
   }
   
-.links {
+.about {
   
   border: 5px hidden;
   padding: 1px;
   width:  300px;
   height: 100px;
-  
   float: left;
   
   }
@@ -40,8 +39,7 @@
    
   
 }
-
-
+ 
 .links  {
   border 5 px hidden;
   padding: 1px;
