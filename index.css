@@ -12,6 +12,7 @@
 }
 
 .home {
+  
   border: 5px dashed orange;
   padding: 1px;
   width:  250;
@@ -19,12 +20,25 @@
   }
   
 .links {
-  border: 5 px dashed orange;
+  
+  border: 5px dashed orange;
   padding: 1px;
   width:  300px;
   height: 100px;
   
   }
+  
+.about  {
+
+  border: 5px dashed orange;
+  padding: 1px;
+  width: 300px;
+  height: 100px;
+  
+}
+  
+  
+  
 
 
   
