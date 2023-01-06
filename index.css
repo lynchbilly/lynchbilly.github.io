@@ -9,8 +9,9 @@
  
 }
 
-ul {
-  display:inline
+.nav {
+  border: 5px dashed orange;
+  display:inline;
   }
 
 
