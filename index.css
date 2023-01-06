@@ -11,7 +11,7 @@
   }
 .home {
   
-  border: 5px dashed orange;
+  border: 5px hidden orange;
   padding: 1px;
   width:  300;
   height: 100px;
@@ -21,7 +21,7 @@
   
 .links {
   
-  border: 5px dashed orange;
+  border: 5px hidden orange;
   padding: 1px;
   width:  300px;
   height: 100px;
@@ -31,7 +31,7 @@
 
 .contact  {
 
-   border: 5px dashed orange;
+   border: 5px hidden orange;
    padding: 1 px;
    width: 300px;
    height: 100px;
@@ -43,7 +43,7 @@
 
 .about  {
 
-  border: 5px dashed orange;
+  border: 5px hidden orange;
   padding: 1px;
   width: 300px;
   height: 100px;
