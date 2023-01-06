@@ -1,7 +1,11 @@
-img {
-  border: 5px dashed orange;
-  
-  margin: 0 0 0 0;
+
+#banner {
+ border: 5px dashed orange;
+ marign-align:right auto;
+ marign-align:left auto;
+ padding 5px;
+}
+
   
   
 
