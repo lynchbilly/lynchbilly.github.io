@@ -1,8 +1,9 @@
 
 .banner {
  border: 5 px dashed orange;
- marign-align:right auto;
- marign-align:left auto;
+ marign-right auto;
+ marign-left auto;
+ display: block;
  padding: 5px;
 
  
