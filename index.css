@@ -23,7 +23,7 @@
   
 .about {
   
-  border: 5px hidden;
+  border: none;
   padding: 1px;
   width:  300px;
   height: 100px;
@@ -33,7 +33,7 @@
 
 .contact  {
 
-   border: 5px hidden;
+   border: none;
    padding: 1 px;
    width: 300px;
    height: 100px;
@@ -44,7 +44,7 @@
 }
  
 .links  {
-  border: 5 px hidden;
+  border: none;
   padding: 1px;
   width: 300px;
   height: 100px;
