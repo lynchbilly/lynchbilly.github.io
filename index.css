@@ -11,10 +11,11 @@
   }
 .home {
   
-  border: 5px hidden;
+  border: solid orange
   padding: 1px;
   width:  300;
   height: 100px;
+  margin-align:left;
   
   
   }
