@@ -14,9 +14,11 @@
 .home {
   
   border: 5px dashed orange;
+  border-radius: 40%;
   padding: 1px;
-  width:  250;
+  width:  300;
   height: 100px;
+  
   }
   
 .links {
