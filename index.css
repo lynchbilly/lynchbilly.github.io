@@ -3,7 +3,6 @@
   border: 10px dashed orange;
   marign-right auto;
   marign-left auto;
-  border-radius: 40%;
   padding: 5px;
   
 
@@ -14,7 +13,6 @@
 .home {
   
   border: 5px dashed orange;
-  border-radius: 40%;
   padding: 1px;
   width:  300;
   height: 100px;
