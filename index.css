@@ -11,6 +11,9 @@
 .navbar {
   border: 5px dashed orange;
   display:inline;
+  margin=right: auto;
+  marign-left: auto;
+  padding 1px;
   }
 
 
