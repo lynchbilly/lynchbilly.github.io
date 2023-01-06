@@ -11,8 +11,7 @@
 .home {
   border: 5px dashed orange;
   display:inline;
-  margin-right: auto;
-  marign-left: auto;
+  position:top;
   padding 1px;
   }
 
