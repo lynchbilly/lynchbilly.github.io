@@ -10,11 +10,17 @@
 
 .home {
   border: 5px dashed orange;
+  padding: 1px;
+  width:  300px;
+  height: 100px;
+  }
   
-  position:top;
-  padding 1px;
-  width 300px;
-  height 100px;
+.links {
+  border: 5 px dashed orange;
+  padding: 1px;
+  width:  300px;
+  height: 100px;
+  
   }
 
 
