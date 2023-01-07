@@ -9,6 +9,8 @@ li  {
 
   list-style-image:none;
   float: left;
+  margin-right: auto;
+  margin-left: auto;
   }
 .home {
   
