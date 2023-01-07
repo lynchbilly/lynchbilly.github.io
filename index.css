@@ -6,18 +6,12 @@
   margin-top: auto;
   }
 a  {
-  position: relative;
+  position: absolute ;
   left: 0px;
   
+  
   }
-#navbar { 
-    position: absolute;
-    left: 0px;
-    height: 400px;
-    width: 250px;
-    border: 2px solid orange;
     
-}
 li  {
 
   list-style-image:none;
