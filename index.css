@@ -6,7 +6,9 @@
   margin-top: auto;
   }
 .navbar { 
-  
+    position: absolute;
+    left: 0px;
+}
 li  {
 
   list-style-image:none;
