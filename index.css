@@ -35,6 +35,8 @@
    padding: 1px;
    width: 250px;
    height: 100px;
+   position: absolute;
+   left: 0px;
    
    
    
@@ -46,6 +48,8 @@
   padding: 1px;
   width: 250px;
   height: 100px;
+  position: absolute;
+  left: 0px;
   
 }
   
