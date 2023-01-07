@@ -11,8 +11,9 @@
   border: none;
   width:  250px;
   height: 100px;
-  position: fixed;
+  position: absolute;
   left: 0px;
+  top: 50px;
 
 
   }
@@ -25,6 +26,7 @@
   height: 100px;
   position: relative;
   left: 0px;
+  top: 150px;
   
   
   }
@@ -37,6 +39,7 @@
    height: 100px;
    position: absolute;
    left: 0px;
+   top: 250px;
    
    
    
@@ -50,6 +53,7 @@
   height: 100px;
   position: absolute;
   left: 0px;
+  top: 350px;
   
 }
   
