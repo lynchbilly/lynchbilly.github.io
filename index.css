@@ -5,6 +5,10 @@
   margin-left: auto;
   margin-top: auto;
   
+li  {
+
+  list-style-image:none;
+  float: left;
   }
 .home {
   
