@@ -5,15 +5,14 @@
   margin-left: auto;
   margin-top: auto;
   }
-li {
-  position: fixed;
-  left: 0px;
-  }
+
 .home {
   
   border: none;
   width:  250px;
   height: 100px;
+  position: absolute;
+  left: 0px;
 
 
   }
