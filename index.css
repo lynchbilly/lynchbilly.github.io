@@ -5,6 +5,11 @@
   margin-left: auto;
   margin-top: auto;
   }
+a  {
+  position: absolute;
+  left: 0px;
+  
+  }
 #navbar { 
     position: absolute;
     left: 0px;
