@@ -19,7 +19,7 @@
   border: 2px solid orange;
   border-radius: 5%;
   height: 100px;
-  width: 260px;
+  width: 30%;
   position: absolute;
   left: 250px;
   top: 425px;
@@ -33,7 +33,7 @@
   border: 2px solid orange;
   border-radius: 5%;
   height: 100px;
-  width:  260px;
+  width:  30%;
   position: absolute;
   left: 520px;
   top: 425px;
@@ -46,7 +46,7 @@
 
    border: 2px solid orange;
    border-radius: 5%;
-   width: 260px;
+   width: 30%;
    height: 100px;
    position:absolute;
    left: 790px;
@@ -62,7 +62,7 @@
 .links  {
   border: 2px solid orange;
   border-radius: 5%;
-  width: 260px;
+  width: 30%;
   height: 100px;
   position:absolute;
   left: 1060px;
