@@ -15,9 +15,9 @@
   
   border: 2px dashed orange;
   height: 100px;
-  width: 27%;
+
   position: absolute;
-  left: 266px;
+  left: 50px;
   
   top: 415px;
   
@@ -28,9 +28,9 @@
   
   border: 2px dashed orange;
   height: 100px;
-  width: 27%;
+
   position: absolute;
-  left: 550px;
+  left: 400px;
   top: 415px;
   
   
@@ -39,10 +39,10 @@
 .contact  {
 
    border: 2px dashed orange;
-   width: 27%;
+   
    height: 100px;
    position:absolute;
-   left: 850px;
+   left: 700px;
    top: 415px;
   
    
@@ -53,10 +53,10 @@
  
 .links  {
   border: 2px dashed orange;
-  width: 27%;
+  
   height: 100px;
   position:absolute;
-  left: 1250px;
+  left: 1100px;
   top: 800px;
   
 
