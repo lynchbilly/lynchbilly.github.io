@@ -13,11 +13,11 @@
   
 .home {
   
-  border: none;
-  width : 25%;
+  border: 2px dashed orange;
+  width : 25%
   height: 100px;
   position: absolute;
-  left: 270px;
+  left: 272px;
   
   top: 415px;
   
