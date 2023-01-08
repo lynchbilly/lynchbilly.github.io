@@ -22,7 +22,7 @@
   position: absolute;
   left: 265px;
   top: 425px;
-  padding: none;
+  padding-right: 5px;
   
 
   }
@@ -36,6 +36,7 @@
   position: absolute;
   left: 525px;
   top: 425px;
+  padding-right: 5px;
   
   
   }
@@ -49,6 +50,7 @@
    position:absolute;
    left: 775px;
    top: 425px;
+   padding-right: 5px;
   
    
    
@@ -64,6 +66,7 @@
   position:absolute;
   left: 1025px;
   top: 425px;
+  padding-right: 5px;
   
 
 }
