@@ -13,13 +13,13 @@
   
 .home {
   
-  border: 2px dashed orange;
+  border: 5px dashed orange;
   height: 100px;
   width: 250px;
   position: absolute;
   left: 0px;
   
-  top: 415px;
+  top: 418px;
   
 
   }
