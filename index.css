@@ -19,7 +19,7 @@ li  {
   border: none;
   width:  25%;
   height: 100px;
-  position:absolute;
+  position:relative;
   left: 100px;
 
   }
@@ -29,7 +29,7 @@ li  {
   border: none;
   width:  25%;
   height: 100px;
-  position: absolute;
+  position: relative;
   left: 300px;
   
   }
@@ -39,7 +39,7 @@ li  {
    border: none;
    width: 25%;
    height: 100px;
-   position: absolute;
+   position: relative;
    left: 600px;
    
    
@@ -50,7 +50,7 @@ li  {
   border: none;
   width: 25%;
   height: 100px;
-  position: absolute;
+  position: relative;
   left: 900px;
 
 }
