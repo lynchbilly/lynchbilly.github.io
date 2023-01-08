@@ -30,6 +30,7 @@
 .about {
   
   border: 2px solid orange;
+  border-radius: 20%;
   height: 100px;
   width:  260px;
   position: absolute;
@@ -42,6 +43,7 @@
 .contact  {
 
    border: 2px solid orange;
+   border-radius: 20%;
    width: 260px;
    height: 100px;
    position:absolute;
@@ -56,6 +58,7 @@
  
 .links  {
   border: 2px solid orange;
+  border-radius: 20%;
   width: 260px;
   height: 100px;
   position:absolute;
