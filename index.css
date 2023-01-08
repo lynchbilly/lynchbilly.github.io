@@ -7,16 +7,13 @@
   
   }
   
-ul {
-  display: inline;
-  margin-right: auto;
-  margin-left: auto;
+
   
   }
 .home {
   
   border: none;
-  width:  22%;
+  width : 25%;
   height: 100px;
   
 
@@ -25,7 +22,7 @@ ul {
 .about {
   
   border: none;
-  width:  22%;
+  width:  25%;
   height: 100px;
   
   
@@ -34,7 +31,7 @@ ul {
 .contact  {
 
    border: none;
-   width: 22%;
+   width: 25%;
    height: 100px;
    
    
@@ -44,7 +41,7 @@ ul {
  
 .links  {
   border: none;
-  width: 22%;
+  width: 25%;
   height: 100px;
   
 
