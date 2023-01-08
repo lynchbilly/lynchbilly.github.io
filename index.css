@@ -25,12 +25,11 @@
   
 .about {
   
-  border: none;
-  width:  25%;
+  border: 2px dashed orange;
   height: 100px;
   position: absolute;
-  left: 0px;
-  top: 600px;
+  left: 566px;
+  top: 415px;
   
   
   }
