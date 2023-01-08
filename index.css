@@ -38,12 +38,12 @@
 
 .contact  {
 
-   border: 2px dashed orange;
+   border: 5px hidden;
    width: 250px;
    height: 100px;
    position:absolute;
-   left: 600px;
-   top: 415px;
+   left: 762px;
+   top: 425px;
   
    
    
@@ -52,12 +52,12 @@
 }
  
 .links  {
-  border: 2px dashed orange;
+  border: 5px hidden;
   width: 250px;
   height: 100px;
   position:absolute;
-  left: 1000px;
-  top: 415px;
+  left: 1012px;
+  top: 425px;
   
 
 }
