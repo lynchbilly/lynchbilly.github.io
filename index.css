@@ -15,34 +15,24 @@ li  {
   border: none;
   width:  250px;
   height: 100px;
-  position: absolute;
-  left: 100;
-  top: 500px;
+
   }
   
 .about {
   
   border: none;
-  padding: 1px;
   width:  250px;
   height: 100px;
-  position: absolute;
-  left: 200px;
-  top: 500p;
-  
+
   
   }
 
 .contact  {
 
    border: none;
-   padding: 1px;
    width: 250pxx;
    height: 100px;
-   position: absolute;
-   left: 300px;
-  top: 500p;
-   
+
    
    
   
@@ -50,13 +40,9 @@ li  {
  
 .links  {
   border: none;
-  padding: 1px;
   width: 250px;
   height: 100px;
-  position: absolute;
- left: 400px;
-  top: 500p;
-  
+
 }
   
   
