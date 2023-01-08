@@ -11,36 +11,38 @@ li  {
   display: inline;
   margin-right: auto;
   margin-left: auto;
+  }
   
+ul {
   
+ margin-left: auto;
+ margin-right: auto;
+
 }
 .home {
   
   border: none;
-  width:  25%;
+  width:  22%;
   height: 100px;
-  position:relative;
-  left: 100px;
+  
 
   }
   
 .about {
   
   border: none;
-  width:  25%;
+  width:  22%;
   height: 100px;
-  position: relative;
-  left: 300px;
+  
   
   }
 
 .contact  {
 
    border: none;
-   width: 25%;
+   width: 22%;
    height: 100px;
-   position: relative;
-   left: 600px;
+   
    
    
   
@@ -48,10 +50,9 @@ li  {
  
 .links  {
   border: none;
-  width: 25%;
+  width: 22%;
   height: 100px;
-  position: relative;
-  left: 900px;
+  
 
 }
   
