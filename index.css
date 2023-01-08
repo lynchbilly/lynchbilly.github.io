@@ -28,7 +28,7 @@
   
 .about {
   
-  border: none;
+  border: 2px solid black;
   height: 100px;
   width:  260px;
   position: absolute;
@@ -40,7 +40,7 @@
 
 .contact  {
 
-   border: none;
+   border: 2px solid black;
    width: 260px;
    height: 100px;
    position:absolute;
@@ -54,7 +54,7 @@
 }
  
 .links  {
-  border: none;
+  border: 2px solid black;
   width: 260px;
   height: 100px;
   position:absolute;
