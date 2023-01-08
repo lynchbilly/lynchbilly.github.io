@@ -19,6 +19,8 @@ li  {
   border: none;
   width:  25%;
   height: 100px;
+  position:absolute;
+  left: 100px;
 
   }
   
