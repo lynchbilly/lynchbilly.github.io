@@ -15,7 +15,7 @@
 .home {
   
   
-  border: none;
+  border: 2px solid black;
   height: 100px;
   width: 260px;
   position: absolute;
