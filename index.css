@@ -17,7 +17,7 @@
   height: 100px;
   width: 250px;
   position: absolute;
-  left: 50px;
+  left: 0px;
   
   top: 415px;
   
@@ -30,7 +30,7 @@
   height: 100px;
   width:  250px;
   position: absolute;
-  left: 400px;
+  left: 300px
   top: 415px;
   
   
@@ -42,7 +42,7 @@
    width: 250px;
    height: 100px;
    position:absolute;
-   left: 700px;
+   left: 600px;
    top: 415px;
   
    
@@ -56,7 +56,7 @@
   width: 250px;
   height: 100px;
   position:absolute;
-  left: 1100px;
+  left: 1000px;
   top: 800px;
   
 
