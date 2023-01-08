@@ -13,7 +13,7 @@
   
 .home {
   
-  border: 5px hidden;
+  border: none;
   height: 100px;
   width: 260px;
   position: absolute;
@@ -26,7 +26,7 @@
   
 .about {
   
-  border: 5px hidden;
+  border: none;
   height: 100px;
   width:  260px;
   position: absolute;
@@ -38,7 +38,7 @@
 
 .contact  {
 
-   border: 5px hidden;
+   border: none;
    width: 260px;
    height: 100px;
    position:absolute;
@@ -52,7 +52,7 @@
 }
  
 .links  {
-  border: 5px hidden;
+  border: none;
   width: 260px;
   height: 100px;
   position:absolute;
