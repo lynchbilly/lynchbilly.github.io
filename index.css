@@ -2,6 +2,8 @@
 .banner {
   border: none;
   padding: 0px;
+  margin-left: 250px;
+  margin-right:250px;
   position: absolute;
   top: 0px;
   left: 250px;
