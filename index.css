@@ -17,7 +17,7 @@
   height: 100px;
   position: absolute;
   left: 0px;
-  top: 600px;
+  top: 500px;
   
 
   }
@@ -29,6 +29,7 @@
   height: 100px;
   position: absolute;
   left: 0px;
+  top: 600px;
   
   
   }
@@ -40,6 +41,9 @@
    height: 100px;
    position:absolute;
    left: 0px;
+   top: 700px;
+  
+   
    
    
   
@@ -51,6 +55,7 @@
   height: 100px;
   position:absolute;
   left: 0px;
+  top: 800px;
   
 
 }
