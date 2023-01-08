@@ -1,13 +1,11 @@
 
 .banner {
   border: none;
-  margin-right: 0px;
-  margin-left: 0px;
-  margin-top: auto;
-  margin-bottom:auto;
-  padding: none;
+  margin: 0px ;
+  padding: 0px;
   position: absolute;
   top: 0px;
+  
   
   }
   
