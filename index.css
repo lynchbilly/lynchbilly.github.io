@@ -14,12 +14,12 @@
   
   }
   h1 {
-    font-size: 2em;
+    font-size: 3em;
     color: orange;
   }
 
   p{
-    font-size: 1em;
+    font-size: 2em;
     color: orange;
   }
   
@@ -81,6 +81,12 @@
   
   
 
+}
+
+.body  {
+     position: absolute;
+     left: 50px;
+     top: 530px;
 }
   
   
