@@ -118,7 +118,7 @@ p {
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
+  position: float;
   bottom: 0px;
   left: 50px;
   
