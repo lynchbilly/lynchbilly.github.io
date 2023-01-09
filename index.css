@@ -116,7 +116,7 @@ body {
 
 .footer {
   
-  border: none;
+  border: 5px dashed orange;
   padding: 5px;
   margin-top: auto;
   margin-left: auto;
@@ -125,7 +125,7 @@ body {
   bottom: 0px;
   left: 50px;
   width: 1230px;
-  height: 75px;
+  height: 100px;
   
   
   
