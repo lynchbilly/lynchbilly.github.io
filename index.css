@@ -83,7 +83,7 @@
 }
 
 .body  {
-     border: 10px dashed orange;
+     border: 5px dashed orange;
     margin-left: auto;
   margin-right: auto;
      position: absolute;
@@ -112,9 +112,9 @@ p {
   }
 
 .footer {
-  background-image: url("D9F243E1-A15E-4754-9073-F8835969AA8C.jpeg");
+  
   border: none;
-  padding: 0px;
+  padding: 1px;
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
