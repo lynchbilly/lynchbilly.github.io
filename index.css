@@ -16,9 +16,10 @@
   }
   h1 {
     margin-left: auto;
-    maright-right: auto;
+    margin-right: auto;
     font-size: 3em;
     color: orange;
+    font-style: arial;
   }
 
   p{
@@ -100,10 +101,6 @@
 }
   
   
-h1 {
-  color : orange;
-  
-  }
 
 
 body {
@@ -112,10 +109,7 @@ body {
 
 }
 
-p {
-  font-family: arial;
-  font-size: 15px;
-  }
+
 
 .footer {
   
