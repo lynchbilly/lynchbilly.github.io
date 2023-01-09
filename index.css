@@ -13,11 +13,13 @@
   
   }
   h1 {
+    padding: 5px;
     font-size: 5em;
     color: orange;
   }
 
   p{
+    padding: 5px;
     font-size: 4em;
     color: orange;
   }
