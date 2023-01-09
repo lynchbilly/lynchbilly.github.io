@@ -99,7 +99,7 @@
     left: 50px;
     top: 540px;
     width: 1230px;
-    height: 1500px;
+    height: 1200px;
 }
   
   
@@ -120,8 +120,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    bottom: -527px;
-    left: -2px;
+    top: 1745px;
+    left: 50px;
     width: 1230px;
     height: 200px;
   
