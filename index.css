@@ -13,13 +13,17 @@
   
   }
   h1 {
-    padding: 5px;
-    font-size: 5em;
+    margin-align: right;
+    maright-align: left;
+    margin: 2px;
+    padding: 15px;
+    font-size: 2em;
     color: orange;
   }
 
   p{
-    padding: 5px;
+    margin: 2px;
+    padding: 15px;
     font-size: 4em;
     color: orange;
   }
