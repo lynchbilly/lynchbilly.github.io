@@ -111,4 +111,17 @@ p {
   font-size: 15px;
   }
 
-
+.footer {
+  border: none;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 0px;
+  left: 50px;
+  height: 50px;
+  width: 1230px;
+  
+  
+  
+  }
