@@ -114,6 +114,7 @@ p {
 .footer {
   border: none;
   padding: 0px;
+  margin-top: auto;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
