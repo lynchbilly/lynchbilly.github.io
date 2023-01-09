@@ -13,11 +13,9 @@
   
   }
   h1 {
-    margin-align: right;
-    maright-align: left;
-    margin: 2px;
-    padding: 15px;
-    font-size: 2em;
+    margin-left: auto;
+    maright-right: auto;
+    font-size: 3em;
     color: orange;
   }
 
