@@ -1,6 +1,7 @@
 .banner {
   border: 1px solid orange;
   padding: 0px;
+
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
@@ -19,9 +20,10 @@
 
   h1 {
     
-    text-align: center;
+    text-align: top;
     margin-left: auto;
     margin-right: auto;
+    
     font-size: 5em;
     color: black;
     background-color: orange;
