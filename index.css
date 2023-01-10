@@ -26,7 +26,8 @@
     color: black;
     background-color: orange;
     font-style: Chalkduster;
-    border-bottom: 5px dashed orange;
+    border-bottom: 5px dashed black;
+    border-radius: 5%;
      
   }
 
