@@ -105,6 +105,9 @@
     top: 540px;
     width: 1230px;
     height: 1189px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
 }
   
   
