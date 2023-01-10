@@ -20,7 +20,7 @@
 
   h1 {
     
-    text-align: top;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     
@@ -30,7 +30,7 @@
     font-style: Chalkduster, fantasy;
     border-top: 5px dashed black;
     border-bottom: 5px dashed black;
-    border-radius: 5%;
+    border-radius: 10%;
      
   }
 
