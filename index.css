@@ -6,8 +6,7 @@
   margin-right: auto;
   position: absolute;
   top: 0px;
-  left: 50px;
-  right: 50px; 
+  left: 0px;
   height: 400px;
   width: 1230px;
 	
@@ -44,7 +43,7 @@
   height: 100px;
   width: 300px;
   position: absolute;
-  left: 50px;
+  left: 0px;
   top: 425px;
   
   
@@ -59,7 +58,7 @@
   height: 100px;
   width:   300px;
   position: absolute;
-  left: 360px;
+  left: 310px;
   top: 425px;
   
   
@@ -73,7 +72,7 @@
    width:  300px;
    height: 100px;
    position:absolute;
-   left: 670px;
+   left: 620px;
    top: 425px;
    
   
@@ -89,7 +88,7 @@
   width: 300px;
   height: 100px;
   position:absolute;
-  left: 980px;
+  left: 930px;
   top: 425px;
   
   
@@ -101,7 +100,7 @@
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    left: 50px;
+    left: 0px;
     top: 540px;
     width: 1230px;
     height: 1189px;
@@ -129,7 +128,7 @@ body {
     margin-right: auto;
     position: absolute;
     top: 1745px;
-    left: 50px;
+    left: 0px;
     width: 1230px;
     height: 200px;
   
