@@ -24,7 +24,9 @@
     margin-right: auto;
     font-size: 5em;
     color: orange;
-    font-style: arial;
+    font-style: Ariel;
+    border-bottom: 5px dashed orange;
+     
   }
 
   p{
