@@ -23,9 +23,10 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 5em;
-    color: orange;
-    font-style: Ariel;
-    border-bottom: 5px dashed orange;
+    color: black;
+    background-color: orange;
+    font-style: Chalkduster;
+    border-bottom: 5px solid orange;
      
   }
 
