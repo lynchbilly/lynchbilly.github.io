@@ -2,8 +2,8 @@
   border: 1px solid orange;
   padding: 0px;
   margin-top: auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -39,7 +39,7 @@
   
 .home {
   
-  margin-left: 50px;
+  
   border: 2px solid orange;
   border-radius: 5%;
   height: 100px;
@@ -85,7 +85,7 @@
 }
  
 .links  {
-  margin-right: 50px;
+  
   border: 2px solid orange;
   border-radius: 5%;
   width: 300px;
@@ -100,8 +100,8 @@
 
 .body  {
     border: 5px dashed orange;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
     left: 0px;
     top: 540px;
@@ -127,8 +127,8 @@ body {
     border: none;
     padding: 5px;
     margin-top: auto;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
     top: 1745px;
     left: 0px;
