@@ -101,7 +101,7 @@
 
 .body  {
     background-color: #E01B01;
-    background-color: transparent;
+    opacity: 0.5%;
     border: 5px dashed #F96E52;
     margin-left: auto;
     margin-right: auto;
