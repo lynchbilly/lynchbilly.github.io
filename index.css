@@ -46,7 +46,7 @@
   border: 2.5px inset orange;
   border-radius: 5%;
   height: 100px;
-  width: 300px;
+  width: 250px;
   position: absolute;
   left: 0px;
   top: 425px;
@@ -61,7 +61,7 @@
   border: 2.5px inset orange;
   border-radius: 5%;
   height: 100px;
-  width:   300px;
+  width:   250px;
   position: absolute;
   left: 310px;
   top: 425px;
@@ -74,7 +74,7 @@
 
    border: 2.5px inset orange;
    border-radius: 5%;
-   width:  300px;
+   width:  250px;
    height: 100px;
    position:absolute;
    left: 620px;
@@ -91,7 +91,7 @@
   
   border: 2.5px inset orange;
   border-radius: 5%;
-  width: 300px;
+  width: 250px;
   height: 100px;
   position:absolute;
   left: 930px;
