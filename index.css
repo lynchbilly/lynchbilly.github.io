@@ -1,5 +1,5 @@
 .banner {
-  border: 5px outset orange;
+  border: 2.5px outset orange;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -42,12 +42,12 @@
   
 .home {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
   height: 100px;
   width: 300px;
   position: absolute;
   left: 0px;
-  top: 418px;
+  top: 405px;
   
   
   
