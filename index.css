@@ -24,11 +24,11 @@
     margin-right: auto;
     font-size: 5em;
     color: black;
-    background-color: orange;
-    font-style: Chalkduster, fantasy;
-    border-top: 5px grooved #F96E52;
-    border-bottom: 5px grooved #F96E52;
-    border-radius: 35%;
+    font-style: Arial;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 5px outset #F96E52;
+  
      
   }
 
