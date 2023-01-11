@@ -103,8 +103,8 @@
 
 .body  {
     background-color: #E01B01;
-    border: 5px outset orange;
-    border-radius: 5%;
+    border: 8px outset orange;
+    border-radius: 10%;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
