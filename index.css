@@ -1,11 +1,5 @@
 .banner {
-  border-bottom: none;
-  border-top: 5px outset orange;
-  border-left: 5px outset orange;
-
-border-right: 5px outset orange;
-
-
+  border 5px outset orange;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -67,7 +61,7 @@ border-right: 5px outset orange;
   width:   300px;
   position: absolute;
   left: 310px;
-  top: 410px;
+  top: 418px;
   
   
   
@@ -80,7 +74,7 @@ border-right: 5px outset orange;
    height: 100px;
    position:absolute;
    left: 620px;
-   top: 410px;
+   top: 418px;
    
   
    
@@ -96,7 +90,7 @@ border-right: 5px outset orange;
   height: 100px;
   position:absolute;
   left: 930px;
-  top: 410px;
+  top: 418px;
   
   
 
@@ -109,7 +103,7 @@ border-right: 5px outset orange;
     margin-right: auto;
     position: absolute;
     left: 0px;
-    top: 525px;
+    top: 536px;
     width: 1230px;
     height: 1189px;
     overflow-x: hidden;
@@ -135,7 +129,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 1729px;
+    top: 1743px;
     left: 0px;
     width: 1230px;
     height: 200px;
