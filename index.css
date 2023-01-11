@@ -41,6 +41,7 @@
   
   
 .home {
+  bottom-border: none;
   border: 8px inset #FCD645;
   height: 100px;
   width: 300px;
