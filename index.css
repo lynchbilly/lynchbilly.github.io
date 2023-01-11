@@ -49,7 +49,7 @@
   width: 240px;
   position: absolute;
   left: 0px;
-  top: 425px;
+  top: 325px;
   
   
   
@@ -64,7 +64,7 @@
   width:   240px;
   position: absolute;
   left: 260px;
-  top: 425px;
+  top: 325px;
   
   
   
@@ -78,7 +78,7 @@
    height: 100px;
    position:absolute;
    left: 520px;
-   top: 425px;
+   top: 325px;
    
   
    
@@ -95,7 +95,7 @@
   height: 100px;
   position:absolute;
   left: 780px;
-  top: 425px;
+  top: 325px;
   
   
 
@@ -109,7 +109,7 @@
     margin-right: auto;
     position: absolute;
     left: 0px;
-    top: 550px;
+    top: 450px;
     width: 1000px;
     height: 900px;
     overflow-x: hidden;
@@ -135,7 +135,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 1485px;
+    top: 1385px;
     left: 0px;
     width: 1000px;
     height: 100px;
