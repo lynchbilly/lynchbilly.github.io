@@ -100,7 +100,9 @@
 }
 
 .body  {
-    border: 5px dashed orange;
+    background-color: #E01B01;
+    background-color: transparent;
+    border: 5px dashed #F96E52;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
