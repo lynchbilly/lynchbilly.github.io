@@ -1,5 +1,11 @@
 .banner {
-  border: 5px outset orange;
+  border-bottom: none;
+  border-top: 5px outset orange;
+  border-left: 5px outset orange;
+
+border-right: 5px outset orange;
+
+
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
