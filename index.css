@@ -1,5 +1,5 @@
 .banner {
-  border: 1px solid orange;
+  border: 8px inset #FCD645;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -41,8 +41,7 @@
   
   
 .home {
-  border: 2px solid orange;
-  border-radius: 5%;
+  border: 8px inset #FCD645;
   height: 100px;
   width: 300px;
   position: absolute;
@@ -56,8 +55,7 @@
   
 .about {
   
-  border: 2px solid orange;
-  border-radius: 5%;
+  border: 8px inset #FCD645;
   height: 100px;
   width:   300px;
   position: absolute;
@@ -70,8 +68,7 @@
 
 .contact  {
 
-   border: 2px solid orange;
-   border-radius: 5%;
+   border: 8px inset #FCD645;
    width:  300px;
    height: 100px;
    position:absolute;
@@ -87,8 +84,7 @@
  
 .links  {
   
-  border: 2px solid orange;
-  border-radius: 5%;
+  border: 8px inset #FCD645;
   width: 300px;
   height: 100px;
   position:absolute;
@@ -126,7 +122,7 @@ body {
 
 
 .footer {
-    border: none;
+    border: 8px inset #FCD645;
     padding: 5px;
     margin-top: auto;
     margin-left: auto;
