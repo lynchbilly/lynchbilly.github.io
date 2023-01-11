@@ -101,7 +101,7 @@
 
 .body  {
     background-color: #E01B01;
-    border: 15px inset #FCD645;
+    border: 15px outset #FCD645;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
