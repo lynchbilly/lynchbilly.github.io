@@ -26,9 +26,9 @@
     color: black;
     background-color: orange;
     font-style: Chalkduster, fantasy;
-    border-top: none;
-    border-bottom: none;
-    border-radius: 30%;
+    border-top: 5px grooved black;
+    border-bottom: 5px grooved black;
+    border-radius: 35%;
      
   }
 
