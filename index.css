@@ -42,7 +42,8 @@
   
 .home {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
+  border-radius: 5%;
   height: 100px;
   width: 300px;
   position: absolute;
@@ -56,7 +57,8 @@
   
 .about {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
+  border-radius: 5%;
   height: 100px;
   width:   300px;
   position: absolute;
@@ -69,7 +71,8 @@
 
 .contact  {
 
-   border: 5px inset orange;
+   border: 2.5px inset orange;
+   border-radius: 5%;
    width:  300px;
    height: 100px;
    position:absolute;
@@ -85,7 +88,8 @@
  
 .links  {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
+  border-radius: 5%;
   width: 300px;
   height: 100px;
   position:absolute;
