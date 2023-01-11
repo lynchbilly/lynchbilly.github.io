@@ -1,5 +1,5 @@
 .banner {
-  border: 2.5px outset orange;
+  border: 5px solid orange;
   border-radius: 5%;
   padding: 0px;
   margin-top: auto;
@@ -129,7 +129,7 @@ body {
 
 
 .footer {
-    border: 5px inset orange;
+    border: 10 solid orange;
     border-radius: 5%;
     margin-top: auto;
     margin-left: auto;
