@@ -103,7 +103,7 @@
 
 .body  {
     background-color: #E01B01;
-    border: 8px outset orange;
+    border: 10px ridge orange;
     border-radius: 10%;
     margin-left: auto;
     margin-right: auto;
