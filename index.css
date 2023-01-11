@@ -1,5 +1,5 @@
 .banner {
-  border: 5px outset black;
+  border: 5px outset white;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -42,7 +42,7 @@
   
 .home {
   
-  border: 5px inset black;
+  border: 5px inset white;
   height: 100px;
   width: 300px;
   position: absolute;
@@ -56,7 +56,7 @@
   
 .about {
   
-  border: 5px inset black; 
+  border: 5px inset white;
   height: 100px;
   width:   300px;
   position: absolute;
@@ -69,7 +69,7 @@
 
 .contact  {
 
-   border: 5px inset black;
+   border: 5px inset white;
    width:  300px;
    height: 100px;
    position:absolute;
@@ -85,7 +85,7 @@
  
 .links  {
   
-  border: 5px inset black;
+  border: 5px inset white;
   width: 300px;
   height: 100px;
   position:absolute;
@@ -98,7 +98,7 @@
 
 .body  {
     background-color: #E01B01;
-    border: 5px outset black;
+    border: 5px outset white;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -115,7 +115,7 @@
 
 
 body {
-  background-color: gray;
+  background-color: black;
   
 
 }
