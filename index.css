@@ -1,5 +1,5 @@
 .banner {
-  border: 8px inset #FCD645;
+  border: 8px inset black;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -41,8 +41,8 @@
   
   
 .home {
-  bottom-border: none;
-  border: 8px inset #FCD645;
+  
+  border: 8px inset black;
   height: 100px;
   width: 300px;
   position: absolute;
@@ -56,7 +56,7 @@
   
 .about {
   
-  border: 8px inset #FCD645;
+  border: 8px inset black; 
   height: 100px;
   width:   300px;
   position: absolute;
@@ -69,7 +69,7 @@
 
 .contact  {
 
-   border: 8px inset #FCD645;
+   border: 8px inset black;
    width:  300px;
    height: 100px;
    position:absolute;
@@ -85,7 +85,7 @@
  
 .links  {
   
-  border: 8px inset #FCD645;
+  border: 8px inset black;
   width: 300px;
   height: 100px;
   position:absolute;
@@ -98,7 +98,7 @@
 
 .body  {
     background-color: #E01B01;
-    border: 8px outset #FCD645;
+    border: 8px outset black;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -123,7 +123,7 @@ body {
 
 
 .footer {
-    border: 8px inset #FCD645;
+    border: 8px inset black;
     padding: 5px;
     margin-top: auto;
     margin-left: auto;
