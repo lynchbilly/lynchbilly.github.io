@@ -56,12 +56,12 @@
   
 .about {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
   height: 100px;
   width:   300px;
   position: absolute;
   left: 310px;
-  top: 418px;
+  top: 405px;
   
   
   
@@ -69,12 +69,12 @@
 
 .contact  {
 
-   border: 5px inset orange;
+   border: 2.5px inset orange;
    width:  300px;
    height: 100px;
    position:absolute;
    left: 620px;
-   top: 418px;
+   top: 405px;
    
   
    
@@ -85,12 +85,12 @@
  
 .links  {
   
-  border: 5px inset orange;
+  border: 2.5px inset orange;
   width: 300px;
   height: 100px;
   position:absolute;
   left: 930px;
-  top: 418px;
+  top: 405px;
   
   
 
