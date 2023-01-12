@@ -45,7 +45,7 @@
   
   border: 2.5px inset orange;
   border-radius: 5%;
-  height: 80px;
+  height: 50px;
   width: 240px;
   position: absolute;
   left: 0px;
@@ -60,7 +60,7 @@
   
   border: 2.5px inset orange;
   border-radius: 5%;
-  height: 80px;
+  height: 60px;
   width:   240px;
   position: absolute;
   left: 260px;
@@ -75,7 +75,7 @@
    border: 2.5px inset orange;
    border-radius: 5%;
    width:  240px;
-   height: 80px;
+   height: 75px;
    position:absolute;
    left: 520px;
    top: 325px;
