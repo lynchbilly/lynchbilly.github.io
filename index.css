@@ -1,6 +1,5 @@
 .banner {
   border: 5px solid orange;
-  border-radius: 25%;
   padding: 0px;
   margin-top: auto;
   margin-left: auto;
@@ -130,7 +129,6 @@ body {
 
 .footer {
     border: 10px solid orange;
-    border-radius: 25%;
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
