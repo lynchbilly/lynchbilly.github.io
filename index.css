@@ -22,8 +22,8 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    font-size: 4.2em;
-    color: orange;
+    font-size: 3.2em;
+    color: black:
     font-style: Arial;
     font-weight: bold;
     font-style: italic;
@@ -35,11 +35,13 @@
   p{
     margin: 15px;
     padding: 20px;
-    font-size: 2.2em;
-    color: #FCD645;
+    font-size: 1.2em;
+    color: black;
   }
   
-  
+  .paragraph  {
+    font-size: small:
+  }
 .home {
   
   border: 2.5px inset orange;
@@ -144,4 +146,20 @@ body {
   
   
   
+  }
+
+
+  .container {
+    align-items: center;
+    position: absolute;
+    top: 697.5px;
+    left: 235px;
+
+  }
+
+  .form-control {
+   margin-left: auto;
+   margin-right: auto;
+    width: 600px;
+    
   }
