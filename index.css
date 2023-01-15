@@ -69,6 +69,19 @@
   
   }
 
+
+.skills  {
+  
+  border: 2.5px inset orange;
+  border-radius: 5%;
+  width: 240px;
+  height: 50px;
+  position:absolute;
+  left: 520px;
+  top: 325px;
+
+}
+
 .contact  {
 
    border: 2.5px inset orange;
@@ -76,7 +89,7 @@
    width:  240px;
    height: 50px;
    position:absolute;
-   left: 520px;
+   left: 780px;
    top: 325px;
    
   
@@ -86,19 +99,10 @@
   
 }
  
-.links  {
-  
-  border: 2.5px inset orange;
-  border-radius: 5%;
-  width: 240px;
-  height: 50px;
-  position:absolute;
-  left: 780px;
-  top: 325px;
   
   
 
-}
+
 
 .body  {
     background-color: #E01B01;
