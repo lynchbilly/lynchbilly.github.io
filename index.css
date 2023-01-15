@@ -167,3 +167,8 @@ body {
   
     
   }
+  .btn block { 
+  color: orange;
+  align-items: center;
+  }
+  
