@@ -154,6 +154,8 @@ body {
     position: absolute;
     top: 697.5px;
     left: 225px;
+    
+  
 
   }
 
@@ -161,5 +163,6 @@ body {
    margin-left: auto;
    margin-right: auto;
     width: 600px;
+    height: 500px;
     
   }
