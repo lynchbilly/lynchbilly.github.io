@@ -124,7 +124,7 @@
 
 
 body {
-  background-color: black;
+  background-color: #393D47;
   
 
 }
@@ -162,7 +162,7 @@ body {
 
 
   .form-control {
-    color: #f8ce20;
+    color: #393D47;
     background-color: #D3D3D3;
     width: 620px;
     margin-top: 10px;
