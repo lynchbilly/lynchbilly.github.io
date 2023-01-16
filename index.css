@@ -160,7 +160,7 @@ body {
   .container {
     border: 5px outset orange;
     position: absolute;
-    top: 700;
+    top: 700px;
     width: 660px;
     height: 550px;
     margin-left: 200px;
