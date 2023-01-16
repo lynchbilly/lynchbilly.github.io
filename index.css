@@ -185,6 +185,7 @@ body {
   }
   .btn {
     color: black;
+    border: 1px solid orange;
     margin-right: 300px;
     margin-left: 300px;
     background-color: transparent;
