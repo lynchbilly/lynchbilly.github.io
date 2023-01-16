@@ -150,7 +150,6 @@ body {
 
   .container {
     border: 5px outset orange;
-   
     margin-right: 200px;
     position: absolute;
     top: 650px;
@@ -165,8 +164,8 @@ body {
 
 
   .form-control {
-    color: #393D47;
-    background-color: #D3D3D3;
+    color: f8ce20;
+    background-color: #393D47;
     width: 620px;
     margin-top: 10px;
     padding-right: 0px;
