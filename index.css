@@ -186,9 +186,10 @@ body {
     
   }
   .form-row{ 
-  margin-top: 40px;
+    margin-top: 40px;
   }
-
+  .form-group{
+    margin-bottom: 40px;
  
   .btn {
     color: #f8ce20;
