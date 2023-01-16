@@ -186,9 +186,9 @@ body {
   }
   .btn {
     color: #f8ce20;
-    height: 60px;
-    width: 120px;
-    border: 2px outset orange;
+    height: 80px;
+    width: 140px;
+    border: 4px outset #f8ce20;
     margin-right: 250px;
     margin-left: 250px;
     background-color: transparent;
