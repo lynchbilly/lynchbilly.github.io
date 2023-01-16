@@ -159,7 +159,7 @@ body {
 
 
   .container {
-    border: 10px inset orange;
+    border: 10px ouset orange;
     position: absolute;
      top: 660px;
     width: 660px;
@@ -173,7 +173,7 @@ body {
 
   .form-control {
   
-    border: 5px outset orange;
+    border: 5px inset orange;
     color: #f8ce20;
     background-color: #4C4E52;
     width: 410px;
