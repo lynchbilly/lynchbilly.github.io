@@ -145,6 +145,7 @@ body {
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: auto;
     position: absolute;
     top: 1330px;
     left: 0px;
@@ -158,8 +159,6 @@ body {
 
   .container {
     border: 5px outset orange;
-    margin-left: auto;
-    margin-right: auto;
     position: absolute;
     top: 650px;
     left: 160px;
@@ -186,10 +185,10 @@ body {
     
   }
   .btn {
-    color: black;
+    color: #f8ce20;
     height: 50px;
     width: 100px;
-    border: 2px solid orange;
+    border: 2px outset orange;
     margin-right: 250px;
     margin-left: 250px;
     background-color: transparent;
