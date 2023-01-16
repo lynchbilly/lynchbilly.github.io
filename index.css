@@ -177,8 +177,6 @@ body {
     color: #f8ce20;
     background-color: #4C4E52;
     width: 410px;
-  
-
     margin-left: 125px;
     margin-right: 125px;
     height: auto;
@@ -190,7 +188,7 @@ body {
   .btn {
     color: #f8ce20;
     height: 80px;
-    width: 140px;
+    width: 150px;
     border: 5px outset #f8ce20;
     margin-right: 260px;
     margin-left: 260px;
