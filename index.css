@@ -150,11 +150,14 @@ body {
 
   .container {
     border: 5px outset orange;
+    margin-left: 200px;
+    margin-right: 200px;
     position: absolute;
     top: 650px;
     left: 160px;
     width: 661px;
     height: 550px;
+    
    
     
   
