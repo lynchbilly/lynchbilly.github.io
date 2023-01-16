@@ -158,7 +158,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 606px;
+    top: 650px;
     left: 160px;
     width: 661px;
     height: 550px;
@@ -178,15 +178,14 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     height: auto;
-    ;
     padding-top: 10px;
   
     
   }
   .btn {
     color: black;
-    height: 15px;
-    width: 30px;
+    height: 50px;
+    width: 100px;
     border: 2px solid orange;
     margin-right: 300px;
     margin-left: 300px;
