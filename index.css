@@ -163,7 +163,9 @@ body {
     
   }
   .btn { 
-  color: orange;
-  align-items: center;
+  color: black;
+  margin-right: auto;
+  margin-left: auto;
+	  
   }
   
