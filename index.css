@@ -160,6 +160,7 @@ body {
 
   .container {
     border: 10px outset orange;
+    border-radius: 5%;
     position: absolute;
      top: 660px;
     width: 660px;
@@ -188,6 +189,7 @@ body {
   }
   .form-row{ 
     margin-top: 40px;
+    border-radius: 5%;
   }
   
  
@@ -197,6 +199,7 @@ body {
     height: 80px;
     width: 150px;
     border: 5px outset orange;
+    border-radius: 5%;
     margin-right: 260px;
     margin-left: 260px;
     margin-top:20px;
