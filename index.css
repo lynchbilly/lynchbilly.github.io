@@ -1,14 +1,16 @@
 .banner {
-  border: 5px solid orange;
-  padding: 0px;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 300px;
-  width: 1000px;
+    border: 5px solid orange;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin-top: auto;
+    margin-right: 50px;
+    position: absolute;
+    top: auto;
+    height: 300px;
+    width: 1000px;
+    left: auto;
 	
 	
   
@@ -18,11 +20,14 @@
 
 
   h1 {
-    
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 3.2em;
+
+
+
+
     color: black:
     font-style: Arial;
     font-weight: bold;
@@ -105,8 +110,8 @@
     background-color: #E01B01;
     border: 10px solid orange;
     border-radius: 5%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     position: absolute;
     left: 0px;
     top: 395px;
@@ -114,7 +119,7 @@
     height: 900px;
     overflow-x: hidden;
     overflow-y: auto;
-    text-align:justify;
+    text-align: justify;
 }
   
   
@@ -145,27 +150,37 @@ body {
 
 
   .container {
-    border: 5px dashed black;
-    align-items: center;
+    border: 5px outset orange;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
-    top: 695px;
-    left: 195px;
+    top: 606px;
+    left: 160px;
+    width: 661px;
+    height: 450px;
+   
     
   
-
   }
+
 
   .form-control {
-   margin-left: auto;
-   margin-right: auto;
     width: 620px;
+    margin-top: 2px;
+    padding: inherit;
+    margin-bottom: 2px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: auto;
   
     
   }
-  .btn { 
-  color: black;
-  margin-right: auto;
-  margin-left: auto;
+  .btn {
+    color: black;
+    margin-right: 300px;
+    margin-left: 300px;
+    background-color: transparent;
+
 	  
   }
   
