@@ -20,6 +20,7 @@
 
 
   h1 {
+   
     text-align: center;
     font-size: 3.2em;
 
@@ -31,8 +32,9 @@
 
 
 
-    color: black:
+    color: #f8ce20;
     font-style: Arial;
+    weight: 80%;
     font-weight: bold;
     font-style: italic;
     border-bottom: 10px inset orange;
@@ -42,6 +44,7 @@
   }
 
   p{
+    color: #f8ce20;
     margin: 15px;
     padding: 20px;
     font-size: 2.2em;
