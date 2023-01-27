@@ -49,7 +49,7 @@
                 function inputKeyPress(event) {
                     if (event.key === "Enter") {
                         const answer = parseInt(state.response);
-                        if (answer === state.num1 + state.num2) {
+                        if (answer === state.num1 + state.num2, state.score =< 0) {
                             // User got question right
                             setState({
                                 ...state,
