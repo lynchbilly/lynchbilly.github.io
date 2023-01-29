@@ -100,7 +100,7 @@
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
                                 {state.num1} * { state.num2}
                             </div>
-                            <input onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} />
+                            <input onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} type="number"/>
                             <div>Score: {state.score}</div>
                         </div>
                     )
