@@ -18,6 +18,12 @@
                 font-size: 72px;
                 color: green;
             }
+            
+             #loser {
+                font-size: 72px;
+                color: purple;
+                font-weight: 80%:
+            }
 
             .incorrect {
                 color: red;
@@ -63,7 +69,8 @@
                                 score: state.score + 1,
                                 response: "",
                                 num1: Math.ceil(Math.random() * 10),
-                                num2: Math.floor(Math.random() * 12 - 5),
+                                num2: Math.floor(Math.random() * 1 - 7 + 12)) + 7 // 7 <= x < 12,
+
                                 incorrect: false
                             });
                         } else {
