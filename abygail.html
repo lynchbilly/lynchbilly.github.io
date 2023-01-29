@@ -129,7 +129,7 @@
                 function renderProblem() {
                     return (
                         <div id="container">
-                        <h1> Abygail's Mutiplication game</h1><br/>
+                 
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
                                 {state.num1} * { state.num2}
                             </div>
@@ -141,7 +141,7 @@
                     )
                 }
 
-                if (state.score === 1) {
+                if (state.score === 25) {
                     return renderWinScreen();
                
                 } 
