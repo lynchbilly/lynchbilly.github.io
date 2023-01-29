@@ -39,12 +39,14 @@
            #container {
                 color: purple;
                 background-color: #2b2b29;
-                border: 5px solid purple;
-                border-radius: 10%;
-               height: 250px;
-               width; 250px;
+                border: 5px outset purple;
+                height: 250px;
+                width: 250px;
             }
-            
+            #score {
+                color: pink;
+                font-size: 72px;
+            }
         </style>
         <title>Math Game</title>
     </head>
@@ -117,7 +119,9 @@
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
                                 {state.num1} * { state.num2}
                             </div>
+                            <br/>
                             <input onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} type="number"/>
+                            <br/>
                             <div id="score">Score: {state.score}</div>
                         </div>
                     )
