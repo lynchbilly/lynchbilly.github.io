@@ -49,7 +49,7 @@
                 color: teal;
                 background-color: #2b2b29;
                 border: 10px dashed teal;
-                height: 750px;
+                height: 700px;
                 width: 600px;
               
             }
@@ -80,7 +80,7 @@
 
                 const [state, setState] = React.useState({
                     num1: 7,
-                    num2: 12,
+                    num2: 13,
                     response: "",
                     score: 0,
                     incorrect: false
@@ -88,14 +88,14 @@
 
                 function renderWinScreen() {
                     return (
-                        <div id="winner">You won!  <br/><a href="abygail.html">Play Again!</a></div>
+                        <div id="winner">You won!  Mom owes you icecream! Love you princess! <br/><a href="abygail.html">Play Again!</a></div>
                     );
                 }
                 
                 function renderLoseScreen() {
                     return (
                         <div id="loser">
-                       You are a Loser!<br/><a href="abygail.html">Try again!
+                       You are a Loser! Try again Princess! You can do it!br/><a href="abygail.html">Try again!
             </a>
             </div>
                     );
@@ -149,7 +149,7 @@
                     )
                 }
 
-                if (state.score === 15) {
+                if (state.score === 25) {
                     return renderWinScreen();
                
                 } 
