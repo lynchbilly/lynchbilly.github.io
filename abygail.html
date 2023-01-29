@@ -61,7 +61,7 @@
                margin-left: auto;
             }
         </style>
-        <title>Math Game</title>
+        <title>Abygail's Mutiplication Game</title>
     </head>
     <body>
         <div id="app"></div>
@@ -80,14 +80,14 @@
 
                 function renderWinScreen() {
                     return (
-                        <div id="winner">You won!<br/><a href="abygail.html">Play Again!</a></div>
+                        <div id="winner">You won! Go <br/><a href="abygail.html">Play Again!</a></div>
                     );
                 }
                 
                 function renderLoseScreen() {
                     return (
                         <div id="loser">
-                        You Lose! <br/><a href="abygail.html">Try again!
+                       You are a Loser!<br/><a href="abygail.html">Try again!
             </a>
             </div>
                     );
@@ -129,6 +129,7 @@
                 function renderProblem() {
                     return (
                         <div id="container">
+                        <h1> Abygail's Mutiplication game</h1><br/>
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
                                 {state.num1} * { state.num2}
                             </div>
@@ -140,7 +141,7 @@
                     )
                 }
 
-                if (state.score === 25) {
+                if (state.score === 1) {
                     return renderWinScreen();
                
                 } 
