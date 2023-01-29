@@ -60,6 +60,12 @@
                  margin-right: auto;
                margin-left: auto;
             }
+            .field {
+            color: purple;
+            background-color: teal;
+            width: 100px;
+            height: 25px;
+            }
         </style>
         <title>Aby's Mutiplication Game</title>
     </head>
@@ -134,7 +140,7 @@
                                 {state.num1} * { state.num2}
                             </div>
                             <br/>
-                            <input onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} type="number"/>
+                            <input class="field" onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} type="number"/>
                             <br/>
                             <div id="score">Score: {state.score}</div>
                         </div>
