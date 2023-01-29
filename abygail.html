@@ -16,17 +16,17 @@
 
             #winner {
                 font-size: 72px;
-                color: green;
+                color: purple;
             }
             
              #loser {
                 font-size: 72px;
-                color: purple;
+                color: red;
                 font-weight: 80%:
             }
 
             .incorrect {
-                color: red;
+                color: yellow;
             }
         </style>
         <title>Math Game</title>
@@ -48,13 +48,16 @@
 
                 function renderWinScreen() {
                     return (
-                        <div id="winner">You won!</div>
+                        <div id="winner">You won!<br/><a href="abygail.html">Play Again!</a></div>
                     );
                 }
                 
                 function renderLoseScreen() {
                     return (
-                        <div id="loser">You Lose! Refresh the page and try again!</div>
+                        <div id="loser">
+                        You Lose! <br/><a href="abygail.html">Try again!
+            </a>
+            </div>
                     );
                 }
 
@@ -68,7 +71,7 @@
                                 ...state,
                                 score: state.score + 1,
                                 response: "",
-                                num1: Math.ceil(Math.random() * 10),
+                                num1: Math.floor(Math.random() * ((12-7)+1) + 7),
                                 num2: Math.floor(Math.random() * ((12-7)+1) + 7),
                                 incorrect: false
                             });
@@ -103,7 +106,7 @@
                     )
                 }
 
-                if (state.score === 15) {
+                if (state.score === 25) {
                     return renderWinScreen();
                
                 } 
