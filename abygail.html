@@ -5,6 +5,10 @@
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <style>
+            body { 
+                background-color: black:
+                    
+            }
             #app {
                 text-align: center;
                 font-family: sans-serif;
@@ -27,6 +31,12 @@
 
             .incorrect {
                 color: yellow;
+            }
+            .container {
+                font-color: purple;
+                background-color: #2b2b29;
+                border: 5px solid purple;
+                border-radius: 10%;
             }
         </style>
         <title>Math Game</title>
@@ -96,7 +106,7 @@
 
                 function renderProblem() {
                     return (
-                        <div>
+                        <div id="container">
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
                                 {state.num1} * { state.num2}
                             </div>
