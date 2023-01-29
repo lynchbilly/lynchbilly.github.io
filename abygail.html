@@ -12,6 +12,8 @@
             #app {
                 text-align: center;
                 font-family: sans-serif;
+                font-color: purple;
+                
             }
 
             #problem {
@@ -41,6 +43,7 @@
                height: 250px;
                width; 250px;
             }
+            
         </style>
         <title>Math Game</title>
     </head>
@@ -114,7 +117,7 @@
                                 {state.num1} * { state.num2}
                             </div>
                             <input onKeyPress={inputKeyPress} onChange={updateResponse} autoFocus={true} value={state.response} type="number"/>
-                            <div>Score: {state.score}</div>
+                            <div id="score">Score: {state.score}</div>
                         </div>
                     )
                 }
