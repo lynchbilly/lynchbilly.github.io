@@ -115,7 +115,12 @@
                                 num2: Math.floor(Math.random() * ((12-7)+1) + 7),
                                 incorrect: false
                             });
-                        
+}
+                        }if (answer === @@@) {
+                            // test
+                            return renderWinscreen();
+                               
+                            });
                                                
                         } else {
                             // User got question wrong
@@ -137,7 +142,7 @@
                 }
 
                 function renderProblem() {
-                    return (
+       
                         <div id="container">
                  
                             <div className={state.incorrect ? "incorrect" : ""} id="problem">
