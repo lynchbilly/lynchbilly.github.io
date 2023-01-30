@@ -79,7 +79,7 @@
             function App() {
 
                 const [state, setState] = React.useState({
-                    num1: 7,
+                    num1: 45,
                     num2: 13,
                     response: "",
                     score: 0,
@@ -88,7 +88,7 @@
 
                 function renderWinScreen() {
                     return (
-                        <div id="winner">You won!  You owes mom and ice cream! Love you princess! <br/><a href="aby.html">Play Again!</a></div>
+                        <div id="winner">You won!  You owe dad a cookie and dad owes you a dollar!! Love you princess! <br/><a href="aby.html">Play Again!</a></div>
                     );
                 }
                 
@@ -151,7 +151,7 @@
                     )
                 }
 
-                if (state.score === 25) {
+                if (state.score === 100) {
                     return renderWinScreen();
                
                 } 
