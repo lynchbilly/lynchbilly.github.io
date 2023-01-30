@@ -44,8 +44,7 @@
                margin-top: 120px;
                 color: teal;
                 background-color: #2b2b29;
-                border: 10px dashed teal;
-                height: 600px;
+                border: 10px dashed babyBlue;
                 height: 800px;
                 width: 600px;
 
@@ -64,6 +63,7 @@
             width: 200px;
             height: 50px;
             border: 2px solid babyBlue;
+            font-size: 2em;
             }
         </style>
         <title>Aby's Mutiplication Game</title>
@@ -73,22 +73,22 @@
         <script type="text/babel">
             function App() {
                 const [state, setState] = React.useState({
-                    num1: 7,
-                    num2: 12,
+                    num1: 67,
+                    num2: 45,
                     response: "",
                     score: 0,
                     incorrect: false
                 });
                 function renderWinScreen() {
                     return (
-                        <div id="winner">You won!  <br/><a href="abygail.html">Play Again!</a></div>
+                        <div id="winner">You won! Dad owes you a dollar and you owe dad a cookie! Good job Princess! <br/><a href="aby.html">Play Again!</a></div>
                     );
                 }
                 
                 function renderLoseScreen() {
                     return (
                         <div id="loser">
-                       You are a Loser!<br/><a href="abygail.html">Try again!
+                       You are a Loser! Try again Princess!<br/><a href="aby.html">Try again!
             </a>
             </div>
                     );
@@ -137,7 +137,7 @@
                         </div>
                     )
                 }
-                if (state.score === 15) {
+                if (state.score === 100) {
                     return renderWinScreen();
                
                 } 
