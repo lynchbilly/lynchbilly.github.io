@@ -6,7 +6,7 @@ function rightAnswer() {
    playCounterValue++;
    playCounter.textContent = playCounterValue;
    playCounter.classList.add("active");
-	answerContainer.insertAdjacentHTML('afterbegin', `<span class="iconify" data-icon="emojione-v1:white-heavy-check-mark"></span>That's right, beautiful!`)
+	answerContainer.insertAdjacentHTML('afterbegin', `<span class="iconify" data-icon="emojione-v1:white-heavy-check-mark"></span>That's right, Princess!`)
    setTimeout(() => playCounter.classList.remove("active"), 700);
 }
 
