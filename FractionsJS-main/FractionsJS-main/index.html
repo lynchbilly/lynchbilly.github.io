@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Дроби</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="main-page">
+		<div class="main-page__container">
+			<h1>Дроби</h1>
+			<div class="btns">
+				<button class="main-page__play-btn btn">Играть</button>
+				<button class="main-page__rules-btn btn">Правила</button>
+			</div>
+		</div>
+		<p class="main-page__record">Рекорд: <span>0</span></p>
+		<div class="modal-container hidden">
+			<div class="modal">
+				<h2>Правила игры</h2>
+				<p>Правила игры очень просты, все что тебе нужно - отвечать на вопросы. Игра продолжается до тех пор, пока не совершены три ошибки. Проверь свои знания дробей и тренируйся!<br><br> Удачи!</p>
+			</div>
+		</div>
+	</div>
+	<div class="gameover">
+		<div class="gameover__container">
+			<div class="gameover__anothercontainer">
+				<h2>Игра завершена!</h2>
+				<div class="gameover__statistics">
+					<div class="gameover__item">
+						<p data-stat="count">0</p>
+						<p>Счёт</p>
+					</div>
+					<div class="gameover__item">
+						<p data-stat="best">0</p>
+						<p>Рекорд</p>
+					</div>
+				</div>
+				<p>Ты молодец!<br>Продолжай совершенствоваться и ставить новые рекорды, преодолевая все трудности!</p>
+				<div class="btns">
+					<div class="btn" data-active="home">На главную страницу</div>
+					<div class="btn" data-active="playAgain">Играть снова</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="play-page">
+		<div class="play-page__counter">
+			<p>Счёт: <span>0</span></p>
+		</div>
+		<div class="play-page__crosses">
+			<div><span class="iconify play-page__cross" data-icon="entypo:squared-cross"></span></div>
+			<div><span class="iconify play-page__cross" data-icon="entypo:squared-cross"></span></div>
+			<div><span class="iconify play-page__cross" data-icon="entypo:squared-cross"></span></div>
+		</div>
+		<div class="play-page__container play-page__container--first">
+			<div class="play-page__task-container">
+				<h2>Вычислите:</h2>
+				<div class="play-page__task">
+				</div>
+				<button class="next-question-btn btn">Готово</button>
+			</div>
+		</div>
+		<div class="play-page__container play-page__container--second">
+			<div class="play-page__task-container">
+				<div class="play-page__task"></div>
+				<button class="next-question-btn btn">Готово</button>
+			</div>
+		</div>
+		<div class="answer-container">
+			<div class="answer"></div>
+			<button>Ок</button>
+		</div>
+	</div>
+	<script src="js/fraction.js"></script>
+	<script src="js/mode.js"></script>
+	<script src="js/initialize.js"></script>
+	<script src="js/play.js"></script>
+	<script src="js/modal.js"></script>
+	<script src="js/answers.js"></script>
+	<script src="js/next-question.js"></script>
+	<script src="js/gameover.js"></script>
+	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</body>
+</html>
