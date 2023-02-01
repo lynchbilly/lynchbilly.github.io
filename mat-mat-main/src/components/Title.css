@@ -1,0 +1,43 @@
+.title__container {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+    text-align: center;
+    font-size: 8rem;
+    font-style: italic;
+    font-weight: 800;
+    text-shadow: -10px 10px 100px black,
+                10px 10px 100px black,
+                10px -10px #4f3a65,
+               -10px -10px 100px black;
+               color: #25CED8;
+    line-height: 7rem;
+}
+.subtitle {
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #cadefc;
+  text-shadow: -10px 10px 100px black,
+                10px 10px 100px black,
+               -10px -10px 100px black;
+}
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .title__container {
+      top: 3rem;
+    }
+  .title {
+    font-size: 5rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600;1,900&display=swap');
+
+body {
+  margin: 0px;
+  background-color: black;
+}
+*{
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+button, input {
+	background: none;
+  color: white;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+a {
+  text-decoration: none;
+  color: var(--purple2)
+}
+:root {
+  --pink: #FF08D7 ;
+  --blue: #25CED8;
+  --light-blue: #cadefc;
+  --light-blue2: #b7c9e4;
+  --purple1: #574f7d;
+  --purple2: #4f3a65;
+}
+
+/***********************
+ * HANDY GLOBAL STYLES *
+ ***********************/
+
+.white {
+  color: white;
+}
+.text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+.inline-margin {
+  margin-right: 1rem;
+}
+.icon--big {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.icon--small {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+   .text {
+     font-size: 1.2rem;
+   }
+}
+
+/**
+ * Colors: #FF08D7 - #25CED8 - cadefc - 574f7d - 4f3a65
+ * */

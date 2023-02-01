@@ -1,0 +1,15 @@
+.user-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+  background: linear-gradient(45.34deg, #cadefc 5.66%, #d8e1ee 94.35%);
+  padding: 0.5rem;
+  padding-right: 5rem;
+}
+.user-card__picture {
+  max-width: 3rem;
+  margin-right: 1rem;
+}

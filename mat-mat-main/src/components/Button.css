@@ -1,0 +1,16 @@
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(223.88deg, #574f7d.89%, #4f3a65 94.31%);
+  border: 4px outset #574f7d;
+}
+.button--right{
+  border-radius: 0 15px 15px 0;
+}
+.button--left{
+  border-radius: 15px 0 0 15px
+}
+.button--rounded {
+  border-radius: 15px;
+}

@@ -1,0 +1,19 @@
+.end-game-stats__table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.end-game-stats__table th, .end-game-stats__table td {
+  text-align: left;
+  border: none;
+  padding: 0.25rem;
+}
+.end-game-stats__table tr:nth-child(even) {
+  background: var(--light-blue2);
+}
+.operation-doomsday {
+  display: flex;
+  align-items: center;
+}
+.end-game-stats__button {
+  width: 100%;
+}
