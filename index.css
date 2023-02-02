@@ -5,11 +5,11 @@
     padding-left: 0px;
     padding-bottom: 0px;
     margin-top: auto;
-    
-    top: auto;
+    margin-left: auto;
+    margin-right: auto;
     height: 300px;
     width: 1000px;
-    left: auto;
+    
     padding: auto;
     display: block;
 	
