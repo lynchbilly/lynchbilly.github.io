@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Goals - Billy Lynch</title>
+    <title>Billy Lynch's Career Goals</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="resume.html">Résumé</a>
-        <a href="cover-letter.html">Cover Letter</a>
-        <a href="career-goals.html">Career Goals</a>
-    </nav>
-    
-    <div class="container">
+    <header>
         <h1>Billy Lynch</h1>
-        <h2>Career Goals</h2>
-        <p>As a passionate software developer, my career goals include:</p>
-        <ul>
-            <li>Continuously improving my skills in software development and emerging technologies.</li>
-            <li>Contributing to impactful projects that enhance user experiences.</li>
-            <li>Taking on leadership roles that foster collaboration and innovation within teams.</li>
-        </ul>
+        <h2>Web Developer</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="résumé.html">Résumé</a></li>
+                <li><a href="cover_letter.html">Cover Letter</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <footer>
-            <p>&copy; 2025 Billy Lynch</p>
-        </footer>
-    </div>
+    <main>
+        <section>
+            <h3>Career Goals</h3>
+            <p>My primary goal is to become a senior web developer at a leading tech company where I can enhance my skills and contribute to innovative projects.</p>
+            <img src="path/to/your/image.jpg" alt="Billy Lynch">
+            <audio controls>
+                <source src="path/to/audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <video width="320" height="240" controls>
+                <source src="path/to/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h4>Contact Form</h4>
+            <form action="https://wp.zybooks.com/form-viewer.php" method="POST">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+                <input type="text" name="companyName" placeholder="Company Name">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="phone" name="phone" placeholder="Phone">
+                <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+                <fieldset>
+                    <legend>Best Contact Time:</legend>
+                    <label><input type="radio" name="contactTime" value="a.m."> A.M.</label>
+                    <label><input type="radio" name="contactTime" value="p.m."> P.M.</label>
+                    <label><input type="radio" name="contactTime" value="anytime"> Anytime</label>
+                </fieldset>
+                <label for="contactMethod">Preferred Contact Method:</label>
+                <select name="contactMethod" id="contactMethod">
+                    <option value="phone">Phone</option>
+                    <option value="email">Email</option>
+                    <option value="text">Text</option>
+                </select>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Billy Lynch</p>
+    </footer>
 </body>
 </html>
