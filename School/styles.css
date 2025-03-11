@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -12,11 +13,13 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: relative;
 }
 
 nav ul {
     padding: 0;
     list-style: none;
+    border-bottom: 1px solid #fff; /* Adds a line under the nav */
 }
 
 nav ul li {
@@ -27,6 +30,11 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    position: relative;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 main {
@@ -83,4 +91,18 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
- 
+
+/* Footer Styles */
+footer {
+    background: #0077cc;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    margin-top: 20px; /* Space between main content and footer */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
