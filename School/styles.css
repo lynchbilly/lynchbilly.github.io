@@ -1,26 +1,22 @@
-/* Universal selector for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #0000FF; /* Blue background */
-    color: white;
-    padding: 20px;
+    background: #0077cc;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
 
 nav ul {
+    padding: 0;
     list-style: none;
-    padding: 10px 0;
 }
 
 nav ul li {
@@ -33,74 +29,58 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Main content styles */
 main {
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2, h3, h4 {
-    color: #000000; 
+section {
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-h3 {
-    margin-top: 20px;
-}
-
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
+.media-container {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-table, th, td {
-    border: 1px solid #333;
+.form-spacing {
+    margin: 40px 0; /* Adds space between video and form */
 }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-/* Form styles */
 form {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 
-form input, form textarea, form select {
-    margin-bottom: 10px;
+input, select, textarea {
+    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-form button {
-    background-color: #0000FF; /* Blue button */
+button {
+    background: #0077cc;
     color: white;
     border: none;
     padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #000080; /* Darker blue on hover */
+button:hover {
+    background: #005fa3;
 }
 
-footer {
-    background-color: #0000FF; /* Blue footer */
-    color: white;
+.redirect {
     text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
 }
+ 
