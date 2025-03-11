@@ -1,82 +1,71 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Résumé - Billy Lynch</title>
-
-    <link rel="stylesheet" href="styles.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billy Lynch's Résumé</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function() {
+            const dateDiv = document.getElementById('current-date');
+            dateDiv.innerHTML = new Date().toLocaleDateString();
+            console.log("Current date displayed: " + dateDiv.innerHTML);
+        };
+    </script>
 </head>
-
 <body>
+    <header>
+        <h1>Billy Lynch</h1>
+        <h2>Web Developer</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cover_letter.html">Cover Letter</a></li>
+                <li><a href="career_goals.html">Career Goals</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <header>
+    <main>
+        <section>
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> billy.lynch@example.com</p>
+            <p><strong>Phone:</strong> (555) 987-6543</p>
+            <div id="current-date"></div>
+        </section>
+        
+        <section>
+            <h3>Education</h3>
+            <ul>
+                <li>Bachelor of Science in Computer Science, ABC University, 2024</li>
+                <li>Web Development Bootcamp, XYZ Institute, 2023</li>
+            </ul>
+        </section>
 
-        <h1>Billy Lynch - Résumé</h1>
+        <section>
+            <h3>Experience</h3>
+            <article>
+                <p><strong>Junior Developer, Tech Solutions</strong> <em>(June 2024 - Present)</em></p>
+                <p>Developing web applications and engaging in full-stack projects.</p>
+            </article>
+            <article>
+                <p><strong>Intern, Web Designs Co.</strong> <em>(Jan 2024 - May 2024)</em></p>
+                <p>Assisted in creating responsive designs and front-end development.</p>
+            </article>
+        </section>
 
-        <nav>
+        <h4>Skills</h4>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Git & GitHub</li>
+        </ul>
 
-            <ul>
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="cover-letter.html">Cover Letter</a></li>
-
-                <li><a href="career-goals.html">Career Goals</a></li>
-
-            </ul>
-
-        </nav>
-
-    </header>
-
-    <main>
-
-        <h2>Experience</h2>
-
-        <h3>Industrial Maintenance Technician</h3>
-
-        <p><strong>Tyson Foods</strong>, Green Forest, Arkansas, United States</p>
-
-        <p><em>June 2019 - July 2020 (1 yr 2 mos)</em></p>
-
-        <ul>
-
-            <li>Proficient in operating a variety of machinery, ensuring efficient material handling.</li>
-
-            <li>Skilled in mechanical maintenance and troubleshooting machinery.</li>
-
-            <li>Experienced in pneumatics and hydraulics, maintaining industrial equipment.</li>
-
-            <li>Knowledgeable in electrical systems, diagnosing and fixing electrical issues.</li>
-
-            <li>Conducted preventive maintenance tasks to enhance equipment efficiency.</li>
-
-            <li>Detail-oriented with a focus on precision and accuracy.</li>
-
-            <li>Adaptable and quick to learn industry best practices.</li>
-
-            <li>Committed to safety protocols to maintain a secure work environment.</li>
-
-            <li>Strong problem-solving skills for continuous production flow.</li>
-
-        </ul>
-
-    </main>
-
-    <footer>
-
-        <p>&copy; 2025 Billy Lynch</p>
-
-    </footer>
-
+        <hr />
+        <footer>
+            <p>&copy; 2025 Billy Lynch</p>
+        </footer>
+    </main>
 </body>
-
 </html>
-
+ 
