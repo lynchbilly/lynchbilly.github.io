@@ -24,21 +24,28 @@
             <h3>Career Goals</h3>
             <p>My primary goal is to become a senior web developer at a leading tech company where I can enhance my skills and contribute to innovative projects.</p>
             <img src="path/to/your/image.jpg" alt="Billy Lynch">
-            <audio controls>
-                <source src="path/to/audio.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <video width="320" height="240" controls>
-                <source src="path/to/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            
+            <div class="media-container">
+                <audio controls>
+                    <source src="path/to/audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <video width="320" height="240" controls>
+                    <source src="path/to/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Added space between video and form -->
+            <div class="form-spacing"></div>
+            
             <h4>Contact Form</h4>
             <form action="https://wp.zybooks.com/form-viewer.php" method="POST">
                 <input type="text" name="firstName" placeholder="First Name" required>
                 <input type="text" name="lastName" placeholder="Last Name" required>
                 <input type="text" name="companyName" placeholder="Company Name">
                 <input type="email" name="email" placeholder="Email" required>
-                <input type="phone" name="phone" placeholder="Phone">
+                <input type="tel" name="phone" placeholder="Phone">
                 <textarea name="message" rows="4" placeholder="Your Message"></textarea>
                 <fieldset>
                     <legend>Best Contact Time:</legend>
@@ -55,6 +62,11 @@
                 <button type="submit">Send Message</button>
             </form>
         </section>
+
+        <div class="redirect">
+            <p>Thank you for your submission! You will be redirected shortly...</p>
+            <meta http-equiv="refresh" content="5;url=index.html">
+        </div>
     </main>
 
     <footer>
