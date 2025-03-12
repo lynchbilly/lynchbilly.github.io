@@ -52,7 +52,7 @@ img {
     border: 2px solid #ddd; /* Example: add a light border */
   }
 section {
-  border-bottom: 2px solid #0077cc;
+  border-bottom: 2px solid #000000;
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
