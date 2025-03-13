@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billy Lynch's Résumé</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        window.onload = function () {
+            const dateDiv = document.getElementById("current-date");
+            dateDiv.innerHTML = new Date().toLocaleDateString();
+            console.log("Current date displayed: " + dateDiv.innerHTML);
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Billy Lynch</h1>
+        <h2>Jr Software Developer</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cover-letter.html">Cover Letter</a></li>
+                <li><a href="career-goals.html">Career Goals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> blynch14@wgu.edu</p>
+            <p><strong>Phone:</strong> 870-834-9181</p>
+            <div id="current-date"></div>
+        </section>
+
+        <section>
+            <h3>Education</h3>
+            <ul>
+                <li>
+                    Bachelor of Science in Software Engineering, Western Governor's
+                    University, 2024
+                </li>
+                <li>Full Stack Web Developer, Udemy 2023</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Experience</h3>
+            <article>
+                <p>
+                    <strong>Maintenance Technician, Tyson Foods</strong>
+                    <em>(June 2020 - July 2021)</em>
+                </p>
+                <p>
+                    Assisted in maintaining poultry evisceration equipment, including
+                    hydraulics, electrical, and pneumatic equipment.
+                </p>
+            </article>
+            <article>
+                <p><strong>Student at WGU</strong> <em>(Dec 2024 - Dec 2028)</em></p>
+                <p>
+                    Assisted in creating responsive designs for front-end development
+                    and back-end development.
+                </p>
+            </article>
+        </section>
+        <section>
+            <h4>Skills</h4>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Node.js</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+        <h4>Projects</h4>
+        <ul>
+            <li><a href="https://razorbackcoding.me/">Project 1</a></li>
+            <li><a href="https://razorbackcoding.me/FractionsJS-main/">Math Game</a></li>
+        </ul>
+
+        <hr />
+
+        <section>
+            <h3>Additional Information</h3>
+            <p>This is a <span class="highlight">highlighted</span> span of text.</p>
+            <br />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Example 1</td>
+                        <td>This is an example description.</td>
+                    </tr>
+                    <tr>
+                        <td>Example 2</td>
+                        <td>Another example with more details.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li>Billy Lynch</li>
+                <li><a href="mailto:blynch14@wgu.edu">blynch14@wgu.edu</a></li>
+                <li>Phone: 870-834-9181</li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
