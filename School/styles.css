@@ -149,3 +149,7 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+.additional-span{
+    font-weight: bold;
+    color: purple;
+}
