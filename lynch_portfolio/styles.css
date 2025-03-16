@@ -160,3 +160,12 @@ article {
     background-color: #f9f9f9;
 }
 
+.contact-span,
+.education-span,
+.experience-span,
+.skills-span,
+.projects-span {
+    font-weight: bold;
+    color: darkblue;
+    text-decoration: underline;
+}
