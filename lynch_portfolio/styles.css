@@ -160,6 +160,7 @@ article {
     background-color: #f9f9f9;
 }
 
+
 .contact-span,
 .education-span,
 .experience-span,
@@ -167,5 +168,9 @@ article {
 .projects-span {
     font-weight: bold;
     color: darkblue;
-   
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 2px solid darkblue;
 }
