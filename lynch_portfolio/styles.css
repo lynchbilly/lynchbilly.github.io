@@ -153,3 +153,26 @@ tr:nth-child(even) {
     font-weight: bold;
     color: purple;
 }
+article {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.contact-span::before,
+.education-span::before,
+.experience-span::before,
+.skills-span::before,
+.projects-span::before {
+    content: "• ";
+    font-weight: bold;
+}
+
+.contact-span,
+.education-span,
+.experience-span,
+.skills-span,
+.projects-span {
+    font-weight: bold;
+}
