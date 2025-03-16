@@ -174,3 +174,38 @@ article {
     padding: 5px;
     border-bottom: 2px solid darkblue;
 }
+article.cover-letter-body {
+    line-height: 1.8;
+    padding: 1.5em;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+article.cover-letter-body p {
+    margin-bottom: 1em;
+}
+
+article.cover-letter-body strong {
+    font-weight: 600;
+    color: #007bff;
+}
+
+article.cover-letter-body em {
+    font-style: italic;
+    color: #6c757d;
+}
+
+article.cover-letter-body mark {
+    background-color: #fff3cd;
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+}
+
+span#current-date {
+    font-style: italic;
+    color: #777;
+    display: block;
+    margin-top: 0.5em;
+}
