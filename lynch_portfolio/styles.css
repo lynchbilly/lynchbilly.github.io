@@ -1,4 +1,7 @@
-
+/* Universal Selector */
+* {
+  font-family: Arial, sans-serif;
+}
 
 /* Header Section */
 header {
@@ -40,7 +43,6 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 body {
-  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
@@ -141,7 +143,6 @@ th, td {
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
@@ -219,5 +220,4 @@ table caption {
   margin-bottom: 5px;
   text-align: center;
 }
-
 
