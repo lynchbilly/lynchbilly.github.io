@@ -188,7 +188,7 @@ body {
     color: #eee;
     box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.2);
 }
-
+<--
 .hero img {
     max-width: 60%;
     height: auto;
@@ -198,7 +198,7 @@ body {
     box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.15);
     margin: 1.5em auto;
 }
-
+-->
 .razorback-main .align-left {
     float: left;
     margin-right: 1.5em;
