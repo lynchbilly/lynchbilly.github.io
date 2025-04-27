@@ -89,8 +89,22 @@
     </main>
 </body>
 
-     <footer class="razorback-footer">
+        <footer class="razorback-footer">
         <img src="images/banner.jpg" alt="Razorback Logo" >
         
     </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.razorback-header nav ul li a');
+            const currentPage = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                if (link.href.endsWith(currentPage)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </html>
