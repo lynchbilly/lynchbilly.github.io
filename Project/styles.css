@@ -22,7 +22,7 @@ body {
     text-align: center;
     border-bottom: 5px solid #7b1427;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 0.5rem 0.5rem; /* Rounded bottom corners */
+    border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .razorback-header h1 {
@@ -237,4 +237,50 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.featured-cities {
+    padding: 2em 1em;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 0;
+}
+
+.featured-cities h2 {
+    color: #9e1b32;
+    border-bottom: 3px solid #fdd835;
+    padding-bottom: 0.7em;
+    margin-top: 1.5em;
+    font-size: 1.5em;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+.featured-cities .button-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.featured-cities .button-list a {
+    display: inline-block;
+    background-color: #9e1b32;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.1em;
+    text-align: center;
+    min-width: 100px;
+}
+
+.featured-cities .button-list a:hover {
+    background-color: #7b1427;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
