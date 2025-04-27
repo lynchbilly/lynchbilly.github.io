@@ -121,22 +121,12 @@ body {
 .razorback-footer {
     text-align: center;
     padding: 1.75em 0;
-    background-color: #9e1b32; /* Match header background *
-    margin-top: 3rem;
-    font-size: 0.9em;
-    border-radius: 0.5rem 0.5rem 0 0; /* Match header border-radius */
-    box-shadow: 0 -3px 7px rgba(0, 0, 0, 0.2); /* Similar shadow, adjusted direction */
-}
-
-.razorback-footer {
-    text-align: center;
-    padding: 1.75em 0;
     background-color: #9e1b32; /* Match header background */
     margin-top: 3rem;
     font-size: 0.9em;
     border-radius: 0.5rem 0.5rem 0 0; /* Match header border-radius */
     box-shadow: 0 -3px 7px rgba(0, 0, 0, 0.2); /* Similar shadow, adjusted direction */
-    max-width: 80%; /* Adjust this percentage to your desired narrower width */
+    max-width: 60%;
     margin-left: auto;
     margin-right: auto;
     border: none; /* Remove all borders */
