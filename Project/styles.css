@@ -20,14 +20,15 @@ body {
     color: #fff;
     padding: 1.5em 0;
     text-align: center;
-    border-bottom: 5px solid #9e1b32;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    border-bottom: 5px solid #7b1427; /* Slightly darker shade for better definition */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
 }
 
 .razorback-header h1 {
     margin: 0 0 0.5em 0;
-    font-size: 2em;
+    font-size: 2.5em; /* Slightly larger for more impact */
     font-weight: bold;
+    letter-spacing: 0.05em; /* Subtle spacing */
 }
 
 .razorback-header nav ul {
@@ -39,7 +40,8 @@ body {
 }
 
 .razorback-header nav ul li {
-    margin: 0 1.75rem;
+    margin: 0 2rem; /* Increased spacing */
+    padding: 0.2em 0; /* Added slight vertical padding */
 }
 
 .razorback-header nav ul li a {
@@ -48,18 +50,20 @@ body {
     font-weight: 600;
     transition: color 0.3s ease, padding-bottom 0.2s ease;
     padding-bottom: 0.3em;
-    font-size: 1.15em;
+    font-size: 1.2em; /* Slightly larger */
 }
 
 .razorback-header nav ul li a:hover {
-    color: #000;
+    color: #eee; /* Lighter hover color */
     padding-bottom: 0.6em;
+    border-bottom: 2px solid #eee; /* Added hover underline */
 }
 
 .razorback-header nav ul li a.active {
     color: #ffffff;
     text-decoration: none;
     border-bottom: 3px solid #ffffff;
+    padding-bottom: 0.3em; /* Keep consistent padding */
 }
 
 .razorback-main {
@@ -68,15 +72,38 @@ body {
     margin: 3rem auto;
     background-color: #fff;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-    border-left: 0.15rem solid #9e1b32;
-    border-right: 0.15rem solid #9e1b32;
+    border: 0.15rem solid #9e1b32; /* Unified border */
     border-radius: 0.75rem;
 }
 
-.razorback-main h1, .razorback-main h2, .razorback-main h3 {
+.razorback-main h1,
+.razorback-main h2,
+.razorback-main h3 {
     color: #9e1b32;
-    margin-bottom: 1em;
-    line-height: 1.3;
+    margin-bottom: 1.2em; /* Slightly more space */
+    line-height: 1.2; /* Tighter line height for headers */
+    border-bottom: 0.2rem solid #9e1b32; /* Added a border-bottom */
+    padding-bottom: 0.3em;
+}
+
+.razorback-main h1 {
+    font-size: 2.2em;
+}
+
+.razorback-main h2 {
+    font-size: 1.8em;
+}
+
+.razorback-main h3 {
+    font-size: 1.5em;
+}
+
+.razorback-main p {
+    padding: 0.5em 1em; /* Added padding around paragraphs */
+    border: 1px solid #ddd; /* Light border around text blocks */
+    border-radius: 0.25rem;
+    margin-bottom: 1.5em; /* Increased margin between paragraphs */
+    background-color: #f9f9f9; /* Light background for better separation */
 }
 
 .razorback-main p a {
@@ -106,77 +133,94 @@ body {
 }
 
 .razorback-footer a:hover {
-    color:#555;
+    color: #ddd; /* Slightly lighter hover */
 }
 
 .hero {
     text-align: center;
-    padding: 5rem 0;
+    padding: 4rem 0; /* Slightly reduced padding */
     background-color: #f9f9f9;
-    border-bottom: 0.15rem dashed #9e1b32;
+    border-bottom: 0.2rem dashed #9e1b32; /* Slightly thicker dashed line */
     border-radius: 0.75rem 0.75rem 0 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem; /* Reduced margin */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-left: 1px solid #ddd; /* Added subtle side borders */
+    border-right: 1px solid #ddd;
 }
 
 .hero h2 {
-    font-size: 2.5em;
+    font-size: 3em; /* More prominent heading */
     color: #9e1b32;
-    margin-bottom: 0.8em;
+    margin-bottom: 1em;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 
 .hero p {
     font-size: 1.2em;
     color: #555;
-    max-width: 80%;
+    max-width: 70%; /* Slightly narrower for better readability */
     line-height: 1.6;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em; /* Increased margin */
+    padding: 0.75em 1.25em; /* Added padding to the hero text */
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    background-color: #fff; /* Added background to hero text */
 }
 
 .hero a {
     color: #fff;
     background-color: #9e1b32;
-    padding: 0.75em 1.5em;
+    padding: 0.8em 1.75em; /* Slightly larger button */
     text-decoration: none;
-    border-radius: 0.25rem;
+    border-radius: 0.3rem;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Added shadow transition */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .hero a:hover {
-    background-color: #333;
+    background-color: #7b1427; /* Darker hover */
     color: #eee;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2); /* Stronger hover shadow */
 }
 
 .hero img {
-    max-width: 50%; /* Adjusted image size */
+    max-width: 60%; /* Slightly larger image */
     height: auto;
     display: block;
-    border: 2px solid #9e1b32; /* Added border */
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 1em auto; /* Centered with margin */
+    border: 3px solid #9e1b32; /* Thicker border */
+    border-radius: 0.3rem;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.15); /* Added shadow to image */
+    margin: 1.5em auto; /* Increased margin */
 }
 
 .razorback-main .align-left {
     float: left;
-    margin-right: 1em;
-    margin-bottom: 0.5em;
+    margin-right: 1.5em; /* Increased spacing */
+    margin-bottom: 1em; /* Increased spacing */
     border: 2px solid #9e1b32;
-    max-width: 30%;
+    border-radius: 0.25rem;
+    max-width: 40%; /* Slightly wider */
     height: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+    padding: 0.5em; /* Added some padding inside */
+    background-color: #fff; /* Added background */
 }
 
 .razorback-main .align-right {
     float: right;
-    margin-left: 1em;
-    margin-bottom: 0.5em;
+    margin-left: 1.5em; /* Increased spacing */
+    margin-bottom: 1em; /* Increased spacing */
     border: 2px solid #9e1b32;
-    max-width: 30%;
+    border-radius: 0.25rem;
+    max-width: 40%; /* Slightly wider */
     height: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+    padding: 0.5em; /* Added some padding inside */
+    background-color: #fff; /* Added background */
 }
 
 .razorback-main img {
@@ -185,6 +229,7 @@ body {
     display: block;
     margin-bottom: 1em;
     /* Border will be applied by align-left/right classes */
+    border-radius: 0.25rem; /* Add border-radius for consistency */
 }
 
 .razorback-main::after {
