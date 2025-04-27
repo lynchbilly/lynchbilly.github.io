@@ -119,8 +119,8 @@ body {
 }
 
 .razorback-footer {
-    max-width: 60rem;
-    max-height: 30px;
+    max-width: 50rem;
+    max-height: 20px;
     margin-left: auto;
     margin-right: auto;
     border: none; /* Remove all borders */
