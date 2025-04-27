@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batesville - Razorback Exploration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="razorback-body">
+    <header class="razorback-header">
+        <h1>Razorback Exploration</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="fayetteville.html">Fayetteville</a></li>
+                <li><a href="hot-springs.html">Hot Springs</a></li>
+                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="eureka-springs.html">Eureka Springs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="razorback-main city-info">
+        <h1>Batesville</h1>
+
+        <img id="batesville-img" src="images/batesville-historic-district.jpg" alt="Batesville, Arkansas">
+
+        <p>
+            Batesville, located in Northeast Arkansas along the White River, is the county seat of Independence County. It boasts a rich history as one of the oldest cities in Arkansas.
+        </p>
+
+        <ul class="razorback-list">
+            <li><strong>Founded:</strong> Early 1800s <sup class="reference"><a href="#ref-eoabatesville">[1]</a></sup></li>
+            <li><strong>County:</strong> Independence County <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
+            <li><strong>Population:</strong> 10,384 (2020) <sup class="reference"><a href="#ref-censusestimates">[3]</a></sup></li>
+            <li><strong>Area:</strong> 11.1 sq mi <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
+        </ul>
+
+        <h2>Things to Do in Batesville</h2>
+        <ul class="things-to-do">
+            <li>Explore the historic downtown area.</li>
+            <li>Visit the Independence County Historical Society Museum.</li>
+            <li>Enjoy outdoor activities along the White River.</li>
+            <li>Discover local shops and restaurants.</li>
+            <li>Attend events at the Batesville Civic Center.</li>
+        </ul>
+
+        <h2>History of Batesville</h2>
+        <p>
+            Batesville holds the distinction of being one of Arkansas's oldest cities, with its roots tracing back to the early 19th century. Its strategic location along the White River contributed to its early growth as a trading and transportation hub. More detailed historical information can be found on the Encyclopedia of Arkansas. <sup class="reference"><a href="#ref-eoabatesville">[1]</a></sup>
+        </p>
+
+        <table class="razorback-table">
+            <thead>
+                <tr>
+                    <th>Historical Event</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Early Settlement</td>
+                    <td>Early 1800s</td>
+                    <td>Batesville began as an early settlement along the White River. <sup class="reference"><a href="#ref-eoabatesville">[1]</a></sup></td>
+                </tr>
+                <tr>
+                    <td>Incorporation</td>
+                    <td>January 9, 1838</td>
+                    <td>Batesville was officially incorporated.</td>
+                </tr>
+                <tr>
+                    <td>Growth as a River Port</td>
+                    <td>19th Century</td>
+                    <td>The White River played a crucial role in Batesville's early economic development.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="references-title">References</h2>
+        <ol class="references-list">
+            <li id="ref-eoabatesville"><a href="https://url.us.m.mimecastprotect.com/s/hLboCqxpyYUXZEDkViYSMcELds5?domain=encyclopediaofarkansas.net" target="_blank">[1]</a> Batesville (Independence County) (Encyclopedia of Arkansas)</li>
+            <li id="ref-censusquickfacts"><a href="https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov" target="_blank">[2]</a> QuickFacts: Arkansas (U.S. Census Bureau, 2021)</li>
+            <li id="ref-censusestimates"><a href="https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov" target="_blank">[3]</a> Population Estimates (U.S. Census Bureau, 2023)</li>
+        </ol>
+    </main>
+
+    <footer class="razorback-footer">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Arkansas_Razorbacks_logo.svg/800px-Arkansas_Razorbacks_logo.svg.png" alt="Razorback Logo" style="height: 30px;">
+        2024 Razorback Exploration
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.razorback-header nav ul li a');
+            const currentPage = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                if (link.href.endsWith(currentPage)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

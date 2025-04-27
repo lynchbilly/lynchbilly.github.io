@@ -1,0 +1,42 @@
+Source Links for Arkansas Website Project
+
+index.html:
+No specific factual claims requiring direct sourcing.
+Link to Official Arkansas Tourism: https://url.us.m.mimecastprotect.com/s/j04JCrkqzRt2EkpnWI6TBc4kFJQ?domain=arkansas.com
+
+little-rock.html:
+Cities and Towns (Arkansas Secretary of State): https://url.us.m.mimecastprotect.com/s/ZkxLCv2xEotAxYGLRFYUncQgj-7?domain=google.com
+QuickFacts: Arkansas (U.S. Census Bureau, 2021): https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov
+Population Estimates (U.S. Census Bureau, 2023): https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov (Search for Little Rock within this data)
+
+fayetteville.html:
+Fayetteville History (Fayetteville History Museum): https://url.us.m.mimecastprotect.com/s/O-UxCwpyGmCyKq7V2I3c7cJ00Jn?domain=fayettevillehistory.org (Navigate to find specific history information)
+QuickFacts: Arkansas (U.S. Census Bureau, 2021): https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov
+Population Estimates (U.S. Census Bureau, 2023): https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov (Search for Fayetteville within this data) 
+
+hot-springs.html:
+Hot Springs (Garland County) (Encyclopedia of Arkansas): https://url.us.m.mimecastprotect.com/s/HYL-CxkzJvtxk7yRzsXfZcyrx3a?domain=google.com
+QuickFacts: Arkansas (U.S. Census Bureau, 2021): https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov
+Population Estimates (U.S. Census Bureau, 2023): https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov (Search for Hot Springs within this data)
+
+batesville.html:
+Batesville (Independence County) (Encyclopedia of Arkansas): https://url.us.m.mimecastprotect.com/s/-Y6OCyPAKrSLZ8g2phzhJcxYjP9?domain=google.com
+QuickFacts: Arkansas (U.S. Census Bureau, 2021): https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov
+Population Estimates (U.S. Census Bureau, 2023): https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov (Search for Batesville within this data)
+
+eureka-springs.html:
+Eureka Springs (Carroll County) (Encyclopedia of Arkansas): https://url.us.m.mimecastprotect.com/s/Mw0QCzp4LKC46k3w7f2ilc9rSOg?domain=google.com
+QuickFacts: Arkansas (U.S. Census Bureau, 2021): https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov
+Population Estimates (U.S. Census Bureau, 2023): https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov (Search for Eureka Springs within this data)
+
+contact.html:
+No specific factual claims requiring direct sourcing.
+
+---
+
+**Important Notes:**
+
+* **Verify the Data:** Please ensure the information on these links matches the data you have on your web pages.
+* **Check for Updates:** The U.S. Census Bureau data may have more recent updates.
+* **Fayetteville History Museum:** You might need to navigate their website for the most specific historical information.
+

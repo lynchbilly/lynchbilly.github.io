@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eureka Springs - Razorback Exploration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="razorback-body">
+    <header class="razorback-header">
+        <h1>Razorback Exploration</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="fayetteville.html">Fayetteville</a></li>
+                <li><a href="hot-springs.html">Hot Springs</a></li>
+                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="eureka-springs.html">Eureka Springs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="razorback-main city-info">
+        <h1>Eureka Springs</h1>
+
+        <img id="eureka-springs-img" src="images/eureka-springs-downtown.jpg" alt="Eureka Springs, Arkansas">
+
+        <p>
+            Eureka Springs is a unique and charming city nestled in the Ozark Mountains of Northwest Arkansas. Known for its Victorian architecture, natural springs, and vibrant arts scene, it offers a distinctive experience.
+        </p>
+
+        <ul class="razorback-list">
+            <li><strong>Founded:</strong> 1879 <sup class="reference"><a href="#ref-eoaeurekasprings">[1]</a></sup></li>
+            <li><strong>County:</strong> Carroll County <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
+            <li><strong>Population:</strong> 2,073 (2020) <sup class="reference"><a href="#ref-censusestimates">[3]</a></sup></li>
+            <li><strong>Area:</strong> 6.4 sq mi <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
+        </ul>
+
+        <h2>Things to Do in Eureka Springs</h2>
+        <ul class="things-to-do">
+            <li>Explore the historic downtown and its unique shops.</li>
+            <li>Visit the natural springs and caves.</li>
+            <li>Experience the Passion Play.</li>
+            <li>Discover local art galleries and craft shops.</li>
+            <li>Take a ride on the Eureka Springs & North Arkansas Railway.</li>
+        </ul>
+
+        <h2>History of Eureka Springs</h2>
+        <p>
+            Eureka Springs was founded in 1879 following the reported healing powers of its natural springs. It quickly became a popular resort town, attracting visitors with its unique landscape and Victorian architecture. The Encyclopedia of Arkansas provides a comprehensive history of the city. <sup class="reference"><a href="#ref-eoaeurekasprings">[1]</a></sup>
+        </p>
+
+        <table class="razorback-table">
+            <thead>
+                <tr>
+                    <th>Historical Event</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Discovery of Springs</td>
+                    <td>1878</td>
+                    <td>Dr. Alvah Jackson claimed the springs had healing powers, leading to the town's development.</td>
+                </tr>
+                <tr>
+                    <td>Town Founded</td>
+                    <td>1879</td>
+                    <td>Eureka Springs was officially founded. <sup class="reference"><a href="#ref-eoaeurekasprings">[1]</a></sup></td>
+                </tr>
+                <tr>
+                    <td>Peak as a Resort Town</td>
+                    <td>Late 19th Century</td>
+                    <td>Eureka Springs flourished as a major health and tourist destination.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="references-title">References</h2>
+        <ol class="references-list">
+            <li id="ref-eoaeurekasprings"><a href="https://url.us.m.mimecastprotect.com/s/ajxiCBBXkLi8jw1Rysgt1c2IEtm?domain=encyclopediaofarkansas.net" target="_blank">[1]</a> Eureka Springs (Carroll County) (Encyclopedia of Arkansas)</li>
+            <li id="ref-censusquickfacts"><a href="https://url.us.m.mimecastprotect.com/s/61KJCo2nwQtvEgMPQh2Hncp6QO_?domain=census.gov" target="_blank">[2]</a> QuickFacts: Arkansas (U.S. Census Bureau, 2021)</li>
+            <li id="ref-censusestimates"><a href="https://url.us.m.mimecastprotect.com/s/ki51CpYoxQcAmVGO7FvI9cGeTWW?domain=census.gov" target="_blank">[3]</a> Population Estimates (U.S. Census Bureau, 2023)</li>
+        </ol>
+    </main>
+
+    <footer class="razorback-footer">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Arkansas_Razorbacks_logo.svg/800px-Arkansas_Razorbacks_logo.svg.png" alt="Razorback Logo" style="height: 30px;">
+        2024 Razorback Exploration
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.razorback-header nav ul li a');
+            const currentPage = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                if (link.href.endsWith(currentPage)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

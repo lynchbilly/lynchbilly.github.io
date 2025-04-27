@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Discover Arkansas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="razorback-body">
+    <header class="razorback-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="fayetteville.html">Fayetteville</a></li>
+                <li><a href="hot-springs.html">Hot Springs</a></li>
+                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="eureka-springs.html">Eureka Springs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="razorback-main">
+        <section class="contact-form">
+            <h2 class="razorback-text">Contact Us - Let's Hear Your Hog Calls!</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmEmail">Confirm Email:</label>
+                    <input type="email" id="confirmEmail" name="confirmEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="question">Your Question:</label>
+                    <textarea id="question" name="question" rows="5"></textarea>
+                </div>
+                <button type="submit" class="razorback-button">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="razorback-footer">
+        <p>&copy; 2025 Woo Pig Sooie! - Discover Arkansas</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            const email = document.getElementById('email').value;
+            const confirmEmail = document.getElementById('confirmEmail').value;
+
+            if (email !== confirmEmail) {
+                event.preventDefault(); // Prevent form submission
+                alert("Error: Email addresses do not match. Double-check and Woo Pig Sooie again!");
+            } else {
+                alert("Thank you for your message! We'll get back to you faster than a Razorback on the field!");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorback Exploration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="razorback-body">
+    <header class="razorback-header">
+        <h1>Razorback Exploration</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="fayetteville.html">Fayetteville</a></li>
+                <li><a href="hot-springs.html">Hot Springs</a></li>
+                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="eureka-springs.html">Eureka Springs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="razorback-main">
+        <div class="hero">
+            <h1>Welcome to Arkansas</h1>
+            <ol class="hero-list">
+                <li>Explore the vibrant cities.</li>
+                <li>Discover the natural beauty.</li>
+                <li>Experience the Razorback spirit.</li>
+            </ol>
+        </div>
+
+        <section class="featured-cities">
+            <h2>Featured Cities</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="fayetteville.html">Fayetteville</a></li>
+                <li><a href="hot-springs.html">Hot Springs</a></li>
+                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="eureka-springs.html">Eureka Springs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="razorback-footer">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Arkansas_Razorbacks_logo.svg/800px-Arkansas_Razorbacks_logo.svg.png" alt="Razorback Logo" style="height: 30px;">
+         2024 Razorback Exploration
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.razorback-header nav ul li a');
+            const currentPage = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                if (link.href.endsWith(currentPage)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
