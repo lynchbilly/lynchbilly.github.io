@@ -188,8 +188,7 @@ body {
     color: #eee;
     box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.2);
 }
-
-.hero img {
+.razorback-main img {
     max-width: 60%;
     height: auto;
     display: block;
