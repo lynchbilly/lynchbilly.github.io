@@ -1,3 +1,324 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.razorback-body {
+    background-color: #fff;
+    flex-grow: 1;
+}
+
+.razorback-header {
+    background-color: #9e1b32;
+    color: #fff;
+    padding: 1.5em 0;
+    text-align: center;
+    border-bottom: 5px solid #7b1427;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.razorback-header h1 {
+    margin: 0 0 0.5em 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.razorback-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.razorback-header nav ul li {
+    margin: 0 1.5rem;
+    padding: 0.2em 0;
+}
+
+.razorback-header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, padding-bottom 0.2s ease;
+    padding-bottom: 0.3em;
+    font-size: 1.2em;
+}
+
+.razorback-header nav ul li a:hover {
+    color: #eee;
+    padding-bottom: 0.6em;
+    border-bottom: 2px solid #eee;
+}
+
+.razorback-header nav ul li a.active {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 0.3em;
+}
+
+.razorback-main {
+    padding: 2.5rem;
+    max-width: 75rem;
+    margin: 3rem auto;
+    background-color: #fff;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    border: 0.15rem solid #9e1b32;
+    border-radius: 0.75rem;
+}
+
+.razorback-main h1,
+.razorback-main h2,
+.razorback-main h3 {
+    color: #9e1b32;
+    margin-bottom: 1.2em;
+    line-height: 1.2;
+    border-bottom: 0.15rem solid #9e1b32;
+    padding-bottom: 0.3em;
+    border-radius: 0.25rem;
+}
+
+.razorback-main h1 {
+    font-size: 2.2em;
+}
+
+.razorback-main h2 {
+    font-size: 1.8em;
+}
+
+.razorback-main h3 {
+    font-size: 1.5em;
+}
+
+.razorback-main p {
+    padding: 0.75em 1.25em;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5em;
+    background-color: #f9f9f9;
+}
+
+.razorback-main p a {
+    color: #9e1b32;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.razorback-main p a:hover {
+    color: #555;
+}
+
+.razorback-footer {
+    text-align: center;
+    padding: 1.75em 0;
+    background-color: #333;
+    color: #eee;
+    border-top: 0.15rem solid #9e1b32;
+    margin-top: 3rem;
+    font-size: 0.9em;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.razorback-footer a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.razorback-footer a:hover {
+    color: #ddd;
+}
+
+.hero {
+    text-align: center;
+    padding: 2.5rem 0;
+    background-color: #f9f9f9;
+    border-bottom: 0.2rem dashed #9e1b32;
+    border-radius: 0.75rem 0.75rem 0 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 0.1rem solid #ddd;
+    border-right: 0.1rem solid #ddd;
+}
+
+.hero h2 {
+    font-size: 3em;
+    color: #9e1b32;
+    margin-bottom: 0.75em;
+    text-shadow: 0.05rem 0.05rem 0px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 70%;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    padding: 0.75em 1.25em;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.hero a {
+    color: #fff;
+    background-color: #9e1b32;
+    padding: 0.8em 1.75em;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.hero a:hover {
+    background-color: #7b1427;
+    color: #eee;
+    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.2);
+}
+
+.razorback-main img {     
+    max-width: 600px;     
+    max-height: 400px;     
+    height: auto;     
+    display: block;     
+    border: 0.2rem solid #9e1b32;     
+    border-radius: 0.5rem;     
+    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.15);     
+    margin: 1.5em auto; 
+}
+
+
+.razorback-main .align-left {
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 1em;
+    border: 0.15rem solid #9e1b32;
+    border-radius: 0.5rem;
+    max-width: 40%;
+    height: auto;
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+    padding: 0.5em;
+    background-color: #fff;
+}
+
+.razorback-main .align-right {
+    float: right;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+    border: 0.15rem solid #9e1b32;
+    border-radius: 0.5rem;
+    max-width: 40%;
+    height: auto;
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+    padding: 0.5em;
+    background-color: #fff;
+}
+
+
+
+.razorback-main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.featured-cities {
+    padding: 2em 1em;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 0;
+}
+
+.featured-cities h2 {
+    color: #9e1b32;
+    border-bottom: 3px solid #fdd835;
+    padding-bottom: 0.7em;
+    margin-top: 1.5em;
+    font-size: 1.5em;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+.featured-cities .button-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.featured-cities .button-list a {
+    display: inline-block;
+    background-color: #9e1b32;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.1em;
+    text-align: center;
+    min-width: 100px;
+}
+
+.featured-cities .button-list a:hover {
+    background-color: #7b1427;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+
+.razorback-main .align-left img,
+.razorback-main .align-right img {
+    max-width: 100%;
+    height: auto;
+  
+
+/* Styles for lists within .razorback-main */
+.razorback-main ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.razorback-main ul li {
+    background-color: #9e1b32;
+    color: #fff;
+    padding: 0.75em 1.25em;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.razorback-main ul li:hover {
+    background-color: #7b1427;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
 .contact-form {
     max-width: 600px;
     margin: 2rem auto;
