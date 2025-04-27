@@ -20,15 +20,16 @@ body {
     color: #fff;
     padding: 1.5em 0;
     text-align: center;
-    border-bottom: 5px solid #7b1427; /* Slightly darker shade for better definition */
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    border-bottom: 5px solid #7b1427;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0.5rem 0.5rem; /* Rounded bottom corners */
 }
 
 .razorback-header h1 {
     margin: 0 0 0.5em 0;
-    font-size: 2.5em; /* Slightly larger for more impact */
+    font-size: 2.5em;
     font-weight: bold;
-    letter-spacing: 0.05em; /* Subtle spacing */
+    letter-spacing: 0.05em;
 }
 
 .razorback-header nav ul {
@@ -40,8 +41,8 @@ body {
 }
 
 .razorback-header nav ul li {
-    margin: 0 2rem; /* Increased spacing */
-    padding: 0.2em 0; /* Added slight vertical padding */
+    margin: 0 1.5rem;
+    padding: 0.2em 0;
 }
 
 .razorback-header nav ul li a {
@@ -50,20 +51,20 @@ body {
     font-weight: 600;
     transition: color 0.3s ease, padding-bottom 0.2s ease;
     padding-bottom: 0.3em;
-    font-size: 1.2em; /* Slightly larger */
+    font-size: 1.2em;
 }
 
 .razorback-header nav ul li a:hover {
-    color: #eee; /* Lighter hover color */
+    color: #eee;
     padding-bottom: 0.6em;
-    border-bottom: 2px solid #eee; /* Added hover underline */
+    border-bottom: 2px solid #eee;
 }
 
 .razorback-header nav ul li a.active {
     color: #ffffff;
     text-decoration: none;
     border-bottom: 3px solid #ffffff;
-    padding-bottom: 0.3em; /* Keep consistent padding */
+    padding-bottom: 0.3em;
 }
 
 .razorback-main {
@@ -72,7 +73,7 @@ body {
     margin: 3rem auto;
     background-color: #fff;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-    border: 0.15rem solid #9e1b32; /* Unified border */
+    border: 0.15rem solid #9e1b32;
     border-radius: 0.75rem;
 }
 
@@ -80,10 +81,11 @@ body {
 .razorback-main h2,
 .razorback-main h3 {
     color: #9e1b32;
-    margin-bottom: 1.2em; /* Slightly more space */
-    line-height: 1.2; /* Tighter line height for headers */
-    border-bottom: 0.2rem solid #9e1b32; /* Added a border-bottom */
+    margin-bottom: 1.2em;
+    line-height: 1.2;
+    border-bottom: 0.15rem solid #9e1b32;
     padding-bottom: 0.3em;
+    border-radius: 0.25rem;
 }
 
 .razorback-main h1 {
@@ -99,11 +101,11 @@ body {
 }
 
 .razorback-main p {
-    padding: 0.5em 1em; /* Added padding around paragraphs */
-    border: 1px solid #ddd; /* Light border around text blocks */
-    border-radius: 0.25rem;
-    margin-bottom: 1.5em; /* Increased margin between paragraphs */
-    background-color: #f9f9f9; /* Light background for better separation */
+    padding: 0.75em 1.25em;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5em;
+    background-color: #f9f9f9;
 }
 
 .razorback-main p a {
@@ -124,6 +126,7 @@ body {
     border-top: 0.15rem solid #9e1b32;
     margin-top: 3rem;
     font-size: 0.9em;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .razorback-footer a {
@@ -133,94 +136,93 @@ body {
 }
 
 .razorback-footer a:hover {
-    color: #ddd; /* Slightly lighter hover */
+    color: #ddd;
 }
 
 .hero {
     text-align: center;
-    padding: 4rem 0; /* Slightly reduced padding */
+    padding: 2.5rem 0;
     background-color: #f9f9f9;
-    border-bottom: 0.2rem dashed #9e1b32; /* Slightly thicker dashed line */
+    border-bottom: 0.2rem dashed #9e1b32;
     border-radius: 0.75rem 0.75rem 0 0;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 2rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-left: 1px solid #ddd; /* Added subtle side borders */
-    border-right: 1px solid #ddd;
+    border-left: 0.1rem solid #ddd;
+    border-right: 0.1rem solid #ddd;
 }
 
 .hero h2 {
-    font-size: 3em; /* More prominent heading */
+    font-size: 3em;
     color: #9e1b32;
-    margin-bottom: 1em;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    margin-bottom: 0.75em;
+    text-shadow: 0.05rem 0.05rem 0px rgba(0, 0, 0, 0.1);
 }
 
 .hero p {
     font-size: 1.2em;
     color: #555;
-    max-width: 70%; /* Slightly narrower for better readability */
+    max-width: 70%;
     line-height: 1.6;
-    margin-bottom: 2em; /* Increased margin */
-    padding: 0.75em 1.25em; /* Added padding to the hero text */
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    background-color: #fff; /* Added background to hero text */
+    margin-bottom: 1.5em;
+    padding: 0.75em 1.25em;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #fff;
 }
 
 .hero a {
     color: #fff;
     background-color: #9e1b32;
-    padding: 0.8em 1.75em; /* Slightly larger button */
+    padding: 0.8em 1.75em;
     text-decoration: none;
     border-radius: 0.3rem;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Added shadow transition */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
 }
 
 .hero a:hover {
-    background-color: #7b1427; /* Darker hover */
+    background-color: #7b1427;
     color: #eee;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2); /* Stronger hover shadow */
+    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.2);
 }
 
 .hero img {
-    max-width: 60%; /* Slightly larger image */
+    max-width: 60%;
     height: auto;
     display: block;
-    border: 3px solid #9e1b32; /* Thicker border */
-    border-radius: 0.3rem;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.15); /* Added shadow to image */
-    margin: 1.5em auto; /* Increased margin */
+    border: 0.2rem solid #9e1b32;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.15);
+    margin: 1.5em auto;
 }
 
 .razorback-main .align-left {
     float: left;
-    margin-right: 1.5em; /* Increased spacing */
-    margin-bottom: 1em; /* Increased spacing */
-    border: 2px solid #9e1b32;
-    border-radius: 0.25rem;
-    max-width: 40%; /* Slightly wider */
+    margin-right: 1.5em;
+    margin-bottom: 1em;
+    border: 0.15rem solid #9e1b32;
+    border-radius: 0.5rem;
+    max-width: 40%;
     height: auto;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
-    padding: 0.5em; /* Added some padding inside */
-    background-color: #fff; /* Added background */
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+    padding: 0.5em;
+    background-color: #fff;
 }
 
 .razorback-main .align-right {
     float: right;
-    margin-left: 1.5em; /* Increased spacing */
-    margin-bottom: 1em; /* Increased spacing */
-    border: 2px solid #9e1b32;
-    border-radius: 0.25rem;
-    max-width: 40%; /* Slightly wider */
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+    border: 0.15rem solid #9e1b32;
+    border-radius: 0.5rem;
+    max-width: 40%;
     height: auto;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
-    padding: 0.5em; /* Added some padding inside */
-    background-color: #fff; /* Added background */
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+    padding: 0.5em;
+    background-color: #fff;
 }
 
 .razorback-main img {
@@ -228,8 +230,7 @@ body {
     height: auto;
     display: block;
     margin-bottom: 1em;
-    /* Border will be applied by align-left/right classes */
-    border-radius: 0.25rem; /* Add border-radius for consistency */
+    border-radius: 0.5rem;
 }
 
 .razorback-main::after {
