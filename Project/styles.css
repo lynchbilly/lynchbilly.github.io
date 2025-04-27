@@ -188,15 +188,17 @@ body {
     color: #eee;
     box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.2);
 }
-.razorback-main img {
-    max-width: 60%;
-    height: auto;
-    display: block;
-    border: 0.2rem solid #9e1b32;
-    border-radius: 0.5rem;
-    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.15);
-    margin: 1.5em auto;
+.razorback-main img {     
+    max-width: 600px;     
+    max-height: 400px;     
+    height: auto;     
+    display: block;     
+    border: 0.2rem solid #9e1b32;     
+    border-radius: 0.5rem;     
+    box-shadow: 0.2rem 0.2rem 0.35rem rgba(0, 0, 0, 0.15);     
+    margin: 1.5em auto; 
 }
+
 
 .razorback-main .align-left {
     float: left;
