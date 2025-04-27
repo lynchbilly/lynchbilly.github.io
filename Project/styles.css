@@ -118,14 +118,18 @@ body {
     color: #555;
 }
 
+.razorback-footer {
+    text-align: center;
+}
+
 .razorback-footer img {
     max-width: 75rem;
     max-height: 100px;
     margin-left: auto;
     margin-right: auto;
+    display: block; /* Ensures the image is treated as a block element */
     border: none; /* Remove all borders */
 }
-
 .hero {
     text-align: center;
     padding: 2.5rem 0;
