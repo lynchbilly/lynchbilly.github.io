@@ -285,23 +285,12 @@ body {
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
 
-/* Ensure images within city pages have consistent styling */
-.razorback-main img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 1em;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.15);
-}
 
-/* Optional: আপনি যদি চান যে আপনার সব ছবি একই আকারের হোক, তাহলে এই অংশটুকু যোগ করুন */
 .razorback-main .align-left img,
 .razorback-main .align-right img {
     max-width: 100%;
     height: auto;
-    /*object-fit: cover; এর কারণে ছবি ক্রপ হতে পারে */
-}
+  
 
 /* Styles for lists within .razorback-main */
 .razorback-main ul {
