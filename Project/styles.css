@@ -130,6 +130,14 @@ body {
     display: block; /* Ensures the image is treated as a block element */
     border: none; /* Remove all borders */
 }
+.razorback-footer .align-left {
+    float: left;
+}
+
+.razorback-footer .align-right {
+    float: right;
+}
+
 .hero {
     text-align: center;
     padding: 2.5rem 0;
