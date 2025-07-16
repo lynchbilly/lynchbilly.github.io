@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razorback Exploration</title>
+    <title>Arkansas - Razorback Exploration</title>
     <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,7 +12,7 @@
         <h1>Razorback Exploration</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="little-rock.html">Little Rock</a></li>
                 <li><a href="fayetteville.html">Fayetteville</a></li>
                 <li><a href="hot-springs.html">Hot Springs</a></li>
@@ -25,16 +25,43 @@
 
     <main class="razorback-main">
         <div class="hero">
-            <h2>Welcome to Arkansas</h2>
+            <h2>Welcome to Arkansas: The Natural State</h2>
+            <p>
+                Arkansas offers a captivating blend of rugged natural beauty, rich history, and vibrant culture. From the majestic Ozark Mountains to the fertile Delta plains, and bustling urban centers to charming small towns, there's a unique experience waiting for every explorer.
+            </p>
             <ol class="hero-list">
-                <li>Explore the vibrant cities.</li>
-                <li>Discover the natural beauty.</li>
-                <li>Experience the Razorback spirit.</li>
+                <li>Explore vibrant cities and quaint towns.</li>
+                <li>Discover diverse natural landscapes and outdoor adventures.</li>
+                <li>Experience the proud spirit of the Razorbacks and Southern hospitality.</li>
             </ol>
+            <a href="https://arkansas.gov" target="_blank" class="hero-button">Learn More About Arkansas</a>
         </div>
 
+        <aside class="city-classification"> <h2>Arkansas at a Glance</h2>
+            <ul class="razorback-list">
+                <li><strong>State Capital:</strong> Little Rock</li>
+                <li><strong>Nickname:</strong> The Natural State</li>
+                <li><strong>Population (2023 Est.):</strong> 3.067 million <sup class="reference"><a href="#ref-census-arkansas">[1]</a></sup></li>
+                <li><strong>Area:</strong> 53,179 sq mi (137,732 km²) <sup class="reference"><a href="#ref-census-arkansas">[1]</a></sup></li>
+                <li><strong>Admission to Union:</strong> June 15, 1836 (25th State) <sup class="reference"><a href="#ref-history-arkansas">[2]</a></sup></li>
+            </ul>
+        </aside>
+
+        <section class="income-information"> <h2>About The Natural State</h2>
+            <p>
+                Arkansas is geographically diverse, featuring mountains, valleys, forests, and the Arkansas River, which flows through the heart of the state. Its natural resources have long played a significant role in its economy and culture, offering abundant opportunities for outdoor recreation including fishing, hunting, hiking, and camping.
+            </p>
+            <p>
+                The state's history is deeply rooted in agriculture, particularly cotton and rice, but it has diversified into manufacturing, aerospace, timber, and a growing technology sector. Education is also a cornerstone, with the University of Arkansas system playing a vital role.
+            </p>
+            <p>
+                Arkansas's cultural tapestry is rich, drawing from Native American, French, Spanish, and Southern influences. It's home to unique music traditions, diverse culinary scenes, and a burgeoning arts community, particularly in cities like Fayetteville and Eureka Springs.
+            </p>
+        </section>
+
         <section class="featured-cities">
-            <h2>Featured Cities</h2>
+            <h2>Explore Our Featured Cities</h2>
+            <p class="section-intro">Click on a city below to learn more about its history, attractions, and unique charm.</p>
             <div class="button-list">
                 <a href="little-rock.html">Little Rock</a>
                 <a href="fayetteville.html">Fayetteville</a>
@@ -43,13 +70,18 @@
                 <a href="eureka-springs.html">Eureka Springs</a>
             </div>
         </section>
+
+        <h2 class="references-title">References</h2>
+        <ol class="references-list">
+            <li id="ref-census-arkansas"><a href="https://www.census.gov/quickfacts/AR" target="_blank">[1]</a> QuickFacts: Arkansas (U.S. Census Bureau)</li>
+            <li id="ref-history-arkansas"><a href="https://www.history.com/topics/us-states/arkansas" target="_blank">[2]</a> Arkansas (History.com)</li>
+        </ol>
+
     </main>
 
-   <footer class="razorback-footer">
-        <img src="images/banner.jpg" alt="Razorback Logo" >
-        
+    <footer class="razorback-footer">
+        <img src="images/banner.jpg" alt="Razorback Logo">
     </footer>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +89,7 @@
             const currentPage = window.location.pathname.split('/').pop();
 
             navLinks.forEach(link => {
-                if (link.href.endsWith(currentPage)) {
+                if (link.href.endsWith(currentPage) || (currentPage === '' && link.href.endsWith('index.html'))) {
                     link.classList.add('active');
                 }
             });

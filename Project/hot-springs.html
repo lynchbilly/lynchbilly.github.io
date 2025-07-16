@@ -13,10 +13,10 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="little-rock.html" class="active">Little Rock</a></li>
+                <li><a href="little-rock.html">Little Rock</a></li>
                 <li><a href="fayetteville.html">Fayetteville</a></li>
-                <li><a href="hot-springs.html">Hot Springs</a></li>
-                 <li><a href="batesville.html">Batesville</a></li>
+                <li><a href="hot-springs.html" class="active">Hot Springs</a></li>
+                <li><a href="batesville.html">Batesville</a></li>
                 <li><a href="eureka-springs.html">Eureka Springs</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
@@ -26,18 +26,30 @@
     <main class="razorback-main city-info">
         <h1>Hot Springs</h1>
 
-        <img id="hot-springs-img" src="images/hot-springs-national-park.jpg" alt="Hot Springs National Park">
+        <img id="hot-springs-img" src="images/hot-springs-national-park-water-arkansas2-1200x1600.jpg" alt="Hot Springs National Park">
 
         <p>
             Hot Springs is a unique city nestled in the Ouachita Mountains of Arkansas, famous for its natural thermal springs. The city is uniquely intertwined with Hot Springs National Park, which surrounds it.
         </p>
 
+        <aside class="city-classification">
+            <h2>City Classification</h2>
+            <p>Hot Springs can be described as a <strong>resort city with an urban core and suburban fringes</strong>. Its identity is strongly tied to tourism and the National Park, giving it a distinct character that blends natural beauty with city amenities.</p>
+        </aside>
+
         <ul class="razorback-list">
             <li><strong>Founded:</strong> 1807 <sup class="reference"><a href="#ref-eoahotsprings">[1]</a></sup></li>
-            <li><strong>County:</strong> Garland County <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
-            <li><strong>Population:</strong> 37,911 (2020) <sup class="reference"><a href="#ref-censusestimates">[3]</a></sup></li>
-            <li><strong>Area:</strong> 32.7 sq mi <sup class="reference"><a href="#ref-censusquickfacts">[2]</a></sup></li>
+            <li><strong>County:</strong> Garland County <sup class="reference"><a href="#ref-censusquickfacts-hs">[2]</a></sup></li>
+            <li><strong>Population:</strong> 37,911 (2020) <sup class="reference"><a href="#ref-censusestimates-hs">[3]</a></sup></li>
+            <li><strong>Area:</strong> 32.7 sq mi <sup class="reference"><a href="#ref-censusquickfacts-hs">[2]</a></sup></li>
         </ul>
+
+        <section class="income-information">
+            <h2>Economic Overview</h2>
+            <p>
+                The median household income in Hot Springs is approximately <strong>$49,697</strong> (2023). This is lower than the median household income for the entire state of Arkansas, which is about $58,773, reflecting a diverse economic landscape heavily influenced by the tourism and service industries.
+            </p>
+        </section>
 
         <h2>Things to Do in Hot Springs</h2>
         <ul class="things-to-do">
@@ -83,17 +95,16 @@
         <h2 class="references-title">References</h2>
         <ol class="references-list">
             <li id="ref-eoahotsprings"><a href="https://encyclopediaofarkansas.net/entries/hot-springs-887/" target="_blank">[1]</a> Hot Springs (Garland County) (Encyclopedia of Arkansas)</li>
-            <li id="ref-censusquickfacts"><a href="https://www.census.gov/quickfacts/AR" target="_blank">[2]</a> QuickFacts: Arkansas (U.S. Census Bureau, 2021)</li>
-            <li id="ref-censusestimates"><a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-total.html" target="_blank">[3]</a> Population Estimates (U.S. Census Bureau, 2023)</li>
+            <li id="ref-censusquickfacts-hs"><a href="https://www.census.gov/quickfacts/hotspringscityarkansas" target="_blank">[2]</a> QuickFacts: Hot Springs city, Arkansas (U.S. Census Bureau, 2021)</li>
+            <li id="ref-censusestimates-hs"><a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-cities-and-towns-total.html" target="_blank">[3]</a> Population Estimates (U.S. Census Bureau, 2023)</li>
+            <li id="ref-niche-hs"><a href="https://www.niche.com/places-to-live/hot-springs-garland-ar/" target="_blank">Hot Springs, AR - Niche</a></li>
+            <li id="ref-censusreporter-hs"><a href="https://censusreporter.org/profiles/16000US0533010-hot-springs-ar/" target="_blank">Hot Springs, AR - Profile data - Census Reporter</a></li>
         </ol>
     </main>
-</body>
 
-        <footer class="razorback-footer">
-        <img src="images/banner.jpg" alt="Razorback Logo" >
-        
+    <footer class="razorback-footer">
+        <img src="images/banner.jpg" alt="Razorback Logo">
     </footer>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -107,4 +118,5 @@
             });
         });
     </script>
+</body>
 </html>
