@@ -1,0 +1,14 @@
+image: ruby:3.2
+
+pages:
+  script: |
+    if test -f "index.html"; then
+      gem install jekyll
+      jekyll build -d public
+    else
+      echo "No index.html file found, this file is required."
+      exit
+    fi
+  artifacts:
+    paths:
+      - public
