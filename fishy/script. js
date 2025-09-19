@@ -1,0 +1,78 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const callButton = document.getElementById('call-fish-btn');
+    const audio = document.getElementById('fishy-sound');
+    const canvas = document.getElementById('radar-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const container = document.getElementById('radar-container');
+    const size = container.clientWidth;
+    canvas.width = size;
+    canvas.height = size;
+    const center = { x: size / 2, y: size / 2 };
+
+    let fish = [];
+    const fishCount = 30; // How many fish dots to show
+    let animationFrameId;
+
+    // Function to create the fish at random positions
+    function createFish() {
+        fish = [];
+        for (let i = 0; i < fishCount; i++) {
+            const angle = Math.random() * 2 * Math.PI;
+            const radius = size / 2 + Math.random() * 50; // Start just outside the radar
+            fish.push({
+                x: center.x + radius * Math.cos(angle),
+                y: center.y + radius * Math.sin(angle),
+                speed: 1 + Math.random() * 1.5 // Each fish has a slightly different speed
+            });
+        }
+    }
+
+    // The animation loop
+    function animate() {
+        // Clear the canvas for the next frame
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let allFishAtCenter = true;
+
+        fish.forEach(f => {
+            const dx = center.x - f.x;
+            const dy = center.y - f.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 5) { // If not at the center yet
+                allFishAtCenter = false;
+                // Move the fish towards the center
+                f.x += (dx / distance) * f.speed;
+                f.y += (dy / distance) * f.speed;
+            }
+
+            // Draw the fish dot
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, 4, 0, 2 * Math.PI);
+            ctx.fillStyle = '#00ff00';
+            ctx.fill();
+        });
+
+        // Continue the animation if fish are still moving
+        if (!allFishAtCenter) {
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    }
+
+    // Event listener for the button
+    callButton.addEventListener('click', () => {
+        // Stop any previous animation
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        
+        // Play the sound
+        audio.currentTime = 0;
+        audio.play();
+
+        // Create new fish and start the animation
+        createFish();
+        animate();
+    });
+});
