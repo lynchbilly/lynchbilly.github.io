@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('fishy-sound');
     const canvas = document.getElementById('radar-canvas');
     const ctx = canvas.getContext('2d');
-
     const container = document.getElementById('radar-container');
-    const size = container.clientWidth;
-    canvas.width = size;
-    canvas.height = size;
-    const center = { x: size / 2, y: size / 2 };
+    
+    // Function to resize canvas to its container
+    function resizeCanvas() {
+        const size = container.clientWidth;
+        canvas.width = size;
+        canvas.height = size;
+    }
+
+    // Initial resize
+    resizeCanvas();
+    // Resize canvas if window size changes
+    window.addEventListener('resize', resizeCanvas);
 
     let fish = [];
     const fishCount = 30; // How many fish dots to show
@@ -17,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to create the fish at random positions
     function createFish() {
         fish = [];
+        const center = { x: canvas.width / 2, y: canvas.height / 2 };
         for (let i = 0; i < fishCount; i++) {
             const angle = Math.random() * 2 * Math.PI;
-            const radius = size / 2 + Math.random() * 50; // Start just outside the radar
+            const radius = (canvas.width / 2) + Math.random() * 50; // Start just outside the radar
             fish.push({
                 x: center.x + radius * Math.cos(angle),
                 y: center.y + radius * Math.sin(angle),
@@ -30,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // The animation loop
     function animate() {
+        const center = { x: canvas.width / 2, y: canvas.height / 2 };
         // Clear the canvas for the next frame
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -69,7 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Play the sound
         audio.currentTime = 0;
-        audio.play();
+        audio.play().catch(error => {
+            console.log("Audio play failed:", error);
+        });
 
         // Create new fish and start the animation
         createFish();
