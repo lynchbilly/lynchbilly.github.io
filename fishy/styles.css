@@ -1,0 +1,57 @@
+body {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#radar-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #002b00;
+    border-radius: 50%;
+    border: 3px solid #00ff00;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#radar-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#call-fish-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #1a1a1a;
+    background-color: #00ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#call-fish-btn:active {
+    background-color: #00cc00;
+}
