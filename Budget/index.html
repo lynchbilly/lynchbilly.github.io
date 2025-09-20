@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Budget Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- START OF CSS --- */
+
+        /* General Setup */
+        :root {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #app-container {
+            padding: 1rem 2rem;
+        }
+
+        /* --- Theme Variables --- */
+        .light-theme {
+            --bg-color: #f4f7fa;
+            --widget-bg-color: #ffffff;
+            --text-color: #1a202c;
+            --text-muted-color: #718096;
+            --border-color: #e2e8f0;
+            --accent-color: #4299e1;
+            --money-in-color: #48bb78;
+            --money-out-color: #f56565;
+        }
+
+        .dark-theme {
+            --bg-color: #1a202c;
+            --widget-bg-color: #2d3748;
+            --text-color: #f7fafc;
+            --text-muted-color: #a0aec0;
+            --border-color: #4a5568;
+            --accent-color: #63b3ed;
+            --money-in-color: #68d391;
+            --money-out-color: #fc8181;
+        }
+
+        .colorful-theme {
+            --bg-color: #f0f4f8;
+            --widget-bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --text-muted-color: #7f8c8d;
+            --border-color: #dce4ec;
+            --accent-color: #8e44ad;
+            --money-in-color: #2ecc71;
+            --money-out-color: #e74c3c;
+        }
+
+        /* Apply Theme Variables */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Header */
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .app-header h1 {
+            margin: 0;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Widget Styling */
+        .widget {
+            background-color: var(--widget-bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .widget h2 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted-color);
+        }
+
+        .widget-full-width {
+            grid-column: 1 / -1; /* Make this widget span the full width */
+        }
+
+        /* Money In/Out Widget */
+        .in-out-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .in-out-container span {
+            font-size: 0.9rem;
+            color: var(--text-muted-color);
+        }
+
+        .in-out-container p {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0.25rem 0;
+        }
+        .money-in p { color: var(--money-in-color); }
+        .money-out p { color: var(--money-out-color); }
+
+        /* Transaction Table */
+        #transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #transactions-table th, #transactions-table td {
+            text-align: left;
+            padding: 0.75rem 0.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #transactions-table th {
+            font-weight: 600;
+            color: var(--text-muted-color);
+        }
+
+        /* Category Management */
+        #category-list {
+            list-style: none;
+            padding: 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        #category-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        #category-list li:hover { background-color: var(--bg-color); }
+
+        .add-category-form {
+            display: flex;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+        #new-category-name {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Buttons and Controls */
+        button {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.85; }
+
+        #add-category-button {
+            padding: 0.5rem 0.8rem;
+        }
+
+        select {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--widget-bg-color);
+            color: var(--text-color);
+        }
+        /* --- END OF CSS --- */
+    </style>
+</head>
+<body class="light-theme"> <div id="app-container">
+        <header class="app-header">
+            <h1>Budget Dashboard</h1>
+            <div class="header-controls">
+                <div class="theme-selector">
+                    <label for="theme">Theme:</label>
+                    <select id="theme-switcher">
+                        <option value="light-theme">Light</option>
+                        <option value="dark-theme">Dark</option>
+                        <option value="colorful-theme">Colorful</option>
+                    </select>
+                </div>
+                <button id="logout-button">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <div class="widget">
+                <h2>Income vs. Expense</h2>
+                <div class="in-out-container">
+                    <div class="money-in">
+                        <span>Money In</span>
+                        <p id="money-in-value">$0.00</p>
+                    </div>
+                    <div class="money-out">
+                        <span>Money Out</span>
+                        <p id="money-out-value">$0.00</p>
+                    </div>
+                </div>
+                <canvas id="incomeExpenseChart"></canvas>
+            </div>
+
+            <div class="widget">
+                <h2>Spending by Category</h2>
+                <canvas id="categoryPieChart"></canvas>
+            </div>
+
+            <div class="widget widget-full-width">
+                 <h2>Manage Accounts</h2>
+                 <p>Connect your bank account to automatically import
