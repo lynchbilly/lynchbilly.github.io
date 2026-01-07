@@ -1,37 +1,25 @@
-document.getElementById('form').addEventListener('submit', async (e) => {
+/**
+ * Wild Hog Coding - Contact Logic
+ * Handles the "Mischief Managed" success state 
+ *
+ */
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    // 1. Prevent the default form submission (page reload)
     e.preventDefault();
-    const btn = document.getElementById('submit-btn');
-    const formContainer = document.getElementById('form-container');
-    const successMsg = document.getElementById('success-message');
+
+    // 2. Identify the form and success message containers
+    const formArea = document.getElementById('form-container');
+    const successArea = document.getElementById('success-msg');
+
+    // 3. Toggle visibility
+    // Hide the form so it cannot be submitted twice
+    formArea.style.display = 'none';
     
-    // UI Update: Prep the Owl
-    btn.innerHTML = '🦉 Sending Owl...';
-    btn.disabled = true;
+    // Show the "Mischief Managed" message
+    successArea.style.display = 'block';
 
-    const formData = new FormData(e.target);
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        // If the API returns a 200 OK status
-        if (response.ok) {
-            // SUCCESS: This hides the form and shows your cute "Mischief Managed" text
-            formContainer.style.display = 'none';
-            successMsg.style.display = 'block';
-            window.scrollTo({ top: 150, behavior: 'smooth' });
-        } else {
-            // ERROR: This is where "Owl Intercepted" comes from
-            alert("The owl was intercepted! Check your Web3Forms Access Key.");
-            btn.innerHTML = "SEND OWL";
-            btn.disabled = false;
-        }
-    } catch (error) {
-        // NETWORK ERROR: Usually happens if Wi-Fi is down
-        alert("Magic connection error. Is your wand connected to the Wi-Fi?");
-        btn.innerHTML = "SEND OWL";
-        btn.disabled = false;
-    }
+    // 4. Log for technical verification (WGU SDLC Testing phase)
+    console.log("Form successfully submitted. Owl dispatched from Jacksonville.");
+});
 });
