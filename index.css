@@ -1,59 +1,145 @@
-/* --- Global Styles --- */
+/* --- Global Resets & Razorback Red BG --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden;
     background-color: #9B1C1C; /* Razorback Red */
-    color: #FFFF00; /* Yellow Text */
-    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #FFFF00; /* GLOBAL YELLOW TEXT */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* --- THE WIDE BANNER --- */
-.banner { width: 100vw; height: 200px; object-fit: cover; display: block; border-bottom: 5px solid #FFFF00; }
-
-/* --- Navigation --- */
-nav { background-color: #f4f4f4; padding: 10px 0; border-bottom: 4px solid #000; }
-nav ul { list-style: none; display: flex; justify-content: center; gap: 15px; padding: 0; }
-nav ul li a img { height: 40px !important; display: block; }
-
-/* --- THE SHRUNK PROFILE IMAGE --- */
-.profile-img { 
-    width: 120px; /* SHRUNK significantly from 200px */
-    height: 120px; 
-    border-radius: 50%; 
-    border: 4px solid #FFFF00; /* Yellow Border */
-    object-fit: cover;
-    margin: 15px auto;
+.banner { 
+    width: 100vw; 
+    height: 220px; 
+    object-fit: cover; 
     display: block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin: 0;
+    border-bottom: 5px solid #FFFF00;
 }
 
-/* --- THE RED BOXES --- */
+/* --- Navigation & Icons --- */
+nav { 
+    background-color: #f4f4f4; 
+    padding: 12px 0; 
+    border-bottom: 4px solid #000;
+    width: 100%;
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px;
+}
+
+nav ul li a img {
+    height: 40px !important; /* Fixed size on all screens */
+    width: auto;
+    display: block;
+    transition: transform 0.1s ease-in-out;
+}
+
+nav ul li a:active img {
+    transform: scale(0.9);
+}
+
+/* --- THE RED-ON-RED CONTAINERS --- */
 .container { 
-    background-color: #9B1C1C; /* Red Fill */
-    padding: 25px;
+    background-color: #9B1C1C; 
+    padding: 30px;
     border: 5px solid #FFFF00; /* Yellow Rounded Border */
-    border-radius: 30px; 
+    border-radius: 35px; 
     text-align: left;
     margin: 20px auto;
-    max-width: 750px;
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+    max-width: 650px;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
 }
 
-/* --- PULSING SIGN-OFF --- */
-@keyframes orangePulse {
-    0% { color: #FFFF00; text-shadow: 2px 2px #000; }
-    50% { color: #FF4500; text-shadow: 0 0 15px #FF4500, 2px 2px #000; }
-    100% { color: #FFFF00; text-shadow: 2px 2px #000; }
+/* --- SMALL PROFILE IMAGE --- */
+.profile-img { 
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%; 
+    border: 5px solid #FFFF00; 
+    object-fit: cover;
+    margin: 20px auto;
+    display: block;
 }
 
-.force-quote {
-    margin-top: 40px; 
-    font-weight: 900; 
-    font-size: 2em; 
+/* --- FORM & INPUTS --- */
+.form-group { margin-bottom: 20px; }
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
     text-transform: uppercase;
-    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #9B1C1C; 
+    border: 3px solid #FFFF00; 
+    border-radius: 15px; 
+    padding: 15px;
+    color: #FFFF00; 
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 10px #FFFF00;
+}
+
+/* --- THE PULSING BUTTON --- */
+.btn-pro {
+    background-color: #9B1C1C; 
+    border: 5px solid #FFFF00; 
+    border-radius: 20px;
+    color: #FFFF00; 
+    padding: 18px;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
     animation: orangePulse 3s infinite ease-in-out;
 }
 
-.footer { width: 100vw; height: 150px; object-fit: cover; display: block; border-top: 5px solid #FFFF00; }
+/* --- PROGRESS TRACKER --- */
+.progress-border {
+    width: 100%;
+    background-color: #7A1616;
+    border: 3px solid #FFFF00;
+    border-radius: 15px;
+    height: 30px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #FFFF00;
+    color: #9B1C1C;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 24px;
+    font-weight: 900;
+}
+
+/* Animations */
+@keyframes orangePulse {
+    0% { border-color: #FFFF00; color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    50% { border-color: #FF4500; color: #FF4500; box-shadow: 0 0 20px #FF4500; }
+    100% { border-color: #FFFF00; color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+}
+
+.main-title { text-align: center; text-shadow: 3px 3px 6px #000; margin-top: 40px; font-size: 2.8em; }
+.force-quote { font-weight: 900; text-transform: uppercase; text-align: center; animation: orangePulse 3s infinite; }
+.footer { width: 100vw; height: 180px; object-fit: cover; display: block; border-top: 5px solid #FFFF00; }
