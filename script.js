@@ -4,8 +4,8 @@ document.getElementById('form').addEventListener('submit', async (e) => {
     const formContainer = document.getElementById('form-container');
     const successMsg = document.getElementById('success-message');
     
-    // Visual feedback that the "Owl" is being prepped
-    btn.innerHTML = '<span class="sending-owl">🦉</span> Sending Owl...';
+    // UI Update: Prep the Owl
+    btn.innerHTML = '🦉 Sending Owl...';
     btn.disabled = true;
 
     const formData = new FormData(e.target);
@@ -17,18 +17,18 @@ document.getElementById('form').addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            // Success: Hide form and show "Mischief Managed"
+            // Mischief Managed: Clear and Hide
             formContainer.style.display = 'none';
             successMsg.style.display = 'block';
-            window.scrollTo({ top: 200, behavior: 'smooth' });
+            window.scrollTo({ top: 150, behavior: 'smooth' });
         } else {
-            alert("The owl was intercepted! Please try casting the spell again.");
-            btn.textContent = "Dispatch Owl";
+            alert("The owl was intercepted! Check your connection.");
+            btn.innerHTML = "SEND OWL";
             btn.disabled = false;
         }
     } catch (error) {
-        alert("Magic connection error. Is your wand (Wi-Fi) connected?");
-        btn.textContent = "Dispatch Owl";
+        alert("Magic connection error. Is your wand connected to the Wi-Fi?");
+        btn.innerHTML = "SEND OWL";
         btn.disabled = false;
     }
 });
