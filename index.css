@@ -1,38 +1,36 @@
-/* --- BRAND IDENTITY --- */
-:root {
-    --ar-red: #9D2235;   /* Arkansas Cardinal Red */
-    --ar-white: #FFFFFF; 
-    --ar-black: #000000;
-}
-
-* { box-sizing: border-box; }
-
-html, body {
-    margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: var(--ar-black); color: var(--ar-white); 
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    text-align: center;
-}
-
-/* --- BANNER LOCK: 600x150 --- */
-.banner { 
-    width: 100%; max-width: 600px; height: 150px; 
-    display: block; margin: 0 auto; object-fit: contain; 
-    border: 3px solid var(--ar-white); border-bottom: 5px solid var(--ar-red);
-}
-
 /* --- NAVIGATION REPAIR: SOLID RED BACKGROUND --- */
 nav { 
-    background-color: var(--ar-red); padding: 15px 0; 
-    width: 100%; max-width: 600px; margin: 0 auto; 
-    border-bottom: 4px solid var(--ar-white); 
+    background-color: #9D2235; /* Arkansas Cardinal Red */
+    padding: 15px 0; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    border-bottom: 4px solid #FFFFFF; 
 }
-nav ul { 
-    list-style: none; margin: 0; padding: 0; 
-    display: flex; justify-content: center; gap: 20px; 
-}
-nav ul li a img { height: 45px !important; width: auto; transition: 0.3s; }
-nav ul li a img:hover { transform: scale(1.1); }
 
-/* --- CONTAINERS & FORM ELEMENTS --- */
-[attachment_0](attachment)
+/* --- HORIZONTAL ALIGNMENT --- */
+nav ul { 
+    list-style: none; /* Removes the dots */
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+/* --- FLASHY ANIMATED QUOTE --- */
+@keyframes flashyPulse {
+    0% { color: #9D2235; text-shadow: 0 0 5px #FFFFFF; }
+    50% { color: #FFFFFF; text-shadow: 0 0 15px #9D2235; }
+    100% { color: #9D2235; text-shadow: 0 0 5px #FFFFFF; }
+}
+
+.flashy-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 50px auto; 
+    font-size: 1.8em; 
+    animation: flashyPulse 3s infinite ease-in-out;
+    width: 100%;
+}
