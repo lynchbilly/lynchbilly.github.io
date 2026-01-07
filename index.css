@@ -1,72 +1,103 @@
-/* --- 1. BRAND IDENTITY --- */
 :root {
-    --ar-red: #9D2235;   /* Arkansas Cardinal Red */
-    --ar-white: #FFFFFF; /* Pure White */
-    --ar-black: #000000; /* Pure Black */
+    --ar-red: #9D2235;
+    --ar-white: #FFFFFF;
+    --ar-black: #000000;
+    --terminal-bg: rgba(15, 15, 15, 0.95);
 }
 
-/* --- 2. GLOBAL RESET & CORE LAYOUT --- */
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     background-color: var(--ar-black);
     color: var(--ar-white);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace; /* Digital Engineering Aesthetic */
     text-align: center;
-    line-height: 1.5;
-    min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* --- 3. THE BANNER (600x150) --- */
-/* Restores visibility and centers the branding */
+/* --- 600x150 BANNER LOCK --- */
 .banner { 
-    width: 100%; 
-    max-width: 600px; 
-    height: auto; 
-    display: block; 
-    margin: 0 auto; 
-    border: 2px solid var(--ar-white); 
-    object-fit: contain;
+    width: 100%; max-width: 600px; height: auto; 
+    display: block; margin: 0 auto; border-bottom: 3px solid var(--ar-white); 
 }
 
-/* --- 4. UNIFIED NAVIGATION LINKS --- */
-/* FIX: Prevents icons from collapsing into dots */
+/* --- MASSIVE NAVIGATION (75px) --- */
 nav { 
-    background-color: var(--ar-red); 
-    padding: 10px 0; 
-    width: 100%; 
-    max-width: 600px; 
-    margin: 0 auto; 
-    border-bottom: 4px solid var(--ar-white); 
+    background-color: var(--ar-red); padding: 20px 0;
+    width: 100%; max-width: 600px; margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 nav ul { 
-    list-style: none; 
-    display: flex; 
-    justify-content: center; 
-    gap: 15px; 
+    list-style: none; display: flex; justify-content: center; gap: 20px; 
 }
 
 nav ul li a img { 
-    height: 50px !important; /* Uniform height */
-    width: 50px !important;  /* Uniform width */
-    border: 1px solid var(--ar-white); 
-    border-radius: 5px; 
-    background-color: var(--ar-black);
+    height: 75px !important; /* Bold creative scaling */
+    width: 75px !important;
+    border: 3px solid var(--ar-white);
+    border-radius: 12px;
+    background: #000;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a img:hover { transform: scale(1.1) rotate(3deg); }
+
+/* --- DASHBOARD PANELS --- */
+.panel {
+    background: var(--terminal-bg);
+    border-left: 5px solid var(--ar-red);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 580px;
+    width: 90%;
+    text-align: left;
+    border-radius: 0 15px 15px 0;
+}
+
+.panel h2 {
+    color: var(--ar-red);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+/* --- IMAGE SCALING --- */
+.id-badge {
+    width: 160px; height: 160px;
+    object-fit: cover;
+    border-radius: 50% 5% 50% 5%; /* Geometric design */
+    border: 4px solid var(--ar-red);
+    margin: 25px auto;
     display: block;
 }
 
-/* --- 5. CONTAINERS & RESPONSIVE PHOTOS --- */
+.family-snapshot {
+    width: 100%; max-width: 320px; /* Controlled sizing */
+    height: auto;
+    border: 1px solid var(--ar-white);
+    margin-top: 15px;
+    border-radius: 5px;
+}
 
-.container { 
-    background-color: #0f0f0f; 
-    padding: 20px; 
-    border: 2px solid var(--ar-red); 
-    border-radius: 15px; 
+/* --- FORM CONTROLS --- */
+.form-control {
+    width: 100%; background: #000; border: 2px solid #fff; 
+    border-radius: 5px; padding: 12px; color: #fff; margin-bottom: 15px;
+    font-family: inherit;
+}
+
+.btn-red-rounded {
+    background: var(--ar-red); color: #fff; border: 2px solid #fff; 
+    padding: 15px; width: 100%; font-weight: bold; cursor: pointer;
+    text-transform: uppercase;
+}
+
+.flashy-quote {
+    font-weight: 900; text-transform: uppercase; font-size: 1.5em;
+    margin: 50px auto; color: var(--ar-red);
+}
     margin: 20px auto; 
     width: 90%; 
     max-width: 600px; 
@@ -164,4 +195,5 @@ nav ul li a img {
     margin: 50px auto; 
     animation: flashyPulse 3s infinite ease-in-out;
 }
+
 
