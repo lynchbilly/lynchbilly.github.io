@@ -19,7 +19,7 @@ html, body {
     border-bottom: 4px solid #FFFF00;
 }
 
-/* --- Navigation --- */
+/* --- Navigation Shell-Casings --- */
 nav { 
     background-color: #f4f4f4; 
     padding: 12px 0; 
@@ -36,18 +36,29 @@ nav ul {
     gap: 15px;
 }
 
+nav ul li a img {
+    height: 40px;
+    transition: transform 0.1s ease-in-out;
+}
+
+/* Link size fix: shrink slightly when clicked */
+nav ul li a:active img {
+    height: 35px;
+}
+
 /* --- THE RED BOXES WITH ROUNDED YELLOW BORDERS --- */
 .skills-grid, .container { 
-    background-color: #9B1C1C; /* Deep Red Box Fill */
+    background-color: #9B1C1C; 
     padding: 30px;
     border: 5px solid #FFFF00; /* BRIGHT YELLOW ROUNDED BORDERS */
     border-radius: 30px; 
     text-align: left;
-    margin-top: 25px;
+    margin: 20px auto;
+    max-width: 900px;
     box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
 }
 
-/* Forcing all text inside boxes to be yellow */
+/* Text Classes forced to Yellow for Readability */
 .skill-item, .intro-text, .subtitle, p, li { 
     color: #FFFF00 !important; 
     font-size: 1.2em; 
@@ -56,23 +67,18 @@ nav ul {
     text-shadow: 1px 1px 2px #000;
 }
 
-/* Title & Header Text Shadows */
 .main-title, .skill-item strong, h1, h2 { 
     color: #FFFF00; 
     text-transform: uppercase;
     text-shadow: 3px 3px 5px #000000;
     margin-bottom: 12px;
+    text-align: center;
 }
 
-.main-title {
-    font-size: 3em;
-    font-weight: 900;
-}
-
-/* --- Profile Styling (MUCH SMALLER) --- */
+/* --- Profile Image Styling (Small) --- */
 .profile-img { 
-    width: 150px; /* Reduced from 200px */
-    height: 150px; /* Reduced from 200px */
+    width: 150px; 
+    height: 150px; 
     border-radius: 50%; 
     border: 4px solid #FFFF00; 
     object-fit: cover;
@@ -80,21 +86,33 @@ nav ul {
     display: block;
 }
 
-/* --- ORANGE PULSE ANIMATION KEYFRAMES --- */
+/* --- FORM STYLING --- */
+.form-control {
+    width: 100%;
+    background-color: #9B1C1C;
+    border: 3px solid #FFFF00;
+    border-radius: 15px;
+    padding: 12px;
+    color: #FFFF00;
+    font-size: 1.1em;
+    font-family: inherit;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* --- ORANGE PULSE ANIMATION --- */
 @keyframes orangePulse {
     0% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
-    50% { color: #FF4500; text-shadow: 0 0 20px #FF4500, 4px 4px 0px #000; } /* Bright Orange-Red Glow */
+    50% { color: #FF4500; text-shadow: 0 0 20px #FF4500, 4px 4px 0px #000; }
     100% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
 }
 
-/* --- The Final Sign-off with Pulse --- */
 .force-quote {
-    margin-top: 60px; 
+    margin-top: 50px; 
     font-weight: 900; 
     font-size: 2.2em; 
     text-transform: uppercase;
     text-align: center;
-    /* Apply the animation here */
     animation: orangePulse 3s infinite ease-in-out;
 }
 
@@ -104,17 +122,5 @@ nav ul {
     height: 180px; 
     object-fit: cover; 
     display: block;
-    margin-top: 50px;
     border-top: 5px solid #FFFF00;
 }
-}
-
-/* --- Footer --- */
-.footer { 
-    width: 100%; 
-    display: block; 
-    margin-top: 50px;
-}
-
-
-
