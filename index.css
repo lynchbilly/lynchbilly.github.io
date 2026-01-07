@@ -205,7 +205,46 @@ body {
     margin-left: 260px;
     margin-top:20px;
     background-color: transparent;
+	  /* Keeps the skills and image side-by-side */
+.skills-container {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: space-around; /* Adds space on each side */
+    margin: 20px 0;
+    flex-wrap: wrap; /* Wraps on mobile phones */
+}
+
+.skills-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+.skills-list ul {
+    list-style-type: square;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+.skills-image-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.center-hog {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: softens the edges */
+}
+
+/* Existing Banner/Footer Styles (Keep your originals) */
+.banner, .footer {
+    width: 100%;
+}
+	  
 
 	  
   
   
+
