@@ -16,39 +16,77 @@ html, body {
     object-fit: cover; 
     display: block;
     margin: 0;
-    border-bottom: 4px solid #FFFF00;
+    border-bottom: 5px solid #FFFF00;
 }
 
-/* --- Navigation Shell-Casings --- */
-nav { 
-    background-color: #f4f4f4; 
-    padding: 12px 0; 
-    border-bottom: 4px solid #000;
+/* --- THE RED FORM CONTAINER WITH YELLOW BORDERS --- */
+.container { 
+    background-color: #9B1C1C; /* Red Fill per request */
+    padding: 35px;
+    border: 5px solid #FFFF00; /* Yellow Rounded Border */
+    border-radius: 35px; 
+    text-align: left;
+    margin: 25px auto;
+    max-width: 600px;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* --- FORM INPUT PARAMETERS --- */
+.form-control {
     width: 100%;
+    background-color: #9B1C1C; /* Red Background */
+    border: 3px solid #FFFF00; /* Yellow Border */
+    border-radius: 15px;
+    padding: 15px;
+    color: #FFFF00; /* Yellow Text */
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1em;
 }
 
-nav ul { 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
-    gap: 15px;
+/* --- THE BUTTON PARAMETERS --- */
+.btn-pro {
+    background-color: #9B1C1C; /* Red Background per request */
+    border: 4px solid #FFFF00; /* Yellow Rounded Border */
+    border-radius: 20px;
+    color: #FFFF00; /* Yellow Text */
+    padding: 18px 30px;
+    font-size: 1.4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    animation: orangePulse 2.5s infinite ease-in-out;
+    margin-top: 10px;
 }
 
-nav ul li a img {
-    height: 40px;
-    transition: transform 0.1s ease-in-out;
+/* --- ORANGE PULSE ANIMATION --- */
+@keyframes orangePulse {
+    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
+    50% { border-color: #FF4500; box-shadow: 0 0 20px #FF4500; color: #FF4500; }
+    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
 }
 
-/* Link size fix: shrink slightly when clicked */
-nav ul li a:active img {
-    height: 35px;
+.main-title { 
+    color: #FFFF00; 
+    text-align: center; 
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px #000;
+    margin: 40px 0 20px 0;
+    font-size: 2.5em;
 }
-
-/* --- THE RED BOXES WITH ROUNDED YELLOW BORDERS --- */
-.skills-grid, .container { 
-    background-color: #9B1C1C; 
     padding: 30px;
     border: 5px solid #FFFF00; /* BRIGHT YELLOW ROUNDED BORDERS */
     border-radius: 30px; 
@@ -124,3 +162,4 @@ nav ul li a:active img {
     display: block;
     border-top: 5px solid #FFFF00;
 }
+
