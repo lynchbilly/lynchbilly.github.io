@@ -4,16 +4,18 @@
     <link rel="StyleSheet" href="index.css" type="text/css">
     <title>Razorback Coding | Contact Billy James Lynch</title>
     <style>
-        /* Small animation for the Owl Post */
-        @keyframes fly {
-            0% { transform: translateX(-100px) translateY(20px); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100px) translateY(-20px); opacity: 0; }
+        /* The Owl's Flight Animation */
+        @keyframes owlFlight {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
         }
-        .owl-animation {
-            font-size: 3em;
+        .sending-owl {
             display: inline-block;
-            animation: fly 2s infinite linear;
+            font-size: 2em;
+            animation: owlFlight 1s infinite;
         }
     </style>
 </head>
@@ -31,13 +33,12 @@
 
     <div class="body">
         <h1 class="main-title">Owl Post Transmission</h1>
-        <p class="subtitle">Direct to Jacksonville, AR</p>
-
+        
         <div id="success-message" style="display: none; margin-bottom: 20px;">
-            <div class="container" style="border: 5px double #9B1C1C; text-align: center;">
-                <div class="owl-animation">🦉</div>
-                <h2 style="color: #FFFF00; font-family: 'Brush Script MT', cursive; font-size: 2.2em;">✨ Mischief Managed! ✨</h2>
-                <p style="color: #FFD700;">Your owl has taken flight. Billy James Lynch will receive your message shortly.</p>
+            <div class="container" style="border: 5px double #9B1C1C; text-align: center; background: #111;">
+                <div style="font-size: 4em; margin-bottom: 10px;">🦉</div>
+                <h2 style="color: #FFFF00; font-family: 'Brush Script MT', cursive; font-size: 2.5em;">✨ Mischief Managed! ✨</h2>
+                <p style="color: #FFD700; font-size: 1.2em;">Your owl has taken flight! Billy James Lynch will receive your message in Jacksonville shortly.</p>
             </div>
         </div>
 
@@ -49,7 +50,7 @@
                 <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                 <textarea name="message" class="form-control" rows="6" placeholder="Your message for the Ministry of Coding..." required></textarea>
                 
-                <button type="submit" class="btn-submit">Dispatch Owl</button>
+                <button type="submit" class="btn-submit" id="submit-btn">Dispatch Owl</button>
             </form>
         </div>
     </div>
