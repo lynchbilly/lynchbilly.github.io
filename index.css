@@ -1,42 +1,141 @@
-/* --- Global Styles: Unified Razorback Red --- */
+/* --- GLOBAL STYLES: UNIFIED RAZORBACK RED --- */
 html, body {
-    margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: #9B1C1C; color: #FFFF00;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* Ensures red fills the screen */
     overflow-x: hidden;
+    background-color: #9B1C1C; /* Razorback Red */
+    color: #FFFF00; /* Global Yellow Text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* --- Navigation Fix: Red Background Behind Links --- */
-nav { background-color: #9B1C1C; padding: 20px 0; border-bottom: 4px solid #FFFF00; width: 100%; }
-nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 25px; }
-nav ul li a img { height: 40px !important; filter: drop-shadow(2px 2px 4px #000); }
+/* --- THE WIDE CINEMATIC BANNER --- */
+.banner { 
+    width: 100vw; 
+    height: 220px; 
+    object-fit: cover; 
+    display: block;
+    margin: 0;
+    border-bottom: 5px solid #FFFF00; /* Yellow divider */
+}
 
-/* --- Containers with "Pop" Borders --- */
+/* --- NAVIGATION: RED BACKGROUND BEHIND LINKS --- */
+nav { 
+    background-color: #9B1C1C; /* Eliminated white space */
+    padding: 20px 0; 
+    border-bottom: 4px solid #FFFF00; /* Yellow contrast border */
+    width: 100%;
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 25px;
+}
+
+nav ul li a img {
+    height: 40px !important; /* Fixed icon size */
+    width: auto;
+    display: block;
+    transition: transform 0.1s ease-in-out;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6)); /* Makes icons pop on red */
+}
+
+nav ul li a:active img {
+    transform: scale(0.9);
+}
+
+/* --- PROFILE IMAGE SIZE LOCK (ABOUT PAGE) --- */
+.profile-img { 
+    width: 250px !important; /* Professional scale */
+    height: 250px !important;
+    border-radius: 50%; /* Perfect Circle */
+    border: 5px solid #FFFF00; 
+    object-fit: cover; /* Prevents stretching */
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Depth shadow */
+}
+
+/* --- CONTAINERS WITH "POP" BORDERS --- */
 .container { 
-    background-color: #9B1C1C; padding: 30px; border: 5px solid #FFFF00; 
-    border-radius: 35px; margin: 30px auto; max-width: 650px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+    background-color: #9B1C1C; 
+    padding: 30px;
+    border: 5px solid #FFFF00; /* High-impact Yellow */
+    border-radius: 35px; 
+    margin: 30px auto;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Deep depth shadow */
 }
 
-/* --- The Pulsing Animation --- */
+/* --- FORM & INPUTS (CONTACT PAGE) --- */
+.form-group { margin-bottom: 20px; }
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #9B1C1C;
+    border: 3px solid #FFFF00;
+    border-radius: 15px; 
+    padding: 15px;
+    color: #FFFF00; 
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1.1em;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 15px #FFFF00; /* Yellow glow on focus */
+}
+
+/* --- THE PULSING POP ANIMATION --- */
 @keyframes orangePulse {
     0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
-    50% { border-color: #FF4500; box-shadow: 0 0 30px #FF4500; color: #FF4500; }
+    50% { border-color: #FF4500; box-shadow: 0 0 35px #FF4500; color: #FF4500; }
     100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
 }
 
+/* --- BUTTON & SIGNATURE STYLING --- */
 .btn-pro {
-    background-color: #9B1C1C; border: 5px solid #FFFF00; border-radius: 20px;
-    color: #FFFF00; padding: 20px; font-size: 1.5em; font-weight: 900;
-    text-transform: uppercase; cursor: pointer; width: 100%;
-    animation: orangePulse 3s infinite ease-in-out;
+    background-color: #9B1C1C; 
+    border: 5px solid #FFFF00; 
+    border-radius: 20px;
+    color: #FFFF00; 
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    animation: orangePulse 3s infinite ease-in-out; /* The Pulse */
 }
 
 .force-quote {
-    font-weight: 900; text-transform: uppercase; text-align: center; 
-    margin: 80px 0; font-size: 2.5em; text-shadow: 3px 3px 10px #000;
-    animation: orangePulse 3s infinite ease-in-out;
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 80px 0;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 10px #000;
+    animation: orangePulse 3s infinite ease-in-out; /* Pulsing Signature */
 }
 
+/* --- TITLES & HEADERS --- */
 .main-title { text-align: center; text-shadow: 3px 3px 10px #000; margin-top: 40px; font-size: 2.8em; }
-/* ... Keep rest of your standard styles ... */
+.stack-header { text-align: center; border-bottom: 2px solid #FFFF00; padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; }
+
+/* --- SKILLS LISTS --- */
+.skills-list { list-style-type: '🐗 '; padding-left: 25px; line-height: 1.8; font-weight: 500; }
+.skills-list li { margin-bottom: 10px; font-size: 1.1em; }
