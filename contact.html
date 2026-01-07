@@ -8,7 +8,6 @@
 </head>
 <body>
     <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="Banner" class="banner">
-    
     <nav>
         <ul>
             <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home"></a></li>
@@ -17,43 +16,34 @@
             <li><a href="contact.html"><img src="45D283DD-0F2D-45A5-8804-A148A646AB86.jpeg" alt="contact"></a></li>
         </ul>
     </nav>
-
     <div class="body">
         <h1 class="main-title">GET IN TOUCH</h1>
-        
         <div id="form-container">
             <form id="form">
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-
+                <input type="hidden" name="access_key" value="YOUR_KEY_HERE">
                 <div class="container">
                     <div class="form-group">
-                        <label for="name">NAME</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Billy James Lynch" required>
+                        <label>NAME</label>
+                        <input type="text" name="name" class="form-control" placeholder="Billy James Lynch" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="email">EMAIL</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                        <label>EMAIL</label>
+                        <input type="email" name="email" class="form-control" placeholder="your.email@example.com" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="message">MESSAGE</label>
-                        <textarea id="message" name="message" class="form-control" rows="6" placeholder="Project details or technical inquiry..." required></textarea>
+                        <label>MESSAGE</label>
+                        <textarea name="message" class="form-control" rows="6" placeholder="Project details..." required></textarea>
                     </div>
-
                     <button type="submit" id="submit-btn" class="btn-pro">SEND OWL</button>
                 </div>
             </form>
         </div>
-
         <div id="success-message" class="container" style="display: none; text-align: center;">
-            <h2 class="force-quote" style="font-size: 2.2em;">Mischief Managed!</h2>
-            <p style="font-size: 1.2em;">Your message has been whisked away to Jacksonville via Owl Post.</p>
+            <h2 class="force-quote">Mischief Managed!</h2>
+            <p>Your message is flying to Jacksonville via Owl Post.</p>
         </div>
-        
         <p class="force-quote">May the Code be with you.</p>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
