@@ -3,18 +3,18 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Clean white background for the page body */
+    background-color: #ffffff;
     color: #333;
 }
 
-/* --- Header & Banner --- */
+/* --- Header & Wide Banner --- */
 .banner { 
     width: 100%; 
-    max-height: 200px; /* Reduced height to keep the focus on content */
-    object-fit: contain; /* Ensures the image isn't stretched or distorted */
+    height: auto; /* Allows the height to scale naturally with width */
+    max-height: 400px; /* Increased height to make it feel wider and bolder */
+    object-fit: cover; /* Ensures the image fills the width without distorting */
     display: block; 
-    margin: 0 auto; 
-    background-color: #f4f4f4; 
+    margin: 0; /* Removed auto-margin to let it touch the edges */
 }
 
 .footer { 
@@ -26,9 +26,9 @@ body {
 /* --- Navigation --- */
 nav { 
     background-color: #f4f4f4; 
-    padding: 15px 0; 
+    padding: 20px 0; /* Slightly more padding for a professional feel */
     border-bottom: 2px solid #ddd;
-    position: sticky; /* Keeps your navigation visible while scrolling */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -39,11 +39,11 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 30px; 
+    gap: 40px; /* Wider gap to match the wider banner */
 }
 
 .home, .skills, .about, .contact { 
-    height: 45px; 
+    height: 50px; 
     transition: transform 0.2s ease-in-out; 
 }
 
@@ -54,148 +54,19 @@ nav ul {
 /* --- Main Layout --- */
 .body { 
     padding: 40px 20px; 
-    max-width: 900px; 
+    max-width: 1100px; /* Increased max-width of content to match the wider feel */
     margin: 0 auto; 
     text-align: center; 
 }
 
-.main-title { 
-    font-size: 2.8em; 
-    color: #9B1C1C; /* Razorback Red */
-    text-transform: uppercase; 
-    margin-bottom: 5px; 
-    font-weight: 800; 
-    letter-spacing: 1px;
-}
-
-.subtitle { 
-    font-size: 1.2em; 
-    color: #666; 
-    margin-bottom: 40px; 
-    font-style: italic; 
-}
-
-/* --- The "Razorback Red" Container (Dark Mode Boxes) --- */
+/* --- The "Razorback Red" Container --- */
 .skills-grid, .container { 
     display: grid; 
     gap: 25px; 
     text-align: left; 
-    background: #111; /* Dark background for high contrast */
+    background: #111;
     padding: 35px;
     border: 5px solid #9B1C1C; 
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(155, 28, 28, 0.4);
-}
-
-.skill-item, .intro-text { 
-    color: #FFD700; /* Gold/Yellow text */
-    font-size: 1.15em; 
-    line-height: 1.6;
-}
-
-.skill-item strong { 
-    color: #FFFF00; /* Brighter yellow for titles */
-    display: block; 
-    margin-bottom: 12px; 
-    border-bottom: 2px solid #9B1C1C; 
-    padding-bottom: 5px; 
-    font-size: 1.4em;
-    text-transform: uppercase;
-}
-
-/* --- List Styling (Skills Page) --- */
-.skill-item ul {
-    list-style-type: square;
-    padding-left: 25px;
-    margin-top: 10px;
-}
-
-.skill-item li {
-    margin-bottom: 8px;
-    color: #FFD700;
-}
-
-/* --- Profile & About Section --- */
-.profile-section { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 40px; 
-    margin-bottom: 40px; 
-    flex-wrap: wrap; 
-}
-
-.photo-placeholder { 
-    width: 220px; 
-    height: 220px; 
-    border: 5px solid #9B1C1C; 
-    border-radius: 50%; 
-    background-color: #222; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden; 
-}
-
-.profile-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-.intro-box { 
-    text-align: left; 
-    max-width: 500px; 
-}
-
-/* --- Form Elements --- */
-.form-control { 
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 20px; 
-    background: #222; 
-    border: 2px solid #9B1C1C; 
-    color: #FFFF00; 
-    font-size: 1.1em;
-    border-radius: 8px; 
-    box-sizing: border-box; 
-}
-
-.form-control::placeholder {
-    color: #888;
-}
-
-.btn-submit { 
-    width: 100%; 
-    padding: 18px; 
-    background: #9B1C1C; 
-    color: white; 
-    font-weight: bold; 
-    font-size: 1.2em;
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-}
-
-.btn-submit:hover { 
-    background: #ff0000; 
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
-    transform: translateY(-2px);
-}
-
-/* --- Owl Animation for Contact Page --- */
-@keyframes owlFlight {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-.sending-owl {
-    display: inline-block;
-    animation: owlFlight 0.8s infinite ease-in-out;
 }
