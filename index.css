@@ -1,4 +1,4 @@
-/* --- GLOBAL RESET & BOX MODEL --- */
+/* --- 1. CROSS-BROWSER RESET & GLOBAL STYLES --- */
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -6,74 +6,101 @@
 }
 
 html, body {
-    margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: #9B1C1C; color: #FFFF00;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #9B1C1C; /* Razorback Red */
+    color: #FFFF00; /* Yellow Text */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
-/* --- BANNER: ALIGNED TO CONTENT WIDTH --- */
+/* --- 2. BANNER: ASPECT RATIO PRESERVATION --- */
 .banner { 
     width: 100%;
-    max-width: 600px; /* Aligned with containers */
-    height: 150px; /* Reduced height */
-    object-fit: cover; 
+    max-width: 600px; /* Aligns with content containers */
+    height: auto;     /* Ensures the top of the banner is never cut off */
     display: block; 
     margin: 0 auto; 
+    border: 3px solid #FFFF00;
     border-bottom: 5px solid #FFFF00;
 }
 
-/* --- NAVIGATION: THE FLEXBOX STACK --- */
+/* --- 3. NAVIGATION: RED BACKGROUND & MOBILE STACKING --- */
 nav { 
     background-color: #9B1C1C; 
     padding: 20px 0; 
     width: 100%; 
-    max-width: 600px;
+    max-width: 600px; /* Aligned with banner */
     margin: 0 auto;
     border-bottom: 4px solid #FFFF00; 
 }
 
 nav ul { 
-    list-style: none; margin: 0; padding: 0; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: -webkit-flex;
     display: flex; 
-    flex-wrap: wrap; /* Allows stacking */
+    flex-wrap: wrap; 
+    -webkit-justify-content: center;
     justify-content: center; 
     gap: 30px; 
 }
 
-/* MOBILE STACKING LOGIC */
+/* MOBILE STACK: Vertical links on small screens */
 @media (max-width: 480px) {
     nav ul {
-        flex-direction: column; /* Stacks links vertically */
+        flex-direction: column;
         align-items: center;
-        gap: 15px; /* Tighter gap for mobile */
+        gap: 15px;
     }
 }
 
 nav ul li a img { 
-    height: 50px !important; /* Larger icons for visibility */
+    height: 50px !important; /* Larger icons for readability */
     width: auto;
+    -webkit-filter: drop-shadow(3px 3px 5px #000);
     filter: drop-shadow(3px 3px 5px #000); 
+    transition: transform 0.2s;
 }
 
-/* --- PROFILE IMAGE & CONTAINERS --- */
+nav ul li a img:hover { transform: scale(1.1); }
+
+/* --- 4. PROFILE IMAGE SIZE LOCK (ABOUT PAGE) --- */
 .profile-img { 
-    width: 150px !important; height: 150px !important;
-    border-radius: 50%; border: 4px solid #FFFF00; 
-    object-fit: cover; margin: 20px auto; display: block;
+    width: 150px !important; /* Shrunk as requested */
+    height: 150px !important;
+    border-radius: 50%;
+    border: 4px solid #FFFF00; 
+    object-fit: cover;
+    margin: 30px auto;
+    display: block;
     box-shadow: 0 8px 15px rgba(0,0,0,0.6);
 }
 
+/* --- 5. RAZORBACK PRO CONTAINERS --- */
 .container { 
-    background-color: #9B1C1C; padding: 25px; 
-    border: 5px solid #FFFF00; border-radius: 25px; 
+    background-color: #9B1C1C; 
+    padding: 25px; 
+    border: 5px solid #FFFF00; 
+    border-radius: 25px; 
     margin: 20px auto; 
-    max-width: 90%; /* Responsive width */
-    width: 600px;  /* Desktop limit */
+    max-width: 90%; 
+    width: 600px; /* Unified width for vertical alignment */
     box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
 }
 
-/* --- ANIMATIONS & BUTTONS --- */
+/* --- 6. PULSING ANIMATION & BUTTONS --- */
+@-webkit-keyframes orangePulse {
+    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    50% { border-color: #FF4500; box-shadow: 0 0 25px #FF4500; }
+    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+}
+
 @keyframes orangePulse {
     0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
     50% { border-color: #FF4500; box-shadow: 0 0 25px #FF4500; color: #FF4500; }
@@ -81,112 +108,45 @@ nav ul li a img {
 }
 
 .btn-pro {
-    background-color: #9B1C1C; border: 4px solid #FFFF00; border-radius: 15px;
-    color: #FFFF00; padding: 15px; font-size: 1.2em; font-weight: 900;
-    cursor: pointer; width: 100%; text-transform: uppercase;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-
-.force-quote {
-    font-weight: 900; text-transform: uppercase; text-align: center; 
-    margin: 50px 0; font-size: 2em; text-shadow: 2px 2px 8px #000;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-    cursor: pointer; width: 100%; text-transform: uppercase;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-    color: #FFFF00; padding: 15px; font-size: 1.2em; font-weight: 900;
-    cursor: pointer; width: 100%; text-transform: uppercase;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-
-.force-quote {
-    font-weight: 900; text-transform: uppercase; text-align: center; 
-    margin: 50px 0; font-size: 2em; text-shadow: 2px 2px 8px #000;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Depth shadow */
-}
-
-/* --- CONTAINERS WITH "POP" BORDERS --- */
-.container { 
     background-color: #9B1C1C; 
-    padding: 30px;
-    border: 5px solid #FFFF00; /* High-impact Yellow */
-    border-radius: 35px; 
-    margin: 30px auto;
-    max-width: 650px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Deep depth shadow */
-}
-
-/* --- FORM & INPUTS (CONTACT PAGE) --- */
-.form-group { margin-bottom: 20px; }
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px #000;
-}
-
-.form-control {
-    width: 100%;
-    background-color: #9B1C1C;
-    border: 3px solid #FFFF00;
-    border-radius: 15px; 
-    padding: 15px;
+    border: 4px solid #FFFF00; 
+    border-radius: 15px;
     color: #FFFF00; 
-    font-weight: bold;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 1.1em;
-}
-
-.form-control:focus {
-    outline: none;
-    box-shadow: 0 0 15px #FFFF00; /* Yellow glow on focus */
-}
-
-/* --- THE PULSING POP ANIMATION --- */
-@keyframes orangePulse {
-    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
-    50% { border-color: #FF4500; box-shadow: 0 0 35px #FF4500; color: #FF4500; }
-    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
-}
-
-/* --- BUTTON & SIGNATURE STYLING --- */
-.btn-pro {
-    background-color: #9B1C1C; 
-    border: 5px solid #FFFF00; 
-    border-radius: 20px;
-    color: #FFFF00; 
-    padding: 20px;
-    font-size: 1.5em;
+    padding: 18px; 
+    font-size: 1.3em; 
     font-weight: 900;
+    cursor: pointer; 
+    width: 100%; 
     text-transform: uppercase;
-    cursor: pointer;
-    width: 100%;
-    animation: orangePulse 3s infinite ease-in-out; /* The Pulse */
+    -webkit-animation: orangePulse 3s infinite ease-in-out;
+    animation: orangePulse 3s infinite ease-in-out;
+}
+
+/* --- 7. TYPOGRAPHY & FORMS --- */
+.main-title { 
+    text-align: center; 
+    text-shadow: 3px 3px 10px #000; 
+    margin-top: 30px; 
+    font-size: 2.5em; 
 }
 
 .force-quote {
     font-weight: 900; 
     text-transform: uppercase; 
     text-align: center; 
-    margin: 80px 0;
-    font-size: 2.5em;
-    text-shadow: 3px 3px 10px #000;
-    animation: orangePulse 3s infinite ease-in-out; /* Pulsing Signature */
+    margin: 60px 0; 
+    font-size: 2.2em; 
+    text-shadow: 2px 2px 8px #000;
+    animation: orangePulse 3s infinite ease-in-out;
 }
 
-/* --- TITLES & HEADERS --- */
-.main-title { text-align: center; text-shadow: 3px 3px 10px #000; margin-top: 40px; font-size: 2.8em; }
-.stack-header { text-align: center; border-bottom: 2px solid #FFFF00; padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; }
-
-/* --- SKILLS LISTS --- */
-.skills-list { list-style-type: '🐗 '; padding-left: 25px; line-height: 1.8; font-weight: 500; }
-.skills-list li { margin-bottom: 10px; font-size: 1.1em; }
-
-
-
-
+.form-control {
+    width: 100%;
+    background-color: rgba(0,0,0,0.2); 
+    border: 2px solid #FFFF00;
+    border-radius: 10px; 
+    padding: 12px;
+    color: #FFFF00; 
+    font-size: 1.1em;
+    -webkit-appearance: none;
+}
