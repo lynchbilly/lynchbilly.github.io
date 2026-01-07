@@ -1,28 +1,28 @@
-/* --- Global Resets for Full-Width Look --- */
+/* --- Global Resets --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* Prevents side-scrolling on mobile */
-    background-color: #ffffff;
+    overflow-x: hidden;
+    /* THE RED BACKGROUND FIX */
+    background-color: #9B1C1C; 
+    color: #ffffff;
 }
 
-/* --- THE WIDE CINEMATIC BANNER --- */
+/* --- THE WIDE BANNER FIX --- */
 .banner { 
-    width: 100vw; /* Forces image to span the entire screen width */
-    height: auto; 
-    max-height: 400px; 
-    object-fit: cover; /* Ensures the image fills the width without distorting */
+    width: 100vw; 
+    height: 250px; /* Cinematic height for mobile/desktop balance */
+    object-fit: cover; 
     display: block;
     margin: 0;
 }
 
-/* --- Navigation & Button Icons --- */
+/* --- Navigation Shell-Casings --- */
 nav { 
     background-color: #f4f4f4; 
     padding: 15px 0; 
     border-bottom: 2px solid #ddd;
-    width: 100%;
 }
 
 nav ul { 
@@ -31,9 +31,75 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 15px; /* Spacing between your shell-casing buttons */
+    gap: 15px;
 }
 
+.home, .skills, .about, .contact { height: 45px; }
+
+/* --- Main Layout --- */
+.body { 
+    padding: 40px 15px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.main-title { 
+    font-size: 2.8em; 
+    color: #FFFF00; /* Yellow title on red background */
+    text-transform: uppercase;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.subtitle { color: #f4f4f4; font-style: italic; margin-bottom: 30px; }
+
+/* --- THE YELLOW TEXT BOX FIX --- */
+.skills-grid, .container { 
+    background: #FFFF00; /* Bright Yellow Background */
+    padding: 30px;
+    border: 4px solid #000000; /* Black Border for "Pop" */
+    border-radius: 15px;
+    text-align: left;
+    margin-top: 20px;
+    box-shadow: 8px 8px 0px #000; /* Sharp retro shadow */
+}
+
+/* Text inside the Yellow Boxes must be dark to be readable */
+.skill-item, .intro-text { 
+    color: #000000; 
+    font-size: 1.15em; 
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.skill-item strong { 
+    color: #9B1C1C; /* Razorback Red for internal headers */
+    display: block; 
+    border-bottom: 2px solid #000; 
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+/* --- Sign-off Styling --- */
+.force-quote {
+    margin: 60px 0;
+    font-weight: 900; 
+    color: #FFFF00; 
+    font-size: 2em; 
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* --- Footer --- */
+.footer { 
+    width: 100vw; 
+    height: 200px; 
+    object-fit: cover; 
+    display: block;
+    border-top: 5px solid #000;
+}
 .home, .skills, .about, .contact { 
     height: 45px; 
     transition: transform 0.2s ease-in-out; 
@@ -158,3 +224,4 @@ nav ul {
     display: block; 
     margin-top: 50px;
 }
+
