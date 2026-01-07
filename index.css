@@ -6,20 +6,20 @@ html, body {
     overflow-x: hidden;
     background-color: #9B1C1C; /* Razorback Red */
     color: #FFFF00; /* GLOBAL YELLOW TEXT */
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* --- THE WIDE BANNER --- */
+/* --- THE WIDE CINEMATIC BANNER --- */
 .banner { 
     width: 100vw; 
     height: 220px; 
     object-fit: cover; 
     display: block;
     margin: 0;
-    border-bottom: 5px solid #FFFF00;
+    border-bottom: 5px solid #FFFF00; /* Yellow divider */
 }
 
-/* --- Navigation & Icons --- */
+/* --- Navigation & Iconic Icons --- */
 nav { 
     background-color: #f4f4f4; 
     padding: 12px 0; 
@@ -34,6 +34,127 @@ nav ul {
     display: flex; 
     justify-content: center; 
     gap: 15px;
+}
+
+nav ul li a img {
+    height: 40px !important; /* Forces consistent icon size */
+    width: auto;
+    display: block;
+    transition: transform 0.1s ease-in-out;
+}
+
+nav ul li a:active img {
+    transform: scale(0.9); /* Click feedback */
+}
+
+/* --- THE RED-ON-RED BOXES --- */
+.container { 
+    background-color: #9B1C1C; /* Red Fill */
+    padding: 30px;
+    border: 5px solid #FFFF00; /* BRIGHT YELLOW ROUNDED BORDERS */
+    border-radius: 35px; /* High-quality rounded look */
+    text-align: left;
+    margin: 20px auto;
+    max-width: 650px;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+}
+
+/* --- THE SMALL PROFILE IMAGE FIX --- */
+.profile-img { 
+    width: 150px !important; /* Locked size */
+    height: 150px !important;
+    border-radius: 50%; /* Perfect circle */
+    border: 5px solid #FFFF00; 
+    object-fit: cover;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+/* --- FORM & INPUTS --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #9B1C1C; /* Red Background */
+    border: 3px solid #FFFF00; /* Yellow Border */
+    border-radius: 15px; 
+    padding: 15px;
+    color: #FFFF00; 
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1.1em;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 10px #FFFF00;
+    background-color: #7A1616; /* Darker red on focus */
+}
+
+/* --- THE PULSING SEND OWL BUTTON --- */
+.btn-pro {
+    background-color: #9B1C1C; 
+    border: 5px solid #FFFF00; 
+    border-radius: 20px;
+    color: #FFFF00; 
+    padding: 18px;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
+    animation: orangePulse 3s infinite ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes orangePulse {
+    0% { border-color: #FFFF00; color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    50% { border-color: #FF4500; color: #FF4500; box-shadow: 0 0 25px #FF4500; }
+    100% { border-color: #FFFF00; color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+}
+
+/* --- Headers & Text --- */
+.main-title { 
+    text-align: center; 
+    text-shadow: 3px 3px 6px #000; 
+    margin-top: 40px; 
+    font-size: 2.8em;
+    color: #FFFF00;
+}
+
+.force-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 40px 0;
+    font-size: 2em;
+    animation: orangePulse 3s infinite;
+}
+
+/* --- Footer --- */
+.footer { 
+    width: 100vw; 
+    height: 180px; 
+    object-fit: cover; 
+    display: block;
+    margin-top: 50px;
+    border-top: 5px solid #FFFF00;
+}
 }
 
 nav ul li a img {
@@ -187,4 +308,5 @@ label {
 .main-title { text-align: center; text-shadow: 3px 3px 6px #000; margin-top: 40px; font-size: 2.8em; }
 .force-quote { font-weight: 900; text-transform: uppercase; text-align: center; animation: orangePulse 3s infinite; }
 .footer { width: 100vw; height: 180px; object-fit: cover; display: block; border-top: 5px solid #FFFF00; }
+
 
