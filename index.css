@@ -1,7 +1,7 @@
-/* --- BRAND CONSTANTS --- */
+/* --- THEME CONSTANTS --- */
 :root {
-    --ar-red: #9D2235;
-    --ar-white: #FFFFFF;
+    --ar-red: #9D2235;   /* Cardinal Red */
+    --ar-white: #FFFFFF; 
     --ar-black: #000000;
 }
 
@@ -9,39 +9,67 @@
 
 html, body {
     margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: var(--ar-black); color: var(--ar-white);
+    background-color: var(--ar-black); color: var(--ar-white); 
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* --- BANNER LOCK: 600x150 --- */
+/* --- BANNER LOCK: 150PX --- */
 .banner { 
     width: 100%; max-width: 600px; height: 150px; 
     display: block; margin: 0 auto; object-fit: contain; 
     border: 3px solid var(--ar-white); border-bottom: 5px solid var(--ar-red);
 }
 
-/* --- NAV REPAIR: FIXES THE LIST DOTS --- */
+/* --- NAVIGATION REPAIR --- */
 nav { 
-    background-color: var(--ar-red); padding: 15px 0; 
+    background-color: var(--ar-red); padding: 20px 0; 
     width: 100%; max-width: 600px; margin: 0 auto; border-bottom: 4px solid var(--ar-white); 
 }
 nav ul { 
     list-style: none; margin: 0; padding: 0; 
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; 
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; 
 }
-nav ul li a img { height: 45px !important; width: auto; }
+nav ul li a img { height: 50px !important; width: auto; filter: drop-shadow(3px 3px 5px var(--ar-black)); }
 
-/* --- CONTAINERS & BUTTONS --- */
+/* --- CONTAINERS & PROFILE --- */
 .container { 
     background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
     border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
 }
 
+.profile-img { 
+    width: 150px !important; height: 150px !important; border-radius: 50%; 
+    border: 4px solid var(--ar-red); object-fit: cover; margin: 20px auto; display: block;
+}
+
+/* --- FLASHY ANIMATED TEXT --- */
+@keyframes flashyPulse {
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); transform: scale(1); }
+    50% { color: var(--ar-white); text-shadow: 0 0 20px var(--ar-red); transform: scale(1.05); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); transform: scale(1); }
+}
+
+.flashy-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 50px 0; 
+    font-size: 2em; 
+    animation: flashyPulse 3s infinite ease-in-out;
+    display: block;
+}
+
+/* --- RED ROUNDED BUTTON --- */
 .btn-portfolio {
     display: inline-block; background-color: var(--ar-red); color: var(--ar-white);
     border: 2px solid var(--ar-white); border-radius: 30px;
-    padding: 12px 30px; font-weight: 900; text-decoration: none;
-    text-transform: uppercase; margin-top: 10px;
+    padding: 15px 40px; font-size: 1.1em; font-weight: 900;
+    text-transform: uppercase; text-decoration: none; cursor: pointer;
+    transition: 0.3s ease;
 }
+.btn-portfolio:hover { background-color: var(--ar-white); color: var(--ar-red); }
 
-.force-quote { font-weight: 900; text-transform
+/* --- FORM CONTROL --- */
+.form-control {
+    width: 100%; background-color: var(--ar-black); border: 2px solid var(--ar-red);
+    border-radius: 8px;
