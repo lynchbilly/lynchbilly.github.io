@@ -1,18 +1,17 @@
-/* --- Global Resets --- */
+/* --- Global Resets & Razorback Red BG --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-    /* THE RED BACKGROUND FIX */
-    background-color: #9B1C1C; 
-    color: #ffffff;
+    background-color: #9B1C1C; /* Razorback Red */
+    color: #FFFF00; /* All outside text is Yellow */
 }
 
 /* --- THE WIDE BANNER FIX --- */
 .banner { 
     width: 100vw; 
-    height: 250px; /* Cinematic height for mobile/desktop balance */
+    height: 200px; /* Fixed height so it doesn't take up the whole screen */
     object-fit: cover; 
     display: block;
     margin: 0;
@@ -21,8 +20,8 @@ html, body {
 /* --- Navigation Shell-Casings --- */
 nav { 
     background-color: #f4f4f4; 
-    padding: 15px 0; 
-    border-bottom: 2px solid #ddd;
+    padding: 10px 0; 
+    border-bottom: 3px solid #000;
 }
 
 nav ul { 
@@ -31,42 +30,53 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 15px;
+    gap: 10px;
 }
 
-.home, .skills, .about, .contact { height: 45px; }
-
-/* --- Main Layout --- */
-.body { 
-    padding: 40px 15px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    text-align: center; 
-}
-
-.main-title { 
-    font-size: 2.8em; 
-    color: #FFFF00; /* Yellow title on red background */
-    text-transform: uppercase;
-    font-weight: 900;
-    text-shadow: 2px 2px 4px #000;
-}
-
-.subtitle { color: #f4f4f4; font-style: italic; margin-bottom: 30px; }
-
-/* --- THE YELLOW TEXT BOX FIX --- */
+/* --- YELLOW ROUNDED "PRO" BOXES --- */
 .skills-grid, .container { 
-    background: #FFFF00; /* Bright Yellow Background */
-    padding: 30px;
-    border: 4px solid #000000; /* Black Border for "Pop" */
-    border-radius: 15px;
+    background: #FFFF00 !important; /* Forces Bright Yellow */
+    padding: 25px;
+    border: 5px solid #000000; /* Thick Pro Black Border */
+    border-radius: 25px; /* Nice rounded corners */
     text-align: left;
     margin-top: 20px;
-    box-shadow: 8px 8px 0px #000; /* Sharp retro shadow */
+    box-shadow: 8px 8px 0px #000; /* Pro "pop" shadow */
 }
 
-/* Text inside the Yellow Boxes must be dark to be readable */
+/* Contrast Fix: Text inside Yellow Boxes must be BLACK */
 .skill-item, .intro-text { 
+    color: #000000 !important; 
+    font-size: 1.1em; 
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.skill-item strong { 
+    color: #9B1C1C; /* Red for internal titles */
+    display: block; 
+    border-bottom: 2px solid #000; 
+    margin-bottom: 8px;
+}
+
+/* --- Titles & Quote --- */
+.main-title { color: #FFFF00; text-shadow: 2px 2px #000; }
+.force-quote {
+    margin-top: 40px; 
+    font-weight: 900; 
+    color: #FFFF00; 
+    font-size: 1.8em; 
+    text-transform: uppercase;
+}
+
+/* --- Profile Image --- */
+.profile-img { 
+    width: 180px; 
+    height: 180px; 
+    border-radius: 50%; 
+    border: 5px solid #FFFF00; 
+    object-fit: cover;
+}
     color: #000000; 
     font-size: 1.15em; 
     line-height: 1.6;
@@ -224,4 +234,5 @@ nav ul {
     display: block; 
     margin-top: 50px;
 }
+
 
