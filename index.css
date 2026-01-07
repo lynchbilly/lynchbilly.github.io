@@ -1,65 +1,29 @@
-/* --- BRAND CONSTANTS --- */
-:root {
-    --ar-red: #9D2235;   /* Cardinal Red */
-    --ar-white: #FFFFFF; 
-    --ar-black: #000000;
-}
-
-* { box-sizing: border-box; }
-
-html, body {
-    margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: var(--ar-black); color: var(--ar-white); 
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    text-align: center; /* Center-aligns all prose text */
-}
-
-/* --- BANNER LOCK --- */
-.banner { 
-    width: 100%; max-width: 600px; height: 150px; 
-    display: block; margin: 0 auto; object-fit: contain; 
-    border: 3px solid var(--ar-white); border-bottom: 5px solid var(--ar-red);
-}
-
-/* --- NAV REPAIR: RESTORES RED BACKGROUND --- */
+/* --- NAVIGATION REPAIR: SOLID BACKGROUND --- */
 nav { 
-    background-color: var(--ar-red); padding: 15px 0; 
-    width: 100%; max-width: 600px; margin: 0 auto; 
-    border-bottom: 4px solid var(--ar-white); 
+    background-color: #9D2235; /* Cardinal Red background */
+    padding: 15px 0; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    border-bottom: 4px solid #FFFFFF; 
 }
+
+/* --- FLEXBOX: REMOVES VERTICAL DOTS --- */
 nav ul { 
-    list-style: none; margin: 0; padding: 0; 
-    display: flex; justify-content: center; gap: 20px; 
-}
-nav ul li a img { height: 45px !important; width: auto; }
-
-/* --- CONTAINERS & BUTTONS --- */
-.container { 
-    background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
-    border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
+    list-style: none; /* Removes the dots seen in screenshot 8687 */
+    margin: 0; 
+    padding: 0; 
+    display: flex; /* Forces horizontal alignment */
+    justify-content: center; 
+    gap: 15px; 
 }
 
-.profile-img { 
-    width: 100% !important; max-width: 400px; height: auto; 
-    border-radius: 20px; border: 4px solid var(--ar-red); 
-    margin: 20px auto; display: block;
+nav ul li a img { 
+    height: 45px !important; 
+    width: auto; 
+    transition: transform 0.2s; 
 }
 
-.btn-portfolio {
-    display: inline-block; background-color: var(--ar-red); color: var(--ar-white);
-    border: 2px solid var(--ar-white); border-radius: 30px;
-    padding: 12px 35px; font-weight: 900; text-decoration: none;
-    text-transform: uppercase; margin: 20px 0;
-}
-
-/* --- FLASHY CENTERED TEXT --- */
-@keyframes flashyPulse {
-    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
-    50% { color: var(--ar-white); text-shadow: 0 0 20px var(--ar-red); }
-    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
-}
-
-.flashy-quote {
-    font-weight: 900; text-transform: uppercase; font-size: 1.8em;
-    margin: 40px auto; width: 100%; animation: flashyPulse 3s infinite ease-in-out;
+nav ul li a img:hover { 
+    transform: scale(1.1); /* Adds a interactive "flashy" feel */
 }
