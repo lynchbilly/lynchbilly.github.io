@@ -1,61 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="index.css" type="text/css">
-    <title>Razorback Coding | Contact Billy James Lynch</title>
-    <style>
-        /* The Owl's Flight Animation */
-        @keyframes owlFlight {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            25% { transform: translateY(-10px) rotate(-5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(5deg); }
-            100% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
-        }
-        .sending-owl {
-            display: inline-block;
-            font-size: 2em;
-            animation: owlFlight 1s infinite;
-        }
-    </style>
+    <title>Contact | Razorback Coding</title>
 </head>
 <body>
-    <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="banner" class="banner">
-    
+    <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="Banner" class="banner">
     <nav>
-        <ul>
-            <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home" class="home"></a></li>
-            <li><a href="skills.html"><img src="87C131BF-9C64-430F-9DE6-2C3013717CFE.jpeg" alt="skills" class="skills"></a></li>
-            <li><a href="about.html"><img src="E9363299-9877-42C0-9C39-908770D73837.jpeg" alt="about" class="about"></a></li>
-            <li><a href="contact.html"><img src="45D283DD-0F2D-45A5-8804-A148A646AB86.jpeg" alt="contact" class="contact"></a></li>
-        </ul>
-    </nav>
-
+        </nav>
     <div class="body">
-        <h1 class="main-title">Owl Post Transmission</h1>
-        
-        <div id="success-message" style="display: none; margin-bottom: 20px;">
-            <div class="container" style="border: 5px double #9B1C1C; text-align: center; background: #111;">
-                <div style="font-size: 4em; margin-bottom: 10px;">🦉</div>
-                <h2 style="color: #FFFF00; font-family: 'Brush Script MT', cursive; font-size: 2.5em;">✨ Mischief Managed! ✨</h2>
-                <p style="color: #FFD700; font-size: 1.2em;">Your owl has taken flight! Billy James Lynch will receive your message in Jacksonville shortly.</p>
-            </div>
-        </div>
-
-        <div class="container" id="form-container">
-            <form id="form">
-                <input type="hidden" name="access_key" value="5bb27b5f-ddfd-4bbc-b8df-85384c7de408">
-                
-                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                <textarea name="message" class="form-control" rows="6" placeholder="Your message for the Ministry of Coding..." required></textarea>
-                
-                <button type="submit" class="btn-submit" id="submit-btn">Dispatch Owl</button>
+        <h1 class="main-title">Get in Touch</h1>
+        <div class="container">
+            <form action="#">
+                <label>NAME</label>
+                <input type="text" class="form-control" required>
+                <label>MESSAGE</label>
+                <textarea class="form-control" rows="5" required></textarea>
+                <button type="submit" class="force-quote" style="background:none; border:none; width:100%; cursor:pointer;">SEND AN OWL</button>
             </form>
         </div>
     </div>
-
-    <script src="script.js"></script>
-    <img src="322307088_542790244451739_2082695413892265123_n.jpg" alt="footer" class="footer">
 </body>
 </html>
