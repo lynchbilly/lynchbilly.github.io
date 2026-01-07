@@ -1,24 +1,29 @@
-/* --- Global Styles: All Red Background --- */
+/* --- GLOBAL RESET & BOX MODEL --- */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0; padding: 0; width: 100%; min-height: 100vh;
     background-color: #9B1C1C; color: #FFFF00;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
 
 /* --- BANNER: ALIGNED TO CONTENT WIDTH --- */
 .banner { 
     width: 100%;
-    max-width: 600px; /* Aligns with the width of the containers below */
-    height: 120px; /* Low profile height */
+    max-width: 600px; /* Aligned with containers */
+    height: 150px; /* Reduced height */
     object-fit: cover; 
     display: block; 
-    margin: 0 auto; /* Centers the banner */
-    border: 3px solid #FFFF00; /* Framed look to match containers */
+    margin: 0 auto; 
     border-bottom: 5px solid #FFFF00;
 }
 
-/* --- NAVIGATION: LARGER ICONS --- */
+/* --- NAVIGATION: THE FLEXBOX STACK --- */
 nav { 
     background-color: #9B1C1C; 
     padding: 20px 0; 
@@ -30,34 +35,45 @@ nav {
 
 nav ul { 
     list-style: none; margin: 0; padding: 0; 
-    display: flex; justify-content: center; gap: 30px; /* Wider gap */
+    display: flex; 
+    flex-wrap: wrap; /* Allows stacking */
+    justify-content: center; 
+    gap: 30px; 
+}
+
+/* MOBILE STACKING LOGIC */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column; /* Stacks links vertically */
+        align-items: center;
+        gap: 15px; /* Tighter gap for mobile */
+    }
 }
 
 nav ul li a img { 
-    height: 50px !important; /* Made icons bigger as requested */
+    height: 50px !important; /* Larger icons for visibility */
     width: auto;
     filter: drop-shadow(3px 3px 5px #000); 
-    transition: transform 0.2s;
 }
-
-nav ul li a img:hover { transform: scale(1.1); }
 
 /* --- PROFILE IMAGE & CONTAINERS --- */
 .profile-img { 
     width: 150px !important; height: 150px !important;
     border-radius: 50%; border: 4px solid #FFFF00; 
     object-fit: cover; margin: 20px auto; display: block;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.6);
 }
 
 .container { 
     background-color: #9B1C1C; padding: 25px; 
     border: 5px solid #FFFF00; border-radius: 25px; 
     margin: 20px auto; 
-    max-width: 600px; /* Matched to Banner width */
+    max-width: 90%; /* Responsive width */
+    width: 600px;  /* Desktop limit */
     box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
 }
 
-/* --- PULSING ANIMATION & BUTTONS --- */
+/* --- ANIMATIONS & BUTTONS --- */
 @keyframes orangePulse {
     0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
     50% { border-color: #FF4500; box-shadow: 0 0 25px #FF4500; color: #FF4500; }
@@ -67,6 +83,15 @@ nav ul li a img:hover { transform: scale(1.1); }
 .btn-pro {
     background-color: #9B1C1C; border: 4px solid #FFFF00; border-radius: 15px;
     color: #FFFF00; padding: 15px; font-size: 1.2em; font-weight: 900;
+    cursor: pointer; width: 100%; text-transform: uppercase;
+    animation: orangePulse 3s infinite ease-in-out;
+}
+
+.force-quote {
+    font-weight: 900; text-transform: uppercase; text-align: center; 
+    margin: 50px 0; font-size: 2em; text-shadow: 2px 2px 8px #000;
+    animation: orangePulse 3s infinite ease-in-out;
+}
     cursor: pointer; width: 100%; text-transform: uppercase;
     animation: orangePulse 3s infinite ease-in-out;
 }
@@ -161,6 +186,7 @@ label {
 /* --- SKILLS LISTS --- */
 .skills-list { list-style-type: '🐗 '; padding-left: 25px; line-height: 1.8; font-weight: 500; }
 .skills-list li { margin-bottom: 10px; font-size: 1.1em; }
+
 
 
 
