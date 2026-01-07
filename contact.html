@@ -7,7 +7,6 @@
 </head>
 <body>
     <img src="copilot_image_1767775400190.jpeg" alt="Banner" class="banner">
-
     <nav>
         <ul>
             <li><a href="index.html"><img src="home.jpeg (1).png" alt="home"></a></li>
@@ -16,27 +15,19 @@
             <li><a href="contact.html"><img src="contact (1).jpeg" alt="contact"></a></li>
         </ul>
     </nav>
-
-    <div id="form-container">
+    <div class="panel" id="form-container">
+        <h2>> INITIATE_DISPATCH</h2>
         <form id="contact-form">
-            <div class="container">
-                <h2 style="color: var(--ar-red);">SEND AN OWL</h2>
-                
-                <input type="text" name="name" placeholder="Full Name" class="form-control" required>
-                <input type="email" name="email" placeholder="Email Address" class="form-control" required>
-                <textarea name="message" placeholder="Your Message" rows="5" class="form-control" required></textarea>
-                
-                <button type="submit" class="btn-red-rounded" style="width: 100%;">Dispatch Owl</button>
-            </div>
+            <input type="text" name="name" placeholder="NAME_ENTRY" class="form-control" required>
+            <input type="email" name="email" placeholder="UPLINK_EMAIL" class="form-control" required>
+            <textarea name="message" placeholder="DATA_MESSAGE" rows="5" class="form-control" required></textarea>
+            <button type="submit" class="btn-red-rounded">Execute Owl Dispatch</button>
         </form>
     </div>
-
-    <div id="success-msg" class="container" style="display: none;">
-        <h2 style="color: var(--ar-white);">MISCHIEF MANAGED!</h2>
-        <p>Your owl has been dispatched from Jacksonville, AR.</p>
+    <div id="success-msg" class="panel" style="display:none; border-left-color:#00ff00;">
+        <h2 style="color:#00ff00;">> MISCHIEF_MANAGED</h2>
+        <p>Uplink successful from Jacksonville.</p>
     </div>
-
-    <div class="flashy-quote">May the Code be with you.</div>
     <script src="script.js"></script>
 </body>
 </html>
