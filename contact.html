@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="index.css" type="text/css">
-    <title>Contact | Razorback Coding</title>
+    <title>Contact | Wild Hog Coding</title>
 </head>
 <body>
-    <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="Banner" class="banner">
+    <img src="banner.png" alt="Wild Hog Coding Banner" class="banner">
     <nav>
         <ul>
             <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home"></a></li>
@@ -18,36 +18,33 @@
     </nav>
 
     <div class="body">
-        <h1 style="text-align: center; margin-top: 30px;">GET IN TOUCH</h1>
+        <h1 style="text-align: center; color: var(--ar-white);">DISPATCH AN OWL</h1>
         
         <div id="form-container">
-            <form id="form">
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <form id="contact-form">
                 <div class="container">
-                    <div class="form-group">
-                        <label>NAME</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>EMAIL</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>MESSAGE</label>
-                        <textarea name="message" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn-pro">SEND OWL</button>
+                    <label style="display: block; margin-bottom: 5px;">NAME</label>
+                    <input type="text" name="name" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required>
+                    
+                    <label style="display: block; margin-bottom: 5px;">EMAIL</label>
+                    <input type="email" name="email" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required>
+                    
+                    <label style="display: block; margin-bottom: 5px;">MESSAGE</label>
+                    <textarea name="message" rows="5" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required></textarea>
+                    
+                    <button type="submit" class="btn-pro">Send Owl</button>
                 </div>
             </form>
         </div>
 
-        <div id="success-message" class="container" style="display: none; text-align: center;">
-            <h2 style="font-weight: 900; color: #FFFF00; text-shadow: 2px 2px #000;">MISCHIEF MANAGED!</h2>
-            <p style="margin-top: 10px;">Your message has been dispatched to Jacksonville.</p>
+        <div id="success-msg" class="container" style="display: none; text-align: center;">
+            <h2 style="color: var(--ar-white); text-transform: uppercase;">Mischief Managed!</h2>
+            <p>Your message has been dispatched to <strong>Jacksonville, AR</strong>.</p>
         </div>
 
         <p class="force-quote">May the Code be with you.</p>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
