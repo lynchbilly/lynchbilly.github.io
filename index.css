@@ -1,138 +1,58 @@
-/* --- 1. BRAND IDENTITY & THEME CONSTANTS --- */
+/* --- BRAND IDENTITY --- */
 :root {
-    --ar-red: #9D2235;   /* Arkansas Cardinal Red */
-    --ar-white: #FFFFFF; /* High-contrast White */
-    --ar-black: #000000; /* Pure Black Background */
+    --ar-red: #9D2235;
+    --ar-white: #FFFFFF;
+    --ar-black: #000000;
 }
 
-/* --- 2. GLOBAL RESET & CORE STYLES --- */
-* { 
-    box-sizing: border-box; 
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--ar-black); /* Set to pure black */
-    color: var(--ar-white);           /* White text for readability */
+body {
+    background-color: var(--ar-black);
+    color: var(--ar-white);
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    overflow-x: hidden;
-    text-align: center;               /* Center alignment for Wild Hog brand */
+    text-align: center;
+    min-height: 100vh;
 }
 
-/* --- 3. THE 600x150 BANNER LOCK --- */
-/* Fixes the broken banner and alignment flaws */
+/* --- BANNER RESTORATION --- */
 .banner { 
-    width: 100%;
-    max-width: 600px; 
-    height: 150px; 
-    display: block; 
-    margin: 0 auto; 
-    object-fit: contain; /* Prevents stretching of the hog logo */
+    width: 100%; max-width: 600px; height: 150px; 
+    display: block; margin: 0 auto; object-fit: contain; 
     border: 3px solid var(--ar-white); 
-    border-bottom: 5px solid var(--ar-red);
 }
 
-/* --- 4. NAVIGATION BAR REPAIR --- */
-/* Restores the solid red background and removes vertical dots */
+/* --- NAVIGATION REPAIR --- */
 nav { 
-    background-color: var(--ar-red); /* Solid background */
-    padding: 15px 0; 
-    width: 100%; 
-    max-width: 600px;
-    margin: 0 auto;
+    background-color: var(--ar-red); padding: 15px 0; 
+    width: 100%; max-width: 600px; margin: 0 auto; 
     border-bottom: 4px solid var(--ar-white); 
 }
-
 nav ul { 
-    list-style: none; /* Removes the bullet points */
-    display: flex;    /* Forces horizontal alignment */
-    justify-content: center; 
-    gap: 20px; 
+    list-style: none; display: flex; justify-content: center; gap: 20px; 
 }
+nav ul li a img { height: 45px !important; width: auto; }
 
-nav ul li a img { 
-    height: 45px !important; 
-    width: auto;
-    transition: transform 0.2s ease-in-out;
-}
-
-nav ul li a img:hover { 
-    transform: scale(1.1); 
-}
-
-/* --- 5. CONTAINERS & PROFILE ELEMENTS --- */
-
+/* --- FORM & BUTTON STYLING --- */
 .container { 
-    background-color: #111111; /* Slightly off-black for depth */
-    padding: 25px; 
-    border: 3px solid var(--ar-red); 
-    border-radius: 15px; 
-    margin: 20px auto; 
-    max-width: 90%; 
-    width: 600px; 
+    background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
+    border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
 }
 
-.profile-img { 
-    width: 100% !important; 
-    max-width: 450px; /* Fits the large biography style */
-    height: auto;
-    border-radius: 20px;
-    border: 4px solid var(--ar-red); 
-    margin: 20px auto;
-    display: block;
-}
-
-/* --- 6. WHITE ROUNDED INPUT BOXES --- */
-/* Fixes the "crap" form inputs seen in the screenshots */
 .form-control {
-    width: 100%;
-    background-color: var(--ar-black);
-    border: 2px solid var(--ar-white); /* White border */
-    border-radius: 15px;               /* Rounded corners */
-    padding: 15px;
-    color: var(--ar-white);
-    margin-bottom: 15px;
-    font-size: 1em;
+    width: 100%; background-color: var(--ar-black); 
+    border: 2px solid var(--ar-white); border-radius: 15px; 
+    padding: 15px; color: var(--ar-white); margin-bottom: 15px;
 }
 
-/* --- 7. RED BUTTON WITH WHITE ROUNDED BORDER --- */
-/* Styles for "Launch Portfolio" and "Dispatch Owl" */
 .btn-red-rounded {
-    display: inline-block;
-    background-color: var(--ar-red); 
-    color: var(--ar-white);
-    border: 2px solid var(--ar-white); /* White rounded border */
-    border-radius: 30px;               /* Pill shape */
-    padding: 15px 40px;
-    font-size: 1.1em;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.btn-red-rounded:hover {
-    background-color: var(--ar-white);
-    color: var(--ar-red);
-}
-
-/* --- 8. FLASHY ANIMATED QUOTE --- */
-/* Single instance footer animation */
-@keyframes flashyPulse {
-    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
-    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
-    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    display: inline-block; background-color: var(--ar-red); color: var(--ar-white);
+    border: 2px solid var(--ar-white); border-radius: 30px;
+    padding: 15px 40px; font-weight: 900; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
 }
 
 .flashy-quote {
-    font-weight: 900; 
-    text-transform: uppercase; 
-    margin: 50px auto; 
-    font-size: 1.8em; 
-    animation: flashyPulse 3s infinite ease-in-out;
-    width: 100%;
+    font-weight: 900; text-transform: uppercase; font-size: 1.8em;
+    margin: 50px auto; color: var(--ar-red);
 }
