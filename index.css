@@ -1,250 +1,119 @@
-.banner {
-    border: 5px solid orange;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    height: 300px;
-    width: 1000px;
-    
-    padding: auto;
-    display: block;
-	
-	
-  
-  
-  
-  }
-
-
-  h1 {
-   
-    text-align: center;
-    font-size: 3.2em;
-
-
-
-
-
-
-
-
-
-    color: #f8ce20;
-    font-style: Arial;
-
-    font-weight: 80%;
-    font-weight: bold;
-    font-style: italic;
-    border-bottom: 10px inset orange;
-    margin-bottom: 0px;
-  
-     
-  }
-
-  p{
-    color: #f8ce20;
-    margin: 15px;
-    padding: 20px;
-    font-size: 2.2em;
-    }
-.home {
-  
-  border: 2.5px inset orange;
-  border-radius: 5%;
-  height: 50px;
-  width: 240px;
-  position: absolute;
-  left: 0px;
-  top: 325px;
-  
-  
-  
-
-  }
-  
-.about {
-  
-  border: 2.5px inset orange;
-  border-radius: 5%;
-  height: 50px;
-  width:   240px;
-  position: absolute;
-  left: 260px;
-  top: 325px;
-  
-  
-  
-  }
-
-
-.skills  {
-  
-  border: 2.5px inset orange;
-  border-radius: 5%;
-  width: 240px;
-  height: 50px;
-  position:absolute;
-  left: 520px;
-  top: 325px;
-
-}
-
-.contact  {
-
-   border: 2.5px inset orange;
-   border-radius: 5%;
-   width:  240px;
-   height: 50px;
-   position:absolute;
-   left: 780px;
-   top: 325px;
-   
-  
-   
-   
-   
-  
-}
- 
-  
-  
-
-
-
-.body  {
-    background-color: #E01B01;
-    border: 10px solid orange;
-    border-radius: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-    position: absolute;
-    left: 0px;
-    top: 395px;
-    width: 1000px;
-    height: 900px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-align: justify;
-}
-  
-  
-
-
+/* --- Global Styles --- */
 body {
-  background-color: black;
-  
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
 }
 
-
-
-.footer {
-    border: 10px solid orange;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    position: absolute;
-    top: 1330px;
-    left: 0px;
-    width: 1000px;
-    height: 100px;
-  
-  
-  
-  }
-
-
-  .container {
-    border: 10px outset orange;
-    border-radius: 5%;
-    position: absolute;
-     top: 660px;
-    width: 660px;
-    height: 580px;
-    margin-left: 175px;
-    margin-right: 200px;
-    
-  
-  }
-
-
-  .form-control {
-  
-    border: 5px inset orange;
-    border-radius: 5%;
-    color: #f8ce20;
-    background-color: #4C4E52;
-    width: 410px;
-    margin-left: 125px;
-    margin-right: 125px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: auto;
-  
-    
-  }
-  .form-row{ 
-    margin-top: 40px;
-    border-radius: 5%;
-  }
-  
- 
-  .btn {
-    
-    color: #f8ce20;
-    height: 80px;
-    width: 150px;
-    border: 5px outset orange;
-    border-radius: 5%;
-    margin-right: 260px;
-    margin-left: 260px;
-    margin-top:20px;
-    background-color: transparent;
-	  /* Keeps the skills and image side-by-side */
-.skills-container {
-    display: flex;
-    align-items: center; /* Centers items vertically */
-    justify-content: space-around; /* Adds space on each side */
-    margin: 20px 0;
-    flex-wrap: wrap; /* Wraps on mobile phones */
-}
-
-.skills-list {
-    flex: 1;
-    min-width: 300px;
-}
-
-.skills-list ul {
-    list-style-type: square;
-    line-height: 1.8;
-    font-size: 1.1em;
-}
-
-.skills-image-box {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    min-width: 300px;
-}
-
-.center-hog {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* Optional: softens the edges */
-}
-
-/* Existing Banner/Footer Styles (Keep your originals) */
+/* --- Banners and Footer --- */
 .banner, .footer {
     width: 100%;
+    display: block;
 }
-	  
 
-	  
-  
-  
+/* --- Navigation --- */
+nav {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+}
 
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+/* Navigation Icon Sizes - Adjust these if your images are too big/small */
+.home, .skills, .about, .contact {
+    height: 50px; 
+    transition: transform 0.2s;
+}
+
+.home:hover, .skills:hover, .about:hover, .contact:hover {
+    transform: scale(1.1);
+}
+
+/* --- Body Content --- */
+.body {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3em; /* Very large and bold */
+    color: #9B1C1C; /* Razorback Red */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.4em;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* --- Skills Grid Layout --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked for readability */
+    gap: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.skill-item {
+    background: #fdfdfd;
+    padding: 25px;
+    border-left: 10px solid #9B1C1C; /* Thick red accent border */
+    border-radius: 5px;
+    font-size: 1.5em; /* Bigger text to stand out */
+    line-height: 1.4;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background: #fff;
+    box-shadow: 0 6px 15px rgba(155, 28, 28, 0.2);
+    transform: translateX(10px); /* Slides slightly right on hover */
+}
+
+.skill-item strong {
+    color: #9B1C1C;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* --- Responsive for Mobile --- */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2em;
+    }
+    
+    .skill-item {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
