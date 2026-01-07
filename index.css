@@ -1,32 +1,34 @@
-/* --- ARKANSAS THEME: RED, BLACK, WHITE --- */
+/* --- BRAND CONSTANTS --- */
 :root {
-    --ar-red: #9D2235;   /* Arkansas Cardinal Red */
-    --ar-white: #FFFFFF; /* High-contrast White */
-    --ar-black: #000000; /* Pure Black */
+    --ar-red: #9D2235;   /* Cardinal Red */
+    --ar-white: #FFFFFF; 
+    --ar-black: #000000;
 }
 
-* { box-sizing: border-box; }
+/* --- CORE RESET --- */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
     margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: var(--ar-black); /* Black background for contrast */
-    color: var(--ar-white);           /* White text for readability */
+    background-color: var(--ar-black); 
+    color: var(--ar-white); 
     font-family: 'Segoe UI', Tahoma, sans-serif;
     overflow-x: hidden;
 }
 
-/* --- THE 150PX BANNER LOCK --- */
+/* --- FIXED: BANNER LOCK --- */
 .banner { 
     width: 100%; max-width: 600px; 
-    height: 150px; /* Locked height as requested */
-    display: block; margin: 0 auto; object-fit: contain; 
+    height: 150px; /* Locked height */
+    display: block; margin: 0 auto; 
+    object-fit: contain; /* Prevents cropping */
     border: 3px solid var(--ar-white); 
-    border-bottom: 5px solid var(--ar-red); /* Red accent */
+    border-bottom: 5px solid var(--ar-red);
 }
 
-/* --- RESPONSIVE NAVIGATION --- */
+/* --- FIXED: NAVIGATION & MOBILE STACK --- */
 nav { 
-    background-color: var(--ar-red); /* Cardinal Red Nav */
+    background-color: var(--ar-red); 
     padding: 20px 0; width: 100%; max-width: 600px;
     margin: 0 auto; border-bottom: 4px solid var(--ar-white); 
 }
@@ -36,6 +38,7 @@ nav ul {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; 
 }
 
+/* Mobile logic: Stacks links when space is low */
 @media (max-width: 480px) {
     nav ul { flex-direction: column; align-items: center; gap: 15px; }
 }
@@ -45,22 +48,20 @@ nav ul li a img {
     filter: drop-shadow(3px 3px 5px var(--ar-black));
 }
 
-/* --- CONTAINERS & IMAGES --- */
+/* --- FIXED: CONTAINERS & PROFILE --- */
+.container { 
+    background-color: #111111; padding: 25px; 
+    border: 3px solid var(--ar-red); border-radius: 15px; 
+    margin: 20px auto; max-width: 90%; width: 600px; 
+}
+
 .profile-img { 
     width: 150px !important; height: 150px !important;
     border-radius: 50%; border: 4px solid var(--ar-red); 
-    object-fit: cover; margin: 30px auto; display: block;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    object-fit: cover; margin: 20px auto; display: block;
 }
 
-.container { 
-    background-color: #111111; /* Slightly off-black for containers */
-    padding: 25px; border: 3px solid var(--ar-red); 
-    border-radius: 15px; margin: 20px auto; 
-    max-width: 90%; width: 600px; 
-}
-
-/* --- PULSING BUTTON ANIMATION --- */
+/* --- ANIMATIONS --- */
 @keyframes redWhitePulse {
     0% { border-color: var(--ar-white); box-shadow: 0 0 5px var(--ar-white); }
     50% { border-color: var(--ar-red); box-shadow: 0 0 20px var(--ar-red); }
@@ -77,5 +78,4 @@ nav ul li a img {
 .force-quote {
     font-weight: 900; text-transform: uppercase; text-align: center; 
     margin: 50px 0; font-size: 1.8em; color: var(--ar-red);
-    text-shadow: 1px 1px 2px var(--ar-white);
 }
