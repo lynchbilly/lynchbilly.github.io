@@ -1,36 +1,78 @@
+/* --- BRAND CONSTANTS --- */
+:root {
+    --ar-red: #9D2235;   /* Cardinal Red */
+    --ar-white: #FFFFFF; 
+    --ar-black: #000000;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0; padding: 0; width: 100%; min-height: 100vh;
+    background-color: var(--ar-black); color: var(--ar-white); 
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-align: center;
+}
+
+/* --- BANNER LOCK: 600x150 --- */
+.banner { 
+    width: 100%; max-width: 600px; height: 150px; 
+    display: block; margin: 0 auto; object-fit: contain; 
+    border: 3px solid var(--ar-white); border-bottom: 5px solid var(--ar-red);
+}
+
 /* --- NAVIGATION REPAIR: SOLID RED BACKGROUND --- */
 nav { 
-    background-color: #9D2235; /* Arkansas Cardinal Red */
-    padding: 15px 0; 
-    width: 100%; 
-    max-width: 600px; 
-    margin: 0 auto; 
-    border-bottom: 4px solid #FFFFFF; 
+    background-color: var(--ar-red); padding: 15px 0; 
+    width: 100%; max-width: 600px; margin: 0 auto; 
+    border-bottom: 4px solid var(--ar-white); 
 }
-
-/* --- HORIZONTAL ALIGNMENT --- */
 nav ul { 
-    list-style: none; /* Removes the dots */
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
+    list-style: none; margin: 0; padding: 0; 
+    display: flex; justify-content: center; gap: 20px; 
+}
+nav ul li a img { height: 45px !important; width: auto; }
+
+/* --- CONTAINERS & WHITE ROUNDED INPUTS --- */
+.container { 
+    background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
+    border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
 }
 
-/* --- FLASHY ANIMATED QUOTE --- */
+/* FIXED TEXT BOXES WITH WHITE ROUNDED BORDERS */
+.form-control {
+    width: 100%;
+    background-color: var(--ar-black);
+    border: 2px solid var(--ar-white); /* White rounded borders */
+    border-radius: 15px;
+    padding: 15px;
+    color: var(--ar-white);
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* --- STYLED BUTTONS --- */
+.btn-red-rounded {
+    display: inline-block;
+    background-color: var(--ar-red);
+    color: var(--ar-white);
+    border: 2px solid var(--ar-white);
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- SINGLE FLASHY QUOTE --- */
 @keyframes flashyPulse {
-    0% { color: #9D2235; text-shadow: 0 0 5px #FFFFFF; }
-    50% { color: #FFFFFF; text-shadow: 0 0 15px #9D2235; }
-    100% { color: #9D2235; text-shadow: 0 0 5px #FFFFFF; }
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
 }
 
 .flashy-quote {
-    font-weight: 900; 
-    text-transform: uppercase; 
-    text-align: center; 
-    margin: 50px auto; 
-    font-size: 1.8em; 
-    animation: flashyPulse 3s infinite ease-in-out;
-    width: 100%;
+    font-weight: 900; text-transform: uppercase; font-size: 1.8em;
+    margin: 50px auto; animation: flashyPulse 3s infinite ease-in-out;
 }
