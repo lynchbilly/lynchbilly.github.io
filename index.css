@@ -5,7 +5,7 @@ html, body {
     width: 100%;
     overflow-x: hidden;
     background-color: #9B1C1C; /* Razorback Red */
-    color: #FFFF00; /* Yellow Text */
+    color: #FFFF00; /* Global Yellow Text */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -15,7 +15,8 @@ html, body {
     height: 220px; 
     object-fit: cover; 
     display: block;
-    border-bottom: 5px solid #FFFF00; 
+    margin: 0;
+    border-bottom: 5px solid #FFFF00; /* Yellow divider */
 }
 
 nav { 
@@ -34,29 +35,33 @@ nav ul {
 }
 
 nav ul li a img {
-    height: 40px !important; /* Fixed icon size for all screens */
+    height: 40px !important; /* Fixed icon size on all screens */
     width: auto;
     display: block;
     transition: transform 0.1s ease-in-out;
 }
 
+nav ul li a:active img {
+    transform: scale(0.9); /* Subtle click feedback */
+}
+
 /* --- THE RAZORBACK CONTAINERS --- */
 .container { 
-    background-color: #9B1C1C; 
+    background-color: #9B1C1C; /* Red Fill */
     padding: 30px;
     border: 5px solid #FFFF00; /* Yellow Rounded Border */
-    border-radius: 35px; 
+    border-radius: 35px; /* High-end rounded aesthetic */
     text-align: left;
     margin: 20px auto;
     max-width: 650px;
     box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
 }
 
-/* --- PROFILE IMAGE LOCK --- */
+/* --- PROFILE IMAGE LOCK (ABOUT PAGE) --- */
 .profile-img { 
-    width: 150px !important; /* Shrunk size for professional UX */
+    width: 150px !important; /* Shrunk size to avoid being "giant" */
     height: 150px !important;
-    border-radius: 50%; 
+    border-radius: 50%; /* Perfect Circle */
     border: 5px solid #FFFF00; 
     object-fit: cover;
     margin: 20px auto;
@@ -64,35 +69,65 @@ nav ul li a img {
     box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
-/* --- FORM CONTROLS --- */
-.form-group { margin-bottom: 20px; }
+/* --- FORM & INPUT CONTROLS (CONTACT PAGE) --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px #000;
+}
+
 .form-control {
     width: 100%;
-    background-color: #9B1C1C;
-    border: 3px solid #FFFF00;
-    border-radius: 15px;
+    background-color: #9B1C1C; /* Red Background */
+    border: 3px solid #FFFF00; /* Yellow Border */
+    border-radius: 15px; 
     padding: 15px;
-    color: #FFFF00;
+    color: #FFFF00; 
     font-weight: bold;
     box-sizing: border-box;
     font-family: inherit;
     font-size: 1.1em;
 }
 
-/* --- PULSING ANIMATIONS --- */
-@keyframes orangePulse {
-    0% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; }
-    50% { color: #FF4500; text-shadow: 0 0 15px #FF4500, 2px 2px #000; border-color: #FF4500; }
-    100% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; }
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 10px #FFFF00;
+    background-color: #7A1616; /* Darker red on focus for better UX */
 }
 
-.force-quote {
-    font-weight: 900; 
-    text-transform: uppercase; 
-    text-align: center; 
-    margin: 60px 0;
-    font-size: 2.2em;
-    animation: orangePulse 3s infinite ease-in-out;
+/* --- SKILLS LIST STYLING --- */
+.stack-header {
+    text-align: center;
+    border-bottom: 2px solid #FFFF00; /* Divider inside boxes */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+.skills-list {
+    list-style-type: '🐗 '; /* Custom Razorback bullet points */
+    padding-left: 25px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.skills-list li {
+    margin-bottom: 8px;
+}
+
+/* --- PULSING BUTTONS & QUOTES --- */
+@keyframes orangePulse {
+    0% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    50% { color: #FF4500; text-shadow: 0 0 15px #FF4500, 2px 2px #000; border-color: #FF4500; box-shadow: 0 0 20px #FF4500; }
+    100% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
 }
 
 .btn-pro {
@@ -103,9 +138,28 @@ nav ul li a img {
     padding: 18px;
     font-size: 1.5em;
     font-weight: 900;
+    text-transform: uppercase;
     cursor: pointer;
     width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
     animation: orangePulse 3s infinite ease-in-out;
 }
 
-.main-title { text-align: center; text-shadow: 3px 3px 6px #000; margin-top: 40px; font-size: 2.8em; }
+.force-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 60px 0;
+    font-size: 2.2em;
+    animation: orangePulse 3s infinite ease-in-out; /* Pulsing footer quote */
+}
+
+/* --- TITLE STYLING --- */
+.main-title { 
+    text-align: center; 
+    text-shadow: 3px 3px 6px #000; 
+    margin-top: 40px; 
+    font-size: 2.8em;
+    color: #FFFF00;
+}
