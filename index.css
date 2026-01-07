@@ -1,58 +1,80 @@
+/* --- 1. CORE SYSTEM IDENTITY --- */
 :root {
-    --ar-red: #9D2235;
+    --ar-red: #9D2235;        /* Arkansas Cardinal Red */
     --ar-white: #FFFFFF;
     --ar-black: #000000;
     --terminal-bg: rgba(15, 15, 15, 0.95);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* --- 2. GLOBAL RESET & TERMINAL AESTHETIC --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
 body {
     background-color: var(--ar-black);
     color: var(--ar-white);
-    font-family: 'Courier New', Courier, monospace; /* Digital Engineering Aesthetic */
+    font-family: 'Courier New', Courier, monospace; /* Digital Engineering font */
     text-align: center;
     line-height: 1.6;
 }
 
-/* --- 600x150 BANNER LOCK --- */
+/* --- 3. THE 600x150 BANNER LOCK --- */
 .banner { 
-    width: 100%; max-width: 600px; height: auto; 
-    display: block; margin: 0 auto; border-bottom: 3px solid var(--ar-white); 
+    width: 100%; 
+    max-width: 600px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+    border-bottom: 3px solid var(--ar-white); 
 }
 
-/* --- MASSIVE NAVIGATION (75px) --- */
+/* --- 4. MASSIVE NAVIGATION (75px) --- */
+/* Optimized for high visibility and touch-targets */
 nav { 
-    background-color: var(--ar-red); padding: 20px 0;
-    width: 100%; max-width: 600px; margin: 0 auto;
+    background-color: var(--ar-red); 
+    padding: 20px 0;
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 nav ul { 
-    list-style: none; display: flex; justify-content: center; gap: 20px; 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
 }
 
 nav ul li a img { 
-    height: 75px !important; /* Bold creative scaling */
+    height: 75px !important; /* Creative massive scale */
     width: 75px !important;
     border: 3px solid var(--ar-white);
     border-radius: 12px;
     background: #000;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-nav ul li a img:hover { transform: scale(1.1) rotate(3deg); }
+nav ul li a img:hover { 
+    transform: scale(1.1) rotate(3deg); 
+    border-color: #ffd700; /* Gold highlight on hover */
+}
 
-/* --- DASHBOARD PANELS --- */
+/* --- 5. DASHBOARD PANELS & SKILL MODULES --- */
+
 .panel {
     background: var(--terminal-bg);
-    border-left: 5px solid var(--ar-red);
+    border-left: 5px solid var(--ar-red); /* Razorback edge */
     padding: 25px;
     margin: 20px auto;
     max-width: 580px;
-    width: 90%;
+    width: 92%;
     text-align: left;
     border-radius: 0 15px 15px 0;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .panel h2 {
@@ -61,12 +83,100 @@ nav ul li a img:hover { transform: scale(1.1) rotate(3deg); }
     letter-spacing: 2px;
     margin-bottom: 15px;
     border-bottom: 1px solid #333;
+    text-transform: uppercase;
 }
 
-/* --- IMAGE SCALING --- */
+/* Skill sections inside the panel */
+.skill-sub-panel {
+    border-top: 1px solid #222;
+    padding: 15px 0;
+    margin-top: 15px;
+}
+
+.skill-sub-panel h3 {
+    color: var(--ar-white);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-decoration: underline;
+    text-decoration-color: var(--ar-red);
+}
+
+/* --- 6. ID BADGE & FAMILY SNAPSHOT --- */
+/* Smaller, professional sizing to prevent overflow */
 .id-badge {
-    width: 160px; height: 160px;
+    width: 160px; 
+    height: 160px;
     object-fit: cover;
+    border-radius: 50% 5% 50% 5%; /* Unique geometric design */
+    border: 4px solid var(--ar-red);
+    margin: 25px auto;
+    display: block;
+}
+
+.family-snapshot {
+    width: 100%; 
+    max-width: 320px; /* Contained family view */
+    height: auto;
+    border: 1px solid var(--ar-white);
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* --- 7. COMMAND TERMINAL FORMS --- */
+.form-control {
+    width: 100%; 
+    background: #000; 
+    border: 2px solid #fff; /* White rounded look */
+    border-radius: 5px; 
+    padding: 12px; 
+    color: #fff; 
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--ar-red);
+    box-shadow: 0 0 10px var(--ar-red);
+}
+
+/* --- 8. BUTTONS & GITHUB UPLINK --- */
+.btn-red-rounded {
+    display: block;
+    background: var(--ar-red); 
+    color: #fff; 
+    border: 3px solid #fff; 
+    padding: 18px; 
+    width: 100%; 
+    font-weight: 900; 
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+.btn-red-rounded:hover {
+    background: var(--ar-white); 
+    color: var(--ar-red);
+    box-shadow: 0 0 25px var(--ar-red);
+}
+
+/* --- 9. THE "MAY THE CODE BE WITH YOU" SIGNATURE --- */
+@keyframes flashyPulse {
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    50% { color: var(--ar-white); text-shadow: 0 0 20px var(--ar-red); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+}
+
+.flashy-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    font-size: 1.6em;
+    margin: 60px auto; 
+    animation: flashyPulse 3s infinite ease-in-out;
+}
     border-radius: 50% 5% 50% 5%; /* Geometric design */
     border: 4px solid var(--ar-red);
     margin: 25px auto;
@@ -195,5 +305,6 @@ nav ul li a img:hover { transform: scale(1.1) rotate(3deg); }
     margin: 50px auto; 
     animation: flashyPulse 3s infinite ease-in-out;
 }
+
 
 
