@@ -5,6 +5,7 @@
     --terminal-bg: rgba(10, 10, 10, 0.98);
 }
 
+/* Reset for Junior Devs: Ensures 100% control over spacing */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -15,13 +16,14 @@ body {
     line-height: 1.6;
 }
 
-/* 600x150 BANNER & NAV */
+/* BANNER LOCK */
 .banner { width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; border-bottom: 3px solid var(--ar-white); }
 
+/* MASSIVE NAVIGATION (75px) */
 nav { background-color: var(--ar-red); padding: 15px 0; width: 100%; max-width: 600px; margin: 0 auto; }
 nav ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
 nav ul li a img { 
-    height: 75px !important; width: 75px !important; /* Bold Scaling */
+    height: 75px !important; width: 75px !important;
     border: 3px solid var(--ar-white); border-radius: 12px;
     background: #000; transition: 0.3s;
 }
@@ -31,7 +33,7 @@ nav ul li a img:hover { transform: scale(1.1) rotate(5deg); }
 .panel {
     background: var(--terminal-bg); border-left: 5px solid var(--ar-red);
     padding: 25px; margin: 20px auto; max-width: 580px; width: 92%;
-    text-align: left; border-radius: 0 15px 15px 0; box-shadow: 0 0 15px rgba(157, 34, 53, 0.2);
+    text-align: left; border-radius: 0 15px 15px 0;
 }
 
 .panel h2 { color: var(--ar-red); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; border-bottom: 1px solid #333; }
@@ -39,7 +41,6 @@ nav ul li a img:hover { transform: scale(1.1) rotate(5deg); }
 /* IMAGES & FORMS */
 .id-badge { width: 160px; height: 160px; object-fit: cover; border-radius: 50% 5% 50% 5%; border: 4px solid var(--ar-red); margin: 25px auto; display: block; }
 .family-snapshot { width: 100%; max-width: 320px; height: auto; border: 1px solid var(--ar-white); margin-top: 15px; border-radius: 5px; }
-
 .form-control { width: 100%; background: #000; border: 2px solid #fff; border-radius: 10px; padding: 12px; color: #fff; margin-bottom: 15px; font-family: inherit; }
 
 .btn-red-rounded {
@@ -50,5 +51,4 @@ nav ul li a img:hover { transform: scale(1.1) rotate(5deg); }
 .btn-red-rounded:hover { background: var(--ar-white); color: var(--ar-red); box-shadow: 0 0 20px var(--ar-red); }
 
 .flashy-quote { font-weight: 900; text-transform: uppercase; font-size: 1.5em; margin: 50px auto; color: var(--ar-red); }
-
 footer { padding: 40px 20px; color: #555; font-size: 0.75rem; border-top: 1px solid #222; margin-top: 50px; }
