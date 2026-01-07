@@ -1,12 +1,12 @@
-/* --- BRAND CONSTANTS --- */
+/* --- BRAND IDENTITY: RED, BLACK, WHITE --- */
 :root {
     --ar-red: #9D2235;   /* Cardinal Red */
     --ar-white: #FFFFFF; 
     --ar-black: #000000;
 }
 
-/* --- CORE RESET --- */
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* --- GLOBAL RESET --- */
+* { box-sizing: border-box; }
 
 html, body {
     margin: 0; padding: 0; width: 100%; min-height: 100vh;
@@ -16,21 +16,21 @@ html, body {
     overflow-x: hidden;
 }
 
-/* --- FIXED: BANNER LOCK --- */
+/* --- BANNER: THE 150PX LOCK --- */
 .banner { 
     width: 100%; max-width: 600px; 
     height: 150px; /* Locked height */
     display: block; margin: 0 auto; 
-    object-fit: contain; /* Prevents cropping */
+    object-fit: contain; /* Prevents stretching/cropping your new hog banner */
     border: 3px solid var(--ar-white); 
     border-bottom: 5px solid var(--ar-red);
 }
 
-/* --- FIXED: NAVIGATION & MOBILE STACK --- */
+/* --- NAVIGATION & RESPONSIVE STACK --- */
 nav { 
-    background-color: var(--ar-red); 
-    padding: 20px 0; width: 100%; max-width: 600px;
-    margin: 0 auto; border-bottom: 4px solid var(--ar-white); 
+    background-color: var(--ar-red); padding: 20px 0; 
+    width: 100%; max-width: 600px; margin: 0 auto; 
+    border-bottom: 4px solid var(--ar-white); 
 }
 
 nav ul { 
@@ -38,17 +38,13 @@ nav ul {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; 
 }
 
-/* Mobile logic: Stacks links when space is low */
 @media (max-width: 480px) {
     nav ul { flex-direction: column; align-items: center; gap: 15px; }
 }
 
-nav ul li a img { 
-    height: 50px !important; width: auto;
-    filter: drop-shadow(3px 3px 5px var(--ar-black));
-}
+nav ul li a img { height: 50px !important; width: auto; filter: drop-shadow(3px 3px 5px var(--ar-black)); }
 
-/* --- FIXED: CONTAINERS & PROFILE --- */
+/* --- CONTAINERS & BRANDED BUTTONS --- */
 .container { 
     background-color: #111111; padding: 25px; 
     border: 3px solid var(--ar-red); border-radius: 15px; 
@@ -56,26 +52,33 @@ nav ul li a img {
 }
 
 .profile-img { 
-    width: 150px !important; height: 150px !important;
-    border-radius: 50%; border: 4px solid var(--ar-red); 
-    object-fit: cover; margin: 20px auto; display: block;
+    width: 150px !important; height: 150px !important; border-radius: 50%; 
+    border: 4px solid var(--ar-red); object-fit: cover; margin: 20px auto; display: block;
 }
 
-/* --- ANIMATIONS --- */
-@keyframes redWhitePulse {
-    0% { border-color: var(--ar-white); box-shadow: 0 0 5px var(--ar-white); }
-    50% { border-color: var(--ar-red); box-shadow: 0 0 20px var(--ar-red); }
-    100% { border-color: var(--ar-white); box-shadow: 0 0 5px var(--ar-white); }
+/* RED BUTTON WITH WHITE ROUNDED BORDER */
+.btn-red-rounded {
+    display: inline-block;
+    background-color: var(--ar-red);
+    color: var(--ar-white);
+    border: 2px solid var(--ar-white);
+    border-radius: 30px; /* Fully rounded corners */
+    padding: 15px 35px;
+    font-size: 1.1em;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.btn-pro {
-    background-color: var(--ar-black); border: 4px solid var(--ar-red); 
-    border-radius: 10px; color: var(--ar-white); padding: 18px; 
-    font-size: 1.3em; font-weight: 900; cursor: pointer; width: 100%; 
-    text-transform: uppercase; animation: redWhitePulse 3s infinite ease-in-out;
+.btn-red-rounded:hover {
+    background-color: var(--ar-white);
+    color: var(--ar-red);
 }
 
 .force-quote {
     font-weight: 900; text-transform: uppercase; text-align: center; 
     margin: 50px 0; font-size: 1.8em; color: var(--ar-red);
+    text-shadow: 1px 1px 2px var(--ar-white);
 }
