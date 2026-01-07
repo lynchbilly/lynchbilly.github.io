@@ -1,11 +1,16 @@
-/* --- BRAND IDENTITY --- */
+/* --- 1. BRAND IDENTITY & THEME CONSTANTS --- */
 :root {
-    --ar-red: #9D2235;
-    --ar-white: #FFFFFF;
-    --ar-black: #000000;
+    --ar-red: #9D2235;   /* Arkansas Cardinal Red */
+    --ar-white: #FFFFFF; /* High-contrast White */
+    --ar-black: #000000; /* Pure Black Background */
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* --- 2. GLOBAL RESET & CORE STYLES --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background-color: var(--ar-black);
@@ -15,82 +20,125 @@ body {
     line-height: 1.6;
 }
 
-/* --- RESPONSIVE BANNER --- */
+/* --- 3. THE 600x150 BANNER LOCK --- */
+/* Fixes alignment and ensures consistent scaling */
 .banner { 
-    width: 100%; 
+    width: 100%;
     max-width: 600px; 
-    height: auto; 
-    aspect-ratio: 4 / 1; /* Matches 600x150 aspect ratio */
+    height: 150px; 
     display: block; 
     margin: 0 auto; 
     object-fit: contain; 
-    border-bottom: 3px solid var(--ar-white); 
+    border: 3px solid var(--ar-white); 
 }
 
-/* --- NAV ICON ALIGNMENT --- */
+/* --- 4. UNIFIED NAVIGATION LINKS --- */
+/* Forces all link icons to be exactly 50px high */
 nav { 
     background-color: var(--ar-red); 
     padding: 12px 0; 
     width: 100%; 
-    max-width: 600px; 
-    margin: 0 auto; 
-    position: sticky; top: 0; z-index: 1000;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 4px solid var(--ar-white); 
 }
 
 nav ul { 
     list-style: none; 
     display: flex; 
-    justify-content: space-evenly; 
-    align-items: center;
+    justify-content: center; 
+    gap: 15px; 
 }
 
 nav ul li a img { 
-    height: 45px; 
+    height: 50px !important; /* Uniform icon height */
     width: auto; 
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    border: 2px solid var(--ar-white); 
+    border-radius: 8px; 
+    background-color: var(--ar-black);
+    transition: transform 0.2s;
 }
 
-/* --- CONTENT CONTAINERS --- */
+nav ul li a img:hover { 
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px var(--ar-white);
+}
+
+/* --- 5. CONTAINERS & IMAGES --- */
+
 .container { 
     background-color: #0f0f0f; 
-    padding: 20px; 
+    padding: 25px; 
     border: 2px solid var(--ar-red); 
-    border-radius: 12px; 
-    margin: 15px auto; 
+    border-radius: 15px; 
+    margin: 20px auto; 
     max-width: 95%; 
-    width: 580px; 
+    width: 600px; 
 }
 
-/* --- ABOUT PAGE IMAGE STYLING --- */
+/* Responsive fitting for profile and family photos */
 .profile-img { 
-    width: 180px; 
-    height: 180px; 
-    border-radius: 50%; /* Circular headshot */
+    width: 100%; 
+    max-width: 450px; 
+    height: auto; 
+    border-radius: 20px; 
     border: 4px solid var(--ar-red); 
-    object-fit: cover;
     margin: 20px auto; 
     display: block;
 }
 
 .family-photo {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
     border: 2px solid var(--ar-white);
-    margin: 10px 0;
+    margin-top: 15px;
 }
 
-/* --- FLASHY SIGNATURE --- */
+/* --- 6. WHITE ROUNDED FORM FIELDS --- */
+/* Fixes the contact form text boxes */
+.form-control {
+    width: 100%;
+    background-color: var(--ar-black);
+    border: 2px solid var(--ar-white); /* White rounded border */
+    border-radius: 15px;               /* 15px rounding */
+    padding: 15px;
+    color: var(--ar-white);
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* --- 7. BUTTON STYLING --- */
+.btn-red-rounded {
+    display: inline-block;
+    background-color: var(--ar-red);
+    color: var(--ar-white);
+    border: 2px solid var(--ar-white);
+    border-radius: 35px;
+    padding: 15px 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-red-rounded:hover {
+    background-color: var(--ar-white);
+    color: var(--ar-red);
+}
+
+/* --- 8. FLASHY FOOTER QUOTE --- */
+@keyframes flashyPulse {
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+}
+
 .flashy-quote {
     font-weight: 900; 
     text-transform: uppercase; 
-    font-size: 1.5rem;
-    margin: 40px auto; 
+    font-size: 1.8em;
+    margin: 50px auto; 
     animation: flashyPulse 3s infinite ease-in-out;
-}
-
-@keyframes flashyPulse {
-    0%, 100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
-    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
 }
