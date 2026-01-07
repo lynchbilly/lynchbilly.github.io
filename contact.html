@@ -7,6 +7,7 @@
 </head>
 <body>
     <img src="copilot_image_1767775400190.jpeg" alt="Banner" class="banner">
+
     <nav>
         <ul>
             <li><a href="index.html"><img src="home.jpeg (1).png" alt="home"></a></li>
@@ -15,21 +16,26 @@
             <li><a href="contact.html"><img src="contact (1).jpeg" alt="contact"></a></li>
         </ul>
     </nav>
+
     <div id="form-container">
         <form id="contact-form">
             <div class="container">
                 <h2 style="color: var(--ar-red);">SEND AN OWL</h2>
-                <input type="text" name="name" placeholder="Name" class="form-control" required>
-                <input type="email" name="email" placeholder="Email" class="form-control" required>
-                <textarea name="message" placeholder="Message" rows="5" class="form-control" required></textarea>
+                
+                <input type="text" name="name" placeholder="Full Name" class="form-control" required>
+                <input type="email" name="email" placeholder="Email Address" class="form-control" required>
+                <textarea name="message" placeholder="Your Message" rows="5" class="form-control" required></textarea>
+                
                 <button type="submit" class="btn-red-rounded" style="width: 100%;">Dispatch Owl</button>
             </div>
         </form>
     </div>
+
     <div id="success-msg" class="container" style="display: none;">
-        <h2>MISCHIEF MANAGED!</h2>
+        <h2 style="color: var(--ar-white);">MISCHIEF MANAGED!</h2>
         <p>Your owl has been dispatched from Jacksonville, AR.</p>
     </div>
+
     <div class="flashy-quote">May the Code be with you.</div>
     <script src="script.js"></script>
 </body>
