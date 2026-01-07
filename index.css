@@ -34,7 +34,7 @@ nav ul {
 }
 
 nav ul li a img {
-    height: 40px !important; /* Fixed icon size */
+    height: 40px !important; /* Fixed icon size for all screens */
     width: auto;
     display: block;
     transition: transform 0.1s ease-in-out;
@@ -54,7 +54,7 @@ nav ul li a img {
 
 /* --- PROFILE IMAGE LOCK --- */
 .profile-img { 
-    width: 150px !important; /* Shrunk size lock */
+    width: 150px !important; /* Shrunk size for professional UX */
     height: 150px !important;
     border-radius: 50%; 
     border: 5px solid #FFFF00; 
@@ -76,13 +76,14 @@ nav ul li a img {
     font-weight: bold;
     box-sizing: border-box;
     font-family: inherit;
+    font-size: 1.1em;
 }
 
 /* --- PULSING ANIMATIONS --- */
 @keyframes orangePulse {
-    0% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
-    50% { color: #FF4500; text-shadow: 0 0 15px #FF4500, 2px 2px #000; border-color: #FF4500; box-shadow: 0 0 20px #FF4500; }
-    100% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    0% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; }
+    50% { color: #FF4500; text-shadow: 0 0 15px #FF4500, 2px 2px #000; border-color: #FF4500; }
+    100% { color: #FFFF00; text-shadow: 2px 2px #000; border-color: #FFFF00; }
 }
 
 .force-quote {
