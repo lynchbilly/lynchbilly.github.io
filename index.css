@@ -1,4 +1,3 @@
-/* --- BRAND IDENTITY --- */
 :root {
     --ar-red: #9D2235;
     --ar-white: #FFFFFF;
@@ -12,28 +11,26 @@ body {
     color: var(--ar-white);
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-align: center;
-    min-height: 100vh;
 }
 
-/* --- BANNER RESTORATION --- */
 .banner { 
     width: 100%; max-width: 600px; height: 150px; 
     display: block; margin: 0 auto; object-fit: contain; 
     border: 3px solid var(--ar-white); 
 }
 
-/* --- NAVIGATION REPAIR --- */
 nav { 
     background-color: var(--ar-red); padding: 15px 0; 
     width: 100%; max-width: 600px; margin: 0 auto; 
     border-bottom: 4px solid var(--ar-white); 
 }
+
 nav ul { 
     list-style: none; display: flex; justify-content: center; gap: 20px; 
 }
+
 nav ul li a img { height: 45px !important; width: auto; }
 
-/* --- FORM & BUTTON STYLING --- */
 .container { 
     background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
     border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
@@ -49,10 +46,18 @@ nav ul li a img { height: 45px !important; width: auto; }
     display: inline-block; background-color: var(--ar-red); color: var(--ar-white);
     border: 2px solid var(--ar-white); border-radius: 30px;
     padding: 15px 40px; font-weight: 900; text-transform: uppercase;
-    text-decoration: none; cursor: pointer;
+    text-decoration: none; cursor: pointer; transition: 0.3s;
 }
+
+.btn-red-rounded:hover { background-color: var(--ar-white); color: var(--ar-red); }
 
 .flashy-quote {
     font-weight: 900; text-transform: uppercase; font-size: 1.8em;
-    margin: 50px auto; color: var(--ar-red);
+    margin: 50px auto; animation: flashyPulse 3s infinite ease-in-out;
+}
+
+@keyframes flashyPulse {
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
 }
