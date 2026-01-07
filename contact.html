@@ -1,50 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="index.css" type="text/css">
     <title>Contact | Wild Hog Coding</title>
 </head>
 <body>
-    <img src="banner.png" alt="Wild Hog Coding Banner" class="banner">
-    <nav>
-        <ul>
-            <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home"></a></li>
-            <li><a href="skills.html"><img src="87C131BF-9C64-430F-9DE6-2C3013717CFE.jpeg" alt="skills"></a></li>
-            <li><a href="about.html"><img src="E9363299-9877-42C0-9C39-908770D73837.jpeg" alt="about"></a></li>
-            <li><a href="contact.html"><img src="45D283DD-0F2D-45A5-8804-A148A646AB86.jpeg" alt="contact"></a></li>
-        </ul>
-    </nav>
-
-    <div class="body">
-        <h1 style="text-align: center; color: var(--ar-white);">DISPATCH AN OWL</h1>
-        
-        <div id="form-container">
-            <form id="contact-form">
-                <div class="container">
-                    <label style="display: block; margin-bottom: 5px;">NAME</label>
-                    <input type="text" name="name" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required>
-                    
-                    <label style="display: block; margin-bottom: 5px;">EMAIL</label>
-                    <input type="email" name="email" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required>
-                    
-                    <label style="display: block; margin-bottom: 5px;">MESSAGE</label>
-                    <textarea name="message" rows="5" style="width:100%; padding:12px; margin-bottom:20px; border:2px solid var(--ar-red); background:var(--ar-black); color:var(--ar-white); border-radius:8px;" required></textarea>
-                    
-                    <button type="submit" class="btn-pro">Send Owl</button>
-                </div>
-            </form>
-        </div>
-
-        <div id="success-msg" class="container" style="display: none; text-align: center;">
-            <h2 style="color: var(--ar-white); text-transform: uppercase;">Mischief Managed!</h2>
-            <p>Your message has been dispatched to <strong>Jacksonville, AR</strong>.</p>
-        </div>
-
-        <p class="force-quote">May the Code be with you.</p>
+    <img src="banner.png" alt="Banner" class="banner">
+    <div id="form-container">
+        <form id="contact-form">
+            <div class="container">
+                <h2 style="color: var(--ar-red); text-align: center;">DISPATCH AN OWL</h2>
+                <input type="text" name="name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; background:#000; color:#fff; border:1px solid #9D2235;" required>
+                <input type="email" name="email" placeholder="Email Address" style="width:100%; padding:15px; margin-bottom:15px; background:#000; color:#fff; border:1px solid #9D2235;" required>
+                <textarea name="message" placeholder="Your Message" rows="5" style="width:100%; padding:15px; margin-bottom:15px; background:#000; color:#fff; border:1px solid #9D2235;" required></textarea>
+                <button type="submit" class="btn-red-rounded" style="width: 100%;">Send Owl</button>
+            </div>
+        </form>
     </div>
-    
+    <div id="success-msg" class="container" style="display: none; text-align: center;">
+        <h2 style="color: var(--ar-white);">MISCHIEF MANAGED!</h2>
+        <p>Your owl has been dispatched from <strong>Jacksonville</strong>.</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
