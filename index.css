@@ -7,7 +7,6 @@ body {
 
 .banner, .footer { width: 100%; display: block; }
 
-/* Navigation */
 nav { background-color: #f4f4f4; padding: 10px 0; border-bottom: 2px solid #ddd; }
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 20px; }
 .home, .skills, .about, .contact { height: 50px; transition: 0.2s; }
@@ -15,11 +14,9 @@ nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content
 
 .body { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
 
-/* Typography */
 .main-title { font-size: 2.8em; color: #9B1C1C; text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
 .subtitle { font-size: 1.2em; color: #666; margin-bottom: 30px; font-style: italic; }
 
-/* Red Box Style */
 .skills-grid, .container { 
     display: grid; 
     gap: 20px; 
@@ -31,47 +28,18 @@ nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content
     box-shadow: 0 4px 15px rgba(155, 28, 28, 0.3);
 }
 
-.skill-item, .intro-text {
-    color: #FFD700; 
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
+.skill-item, .intro-text { color: #FFD700; font-size: 1.2em; margin-bottom: 10px; }
+.skill-item strong { color: #FFFF00; display: block; margin-bottom: 8px; border-bottom: 2px solid #9B1C1C; padding-bottom: 5px; font-size: 1.3em;}
 
-.skill-item strong {
-    color: #FFFF00; 
-    display: block;
-    margin-bottom: 8px;
-    border-bottom: 2px solid #9B1C1C;
-    padding-bottom: 5px;
-}
+/* Bullet list styling */
+.skill-item ul { list-style-type: square; padding-left: 20px; }
+.skill-item li { margin-bottom: 5px; }
 
-/* Form Styling */
-.form-control {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: #222;
-    border: 2px solid #9B1C1C;
-    color: #FFFF00;
-    font-size: 1.1em;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.btn-submit {
-    width: 100%;
-    padding: 15px;
-    background: #9B1C1C;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
+.form-control { width: 100%; padding: 15px; margin-bottom: 15px; background: #222; border: 2px solid #9B1C1C; color: #FFFF00; border-radius: 5px; box-sizing: border-box; }
+.btn-submit { width: 100%; padding: 15px; background: #9B1C1C; color: white; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; display: inline-block; }
 .btn-submit:hover { background: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+
+/* About Page Profile Styling */
+.profile-section { display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+.photo-placeholder { width: 250px; height: 250px; border: 4px solid #9B1C1C; border-radius: 50%; background-color: #f0f0f0; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
