@@ -1,36 +1,29 @@
-/* --- BRAND IDENTITY: RED, BLACK, WHITE --- */
+/* --- BRAND CONSTANTS --- */
 :root {
     --ar-red: #9D2235;   /* Cardinal Red */
     --ar-white: #FFFFFF; 
     --ar-black: #000000;
 }
 
-/* --- GLOBAL RESET --- */
 * { box-sizing: border-box; }
 
 html, body {
     margin: 0; padding: 0; width: 100%; min-height: 100vh;
-    background-color: var(--ar-black); 
-    color: var(--ar-white); 
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    overflow-x: hidden;
+    background-color: var(--ar-black); color: var(--ar-white); 
+    font-family: 'Segoe UI', Tahoma, sans-serif; overflow-x: hidden;
 }
 
-/* --- BANNER: THE 150PX LOCK --- */
+/* --- BANNER LOCK --- */
 .banner { 
-    width: 100%; max-width: 600px; 
-    height: 150px; /* Locked height */
-    display: block; margin: 0 auto; 
-    object-fit: contain; /* Prevents stretching/cropping your new hog banner */
-    border: 3px solid var(--ar-white); 
-    border-bottom: 5px solid var(--ar-red);
+    width: 100%; max-width: 600px; height: 150px; 
+    display: block; margin: 0 auto; object-fit: contain; 
+    border: 3px solid var(--ar-white); border-bottom: 5px solid var(--ar-red);
 }
 
-/* --- NAVIGATION & RESPONSIVE STACK --- */
+/* --- NAVIGATION --- */
 nav { 
     background-color: var(--ar-red); padding: 20px 0; 
-    width: 100%; max-width: 600px; margin: 0 auto; 
-    border-bottom: 4px solid var(--ar-white); 
+    width: 100%; max-width: 600px; margin: 0 auto; border-bottom: 4px solid var(--ar-white); 
 }
 
 nav ul { 
@@ -44,11 +37,10 @@ nav ul {
 
 nav ul li a img { height: 50px !important; width: auto; filter: drop-shadow(3px 3px 5px var(--ar-black)); }
 
-/* --- CONTAINERS & BRANDED BUTTONS --- */
+/* --- CONTAINERS --- */
 .container { 
-    background-color: #111111; padding: 25px; 
-    border: 3px solid var(--ar-red); border-radius: 15px; 
-    margin: 20px auto; max-width: 90%; width: 600px; 
+    background-color: #111111; padding: 25px; border: 3px solid var(--ar-red); 
+    border-radius: 15px; margin: 20px auto; max-width: 90%; width: 600px; 
 }
 
 .profile-img { 
@@ -56,29 +48,12 @@ nav ul li a img { height: 50px !important; width: auto; filter: drop-shadow(3px 
     border: 4px solid var(--ar-red); object-fit: cover; margin: 20px auto; display: block;
 }
 
-/* RED BUTTON WITH WHITE ROUNDED BORDER */
-.btn-red-rounded {
-    display: inline-block;
-    background-color: var(--ar-red);
-    color: var(--ar-white);
-    border: 2px solid var(--ar-white);
-    border-radius: 30px; /* Fully rounded corners */
-    padding: 15px 35px;
-    font-size: 1.1em;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s;
+/* --- RED BUTTON WITH WHITE ROUNDED BORDER --- */
+.btn-portfolio {
+    display: inline-block; background-color: var(--ar-red); color: var(--ar-white);
+    border: 2px solid var(--ar-white); border-radius: 30px;
+    padding: 15px 40px; font-size: 1.2em; font-weight: 900;
+    text-transform: uppercase; text-decoration: none; cursor: pointer;
 }
 
-.btn-red-rounded:hover {
-    background-color: var(--ar-white);
-    color: var(--ar-red);
-}
-
-.force-quote {
-    font-weight: 900; text-transform: uppercase; text-align: center; 
-    margin: 50px 0; font-size: 1.8em; color: var(--ar-red);
-    text-shadow: 1px 1px 2px var(--ar-white);
-}
+.force-quote { font-weight: 900; text-transform: uppercase; text-align: center; margin: 50px 0; font-size: 1.8em; color: var(--ar-red); }
