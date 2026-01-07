@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
     <link rel="StyleSheet" href="index.css" type="text/css">
-    <title>Razorback Coding | Contact</title>
+    <title>Razorback Coding | Contact Billy James Lynch</title>
+    <style>
+        /* Small animation for the Owl Post */
+        @keyframes fly {
+            0% { transform: translateX(-100px) translateY(20px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100px) translateY(-20px); opacity: 0; }
+        }
+        .owl-animation {
+            font-size: 3em;
+            display: inline-block;
+            animation: fly 2s infinite linear;
+        }
+    </style>
 </head>
 <body>
-    <img src="9E062150-0DBA-4A22-A9A1-0BE1B6D092E9.jpeg" alt="banner" class="banner">
+    <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="banner" class="banner">
+    
     <nav>
         <ul>
             <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home" class="home"></a></li>
@@ -14,25 +28,32 @@
             <li><a href="contact.html"><img src="45D283DD-0F2D-45A5-8804-A148A646AB86.jpeg" alt="contact" class="contact"></a></li>
         </ul>
     </nav>
+
     <div class="body">
-        <h1 class="main-title">Send a Transmission</h1>
-        
-        <div id="success-message" style="display: none; margin: 40px auto; max-width: 600px;">
-            <div class="container" style="border-style: double; border-width: 6px;">
-                <h2 style="color: #FFFF00; font-family: 'Brush Script MT', cursive; font-size: 2.5em; text-align: center;">✨ Mischief Managed! ✨</h2>
-                <p style="color: #FFD700; text-align: center; font-size: 1.3em;">Your owl has been dispatched to the Ministry of Coding. Expect a reply soon.</p>
+        <h1 class="main-title">Owl Post Transmission</h1>
+        <p class="subtitle">Direct to Jacksonville, AR</p>
+
+        <div id="success-message" style="display: none; margin-bottom: 20px;">
+            <div class="container" style="border: 5px double #9B1C1C; text-align: center;">
+                <div class="owl-animation">🦉</div>
+                <h2 style="color: #FFFF00; font-family: 'Brush Script MT', cursive; font-size: 2.2em;">✨ Mischief Managed! ✨</h2>
+                <p style="color: #FFD700;">Your owl has taken flight. Billy James Lynch will receive your message shortly.</p>
             </div>
         </div>
 
         <div class="container" id="form-container">
             <form id="form">
+                <input type="hidden" name="access_key" value="5bb27b5f-ddfd-4bbc-b8df-85384c7de408">
+                
                 <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                 <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                <textarea name="message" class="form-control" rows="6" placeholder="Your Message..." required></textarea>
-                <button type="submit" class="btn-submit">Deploy Message</button>
+                <textarea name="message" class="form-control" rows="6" placeholder="Your message for the Ministry of Coding..." required></textarea>
+                
+                <button type="submit" class="btn-submit">Dispatch Owl</button>
             </form>
         </div>
     </div>
+
     <script src="script.js"></script>
     <img src="322307088_542790244451739_2082695413892265123_n.jpg" alt="footer" class="footer">
 </body>
