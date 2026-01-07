@@ -1,121 +1,77 @@
-/* --- Global Reset & Body --- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Page background stays white */
-    color: #333;
+    background-color: #ffffff;
 }
 
-/* --- Banners and Footer --- */
-.banner, .footer {
-    width: 100%;
-    display: block;
+.banner, .footer { width: 100%; display: block; }
+
+/* Navigation */
+nav { background-color: #f4f4f4; padding: 10px 0; border-bottom: 2px solid #ddd; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 20px; }
+.home, .skills, .about, .contact { height: 50px; transition: 0.2s; }
+.home:hover, .skills:hover, .about:hover, .contact:hover { transform: scale(1.1); }
+
+.body { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+
+/* Typography */
+.main-title { font-size: 2.8em; color: #9B1C1C; text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
+.subtitle { font-size: 1.2em; color: #666; margin-bottom: 30px; font-style: italic; }
+
+/* Red Box Style */
+.skills-grid, .container { 
+    display: grid; 
+    gap: 20px; 
+    text-align: left; 
+    background: #111;
+    padding: 30px;
+    border: 4px solid #9B1C1C; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(155, 28, 28, 0.3);
 }
 
-/* --- Navigation --- */
-nav {
-    background-color: #f4f4f4;
-    padding: 10px 0;
-    border-bottom: 2px solid #ddd;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Navigation Icons */
-.home, .skills, .about, .contact {
-    height: 50px; 
-    transition: transform 0.2s;
-}
-
-.home:hover, .skills:hover, .about:hover, .contact:hover {
-    transform: scale(1.1);
-}
-
-/* --- Main Content Area --- */
-.body {
-    padding: 40px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.main-title {
-    font-size: 3em;
-    color: #9B1C1C; /* Razorback Red */
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.subtitle {
+.skill-item, .intro-text {
+    color: #FFD700; 
     font-size: 1.4em;
-    color: #666;
-    margin-bottom: 40px;
-    font-style: italic;
-}
-
-/* --- The Yellow Skills Cards --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    text-align: left;
-    margin-top: 30px;
-}
-
-.skill-item {
-    background: #1a1a1a;        /* Dark background makes yellow readable */
-    padding: 25px;
-    border-left: 10px solid #9B1C1C; /* Razorback Red Accent */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    
-    /* Yellow Body Text */
-    color: #FFD700;             /* Golden Yellow */
-    font-size: 1.5em; 
-    line-height: 1.4;
+    margin-bottom: 10px;
 }
 
 .skill-item strong {
-    /* Bright Yellow Titles */
-    color: #FFFF00;             
-    font-size: 1.2em;
+    color: #FFFF00; 
     display: block;
     margin-bottom: 8px;
-    border-bottom: 1px solid #444;
+    border-bottom: 2px solid #9B1C1C;
     padding-bottom: 5px;
-    text-transform: uppercase;
 }
 
-/* Interaction Effects */
-.skill-item:hover {
-    background: #252525;
-    transform: translateX(15px); /* Slides right when you hover */
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Subtle yellow glow */
+/* Form Styling */
+.form-control {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #222;
+    border: 2px solid #9B1C1C;
+    color: #FFFF00;
+    font-size: 1.1em;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-/* --- Responsive for Mobile --- */
-@media (max-width: 600px) {
-    .main-title {
-        font-size: 2em;
-    }
-    
-    .skill-item {
-        font-size: 1.2em;
-        padding: 15px;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #9B1C1C;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
+
+.btn-submit:hover { background: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
