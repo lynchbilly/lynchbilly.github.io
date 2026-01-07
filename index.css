@@ -15,151 +15,82 @@ html, body {
     height: 220px; 
     object-fit: cover; 
     display: block;
-    margin: 0;
     border-bottom: 5px solid #FFFF00;
 }
 
-/* --- THE RED FORM CONTAINER WITH YELLOW BORDERS --- */
-.container { 
-    background-color: #9B1C1C; /* Red Fill per request */
-    padding: 35px;
-    border: 5px solid #FFFF00; /* Yellow Rounded Border */
-    border-radius: 35px; 
-    text-align: left;
-    margin: 25px auto;
-    max-width: 600px;
-    box-shadow: 10px 10px 25px rgba(0,0,0,0.6);
+/* --- NAVIGATION ICON SIZE FIX --- */
+nav { 
+    background-color: #f4f4f4; 
+    padding: 12px 0; 
+    border-bottom: 4px solid #000;
 }
 
-/* Label Styling */
-label {
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px;
+}
+
+/* Force all icons to be exactly the same size on all screens */
+nav ul li a img {
+    height: 40px !important; 
+    width: auto;
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 1.1em;
-    text-shadow: 1px 1px 2px #000;
+    transition: transform 0.1s ease-in-out;
 }
 
-/* --- FORM INPUT PARAMETERS --- */
-.form-control {
-    width: 100%;
+/* Subtle click effect */
+nav ul li a:active img {
+    transform: scale(0.9);
+}
+
+/* --- THE RED BOXES & BORDERS --- */
+.container { 
+    background-color: #9B1C1C; 
+    padding: 30px;
+    border: 5px solid #FFFF00; 
+    border-radius: 35px; 
+    text-align: center; /* Center content for the home page */
+    margin: 25px auto;
+    max-width: 800px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+}
+
+/* --- PORTFOLIO BUTTON STYLING --- */
+.portfolio-btn {
+    display: inline-block;
     background-color: #9B1C1C; /* Red Background */
-    border: 3px solid #FFFF00; /* Yellow Border */
-    border-radius: 15px;
-    padding: 15px;
     color: #FFFF00; /* Yellow Text */
-    font-weight: bold;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 1em;
-}
-
-/* --- THE BUTTON PARAMETERS --- */
-.btn-pro {
-    background-color: #9B1C1C; /* Red Background per request */
     border: 4px solid #FFFF00; /* Yellow Rounded Border */
     border-radius: 20px;
-    color: #FFFF00; /* Yellow Text */
-    padding: 18px 30px;
-    font-size: 1.4em;
+    padding: 15px 30px;
+    margin-top: 20px;
+    text-decoration: none;
     font-weight: 900;
+    font-size: 1.3em;
     text-transform: uppercase;
-    cursor: pointer;
-    width: 100%;
     transition: 0.3s;
-    animation: orangePulse 2.5s infinite ease-in-out;
-    margin-top: 10px;
+    animation: orangePulse 3s infinite ease-in-out; /* Uses your pulse animation */
 }
 
-/* --- ORANGE PULSE ANIMATION --- */
+.portfolio-btn:hover {
+    background-color: #FFFF00;
+    color: #9B1C1C;
+}
+
+/* Reuse your pulse animation */
 @keyframes orangePulse {
-    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
-    50% { border-color: #FF4500; box-shadow: 0 0 20px #FF4500; color: #FF4500; }
-    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
+    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
+    50% { border-color: #FF4500; box-shadow: 0 0 20px #FF4500; }
+    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; }
 }
 
 .main-title { 
     color: #FFFF00; 
-    text-align: center; 
-    text-transform: uppercase;
     text-shadow: 3px 3px 5px #000;
-    margin: 40px 0 20px 0;
-    font-size: 2.5em;
+    font-size: 2.8em;
+    margin-top: 40px;
 }
-    padding: 30px;
-    border: 5px solid #FFFF00; /* BRIGHT YELLOW ROUNDED BORDERS */
-    border-radius: 30px; 
-    text-align: left;
-    margin: 20px auto;
-    max-width: 900px;
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
-}
-
-/* Text Classes forced to Yellow for Readability */
-.skill-item, .intro-text, .subtitle, p, li { 
-    color: #FFFF00 !important; 
-    font-size: 1.2em; 
-    line-height: 1.6;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px #000;
-}
-
-.main-title, .skill-item strong, h1, h2 { 
-    color: #FFFF00; 
-    text-transform: uppercase;
-    text-shadow: 3px 3px 5px #000000;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-/* --- Profile Image Styling (Small) --- */
-.profile-img { 
-    width: 150px; 
-    height: 150px; 
-    border-radius: 50%; 
-    border: 4px solid #FFFF00; 
-    object-fit: cover;
-    margin: 20px auto;
-    display: block;
-}
-
-/* --- FORM STYLING --- */
-.form-control {
-    width: 100%;
-    background-color: #9B1C1C;
-    border: 3px solid #FFFF00;
-    border-radius: 15px;
-    padding: 12px;
-    color: #FFFF00;
-    font-size: 1.1em;
-    font-family: inherit;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-
-/* --- ORANGE PULSE ANIMATION --- */
-@keyframes orangePulse {
-    0% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
-    50% { color: #FF4500; text-shadow: 0 0 20px #FF4500, 4px 4px 0px #000; }
-    100% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
-}
-
-.force-quote {
-    margin-top: 50px; 
-    font-weight: 900; 
-    font-size: 2.2em; 
-    text-transform: uppercase;
-    text-align: center;
-    animation: orangePulse 3s infinite ease-in-out;
-}
-
-/* --- Footer --- */
-.footer { 
-    width: 100vw; 
-    height: 180px; 
-    object-fit: cover; 
-    display: block;
-    border-top: 5px solid #FFFF00;
-}
-
