@@ -1,39 +1,74 @@
-/* --- Global Styles --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* --- Global Resets for Wide Look --- */
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
     background-color: #ffffff;
-    color: #333;
 }
 
-/* --- Wide Banner & Footer --- */
+/* --- THE FULL-WIDTH WIDE BANNER --- */
 .banner { 
-    width: 100%; 
+    width: 100vw; /* Viewport width makes it touch both edges */
     height: auto; 
-    max-height: 450px; /* Increased for a wide, cinematic presence */
+    max-height: 350px; 
     object-fit: cover; 
-    display: block; 
+    display: block;
+    margin: 0;
 }
 
-.footer { 
-    width: 100%; 
-    display: block; 
-    margin-top: 40px;
-}
-
-/* --- Navigation (Sticky) --- */
+/* --- Navigation Tweak --- */
 nav { 
     background-color: #f4f4f4; 
-    padding: 15px 0; 
+    padding: 10px 0; 
     border-bottom: 2px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    width: 100%;
 }
 
 nav ul { 
     list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; /* Better for mobile spacing */
+}
+
+/* --- Main Content --- */
+.body { 
+    padding: 30px 15px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.main-title { font-size: 2.2em; color: #9B1C1C; text-transform: uppercase; }
+
+/* --- The Dark Razorback Boxes --- */
+.skills-grid { 
+    display: grid; 
+    gap: 20px; 
+    text-align: left; 
+    background: #111;
+    padding: 25px;
+    border: 3px solid #9B1C1C; 
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.skill-item { color: #FFD700; font-size: 1.1em; line-height: 1.5; }
+.skill-item strong { color: #FFFF00; display: block; border-bottom: 2px solid #9B1C1C; margin-bottom: 8px; }
+
+/* --- The Final Sign-off Quote --- */
+.force-quote {
+    margin: 50px 0;
+    font-weight: bold; 
+    color: #9B1C1C; 
+    font-size: 1.8em; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Arial Black', sans-serif;
+}
     margin: 0; 
     padding: 0; 
     display: flex; 
@@ -181,3 +216,4 @@ nav ul {
     display: inline-block;
     animation: owlFlight 0.8s infinite ease-in-out;
 }
+
