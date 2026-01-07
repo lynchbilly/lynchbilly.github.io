@@ -5,23 +5,26 @@ html, body {
     width: 100%;
     overflow-x: hidden;
     background-color: #9B1C1C; /* Razorback Red */
-    color: #FFFF00; /* All outside text is Yellow */
+    color: #FFFF00; /* GLOBAL YELLOW TEXT */
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* --- THE WIDE BANNER FIX --- */
+/* --- THE WIDE BANNER --- */
 .banner { 
     width: 100vw; 
-    height: 200px; /* Fixed height so it doesn't take up the whole screen */
+    height: 220px; 
     object-fit: cover; 
     display: block;
     margin: 0;
+    border-bottom: 4px solid #FFFF00;
 }
 
-/* --- Navigation Shell-Casings --- */
+/* --- Navigation --- */
 nav { 
     background-color: #f4f4f4; 
-    padding: 10px 0; 
-    border-bottom: 3px solid #000;
+    padding: 12px 0; 
+    border-bottom: 4px solid #000;
+    width: 100%;
 }
 
 nav ul { 
@@ -30,202 +33,80 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 10px;
+    gap: 15px;
 }
 
-/* --- YELLOW ROUNDED "PRO" BOXES --- */
+/* --- THE RED BOXES WITH ROUNDED YELLOW BORDERS --- */
 .skills-grid, .container { 
-    background: #FFFF00 !important; /* Forces Bright Yellow */
-    padding: 25px;
-    border: 5px solid #000000; /* Thick Pro Black Border */
-    border-radius: 25px; /* Nice rounded corners */
+    background-color: #9B1C1C; /* Deep Red Box Fill */
+    padding: 30px;
+    border: 5px solid #FFFF00; /* BRIGHT YELLOW ROUNDED BORDERS */
+    border-radius: 30px; 
     text-align: left;
-    margin-top: 20px;
-    box-shadow: 8px 8px 0px #000; /* Pro "pop" shadow */
+    margin-top: 25px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
 }
 
-/* Contrast Fix: Text inside Yellow Boxes must be BLACK */
-.skill-item, .intro-text { 
-    color: #000000 !important; 
-    font-size: 1.1em; 
-    line-height: 1.5;
-    font-weight: 700;
-}
-
-.skill-item strong { 
-    color: #9B1C1C; /* Red for internal titles */
-    display: block; 
-    border-bottom: 2px solid #000; 
-    margin-bottom: 8px;
-}
-
-/* --- Titles & Quote --- */
-.main-title { color: #FFFF00; text-shadow: 2px 2px #000; }
-.force-quote {
-    margin-top: 40px; 
-    font-weight: 900; 
-    color: #FFFF00; 
-    font-size: 1.8em; 
-    text-transform: uppercase;
-}
-
-/* --- Profile Image --- */
-.profile-img { 
-    width: 180px; 
-    height: 180px; 
-    border-radius: 50%; 
-    border: 5px solid #FFFF00; 
-    object-fit: cover;
-}
-    color: #000000; 
-    font-size: 1.15em; 
+/* Forcing all text inside boxes to be yellow */
+.skill-item, .intro-text, .subtitle, p, li { 
+    color: #FFFF00 !important; 
+    font-size: 1.2em; 
     line-height: 1.6;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #000;
 }
 
-.skill-item strong { 
-    color: #9B1C1C; /* Razorback Red for internal headers */
-    display: block; 
-    border-bottom: 2px solid #000; 
-    margin-bottom: 10px;
-    font-size: 1.3em;
-    text-transform: uppercase;
-}
-
-/* --- Sign-off Styling --- */
-.force-quote {
-    margin: 60px 0;
-    font-weight: 900; 
+/* Title & Header Text Shadows */
+.main-title, .skill-item strong, h1, h2 { 
     color: #FFFF00; 
-    font-size: 2em; 
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000;
+    text-shadow: 3px 3px 5px #000000;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+/* --- Profile Styling (MUCH SMALLER) --- */
+.profile-img { 
+    width: 150px; /* Reduced from 200px */
+    height: 150px; /* Reduced from 200px */
+    border-radius: 50%; 
+    border: 4px solid #FFFF00; 
+    object-fit: cover;
+    margin: 20px auto;
+    display: block;
+}
+
+/* --- ORANGE PULSE ANIMATION KEYFRAMES --- */
+@keyframes orangePulse {
+    0% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
+    50% { color: #FF4500; text-shadow: 0 0 20px #FF4500, 4px 4px 0px #000; } /* Bright Orange-Red Glow */
+    100% { color: #FFFF00; text-shadow: 4px 4px 0px #000; }
+}
+
+/* --- The Final Sign-off with Pulse --- */
+.force-quote {
+    margin-top: 60px; 
+    font-weight: 900; 
+    font-size: 2.2em; 
+    text-transform: uppercase;
+    text-align: center;
+    /* Apply the animation here */
+    animation: orangePulse 3s infinite ease-in-out;
 }
 
 /* --- Footer --- */
 .footer { 
     width: 100vw; 
-    height: 200px; 
+    height: 180px; 
     object-fit: cover; 
     display: block;
-    border-top: 5px solid #000;
+    margin-top: 50px;
+    border-top: 5px solid #FFFF00;
 }
-.home, .skills, .about, .contact { 
-    height: 45px; 
-    transition: transform 0.2s ease-in-out; 
-}
-
-.home:hover, .skills:hover, .about:hover, .contact:hover { 
-    transform: scale(1.1); 
-}
-
-/* --- Main Layout --- */
-.body { 
-    padding: 40px 15px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    text-align: center; 
-}
-
-.main-title { 
-    font-size: 2.5em; 
-    color: #9B1C1C; /* Razorback Red */
-    text-transform: uppercase; 
-    margin-bottom: 10px;
-    font-weight: 800;
-}
-
-.subtitle { 
-    font-size: 1.2em; 
-    color: #666; 
-    margin-bottom: 30px; 
-    font-style: italic; 
-}
-
-/* --- The Dark Tech/Country Boxes --- */
-.skills-grid, .container { 
-    display: grid; 
-    gap: 20px; 
-    text-align: left; 
-    background: #111; /* Dark background from your screenshot */
-    padding: 30px;
-    border: 4px solid #9B1C1C; 
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(155, 28, 28, 0.4);
-    margin-bottom: 30px;
-}
-
-.skill-item { 
-    color: #FFD700; /* Gold/Yellow text */
-    font-size: 1.15em; 
-    line-height: 1.6;
-}
-
-.skill-item strong { 
-    color: #FFFF00; /* Bright yellow for headers */
-    display: block; 
-    margin-bottom: 10px; 
-    border-bottom: 2px solid #9B1C1C; 
-    font-size: 1.3em;
-    text-transform: uppercase;
-}
-
-/* --- Profile Styling --- */
-.profile-section { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 30px; 
-    margin-bottom: 40px; 
-    flex-wrap: wrap; 
-}
-
-.photo-placeholder { 
-    width: 200px; 
-    height: 200px; 
-    border: 4px solid #9B1C1C; 
-    border-radius: 50%; 
-    overflow: hidden; 
-    background-color: #222;
-}
-
-.profile-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-/* --- The Final Sign-off (About Page Only) --- */
-.force-quote {
-    margin-top: 60px; 
-    font-weight: 900; 
-    color: #9B1C1C; 
-    font-size: 2em; 
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-/* --- Form & Buttons --- */
-.form-control { 
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 15px; 
-    background: #222; 
-    border: 2px solid #9B1C1C; 
-    color: #FFFF00; 
-    border-radius: 5px; 
-}
-
-.btn-submit { 
-    width: 100%; 
-    padding: 15px; 
-    background: #9B1C1C; 
-    color: #fff; 
-    font-weight: bold; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
 }
 
 /* --- Footer --- */
@@ -234,5 +115,6 @@ nav ul {
     display: block; 
     margin-top: 50px;
 }
+
 
 
