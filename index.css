@@ -3,28 +3,27 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh; /* Ensures red fills the screen even on short pages */
+    min-height: 100vh;
     overflow-x: hidden;
     background-color: #9B1C1C; /* Razorback Red */
-    color: #FFFF00; /* Global Yellow Text */
+    color: #FFFF00; /* Yellow Text */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* --- THE WIDE CINEMATIC BANNER --- */
+/* --- CINEMATIC BANNER --- */
 .banner { 
     width: 100vw; 
     height: 220px; 
     object-fit: cover; 
     display: block;
-    margin: 0;
-    border-bottom: 5px solid #FFFF00; /* Yellow divider */
+    border-bottom: 5px solid #FFFF00; 
 }
 
-/* --- NAVIGATION: REMOVED WHITE/GREY SPACE --- */
+/* --- NAVIGATION: ALL RED BACKGROUND --- */
 nav { 
-    background-color: #9B1C1C; /* Changed from #f4f4f4 to Red */
+    background-color: #9B1C1C; /* No white space */
     padding: 20px 0; 
-    border-bottom: 4px solid #FFFF00; /* Changed black to yellow for better contrast on red */
+    border-bottom: 4px solid #FFFF00; 
     width: 100%;
 }
 
@@ -34,27 +33,81 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 25px; /* Slightly wider gap for professional touch */
+    gap: 25px;
 }
 
 nav ul li a img {
     height: 40px !important; 
     width: auto;
     display: block;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6)); /* Makes icons pop on red */
     transition: transform 0.1s ease-in-out;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); /* Adds "pop" against red */
 }
 
-/* --- THE RAZORBACK CONTAINERS --- */
+/* --- CONTAINERS WITH DEPTH --- */
 .container { 
     background-color: #9B1C1C; 
     padding: 30px;
-    border: 5px solid #FFFF00; 
+    border: 5px solid #FFFF00; /* High-impact Yellow */
     border-radius: 35px; 
-    text-align: left;
-    margin: 30px auto; /* Increased margin for better spacing */
+    margin: 30px auto;
     max-width: 650px;
-    box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7); /* Deep shadow to make boxes pop */
 }
 
-/* ... Keep rest of your CSS for Profile Image, Pulse, and Form Controls ... */
+/* --- FORM CONTROLS --- */
+.form-group { margin-bottom: 20px; }
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #9B1C1C;
+    border: 3px solid #FFFF00;
+    border-radius: 15px; 
+    padding: 15px;
+    color: #FFFF00; 
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1.1em;
+}
+
+/* --- THE PULSE ANIMATION --- */
+@keyframes orangePulse {
+    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
+    50% { border-color: #FF4500; box-shadow: 0 0 30px #FF4500; color: #FF4500; }
+    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
+}
+
+.btn-pro {
+    background-color: #9B1C1C; 
+    border: 5px solid #FFFF00; 
+    border-radius: 20px;
+    color: #FFFF00; 
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    animation: orangePulse 3s infinite ease-in-out; /* Pulsing pop */
+}
+
+/* --- PULSING SIGNATURE (NO DUPLICATES) --- */
+.force-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin: 80px 0;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 10px #000;
+    animation: orangePulse 3s infinite ease-in-out;
+}
+
+.main-title { text-align: center; text-shadow: 3px 3px 6px #000; margin-top: 40px; font-size: 2.8em; }
