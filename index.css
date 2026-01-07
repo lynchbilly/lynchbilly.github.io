@@ -1,9 +1,9 @@
-/* --- Global Styles --- */
+/* --- Global Reset & Body --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Page background stays white */
     color: #333;
 }
 
@@ -29,6 +29,7 @@ nav ul {
     gap: 20px;
 }
 
+/* Navigation Icons */
 .home, .skills, .about, .contact {
     height: 50px; 
     transition: transform 0.2s;
@@ -38,7 +39,7 @@ nav ul {
     transform: scale(1.1);
 }
 
-/* --- Body Content --- */
+/* --- Main Content Area --- */
 .body {
     padding: 40px 20px;
     max-width: 1000px;
@@ -58,9 +59,10 @@ nav ul {
     font-size: 1.4em;
     color: #666;
     margin-bottom: 40px;
+    font-style: italic;
 }
 
-/* --- Yellow Skills Cards --- */
+/* --- The Yellow Skills Cards --- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -70,25 +72,22 @@ nav ul {
 }
 
 .skill-item {
-    background: #1a1a1a; /* Dark background so yellow is readable */
+    background: #1a1a1a;        /* Dark background makes yellow readable */
     padding: 25px;
-    border-left: 10px solid #9B1C1C; /* Razorback Red accent */
+    border-left: 10px solid #9B1C1C; /* Razorback Red Accent */
     border-radius: 8px;
-    font-size: 1.5em; 
-    line-height: 1.4;
-    color: #FFD700; /* Golden Yellow text */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-}
-
-.skill-item:hover {
-    background: #252525;
-    transform: translateX(10px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Yellow glow on hover */
+    
+    /* Yellow Body Text */
+    color: #FFD700;             /* Golden Yellow */
+    font-size: 1.5em; 
+    line-height: 1.4;
 }
 
 .skill-item strong {
-    color: #FFFF00; /* Bright Yellow for category titles */
+    /* Bright Yellow Titles */
+    color: #FFFF00;             
     font-size: 1.2em;
     display: block;
     margin-bottom: 8px;
@@ -97,9 +96,26 @@ nav ul {
     text-transform: uppercase;
 }
 
+/* Interaction Effects */
+.skill-item:hover {
+    background: #252525;
+    transform: translateX(15px); /* Slides right when you hover */
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Subtle yellow glow */
+}
+
 /* --- Responsive for Mobile --- */
 @media (max-width: 600px) {
-    .main-title { font-size: 2em; }
-    .skill-item { font-size: 1.2em; padding: 15px; }
-    nav ul { flex-direction: column; align-items: center; }
+    .main-title {
+        font-size: 2em;
+    }
+    
+    .skill-item {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 }
