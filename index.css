@@ -1,26 +1,26 @@
-/* --- Global Resets for Wide Look --- */
+/* --- Global Resets for Full-Width Look --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevents side-scrolling on mobile */
     background-color: #ffffff;
 }
 
-/* --- THE FULL-WIDTH WIDE BANNER --- */
+/* --- THE WIDE CINEMATIC BANNER --- */
 .banner { 
-    width: 100vw; /* Viewport width makes it touch both edges */
+    width: 100vw; /* Forces image to span the entire screen width */
     height: auto; 
-    max-height: 350px; 
-    object-fit: cover; 
+    max-height: 400px; 
+    object-fit: cover; /* Ensures the image fills the width without distorting */
     display: block;
     margin: 0;
 }
 
-/* --- Navigation Tweak --- */
+/* --- Navigation & Button Icons --- */
 nav { 
     background-color: #f4f4f4; 
-    padding: 10px 0; 
+    padding: 15px 0; 
     border-bottom: 2px solid #ddd;
     width: 100%;
 }
@@ -31,53 +31,11 @@ nav ul {
     padding: 0; 
     display: flex; 
     justify-content: center; 
-    gap: 15px; /* Better for mobile spacing */
-}
-
-/* --- Main Content --- */
-.body { 
-    padding: 30px 15px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    text-align: center; 
-}
-
-.main-title { font-size: 2.2em; color: #9B1C1C; text-transform: uppercase; }
-
-/* --- The Dark Razorback Boxes --- */
-.skills-grid { 
-    display: grid; 
-    gap: 20px; 
-    text-align: left; 
-    background: #111;
-    padding: 25px;
-    border: 3px solid #9B1C1C; 
-    border-radius: 12px;
-    margin-top: 20px;
-}
-
-.skill-item { color: #FFD700; font-size: 1.1em; line-height: 1.5; }
-.skill-item strong { color: #FFFF00; display: block; border-bottom: 2px solid #9B1C1C; margin-bottom: 8px; }
-
-/* --- The Final Sign-off Quote --- */
-.force-quote {
-    margin: 50px 0;
-    font-weight: bold; 
-    color: #9B1C1C; 
-    font-size: 1.8em; 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Arial Black', sans-serif;
-}
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
-    gap: 40px; 
+    gap: 15px; /* Spacing between your shell-casing buttons */
 }
 
 .home, .skills, .about, .contact { 
-    height: 50px; 
+    height: 45px; 
     transition: transform 0.2s ease-in-out; 
 }
 
@@ -85,43 +43,44 @@ nav ul {
     transform: scale(1.1); 
 }
 
-/* --- Main Content Layout --- */
+/* --- Main Layout --- */
 .body { 
-    padding: 40px 20px; 
-    max-width: 1100px; /* Wider content area to match the banner */
+    padding: 40px 15px; 
+    max-width: 1000px; 
     margin: 0 auto; 
     text-align: center; 
 }
 
 .main-title { 
-    font-size: 3em; 
+    font-size: 2.5em; 
     color: #9B1C1C; /* Razorback Red */
     text-transform: uppercase; 
-    font-weight: 800; 
     margin-bottom: 10px;
+    font-weight: 800;
 }
 
 .subtitle { 
-    font-size: 1.4em; 
+    font-size: 1.2em; 
     color: #666; 
-    margin-bottom: 40px; 
+    margin-bottom: 30px; 
     font-style: italic; 
 }
 
-/* --- The Dark Tech Boxes (Razorback Red Border) --- */
+/* --- The Dark Tech/Country Boxes --- */
 .skills-grid, .container { 
     display: grid; 
-    gap: 25px; 
+    gap: 20px; 
     text-align: left; 
-    background: #111; /* Dark background for professional contrast */
-    padding: 35px;
-    border: 5px solid #9B1C1C; 
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(155, 28, 28, 0.4);
+    background: #111; /* Dark background from your screenshot */
+    padding: 30px;
+    border: 4px solid #9B1C1C; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(155, 28, 28, 0.4);
+    margin-bottom: 30px;
 }
 
 .skill-item { 
-    color: #FFD700; /* Gold/Yellow text for Python/Web details */
+    color: #FFD700; /* Gold/Yellow text */
     font-size: 1.15em; 
     line-height: 1.6;
 }
@@ -131,41 +90,27 @@ nav ul {
     display: block; 
     margin-bottom: 10px; 
     border-bottom: 2px solid #9B1C1C; 
-    font-size: 1.4em; 
+    font-size: 1.3em;
     text-transform: uppercase;
 }
 
-/* --- Lists --- */
-.skill-item ul { 
-    list-style-type: square; 
-    padding-left: 20px; 
-    margin-top: 10px;
-}
-
-.skill-item li { 
-    margin-bottom: 8px; 
-}
-
-/* --- Profile Section --- */
+/* --- Profile Styling --- */
 .profile-section { 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    gap: 40px; 
+    gap: 30px; 
     margin-bottom: 40px; 
     flex-wrap: wrap; 
 }
 
 .photo-placeholder { 
-    width: 220px; 
-    height: 220px; 
-    border: 5px solid #9B1C1C; 
+    width: 200px; 
+    height: 200px; 
+    border: 4px solid #9B1C1C; 
     border-radius: 50%; 
-    background-color: #222; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
     overflow: hidden; 
+    background-color: #222;
 }
 
 .profile-img { 
@@ -174,46 +119,42 @@ nav ul {
     object-fit: cover; 
 }
 
-/* --- Form Inputs --- */
+/* --- The Final Sign-off (About Page Only) --- */
+.force-quote {
+    margin-top: 60px; 
+    font-weight: 900; 
+    color: #9B1C1C; 
+    font-size: 2em; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* --- Form & Buttons --- */
 .form-control { 
     width: 100%; 
     padding: 15px; 
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     background: #222; 
     border: 2px solid #9B1C1C; 
     color: #FFFF00; 
-    border-radius: 8px; 
-    box-sizing: border-box; 
-    font-size: 1.1em;
+    border-radius: 5px; 
 }
 
 .btn-submit { 
     width: 100%; 
-    padding: 18px; 
+    padding: 15px; 
     background: #9B1C1C; 
-    color: white; 
+    color: #fff; 
     font-weight: bold; 
     border: none; 
-    border-radius: 8px; 
+    border-radius: 5px; 
     cursor: pointer; 
-    transition: 0.3s; 
-    font-size: 1.2em;
 }
 
-.btn-submit:hover { 
-    background: #ff0000; 
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
+/* --- Footer --- */
+.footer { 
+    width: 100%; 
+    display: block; 
+    margin-top: 50px;
 }
-
-/* --- Owl Animation --- */
-@keyframes owlFlight {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-.sending-owl {
-    display: inline-block;
-    animation: owlFlight 0.8s infinite ease-in-out;
-}
-
