@@ -1,54 +1,45 @@
-/* --- GLOBAL STYLES: UNIFIED RAZORBACK RED --- */
+/* --- Global Styles: All Red Background --- */
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* Ensures red fills the screen */
-    overflow-x: hidden;
-    background-color: #9B1C1C; /* Razorback Red */
-    color: #FFFF00; /* Global Yellow Text */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0; width: 100%; min-height: 100vh;
+    background-color: #9B1C1C; color: #FFFF00;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* --- THE WIDE CINEMATIC BANNER --- */
-.banner { 
-    width: 100vw; 
-    height: 220px; 
-    object-fit: cover; 
+/* --- Navigation Fix: Red Background Behind Links --- */
+nav { background-color: #9B1C1C; padding: 20px 0; border-bottom: 4px solid #FFFF00; width: 100%; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 25px; }
+nav ul li a img { height: 40px !important; filter: drop-shadow(2px 2px 4px #000); }
+
+/* --- PROFILE IMAGE SIZE LOCK --- */
+.profile-img { 
+    width: 250px !important; /* Professional Scale */
+    height: 250px !important;
+    border-radius: 50%; /* Circle */
+    border: 5px solid #FFFF00; 
+    object-fit: cover; /* Prevents Stretching */
+    margin: 30px auto;
     display: block;
-    margin: 0;
-    border-bottom: 5px solid #FFFF00; /* Yellow divider */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-/* --- NAVIGATION: RED BACKGROUND BEHIND LINKS --- */
-nav { 
-    background-color: #9B1C1C; /* Eliminated white space */
-    padding: 20px 0; 
-    border-bottom: 4px solid #FFFF00; /* Yellow contrast border */
-    width: 100%;
+/* --- THE PULSING POP ANIMATION --- */
+@keyframes orangePulse {
+    0% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
+    50% { border-color: #FF4500; box-shadow: 0 0 35px #FF4500; color: #FF4500; }
+    100% { border-color: #FFFF00; box-shadow: 0 0 5px #FFFF00; color: #FFFF00; }
 }
 
-nav ul { 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
-    gap: 25px;
+.force-quote {
+    font-weight: 900; text-transform: uppercase; text-align: center; 
+    margin: 80px 0; font-size: 2.5em; text-shadow: 3px 3px 10px #000;
+    animation: orangePulse 3s infinite ease-in-out; /* Pulsing Signature */
 }
 
-nav ul li a img {
-    height: 40px !important; /* Fixed icon size */
-    width: auto;
-    display: block;
-    transition: transform 0.1s ease-in-out;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6)); /* Makes icons pop on red */
+.container { 
+    background-color: #9B1C1C; padding: 30px; border: 5px solid #FFFF00; 
+    border-radius: 35px; margin: 30px auto; max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
 }
-
-nav ul li a:active img {
-    transform: scale(0.9);
-}
-
 /* --- PROFILE IMAGE SIZE LOCK (ABOUT PAGE) --- */
 .profile-img { 
     width: 250px !important; /* Professional scale */
@@ -139,3 +130,4 @@ label {
 /* --- SKILLS LISTS --- */
 .skills-list { list-style-type: '🐗 '; padding-left: 25px; line-height: 1.8; font-weight: 500; }
 .skills-list li { margin-bottom: 10px; font-size: 1.1em; }
+
