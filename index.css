@@ -1,15 +1,15 @@
-/* --- 1. BRAND IDENTITY & THEME CONSTANTS --- */
+/* --- 1. BRAND IDENTITY --- */
 :root {
     --ar-red: #9D2235;   /* Arkansas Cardinal Red */
-    --ar-white: #FFFFFF; /* High-contrast White */
-    --ar-black: #000000; /* Pure Black Background */
+    --ar-white: #FFFFFF; /* Pure White */
+    --ar-black: #000000; /* Pure Black */
 }
 
-/* --- 2. GLOBAL RESET & CORE STYLES --- */
+/* --- 2. GLOBAL RESET & CORE LAYOUT --- */
 * { 
     box-sizing: border-box; 
-    margin: 0;
-    padding: 0;
+    margin: 0; 
+    padding: 0; 
 }
 
 body {
@@ -17,29 +17,30 @@ body {
     color: var(--ar-white);
     font-family: 'Segoe UI', Tahoma, sans-serif;
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.5;
+    min-height: 100vh;
 }
 
-/* --- 3. THE 600x150 BANNER LOCK --- */
-/* Fixes alignment and ensures consistent scaling */
+/* --- 3. THE BANNER (600x150) --- */
+/* Restores visibility and centers the branding */
 .banner { 
-    width: 100%;
+    width: 100%; 
     max-width: 600px; 
-    height: 150px; 
+    height: auto; 
     display: block; 
     margin: 0 auto; 
-    object-fit: contain; 
-    border: 3px solid var(--ar-white); 
+    border: 2px solid var(--ar-white); 
+    object-fit: contain;
 }
 
 /* --- 4. UNIFIED NAVIGATION LINKS --- */
-/* Forces all link icons to be exactly 50px high */
+/* FIX: Prevents icons from collapsing into dots */
 nav { 
     background-color: var(--ar-red); 
-    padding: 12px 0; 
+    padding: 10px 0; 
     width: 100%; 
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 600px; 
+    margin: 0 auto; 
     border-bottom: 4px solid var(--ar-white); 
 }
 
@@ -51,37 +52,32 @@ nav ul {
 }
 
 nav ul li a img { 
-    height: 50px !important; /* Uniform icon height */
-    width: auto; 
-    border: 2px solid var(--ar-white); 
-    border-radius: 8px; 
+    height: 50px !important; /* Uniform height */
+    width: 50px !important;  /* Uniform width */
+    border: 1px solid var(--ar-white); 
+    border-radius: 5px; 
     background-color: var(--ar-black);
-    transition: transform 0.2s;
+    display: block;
 }
 
-nav ul li a img:hover { 
-    transform: scale(1.1); 
-    box-shadow: 0 0 10px var(--ar-white);
-}
-
-/* --- 5. CONTAINERS & IMAGES --- */
+/* --- 5. CONTAINERS & RESPONSIVE PHOTOS --- */
 
 .container { 
     background-color: #0f0f0f; 
-    padding: 25px; 
+    padding: 20px; 
     border: 2px solid var(--ar-red); 
     border-radius: 15px; 
     margin: 20px auto; 
-    max-width: 95%; 
-    width: 600px; 
+    width: 90%; 
+    max-width: 600px; 
 }
 
-/* Responsive fitting for profile and family photos */
+/* FIX: Scales images so they don't overlap text */
 .profile-img { 
-    width: 100%; 
-    max-width: 450px; 
+    width: 80%; 
+    max-width: 350px; 
     height: auto; 
-    border-radius: 20px; 
+    border-radius: 15px; 
     border: 4px solid var(--ar-red); 
     margin: 20px auto; 
     display: block;
@@ -89,22 +85,24 @@ nav ul li a img:hover {
 
 .family-photo {
     width: 100%; 
+    max-width: 100%; 
     height: auto; 
     border-radius: 10px; 
-    border: 2px solid var(--ar-white);
+    border: 1px solid var(--ar-white);
     margin-top: 15px;
+    display: block;
 }
 
 /* --- 6. WHITE ROUNDED FORM FIELDS --- */
-/* Fixes the contact form text boxes */
+/* Corrects the "crap" form look in Jacksonville screens */
 .form-control {
     width: 100%;
     background-color: var(--ar-black);
-    border: 2px solid var(--ar-white); /* White rounded border */
-    border-radius: 15px;               /* 15px rounding */
-    padding: 15px;
+    border: 2px solid var(--ar-white); /* White border */
+    border-radius: 10px;               /* Rounded corners */
+    padding: 12px;
     color: var(--ar-white);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 1em;
 }
 
@@ -114,10 +112,34 @@ nav ul li a img:hover {
     background-color: var(--ar-red);
     color: var(--ar-white);
     border: 2px solid var(--ar-white);
-    border-radius: 35px;
-    padding: 15px 40px;
+    border-radius: 25px;
+    padding: 12px 35px;
     font-weight: 900;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-red-rounded:hover {
+    background-color: var(--ar-white);
+    color: var(--ar-red);
+}
+
+/* --- 8. FLASHY FOOTER QUOTE --- */
+@keyframes flashyPulse {
+    0% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+    50% { color: var(--ar-white); text-shadow: 0 0 15px var(--ar-red); }
+    100% { color: var(--ar-red); text-shadow: 0 0 5px var(--ar-white); }
+}
+
+.flashy-quote {
+    font-weight: 900; 
+    text-transform: uppercase; 
+    font-size: 1.5em;
+    margin: 40px auto; 
+    animation: flashyPulse 3s infinite ease-in-out;
+}
     text-decoration: none;
     cursor: pointer;
     transition: 0.3s;
@@ -142,3 +164,4 @@ nav ul li a img:hover {
     margin: 50px auto; 
     animation: flashyPulse 3s infinite ease-in-out;
 }
+
