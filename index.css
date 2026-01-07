@@ -49,7 +49,6 @@ nav ul li a img:hover { transform: scale(1.1) rotate(5deg); }
 }
 .btn-red-rounded:hover { background: var(--ar-white); color: var(--ar-red); box-shadow: 0 0 20px var(--ar-red); }
 
-.flashy-quote { font-weight: 900; text-transform: uppercase; font-size: 1.5em; margin: 50px auto; color: var(--ar-red); animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.flashy-quote { font-weight: 900; text-transform: uppercase; font-size: 1.5em; margin: 50px auto; color: var(--ar-red); }
 
 footer { padding: 40px 20px; color: #555; font-size: 0.75rem; border-top: 1px solid #222; margin-top: 50px; }
