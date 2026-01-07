@@ -1,25 +1,40 @@
-/**
- * Wild Hog Coding - Contact Logic
- * Handles the "Mischief Managed" success state 
- *
- */
+const form = document.getElementById('contact-form'); // Matches your HTML ID
+const formContainer = document.getElementById('form-container');
+const successMsg = document.getElementById('success-msg');
+const submitBtn = form.querySelector('button[type="submit"]');
 
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    // 1. Prevent the default form submission (page reload)
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 2. Identify the form and success message containers
-    const formArea = document.getElementById('form-container');
-    const successArea = document.getElementById('success-msg');
+    const formData = new FormData(form);
+    // Using your provided access key
+    formData.append("access_key", "459fc5ea-0806-4825-824d-d3c9115a7942");
 
-    // 3. Toggle visibility
-    // Hide the form so it cannot be submitted twice
-    formArea.style.display = 'none';
-    
-    // Show the "Mischief Managed" message
-    successArea.style.display = 'block';
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
 
-    // 4. Log for technical verification (WGU SDLC Testing phase)
-    console.log("Form successfully submitted. Owl dispatched from Jacksonville.");
-});
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // MISCHIEF MANAGED LOGIC
+            formContainer.style.display = 'none'; // Hides the form
+            successMsg.style.display = 'block';   // Shows the success message
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
 });
