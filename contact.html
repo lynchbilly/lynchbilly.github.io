@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Billy James Lynch at Razorback Coding. Dispatch an owl from Jacksonville, AR.">
     <link rel="StyleSheet" href="index.css" type="text/css">
     <title>Contact | Razorback Coding</title>
 </head>
 <body>
     <img src="file_00000000071871fdaef5fe6da2af4432~2.png" alt="Banner" class="banner">
-    
     <nav>
         <ul>
             <li><a href="index.html"><img src="4DF59DD8-7CB8-41EC-8623-7365117EED45.jpeg" alt="home"></a></li>
@@ -20,7 +18,7 @@
     </nav>
 
     <div class="body">
-        <h1 class="main-title">GET IN TOUCH</h1>
+        <h1 style="text-align: center; margin-top: 30px;">GET IN TOUCH</h1>
         
         <div id="form-container">
             <form id="form">
@@ -28,15 +26,15 @@
                 <div class="container">
                     <div class="form-group">
                         <label>NAME</label>
-                        <input type="text" name="name" class="form-control" placeholder="Billy James Lynch" required>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>EMAIL</label>
-                        <input type="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>MESSAGE</label>
-                        <textarea name="message" class="form-control" rows="6" placeholder="Project details..." required></textarea>
+                        <textarea name="message" class="form-control" rows="4" required></textarea>
                     </div>
                     <button type="submit" id="submit-btn" class="btn-pro">SEND OWL</button>
                 </div>
@@ -44,13 +42,12 @@
         </div>
 
         <div id="success-message" class="container" style="display: none; text-align: center;">
-            <h2 style="font-size: 2.5em; font-weight: 900; text-shadow: 2px 2px #000;">MISCHIEF MANAGED!</h2>
-            <p style="font-size: 1.3em; margin-top: 15px;">Your owl has been dispatched from Jacksonville.</p>
+            <h2 style="font-weight: 900; color: #FFFF00; text-shadow: 2px 2px #000;">MISCHIEF MANAGED!</h2>
+            <p style="margin-top: 10px;">Your message has been dispatched to Jacksonville.</p>
         </div>
 
         <p class="force-quote">May the Code be with you.</p>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
