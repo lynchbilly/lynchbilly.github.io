@@ -1,19 +1,19 @@
 /* WILD HOG CODING - OFFICIAL SYSTEM STYLESHEET 2026
     Lead Engineer: Billy James (Lynch Programmer)
-    Tone: Geek-Industrial / Command Center
+    Tone: Geek-Industrial / All-White High Contrast
 */
 
 :root {
-    --ar-red: #cc0000;       /* Razorback Primary */
+    --ar-red: #cc0000;       /* Reserved for Accents */
     --geek-black: #000000;   /* Deep Space Black */
-    --pure-white: #ffffff;   /* Elite Border / Navigation */
-    --nav-size: 75px;        /* Accessibility Standard */
+    --pure-white: #ffffff;   /* Primary Text & Border */
+    --nav-size: 75px;        
 }
 
 /* Base Terminal Environment */
 body {
     background-color: var(--geek-black);
-    color: var(--ar-red);
+    color: var(--pure-white); /* ALL TEXT NOW WHITE */
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.6;
     margin: 0;
@@ -26,8 +26,8 @@ body {
 /* Master Navigation Protocol */
 nav {
     width: 100%;
-    background: #111;
-    border-bottom: 2px solid var(--pure-white);
+    background: #000000;
+    border-bottom: 3px solid var(--pure-white);
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -46,9 +46,101 @@ nav ul {
 nav img {
     width: var(--nav-size);
     height: var(--nav-size);
+    border: 3px solid var(--pure-white);
+    border-radius: 0; /* Industrial sharp edges */
+    background: #111;
+    transition: all 0.3s ease;
+}
+
+nav img:hover {
+    border-color: var(--ar-red);
+    transform: scale(1.1);
+}
+
+/* High-Contrast Content Panels */
+.panel {
+    width: 90%;
+    max-width: 800px;
+    border: 4px solid var(--pure-white); /* THICKER WHITE BORDERS */
+    background-color: var(--geek-black);
+    padding: 25px;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+/* Typography Hierarchy - ALL WHITE */
+h1, h2, h3 {
+    color: var(--pure-white);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 0;
+    border-bottom: 2px solid var(--pure-white);
+}
+
+h1 { font-size: 2.5rem; text-align: center; border-bottom: none; }
+h2 { font-size: 1.8rem; padding-bottom: 10px; }
+
+/* Interactive Elements */
+a {
+    color: var(--pure-white);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--ar-red); /* RED ACCENT ON HOVER */
+}
+
+.btn-white-industrial {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--pure-white);
+    padding: 12px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 3px solid var(--pure-white);
+    margin-top: 10px;
+}
+
+.btn-white-industrial:hover {
+    background-color: var(--pure-white);
+    color: var(--geek-black);
+}
+
+/* Progress Bar Implementation */
+.progress-container {
+    width: 100%;
+    background-color: #222;
     border: 2px solid var(--pure-white);
-    border-radius: 12px;
-    background: #222;
+    height: 30px;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--ar-red); /* PROGRESS REMAINS RED */
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+/* Footer / Metadata */
+footer {
+    font-size: 0.9rem;
+    color: #888;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    nav img { width: 65px; height: 65px; }
+    .panel { width: 95%; border-width: 3px; }
+}
     transition: all 0.3s ease;
 }
 
@@ -137,3 +229,4 @@ footer {
     nav img { width: 60px; height: 60px; }
     .panel { width: 95%; padding: 15px; }
 }
+
