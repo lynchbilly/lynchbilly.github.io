@@ -1,74 +1,98 @@
-/* WILD HOG CODING - REPAIRED PRODUCTION CSS 2026 */
+/* WILD HOG CODING - BLACK OPS PRODUCTION 2026
+   Specs: Black Background, White Text, Red Interaction (Inputs/Buttons)
+*/
 
 :root {
-    --bg-grey: #1e1e1e;
-    --panel-grey: #2a2a2a;
-    --ar-red: #cc0000;
-    --pure-white: #ffffff;
+    --deep-black: #000000;   
+    --panel-grey: #1a1a1a;   
+    --ar-red: #cc0000;       /* Razorback Red for Inputs/Buttons */
+    --pure-white: #ffffff;   /* Text and Borders */
 }
 
-/* 1. HORIZONTAL NAVIGATION FIX */
+body {
+    background-color: var(--deep-black);
+    color: var(--pure-white);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 1. HORIZONTAL NAVIGATION (Locked Row) */
 nav {
     width: 100%;
-    padding: 20px 0;
     border-bottom: 4px solid var(--pure-white);
+    padding: 15px 0;
+    margin-bottom: 20px;
 }
 
 nav ul {
-    display: flex;          /* FORCES HORIZONTAL */
-    flex-direction: row;    /* LEFT TO RIGHT */
-    justify-content: center; 
-    align-items: center;
-    gap: 15px;              /* Tight gap for mobile fit */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 nav img {
-    width: 65px;            /* SLIGHTLY SMALLER FOR HORIZONTAL FIT */
-    height: 65px;
+    width: 70px;
+    height: 70px;
     border: 3px solid var(--pure-white);
-    background: #000;
-    object-fit: contain;
+    background: var(--panel-grey);
 }
 
-/* 2. BUTTON STYLING (Index & About) */
-/* Targets all buttons and links acting as buttons */
-button, .btn, .btn-red-rounded, a[href*=".html"] {
-    display: inline-block;
-    background-color: #000;
-    color: var(--pure-white);
-    border: 3px solid var(--pure-white);
-    padding: 12px 24px;
-    text-transform: uppercase;
-    font-weight: 900;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 10px 0;
-    text-align: center;
-}
-
-button:hover, .btn:hover {
-    background-color: var(--ar-red);
-    color: var(--pure-white);
-}
-
-/* 3. IMAGE SCALING (About Page) */
-.about-image, img {
-    max-width: 100%;
-    height: auto;
-    border: 4px solid var(--pure-white);
-    display: block;
-    margin: 15px auto;
-}
-
-/* 4. PANEL REINFORCEMENT */
+/* 2. THE PANELS */
 .panel {
     width: 90%;
     max-width: 850px;
     background-color: var(--panel-grey);
+    border: 5px solid var(--pure-white);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/* 3. RED TEXT BOXES (Forms) */
+input, textarea {
+    width: 100%;
+    background-color: var(--ar-red); /* Solid Red Box */
+    color: var(--pure-white);         /* White Text inside */
     border: 4px solid var(--pure-white);
-    padding: 25px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* 4. RED BUTTON STYLING (Universal) */
+button, .btn, .btn-red-rounded, a[href*=".html"].btn {
+    display: inline-block;
+    background-color: var(--ar-red); /* Solid Red Button */
+    color: var(--pure-white);
+    border: 4px solid var(--pure-white);
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--pure-white);
+    color: var(--ar-red);
+}
+
+/* 5. IMAGE STYLING */
+img {
+    max-width: 100%;
+    border: 4px solid var(--pure-white);
+    display: block;
     margin: 20px auto;
 }
