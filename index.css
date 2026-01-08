@@ -1,55 +1,83 @@
-/* 1. THE DIVS (Panels) */
-/* This styles every div you wrap in the 'panel' class */
-.panel {
-    width: 95%;
-    max-width: 900px;
-    background-color: var(--panel-dark);
-    border: 10px solid var(--pure-white); 
-    padding: 35px;
-    margin: 30px 0;
-    box-shadow: 20px 20px 0px rgba(0,0,0,0.5);
+/* WILD HOG CODING - ELITE ENGINEERING PRO
+   Lead Engineer: Billy Lynch
+   Tone: Professional, Clean, Industrial
+*/
+
+:root {
+    --bg-grey: #1e1e1e;        /* Darker, smoother slate */
+    --panel-grey: #2a2a2a;     /* Professional contrast */
+    --ar-red: #cc0000;         /* Razorback Red (Accents Only) */
+    --pure-white: #ffffff;     /* Primary Text */
+    --border-white: rgba(255, 255, 255, 0.9);
 }
 
-/* 2. THE PICTURES (General Images) */
-/* This ensures any photo you upload (family, projects, etc.) gets the frame */
+body {
+    background-color: var(--bg-grey);
+    color: var(--pure-white); /* Back to clean white text */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CLEAN PRO PANEL */
+.panel {
+    width: 90%;
+    max-width: 850px;
+    background-color: var(--panel-grey);
+    border: 3px solid var(--border-white); /* Thinner, cleaner borders */
+    padding: 30px;
+    margin: 25px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Smooth shading, no harsh edges */
+    border-radius: 4px;
+}
+
+/* TEXT STYLING: CLEAN & BOLD */
+h1, h2, h3 {
+    color: var(--pure-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--ar-red); /* The Red is now a professional accent */
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    border-bottom: none;
+    text-shadow: 0 0 10px rgba(204, 0, 0, 0.5); /* Subtle Red Glow */
+}
+
+/* NAVIGATION PICTURES */
+nav img {
+    width: 75px;
+    height: 75px;
+    border: 2px solid var(--pure-white);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+nav img:hover {
+    border-color: var(--ar-red);
+    transform: translateY(-5px);
+}
+
+/* IMAGES & FORMS */
 img {
     max-width: 100%;
-    height: auto;
-    border: 8px solid var(--pure-white);
-    box-shadow: 10px 10px 0px var(--shade-grey);
-    display: block;
-    margin: 20px auto;
+    border: 3px solid var(--pure-white);
+    border-radius: 4px;
 }
 
-/* 3. THE FORMS (Contact/Input) */
-/* This makes your text boxes and buttons look like hardware */
-input, textarea, select {
+input, textarea {
     width: 100%;
-    background-color: #000;
-    color: var(--ar-red);
-    border: 4px solid var(--pure-white);
-    padding: 15px;
-    font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    /* This applies the grey shading to your typed text too */
-    text-shadow: 1px 1px 2px var(--shade-grey);
-}
-
-button, .submit-btn {
-    background-color: var(--pure-white);
-    color: #000;
-    border: none;
-    padding: 20px 40px;
-    font-weight: 950;
-    text-transform: uppercase;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    background-color: var(--ar-red);
-    color: var(--pure-white);
+    background: #111;
+    color: white;
+    border: 1px solid #444;
+    padding: 12px;
+    margin-top: 10px;
 }
