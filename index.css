@@ -1,63 +1,55 @@
-/* WILD HOG CODING - CONCRETE INDUSTRIAL 2026
-    Lead Engineer: Billy Lynch (The Lynch Programmer)
-    Target: High-Impact Mobile Visibility
-*/
-
-:root {
-    --industrial-grey: #2e2e2e; /* Deep Slate Background */
-    --ar-red: #ff0000;          /* High-Voltage Red Text */
-    --pure-white: #ffffff;      /* Structural White Borders */
-}
-
-body {
-    background-color: var(--industrial-grey);
-    color: var(--ar-red);
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 950;           /* Maximum thickness for mobile punch */
-    margin: 0;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* RED TEXT WITH HEAVY WHITE SHADOW BORDER */
-h1, h2, h3, p, li {
-    color: var(--ar-red);
-    text-shadow: 
-        -3px -3px 0 var(--pure-white),  
-         3px -3px 0 var(--pure-white),
-        -3px  3px 0 var(--pure-white),
-         3px  3px 0 var(--pure-white);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* MASSIVE MOBILE HEADERS */
-h1 {
-    font-size: 3.8rem; 
-    line-height: 1.0;
-    text-align: center;
-    margin-bottom: 30px;
-    border: none; /* Shadow border handles the separation */
-}
-
-/* THICK WHITE BORDERS FOR MOBILE PANELS */
+/* 1. THE DIVS (Panels) */
+/* This styles every div you wrap in the 'panel' class */
 .panel {
-    width: 100%;
-    max-width: 850px;
-    border: 10px solid var(--pure-white); /* Heavy industrial frame */
-    background-color: var(--industrial-grey);
-    padding: 25px;
-    margin-bottom: 40px;
-    box-sizing: border-box;
-    box-shadow: 15px 15px 0px rgba(0,0,0,0.4); /* Hard 3D shadow */
+    width: 95%;
+    max-width: 900px;
+    background-color: var(--panel-dark);
+    border: 10px solid var(--pure-white); 
+    padding: 35px;
+    margin: 30px 0;
+    box-shadow: 20px 20px 0px rgba(0,0,0,0.5);
 }
 
-/* 75px+ NAV ICONS */
-nav img {
-    width: 85px; 
-    height: 85px;
-    border: 6px solid var(--pure-white);
-    background: #000;
+/* 2. THE PICTURES (General Images) */
+/* This ensures any photo you upload (family, projects, etc.) gets the frame */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 8px solid var(--pure-white);
+    box-shadow: 10px 10px 0px var(--shade-grey);
+    display: block;
+    margin: 20px auto;
+}
+
+/* 3. THE FORMS (Contact/Input) */
+/* This makes your text boxes and buttons look like hardware */
+input, textarea, select {
+    width: 100%;
+    background-color: #000;
+    color: var(--ar-red);
+    border: 4px solid var(--pure-white);
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    /* This applies the grey shading to your typed text too */
+    text-shadow: 1px 1px 2px var(--shade-grey);
+}
+
+button, .submit-btn {
+    background-color: var(--pure-white);
+    color: #000;
+    border: none;
+    padding: 20px 40px;
+    font-weight: 950;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--ar-red);
+    color: var(--pure-white);
 }
