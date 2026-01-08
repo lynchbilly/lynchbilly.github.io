@@ -1,135 +1,49 @@
-/* WILD HOG CODING - BLACK OPS MASTER CSS 2026
-   Lead Engineer: Billy Lynch (The Lynch Programmer)
-   Specs: Black Background, White Text, Red Interaction Boxes
-*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Wild Hog Coding</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-:root {
-    --deep-black: #000000;   /* Master Background */
-    --panel-grey: #1a1a1a;   /* Panel Depth */
-    --ar-red: #cc0000;       /* Red Interaction (Inputs/Buttons) */
-    --pure-white: #ffffff;   /* Primary Text & Borders */
-    --nav-size: 70px;        /* Horizontal Icon Scaling */
-}
+    <header>
+        <h1>ABOUT THE PROGRAMMER</h1>
+    </header>
 
-/* Base Terminal Environment */
-body {
-    background-color: var(--deep-black);
-    color: var(--pure-white);
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="home-icon.png" alt="Home"></a></li>
+            <li><a href="about.html"><img src="about-icon.png" alt="About"></a></li>
+            <li><a href="projects.html"><img src="projects-icon.png" alt="Projects"></a></li>
+            <li><a href="contact.html"><img src="contact-icon.png" alt="Contact"></a></li>
+        </ul>
+    </nav>
 
-/* Master Navigation - Horizontal Alignment */
-nav {
-    width: 100%;
-    border-bottom: 4px solid var(--pure-white);
-    padding: 15px 0;
-    margin-bottom: 20px;
-}
+    <main>
+        <div class="panel">
+            <h2>THE MISSION</h2>
+            <p>I am Billy Lynch, the Lynch Programmer. Based in Jacksonville, Arkansas, I am building Wild Hog Coding into a premier agentic AI and software development powerhouse.</p>
+            <p>Currently enrolled at WGU for Software Engineering, I am mastering Python, Java, and AI integration to provide high-performance solutions.</p>
+        </div>
 
-nav ul {
-    display: flex;
-    flex-direction: row;    /* FORCES LEFT-TO-RIGHT */
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        <div class="panel">
+            <h2>THE CREW</h2>
+            <img src="family-photo.jpg" alt="The Lynch Family" class="about-image">
+            <p>Everything I build is for my family: Megan, Jackson, Madelyn, Abygail, and Kylee. They are the "Why" behind the 40-hour coding weeks.</p>
+        </div>
 
-nav img {
-    width: var(--nav-size);
-    height: var(--nav-size);
-    border: 3px solid var(--pure-white);
-    background: var(--panel-grey);
-    transition: 0.3s;
-}
+        <div class="panel">
+            <h2>CONNECT</h2>
+            <p>Interested in working together or following the journey?</p>
+            <a href="contact.html" class="btn">SEND A TRANSMISSION</a>
+        </div>
+    </main>
 
-nav img:hover {
-    border-color: var(--ar-red);
-    transform: scale(1.1);
-}
+    <footer>
+        <p>&copy; 2026 WILD HOG CODING | SYSTEM ONLINE</p>
+    </footer>
 
-/* Industrial Content Panels */
-.panel {
-    width: 90%;
-    max-width: 850px;
-    background-color: var(--panel-grey);
-    border: 5px solid var(--pure-white);
-    padding: 30px;
-    margin-bottom: 30px;
-    box-sizing: border-box;
-    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.05);
-}
-
-/* Typography Scale */
-h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-top: 20px;
-}
-
-h2 {
-    font-size: 2rem;
-    text-transform: uppercase;
-    border-bottom: 3px solid var(--pure-white);
-    padding-bottom: 10px;
-}
-
-/* RED TEXT BOXES (Forms) */
-input, textarea {
-    width: 100%;
-    background-color: var(--ar-red); /* Industrial Red Shading */
-    color: var(--pure-white);         /* Clean White Typing Text */
-    border: 4px solid var(--pure-white);
-    padding: 15px;
-    font-family: 'Courier New', monospace;
-    font-size: 1.3rem;
-    font-weight: 900;
-    margin-top: 10px;
-    box-sizing: border-box;
-}
-
-/* BUTTONS & LINKS (Index/About) */
-button, .btn, a[href*=".html"] {
-    display: inline-block;
-    background-color: var(--ar-red);
-    color: var(--pure-white);
-    border: 4px solid var(--pure-white);
-    padding: 15px 30px;
-    text-transform: uppercase;
-    font-weight: 900;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-button:hover {
-    background-color: var(--pure-white);
-    color: var(--ar-red);
-}
-
-/* Picture Scaling */
-img {
-    max-width: 100%;
-    border: 4px solid var(--pure-white);
-    margin: 20px auto;
-    display: block;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    h1 { font-size: 2.2rem; }
-    nav ul { gap: 10px; }
-    nav img { width: 60px; height: 60px; }
-}
-    <footer>© 2026 Billy James | Lynch Programmer | Wild Hog Coding</footer>
 </body>
 </html>
