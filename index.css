@@ -1,78 +1,139 @@
-/* WILD HOG CODING - ELITE PROFESSIONAL REVERSION 2026
-    Theme: High-Contrast Mono / Heavy Industrial
+/* WILD HOG CODING - OFFICIAL SYSTEM STYLESHEET 2026
+    Lead Engineer: Billy James (Lynch Programmer)
+    Tone: Geek-Industrial / Command Center
 */
 
 :root {
-    --geek-black: #000000;   /* Pure Void Black */
-    --pure-white: #ffffff;   /* Elite Primary White */
-    --ar-red: #ff0000;       /* Reserved only for accents/hover */
-    --border-thick: 6px;     /* Heavy-duty industrial borders */
+    --ar-red: #cc0000;       /* Razorback Primary */
+    --geek-black: #000000;   /* Deep Space Black */
+    --pure-white: #ffffff;   /* Elite Border / Navigation */
+    --nav-size: 75px;        /* Accessibility Standard */
 }
 
+/* Base Terminal Environment */
 body {
     background-color: var(--geek-black);
-    color: var(--pure-white); /* Reverted to All White Text */
+    color: var(--ar-red);
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 800;
+    line-height: 1.6;
     margin: 0;
-    padding: 15px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Massive Mobile Headers */
-h1 {
-    font-size: 3.2rem;
-    text-align: center;
-    border-bottom: var(--border-thick) solid var(--pure-white);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 2.2rem;
-    color: var(--pure-white);
-    margin-top: 40px;
-}
-
-/* Bold Body Text */
-p, li {
-    font-size: 1.6rem;
-    line-height: 1.4;
-}
-
-/* Heavy White Panel Borders */
-.panel {
+/* Master Navigation Protocol */
+nav {
     width: 100%;
-    max-width: 850px;
-    border: var(--border-thick) solid var(--pure-white);
-    padding: 25px;
-    margin-bottom: 30px;
-    background-color: var(--geek-black);
-    box-sizing: border-box;
+    background: #111;
+    border-bottom: 2px solid var(--pure-white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* 75px Navigation Reinforcement */
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 nav img {
-    width: 85px;
-    height: 85px;
-    border: var(--border-thick) solid var(--pure-white);
-    background: #000;
-    transition: 0.2s;
+    width: var(--nav-size);
+    height: var(--nav-size);
+    border: 2px solid var(--pure-white);
+    border-radius: 12px;
+    background: #222;
+    transition: all 0.3s ease;
 }
 
 nav img:hover {
-    border-color: var(--ar-red); /* Red accent only on hover */
-    transform: scale(1.05);
+    border-color: var(--ar-red);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--ar-red);
 }
 
-/* Buttons */
-.btn {
-    border: var(--border-thick) solid var(--pure-white);
+/* High-Contrast Content Panels */
+.panel {
+    width: 90%;
+    max-width: 800px;
+    border: 3px solid var(--pure-white);
+    background-color: var(--geek-black);
+    padding: 25px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3 {
+    color: var(--ar-red);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 0;
+    border-bottom: 1px solid var(--ar-red);
+}
+
+h1 { font-size: 2.2rem; text-align: center; border-bottom: none; }
+h2 { font-size: 1.5rem; padding-bottom: 10px; }
+
+/* Interactive Elements */
+a {
     color: var(--pure-white);
-    padding: 15px 30px;
-    text-decoration: none;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--ar-red);
+}
+
+.btn-red-rounded {
     display: inline-block;
-    font-size: 1.5rem;
+    background-color: var(--ar-red);
+    color: var(--pure-white) !important;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid var(--pure-white);
+    margin-top: 10px;
+}
+
+/* Progress Bar Implementation */
+.progress-container {
+    width: 100%;
+    background-color: #333;
+    border: 1px solid var(--pure-white);
+    height: 25px;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--ar-red);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+/* Footer / Metadata */
+footer {
+    font-size: 0.8rem;
+    color: #555;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    nav ul { gap: 10px; }
+    nav img { width: 60px; height: 60px; }
+    .panel { width: 95%; padding: 15px; }
 }
