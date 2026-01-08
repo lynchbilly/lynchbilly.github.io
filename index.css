@@ -1,64 +1,93 @@
-/* WILD HOG CODING - MOBILE MAX IMPACT */
+/* WILD HOG CODING - HEAVY INDUSTRIAL THEME 2026
+    Lead Engineer: Billy James (Lynch Programmer)
+    Style: Ultra-High Contrast / Heavy Borders
+*/
 
 :root {
-    --ar-red: #ff0000;       /* High Intensity Red */
-    --geek-black: #000000;   /* Pure Black */
-    --pure-white: #ffffff;   /* White Outline */
+    --ar-red: #ff0000;       /* Maximum Intensity Red */
+    --geek-black: #000000;   /* Pure Void Black */
+    --pure-white: #ffffff;   /* Heavy Duty White */
+    --nav-size: 85px;        /* Increased size for impact */
+    --border-thick: 5px;     /* Double thickness for panels */
 }
 
 body {
     background-color: var(--geek-black);
     color: var(--ar-red);
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 900;
+    font-weight: 900;        /* Makes all text heavy/bold */
     margin: 0;
-    padding: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* THE "RED ALERT" TEXT STYLE */
-h1, h2, h3, p, li {
+/* Heavy Navigation Protocol */
+nav {
+    width: 100%;
+    background: #000;
+    border-bottom: var(--border-thick) solid var(--pure-white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+nav img {
+    width: var(--nav-size);
+    height: var(--nav-size);
+    border: var(--border-thick) solid var(--pure-white);
+    border-radius: 0px;      /* Sharp corners for industrial look */
+    background: #111;
+    transition: 0.2s;
+}
+
+nav img:hover {
+    border-color: var(--ar-red);
+    box-shadow: 0 0 20px var(--ar-red);
+}
+
+/* Heavy Duty Content Panels */
+.panel {
+    width: 90%;
+    max-width: 900px;
+    border: var(--border-thick) solid var(--pure-white);
+    background-color: var(--geek-black);
+    padding: 35px;
+    margin: 30px 0;
+    box-sizing: border-box;
+}
+
+/* Ultra-Bold Headers */
+h1, h2, h3 {
     color: var(--ar-red);
     text-transform: uppercase;
-    /* This creates the heavy white shadow border around each letter */
-    text-shadow: 
-        -2px -2px 0 var(--pure-white),  
-         2px -2px 0 var(--pure-white),
-        -2px  2px 0 var(--pure-white),
-         2px  2px 0 var(--pure-white),
-         0px  3px 5px rgba(255, 255, 255, 0.5); /* Soft outer glow */
+    letter-spacing: 5px;
+    font-weight: 950;
+    margin-top: 0;
+    border-bottom: var(--border-thick) solid var(--ar-red);
 }
 
-/* MASSIVE MOBILE HEADERS */
-h1 {
-    font-size: 3.5rem; /* Massive for phone screens */
-    line-height: 1.1;
-    text-align: center;
-    margin-bottom: 30px;
+h1 { font-size: 3rem; text-align: center; margin-bottom: 20px; }
+h2 { font-size: 2rem; padding-bottom: 15px; }
+
+/* Interactive Elements - High Contrast */
+a {
+    color: var(--pure-white);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-top: 40px;
-}
-
-/* BIGGER BODY TEXT FOR PHONES */
-p, li {
-    font-size: 1.8rem; /* Extremely readable on small screens */
-    margin-bottom: 20px;
-}
-
-/* HEAVY WHITE PANEL BORDERS */
-.panel {
-    border: 8px solid var(--pure-white); /* Thicker white borders */
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: var(--geek-black);
-}
-
-/* 75px NAV ICONS - REINFORCED */
-nav img {
-    width: 85px;
-    height: 85px;
-    border: 5px solid var(--pure-white);
-    background: #000;
+a:hover {
+    background-color: var(--ar-red);
+    color: var(--pure-white);
 }
