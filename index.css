@@ -20,12 +20,14 @@
 html,body{
   margin:0;
   padding:0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
-/* ---------- GLOBAL TEXT NORMALIZATION ---------- */
+/* =============================
+   GLOBAL TEXT NORMALIZATION
+============================= */
 h1,h2,h3{
   margin:0 0 10px 0;
   letter-spacing:0.5px;
@@ -33,128 +35,116 @@ h1,h2,h3{
 p{
   margin:0 0 12px 0;
   line-height:1.6;
-  color: var(--muted);
+  color:var(--muted);
 }
-ul{
-  margin:10px 0 0 0;
-  padding-left:18px;
-}
+ul{ margin:10px 0 0 0; padding-left:18px; }
 li{ margin:6px 0; }
 a{ color:inherit; text-decoration:none; }
 
-/* =================================================
+/* =============================
    BANNER
-================================================= */
+============================= */
 .banner{
   width:100%;
-  height: clamp(240px, 30vw, 460px);
-  object-fit: contain;
-  object-position: center;
+  height:clamp(240px,30vw,460px);
+  object-fit:contain;
+  object-position:center;
   display:block;
   background:#0b1020;
   border-bottom:1px solid var(--border);
 }
 
-/* =================================================
-   NAV — HORIZONTAL | IMAGE + LABEL | 2× SIZE
-================================================= */
+/* =============================
+   NAV — FULL IMAGE TILES
+============================= */
 nav{
-  background: var(--black);
+  background:var(--black);
   border-bottom:1px solid var(--border);
 }
 
 nav ul{
   list-style:none;
   margin:0;
-  padding:18px 14px;
+  padding:22px 16px;
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap:18px;
+  align-items:flex-start;
+  gap:22px;
   flex-wrap:wrap;
 }
 
-/* NAV BUTTON (2× SIZE) */
+/* TILE LINK */
 nav a{
   width:220px;
-  height:184px;
-
   display:flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items:center;
-  justify-content:center;
-  gap:12px;
-
-  background: transparent;
-  border:2px solid var(--border-strong);
-  border-radius:18px;
-
-  font-weight:800;
-  font-size:1.1rem;
-  letter-spacing:1px;
+  gap:10px;
   text-transform:uppercase;
-
-  transition: 140ms ease;
+  font-weight:800;
+  font-size:0.9rem;
+  letter-spacing:1px;
 }
 
-/* REAL IMAGE FILES */
+/* IMAGE TILE (THIS IS THE KEY PART) */
 nav a img{
-  width:88px;
-  height:88px;
-  object-fit:contain;
+  width:220px;
+  height:220px;
+  display:block;
+  object-fit:cover;           /* 🔥 FILL THE SQUARE */
+  border-radius:18px;
+  border:2px solid var(--border-strong);
+  background:#000;
 }
 
-/* hover (subtle) */
-nav a:hover{
-  background: rgba(255,255,255,0.06);
+/* hover — minimal */
+nav a:hover img{
+  border-color:var(--white);
 }
 
 /* active page */
-nav a.active{
-  border-color: var(--red);
+nav a.active img{
+  border-color:var(--red);
 }
 
-/* =================================================
-   PANELS (HOME PAGE)
-================================================= */
+/* =============================
+   PANELS (HOME)
+============================= */
 .panel{
-  width:min(1200px, 92%);
+  width:min(1200px,92%);
   margin:22px auto;
   padding:20px;
-
-  background: var(--panel);
+  background:var(--panel);
   border:1px solid var(--border);
   border-radius:18px;
 }
 
 .muted-block{ color:var(--muted); }
 
-/* =================================================
-   AUTO-FIX FOR ABOUT / SKILLS / CONTACT
-   (prevents white pages)
-================================================= */
-main, section, article, .content{
-  width:min(1200px, 92%);
+/* =============================
+   AUTO DARK FIX (ABOUT / SKILLS / CONTACT)
+============================= */
+main,section,article,.content{
+  width:min(1200px,92%);
   margin:22px auto;
   padding:20px;
-
-  background: var(--panel);
+  background:var(--panel);
   border:1px solid var(--border);
   border-radius:18px;
 }
 
-/* =================================================
+/* =============================
    GRID / CARDS
-================================================= */
+============================= */
 .grid{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:16px;
   margin-top:14px;
 }
 
 .card{
-  background: var(--panel-soft);
+  background:var(--panel-soft);
   border:1px solid var(--border);
   border-radius:16px;
   padding:16px;
@@ -162,9 +152,9 @@ main, section, article, .content{
 
 .card h3{ margin:0 0 10px 0; }
 
-/* =================================================
+/* =============================
    LINK LIST
-================================================= */
+============================= */
 .link-list{
   list-style:none;
   padding:0;
@@ -177,17 +167,17 @@ main, section, article, .content{
   padding:12px 14px;
   border:1px solid var(--border);
   border-radius:14px;
-  background: var(--panel-soft);
+  background:var(--panel-soft);
 }
 
 .muted{
-  color: rgba(203,213,225,0.75);
+  color:rgba(203,213,225,0.75);
   margin-left:6px;
 }
 
-/* =================================================
+/* =============================
    FORMS (CONTACT PAGE)
-================================================= */
+============================= */
 form{
   display:grid;
   gap:14px;
@@ -196,13 +186,11 @@ form{
 
 label{ font-weight:700; }
 
-input,
-textarea{
+input,textarea{
   width:100%;
   padding:12px 14px;
   background:#000;
   color:var(--text);
-
   border:1px solid var(--border-strong);
   border-radius:10px;
   font-size:1rem;
@@ -232,18 +220,18 @@ input[type="submit"]{
 
 button:hover,
 input[type="submit"]:hover{
-  background: rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.06);
 }
 
-/* =================================================
+/* =============================
    FOOTER
-================================================= */
+============================= */
 footer{
-  width:min(1200px, 92%);
+  width:min(1200px,92%);
   margin:30px auto 40px auto;
   padding:18px;
   text-align:center;
-  color: rgba(203,213,225,0.85);
+  color:rgba(203,213,225,0.85);
   border-top:1px solid var(--border);
 }
 
@@ -254,21 +242,19 @@ footer{
   gap:10px;
 }
 
-/* =================================================
+/* =============================
    RESPONSIVE
-================================================= */
-@media (max-width: 900px){
-  .grid{ grid-template-columns: 1fr; }
+============================= */
+@media (max-width:900px){
+  .grid{ grid-template-columns:1fr; }
 }
 
-@media (max-width: 480px){
+@media (max-width:480px){
+  nav a img{
+    width:160px;
+    height:160px;
+  }
   nav a{
     width:160px;
-    height:140px;
-    font-size:0.95rem;
-  }
-  nav a img{
-    width:64px;
-    height:64px;
   }
 }
