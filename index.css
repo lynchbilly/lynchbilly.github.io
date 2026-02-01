@@ -273,3 +273,9 @@ a{ color: inherit; text-decoration:none; }
 .footer-links a:hover{
   color: rgba(255,255,255,0.95);
 }
+
+/* 🔒 Image-only nav tiles — no text overlays anywhere */
+.nav-tile span,
+.nav-label {
+  display: none !important;
+}
