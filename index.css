@@ -3,14 +3,17 @@
   --text:#f8fafc;
   --muted:#cbd5e1;
 
-  --black:#000000;
-  --white:#ffffff;
+  --black:#000;
+  --white:#fff;
 
   --border-soft: rgba(255,255,255,0.25);
   --border-card: rgba(255,255,255,0.12);
 
   --card: rgba(255,255,255,0.04);
+  --card2: rgba(255,255,255,0.03);
+
   --shadow: 0 0 18px rgba(255,255,255,0.08);
+  --shadow-strong: 0 0 24px rgba(255,255,255,0.18);
 }
 
 *{ box-sizing:border-box; }
@@ -24,24 +27,22 @@ html,body{
 }
 
 a{ color: inherit; text-decoration:none; }
-a:hover{ text-decoration:none; }
 
 /* =========================
-   BANNER (FULL IMAGE, NO GAPS)
+   BANNER
 ========================= */
 .banner{
   width:100%;
-  height: clamp(220px, 32vw, 440px);
-  object-fit: contain;          /* full image visible */
+  height: clamp(240px, 30vw, 460px);
+  object-fit: contain;
   object-position: center;
-  display:block;               /* removes image baseline gap */
-  background:#0b1020;          /* fills letterbox space */
+  display:block;
+  background:#0b1020;
   border-bottom: 1px solid var(--border-soft);
 }
 
 /* =========================
-   NAV BUTTONS (VERTICAL UNDER BANNER)
-   Your HTML is: <nav><ul><li><a><img>...
+   NAV — HORIZONTAL UNDER BANNER
 ========================= */
 nav{
   background: var(--black);
@@ -51,55 +52,51 @@ nav{
 nav ul{
   list-style:none;
   margin:0;
-  padding: 22px 0;
+  padding: 20px;
   display:flex;
-  flex-direction: column;      /* vertical */
-  align-items: center;
-  gap: 14px;                   /* spacing between buttons */
+  justify-content: center;
+  align-items:center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-/* the button box */
+/* button box */
 nav a{
-  width: 240px;                /* consistent button width */
-  height: 58px;
+  width: 110px;
+  height: 90px;
   display:flex;
   align-items:center;
   justify-content:center;
 
   background: var(--black);
-  border: 2px solid var(--white);   /* white border boxes */
-  border-radius: 14px;
+  border: 2px solid var(--white);
+  border-radius: 16px;
 
   transition: 180ms ease;
 }
 
-/* icon */
+/* BIG ICONS */
 nav a img{
-  width: 28px;
-  height: 28px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
-  filter: invert(1);           /* makes dark icons appear white */
+  filter: invert(1);
 }
 
 /* hover */
 nav a:hover{
   background: rgba(255,255,255,0.08);
-  box-shadow: 0 0 18px rgba(255,255,255,0.22);
-  transform: translateY(-2px);
-}
-
-/* active press feel */
-nav a:active{
-  transform: translateY(0px) scale(0.99);
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-3px);
 }
 
 /* =========================
-   PANELS / CARDS
+   PANELS / CONTENT
 ========================= */
 .panel{
   width: min(1200px, 92%);
-  margin: 22px auto;
-  padding: 18px;
+  margin: 24px auto;
+  padding: 20px;
 
   background: var(--card);
   border: 1px solid var(--border-card);
@@ -108,37 +105,36 @@ nav a:active{
 }
 
 .panel h2{
-  margin:0 0 10px 0;
+  margin:0 0 12px 0;
   letter-spacing: 0.6px;
 }
 
 .muted-block{
-  margin: 0;
+  margin:0;
   color: var(--muted);
 }
 
-/* grid inside panels */
+/* grid */
 .grid{
   display:grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 14px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .card{
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
+  background: var(--card2);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 0 14px rgba(255,255,255,0.07);
 }
 
 .card h3{
-  margin: 0 0 10px 0;
+  margin:0 0 10px 0;
 }
 
 .card ul{
-  margin: 0;
+  margin:0;
   padding-left: 18px;
 }
 
@@ -150,24 +146,81 @@ nav a:active{
    LINK LIST
 ========================= */
 .link-list{
-  margin: 10px 0 0 0;
-  padding-left: 0;
   list-style:none;
+  padding:0;
+  margin: 10px 0 0 0;
   display:grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .link-list li{
-  padding: 10px 12px;
-  border: 1px solid rgba(255,255,255,0.14);
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
   border-radius: 14px;
-  background: rgba(255,255,255,0.03);
+  background: var(--card2);
 }
 
 .muted{
   color: rgba(203,213,225,0.75);
-  margin-left: 8px;
-  font-size: 0.95rem;
+  margin-left: 6px;
+}
+
+/* =========================
+   FORM FIX (CONTACT PAGE)
+========================= */
+form{
+  display:grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+label{
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+input,
+textarea{
+  width:100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: #000;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus{
+  outline:none;
+  border-color: var(--white);
+  box-shadow: 0 0 12px rgba(255,255,255,0.25);
+}
+
+textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+button,
+input[type="submit"]{
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 2px solid var(--white);
+  background: var(--black);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor:pointer;
+  transition: 160ms ease;
+}
+
+button:hover,
+input[type="submit"]:hover{
+  background: rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-2px);
 }
 
 /* =========================
@@ -175,11 +228,11 @@ nav a:active{
 ========================= */
 footer{
   width: min(1200px, 92%);
-  margin: 26px auto 40px auto;
+  margin: 30px auto 40px auto;
   padding: 18px;
   text-align:center;
   color: rgba(203,213,225,0.85);
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid var(--border-card);
 }
 
 .footer-links{
@@ -187,17 +240,6 @@ footer{
   display:flex;
   justify-content:center;
   gap: 10px;
-  align-items:center;
-}
-
-.footer-links a{
-  color: var(--text);
-  opacity: 0.92;
-}
-
-.footer-links a:hover{
-  opacity: 1;
-  text-decoration: underline;
 }
 
 /* =========================
@@ -205,10 +247,12 @@ footer{
 ========================= */
 @media (max-width: 900px){
   .grid{ grid-template-columns: 1fr; }
-  nav a{ width: min(92vw, 260px); }
-}
-
-@media (max-width: 480px){
-  nav a{ height: 54px; }
-  nav a img{ width: 26px; height: 26px; }
+  nav a{
+    width: 96px;
+    height: 80px;
+  }
+  nav a img{
+    width: 44px;
+    height: 44px;
+  }
 }
