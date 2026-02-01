@@ -3,96 +3,161 @@
 */
 
 :root {
-    --deep-black: #000000;   
-    --panel-grey: #1a1a1a;   
-    --ar-red: #cc0000;       /* Razorback Red for Inputs/Buttons */
-    --pure-white: #ffffff;   /* Text and Borders */
+  --deep-black: #000000;
+  --panel-grey: #1a1a1a;
+  --ar-red: #cc0000;       /* Razorback Red */
+  --pure-white: #ffffff;   /* Text and Borders */
+  --muted-white: rgba(255,255,255,0.75);
 }
 
+* { box-sizing: border-box; }
+
 body {
-    background-color: var(--deep-black);
-    color: var(--pure-white);
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: var(--deep-black);
+  color: var(--pure-white);
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Banner (you use class="banner" in HTML) */
+.banner {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-bottom: 4px solid var(--pure-white);
+  margin: 0;
 }
 
 /* 1. HORIZONTAL NAVIGATION (Locked Row) */
 nav {
-    width: 100%;
-    border-bottom: 4px solid var(--pure-white);
-    padding: 15px 0;
-    margin-bottom: 20px;
+  width: 100%;
+  border-bottom: 4px solid var(--pure-white);
+  padding: 15px 0;
+  margin-bottom: 20px;
+  background: var(--deep-black);
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+nav a { display: inline-block; }
+
 nav img {
-    width: 70px;
-    height: 70px;
-    border: 3px solid var(--pure-white);
-    background: var(--panel-grey);
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--pure-white);
+  background: var(--panel-grey);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+nav a:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(204,0,0,0.35);
 }
 
 /* 2. THE PANELS */
 .panel {
-    width: 90%;
-    max-width: 850px;
-    background-color: var(--panel-grey);
-    border: 5px solid var(--pure-white);
-    padding: 30px;
-    margin-bottom: 30px;
+  width: 90%;
+  max-width: 850px;
+  background-color: var(--panel-grey);
+  border: 5px solid var(--pure-white);
+  padding: 30px;
+  margin: 0 0 30px 0;
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
 }
 
 /* 3. RED TEXT BOXES (Forms) */
 input, textarea {
-    width: 100%;
-    background-color: var(--ar-red); /* Solid Red Box */
-    color: var(--pure-white);         /* White Text inside */
-    border: 4px solid var(--pure-white);
-    padding: 15px;
-    font-family: 'Courier New', monospace;
-    font-size: 1.3rem;
-    font-weight: 900;
-    margin-top: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  background-color: var(--ar-red);
+  color: var(--pure-white);
+  border: 4px solid var(--pure-white);
+  padding: 15px;
+  font-family: "Courier New", monospace;
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin-top: 10px;
+  outline: none;
 }
 
-/* 4. RED BUTTON STYLING (Universal) */
-button, .btn, .btn-red-rounded, a[href*=".html"].btn {
-    display: inline-block;
-    background-color: var(--ar-red); /* Solid Red Button */
-    color: var(--pure-white);
-    border: 4px solid var(--pure-white);
-    padding: 15px 30px;
-    text-transform: uppercase;
-    font-weight: 900;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: 0.2s;
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.5px;
 }
 
-button:hover, .btn:hover {
-    background-color: var(--pure-white);
-    color: var(--ar-red);
+/* Focus state */
+input:focus, textarea:focus {
+  border-color: var(--pure-white);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.15), 0 0 0 7px rgba(204,0,0,0.25);
 }
 
-/* 5. IMAGE STYLING */
-img {
-    max-width: 100%;
-    border: 4px solid var(--pure-white);
-    display: block;
-    margin: 20px auto;
+/* 4. BUTTON STYLING (use class for safety) */
+.btn-red-rounded,
+button {
+  display: inline-block;
+  background-color: var(--ar-red);
+  color: var(--pure-white);
+  border: 4px solid var(--pure-white);
+  padding: 15px 30px;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.btn-red-rounded:hover,
+button:hover {
+  background-color: var(--pure-white);
+  color: var(--ar-red);
+}
+
+/* Disabled submit states (optional but great with your JS) */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 5. IMAGE STYLING (avoid affecting nav icons/banner) */
+img:not(.banner):not(nav img) {
+  max-width: 100%;
+  border: 4px solid var(--pure-white);
+  display: block;
+  margin: 20px auto;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px 12px;
+  border-top: 4px solid var(--pure-white);
+  color: var(--muted-white);
+  margin-top: 10px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  nav img { width: 56px; height: 56px; }
+  .panel { padding: 20px; }
+  input, textarea { font-size: 1.05rem; }
 }
