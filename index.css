@@ -1,12 +1,16 @@
 :root{
-  --purple:#6a0dad;
-  --teal:#00ffff;
   --bg:#0b0b12;
-  --card: rgba(255,255,255,0.04);
   --text:#f8fafc;
   --muted:#cbd5e1;
-  --border: rgba(0,255,255,0.14);
-  --shadow: 0 0 18px rgba(0,255,255,0.12);
+
+  --black:#000000;
+  --white:#ffffff;
+
+  --border-soft: rgba(255,255,255,0.25);
+  --border-card: rgba(255,255,255,0.12);
+
+  --card: rgba(255,255,255,0.04);
+  --shadow: 0 0 18px rgba(255,255,255,0.08);
 }
 
 *{ box-sizing:border-box; }
@@ -19,80 +23,86 @@ html,body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-a{ color: var(--teal); text-decoration:none; }
-a:hover{ text-decoration:underline; }
+a{ color: inherit; text-decoration:none; }
+a:hover{ text-decoration:none; }
 
 /* =========================
-   BANNER IMAGE (FULL WIDTH, NO WEIRD GAP)
+   BANNER (FULL IMAGE, NO GAPS)
 ========================= */
 .banner{
   width:100%;
-  height: clamp(220px, 32vw, 420px); /* responsive height */
-  object-fit: contain;              /* SHOW FULL IMAGE (no crop) */
+  height: clamp(220px, 32vw, 440px);
+  object-fit: contain;          /* full image visible */
   object-position: center;
-  display:block;                    /* removes inline-image baseline gap */
-  background:#0b1020;               /* fills letterbox area */
-  border-bottom: 1px solid var(--border);
+  display:block;               /* removes image baseline gap */
+  background:#0b1020;          /* fills letterbox space */
+  border-bottom: 1px solid var(--border-soft);
 }
 
 /* =========================
-   NAV (YOUR <nav><ul> ICONS)
+   NAV BUTTONS (VERTICAL UNDER BANNER)
+   Your HTML is: <nav><ul><li><a><img>...
 ========================= */
 nav{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: linear-gradient(90deg, rgba(106,13,173,0.94), rgba(14,14,22,0.94));
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+  background: var(--black);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 nav ul{
   list-style:none;
   margin:0;
-  padding: 10px 14px;
+  padding: 22px 0;
   display:flex;
-  gap: 12px;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
+  flex-direction: column;      /* vertical */
+  align-items: center;
+  gap: 14px;                   /* spacing between buttons */
 }
 
+/* the button box */
 nav a{
-  display:inline-flex;
+  width: 240px;                /* consistent button width */
+  height: 58px;
+  display:flex;
   align-items:center;
   justify-content:center;
-  width: 52px;
-  height: 52px;
+
+  background: var(--black);
+  border: 2px solid var(--white);   /* white border boxes */
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  transition: 160ms ease;
+
+  transition: 180ms ease;
 }
 
-nav a:hover{
-  border-color: rgba(0,255,255,0.55);
-  box-shadow: 0 0 18px rgba(0,255,255,0.16);
-  transform: translateY(-1px);
-  text-decoration:none;
-}
-
+/* icon */
 nav a img{
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(0,255,255,0.30));
+  filter: invert(1);           /* makes dark icons appear white */
+}
+
+/* hover */
+nav a:hover{
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 18px rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+/* active press feel */
+nav a:active{
+  transform: translateY(0px) scale(0.99);
 }
 
 /* =========================
-   PANELS / CARDS (YOUR .panel/.grid/.card)
+   PANELS / CARDS
 ========================= */
 .panel{
   width: min(1200px, 92%);
   margin: 22px auto;
   padding: 18px;
+
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-card);
   border-radius: 18px;
   box-shadow: var(--shadow);
 }
@@ -107,7 +117,7 @@ nav a img{
   color: var(--muted);
 }
 
-/* grid of cards */
+/* grid inside panels */
 .grid{
   display:grid;
   gap: 14px;
@@ -117,10 +127,10 @@ nav a img{
 
 .card{
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 0 14px rgba(0,255,255,0.10);
+  box-shadow: 0 0 14px rgba(255,255,255,0.07);
 }
 
 .card h3{
@@ -134,11 +144,10 @@ nav a img{
 
 .card li{
   margin: 6px 0;
-  color: var(--text);
 }
 
 /* =========================
-   LINK LIST (YOUR .link-list)
+   LINK LIST
 ========================= */
 .link-list{
   margin: 10px 0 0 0;
@@ -150,7 +159,7 @@ nav a img{
 
 .link-list li{
   padding: 10px 12px;
-  border: 1px solid rgba(0,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 14px;
   background: rgba(255,255,255,0.03);
 }
@@ -170,7 +179,7 @@ footer{
   padding: 18px;
   text-align:center;
   color: rgba(203,213,225,0.85);
-  border-top: 1px solid rgba(0,255,255,0.10);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 .footer-links{
@@ -181,11 +190,25 @@ footer{
   align-items:center;
 }
 
+.footer-links a{
+  color: var(--text);
+  opacity: 0.92;
+}
+
+.footer-links a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 900px){
   .grid{ grid-template-columns: 1fr; }
-  nav a{ width: 48px; height: 48px; }
-  nav a img{ width: 24px; height: 24px; }
+  nav a{ width: min(92vw, 260px); }
+}
+
+@media (max-width: 480px){
+  nav a{ height: 54px; }
+  nav a img{ width: 26px; height: 26px; }
 }
