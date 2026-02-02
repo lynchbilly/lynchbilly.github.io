@@ -337,3 +337,20 @@ a{ color: inherit; text-decoration:none; }
 @media (min-width: 700px){
   .form-grid{ grid-template-columns: 1fr 1fr; }
 }
+
+/* ===============================
+   PAGE HERO (NOT THE MAIN BANNER)
+   Use this on About/Skills/Contact
+================================ */
+.page-hero{
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: #000;
+}
+
+@media (min-width: 700px){
+  .page-hero{ height: 260px; }
+}
