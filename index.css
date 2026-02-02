@@ -312,3 +312,28 @@ a{ color: inherit; text-decoration:none; }
   }
 }
 
+/* Contact form styling */
+.dispatch-form { display: grid; gap: 1rem; margin-top: 1rem; }
+.form-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+
+.dispatch-form label span{
+  display:block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.4rem;
+}
+
+.dispatch-form input,
+.dispatch-form textarea{
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.45);
+  color: #f8fafc;
+}
+
+@media (min-width: 700px){
+  .form-grid{ grid-template-columns: 1fr 1fr; }
+}
