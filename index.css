@@ -353,3 +353,92 @@ footer,
 .footer-links a:hover{
   color: rgba(255,255,255,0.95);
 }
+/* =========================================
+   FORCE "ABOUT LOOK" ACROSS ALL PAGES
+   Put this at the bottom of index.css
+========================================= */
+
+/* 1) BANNER: consistent everywhere */
+.banner{
+  width:100% !important;
+  display:block !important;
+  height: clamp(200px, 26vw, 360px) !important;
+  object-fit: contain !important;   /* never crop */
+  object-position: center !important;
+  background:#000 !important;
+}
+
+/* 2) If some pages use plain <nav><ul> (no classes), normalize it */
+nav{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 0.6rem;
+}
+
+nav ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+@media (min-width: 768px){
+  nav ul{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+nav ul li{ margin:0; padding:0; }
+
+/* 3) Tile container (works for .nav-tile OR nav ul a) */
+.nav-tile,
+nav ul li a{
+  position:relative;
+  display:block;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 2px solid var(--border-strong);
+  overflow:hidden;
+  background:#000;
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+}
+
+/* Hover glow */
+.nav-tile:hover,
+nav ul li a:hover{
+  transform: scale(1.03);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 22px rgba(255,0,0,0.35);
+}
+
+/* 4) THE KEY: make icons look like ABOUT (smaller inside the square) */
+.nav-tile img,
+nav ul li a img{
+  width:100%;
+  height:100%;
+  display:block;
+
+  object-fit: contain;     /* show full art + text */
+  object-position: center;
+
+  padding: 18px;           /* <-- THIS creates the "About" breathing room */
+  background:#000;
+  filter: saturate(1.05) contrast(1.03);
+}
+
+/* Smaller padding on tiny screens */
+@media (max-width: 480px){
+  .nav-tile img,
+  nav ul li a img{
+    padding: 14px;
+  }
+}
+
+/* 5) Kill any overlay text labels anywhere */
+.nav-tile span,
+.nav-label,
+nav ul li a span{
+  display:none !important;
+}
+
+
