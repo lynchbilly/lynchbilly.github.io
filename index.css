@@ -26,26 +26,27 @@ html,body{
 a{ color: inherit; text-decoration:none; }
 
 /* =========================
-   HERO / BANNER
+   HERO / BANNER (ALL PAGES)
+   - Never crop text/logos
 ========================= */
-.hero{
-  width:100%;
-  overflow:hidden;
-}
-
 .banner{
   width:100%;
-  height:auto;
   display:block;
+  height: clamp(200px, 26vw, 360px);
+  object-fit: contain;          /* IMPORTANT: no cropping */
+  object-position: center;
+  background:#000;
 }
 
 /* =========================
-   NAV GRID TILES
+   NAV GRID TILES (ALL PAGES)
+   - Same layout everywhere
+   - No cropping on icons
 ========================= */
 .nav{
   max-width: 980px;
   margin: 0 auto;
-  padding: 1.2rem 1rem 0.5rem;
+  padding: 1.2rem 1rem 0.6rem;
 }
 
 .nav-grid{
@@ -59,6 +60,10 @@ a{ color: inherit; text-decoration:none; }
 
 .nav-grid li{ margin:0; padding:0; }
 
+@media (min-width: 768px){
+  .nav-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
 .nav-tile{
   position:relative;
   display:block;
@@ -66,46 +71,29 @@ a{ color: inherit; text-decoration:none; }
   border-radius: 18px;
   border: 2px solid var(--border-strong);
   overflow:hidden;
-  background: #000;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
+  background:#000;
   transform: translateZ(0);
   transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
 
 .nav-tile:hover{
-  transform: scale(1.04);
+  transform: scale(1.03);
   border-color: rgba(255,255,255,0.9);
-  box-shadow: 0 0 20px rgba(255,0,0,0.45);
+  box-shadow: 0 0 22px rgba(255,0,0,0.35);
 }
 
 .nav-tile img{
   width:100%;
   height:100%;
   display:block;
-  object-fit: cover;         /* ✅ fills the square */
-  object-position: center;   /* ✅ keeps it centered */
+  object-fit: contain;          /* IMPORTANT: shows full icon + text */
+  object-position: center;
   filter: saturate(1.05) contrast(1.03);
 }
 
-.nav-label{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  text-align:center;
-  padding: 0.9rem 0.6rem;
-  font-weight: 900;
-  font-size: 1.9rem;         /* ✅ BIG text */
-  letter-spacing: 2px;
-  background: linear-gradient(to top, rgba(0,0,0,0.90), rgba(0,0,0,0.35), transparent);
-}
-
-/* desktop: 4 across */
-@media (min-width: 768px){
-  .nav-grid{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
+/* 🔒 No text overlays anywhere */
+.nav-tile span,
+.nav-label{ display:none !important; }
 
 /* =========================
    PANELS
@@ -127,9 +115,7 @@ a{ color: inherit; text-decoration:none; }
   letter-spacing: 1px;
 }
 
-.panel-center{
-  text-align:center;
-}
+.panel-center{ text-align:center; }
 
 .title{
   margin: 0.2rem 0;
@@ -159,7 +145,7 @@ a{ color: inherit; text-decoration:none; }
 }
 
 /* =========================
-   BUTTONS (Dossier / Dispatch)
+   BUTTONS
 ========================= */
 .button-row{
   display:flex;
@@ -169,7 +155,9 @@ a{ color: inherit; text-decoration:none; }
 }
 
 .btn{
-  display:block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding: 1.05rem 1.1rem;
   border-radius: 14px;
   font-weight: 900;
@@ -178,27 +166,28 @@ a{ color: inherit; text-decoration:none; }
   border: 2px solid var(--border-strong);
   background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(5,5,5,0.95));
   transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+  gap:.6rem;
 }
 
 .btn:hover{
-  transform: scale(1.03);
+  transform: scale(1.02);
   border-color: rgba(255,255,255,0.9);
 }
 
 .btn-primary{
-  box-shadow: 0 0 14px rgba(255,0,0,0.45);
+  box-shadow: 0 0 14px rgba(255,0,0,0.35);
 }
 
 .btn-primary:hover{
-  box-shadow: 0 0 28px rgba(255,0,0,0.85);
+  box-shadow: 0 0 28px rgba(255,0,0,0.75);
 }
 
 .btn-secondary{
-  box-shadow: 0 0 14px rgba(0,255,255,0.35);
+  box-shadow: 0 0 14px rgba(0,255,255,0.25);
 }
 
 .btn-secondary:hover{
-  box-shadow: 0 0 28px rgba(0,255,255,0.85);
+  box-shadow: 0 0 28px rgba(0,255,255,0.65);
 }
 
 @media (min-width: 700px){
@@ -220,9 +209,7 @@ a{ color: inherit; text-decoration:none; }
 }
 
 @media (min-width: 900px){
-  .grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
 .card{
@@ -249,8 +236,101 @@ a{ color: inherit; text-decoration:none; }
 }
 
 /* =========================
+   CONTACT FORM
+========================= */
+.dispatch-form{
+  display:grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-grid{
+  display:grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px){
+  .form-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+.dispatch-form label span{
+  display:block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.4rem;
+}
+
+.dispatch-form input,
+.dispatch-form textarea{
+  width:100%;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.45);
+  color: #f8fafc;
+  outline: none;
+}
+
+.dispatch-form input:focus,
+.dispatch-form textarea:focus{
+  border-color: rgba(0,255,255,0.55);
+  box-shadow: 0 0 0 3px rgba(0,255,255,0.12);
+}
+
+/* =========================
+   ABOUT PAGE IMAGES
+   - smaller + framed
+========================= */
+.id-badge,
+.family-snapshot{
+  display:block;
+  max-width: 100%;
+  height:auto;
+  margin: 18px auto;
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* portrait smaller */
+.id-badge{
+  width: min(320px, 92vw);
+}
+
+/* family photo fits page */
+.family-snapshot{
+  width: min(760px, 94vw);
+}
+
+@media (max-width: 520px){
+  .id-badge{ width: min(260px, 92vw); }
+  .family-snapshot{ width: 94vw; }
+}
+
+/* =========================
+   LINK LIST
+========================= */
+.link-list{
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.link-list a{
+  color: rgba(0,255,255,0.85);
+}
+
+.link-list a:hover{
+  color: rgba(255,255,255,0.95);
+}
+
+/* =========================
    FOOTER
 ========================= */
+footer,
 .footer{
   max-width: 980px;
   margin: 1.6rem auto 2.2rem;
@@ -273,205 +353,3 @@ a{ color: inherit; text-decoration:none; }
 .footer-links a:hover{
   color: rgba(255,255,255,0.95);
 }
-
-/* 🔒 Image-only nav tiles — no text overlays anywhere */
-.nav-tile span,
-.nav-label {
-  display: none !important;
-}
-/* ===============================
-   HERO IMAGE SAFETY (ALL PAGES)
-================================ */
-.banner {
-  width: 100%;
-  max-height: 320px;        /* controls vertical takeover */
-  object-fit: contain;     /* never crops text */
-  background: #000;
-}
-
-/* Facebook / in-app browsers need extra guard */
-@media (max-width: 600px) {
-  .banner {
-    max-height: 260px;
-  }
-}
-/* ===============================
-   CONTACT HERO FIX (FINAL)
-================================ */
-.page-contact .banner{
-  height: 240px !important;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-@media (max-width: 480px){
-  .page-contact .banner{
-    height: 200px !important;
-  }
-}
-
-/* Contact form styling */
-.dispatch-form { display: grid; gap: 1rem; margin-top: 1rem; }
-.form-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-
-.dispatch-form label span{
-  display:block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 0.85rem;
-  opacity: 0.85;
-  margin-bottom: 0.4rem;
-}
-
-.dispatch-form input,
-.dispatch-form textarea{
-  width: 100%;
-  padding: 0.9rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(0,0,0,0.45);
-  color: #f8fafc;
-}
-
-@media (min-width: 700px){
-  .form-grid{ grid-template-columns: 1fr 1fr; }
-}
-
-/* ===============================
-   PAGE HERO (NOT THE MAIN BANNER)
-   Use this on About/Skills/Contact
-================================ */
-.page-hero{
-  width: 100%;
-  height: 220px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  background: #000;
-}
-
-@media (min-width: 700px){
-  .page-hero{ height: 260px; }
-}
-/* ==================================
-   Page hero (used on Contact/About/etc)
-================================== */
-.page-hero{
-  width: 100%;
-  height: 220px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  background: #000;
-}
-
-@media (min-width: 700px){
-  .page-hero{ height: 260px; }
-}
-/* ===============================
-   ABOUT PAGE IMAGE STYLING
-================================ */
-
-/* Scope everything to About page */
-.page-about img{
-  max-width: 100%;
-  height: auto;
-}
-
-/* ID badge (your portrait) */
-.page-about .id-badge{
-  display: block;
-  max-width: 260px;          /* keeps it reasonable */
-  margin: 1.5rem auto;
-  border-radius: 16px;
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.55),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-/* Family photo */
-.page-about .family-snapshot{
-  display: block;
-  max-width: 420px;          /* prevents full-page takeover */
-  margin: 1.5rem auto;
-  border-radius: 18px;
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow:
-    0 14px 40px rgba(0,0,0,0.65),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-/* Optional: tighten on mobile */
-@media (max-width: 480px){
-  .page-about .id-badge{
-    max-width: 220px;
-  }
-
-  .page-about .family-snapshot{
-    max-width: 92%;
-  }
-}
-/* =========================================
-   ABOUT PAGE FIXES (nav tiles + photos)
-   Paste at bottom of index.css
-========================================= */
-
-/* 1) NAV TILES on About: show FULL image (no crop) */
-.page-about .nav-tile{
-  display:block;
-  aspect-ratio: 1 / 1;              /* keeps tiles square */
-  border-radius: 18px;
-  overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.22);
-  background: rgba(0,0,0,0.45);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
-}
-
-.page-about .nav-tile img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;              /* IMPORTANT: no cropping */
-  object-position: center;
-  display: block;
-}
-
-/* Optional: tighten spacing so tiles look like index */
-.page-about .nav-grid{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 16px;
-  gap: 18px;                        /* if gap exists, this improves */
-}
-
-/* 2) ABOUT PHOTOS: smaller + nice border/frame */
-.id-badge{
-  display:block;
-  width: min(320px, 92vw);          /* smaller portrait */
-  margin: 22px auto;
-  border-radius: 18px;
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow:
-    0 14px 40px rgba(0,0,0,0.65),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-.family-snapshot{
-  display:block;
-  width: min(720px, 94vw);          /* fits page, not massive */
-  margin: 18px auto;
-  border-radius: 20px;
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow:
-    0 14px 40px rgba(0,0,0,0.65),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-/* Mobile tweaks */
-@media (max-width: 520px){
-  .id-badge{ width: min(260px, 92vw); }
-  .family-snapshot{ width: 94vw; }
-}
-
-
