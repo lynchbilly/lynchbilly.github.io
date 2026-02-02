@@ -1,69 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Billy James (Lynch Programmer) at Hog Wild Coding.">
-  <title>Contact | Lynch Programmer | Hog Wild Coding</title>
-  <link rel="StyleSheet" href="index.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Billy James Lynch — Wild Hog Coding. Send a request for coding, Firebase work, automation, or PC solutions.">
+  <title>Contact | Lynch Programmer | Wild Hog Coding</title>
+  <link rel="stylesheet" href="index.css" type="text/css">
 </head>
 
-<body>
-  <img src="file_00000000359071f88d9c0e35cd93e4eb (1).png" alt="Wild Hog Coding Banner" class="banner">
+<body class="page-contact">
 
-  <nav>
-  <ul>
-    <li><a href="index.html"><img src="home.jpeg (1).png" alt="Home"></a></li>
-    <li><a href="skills.html"><img src="skills.jpeg (1).png" alt="Skills"></a></li>
-    <li><a href="about.html"><img src="about.jpeg (1).png" alt="About"></a></li>
-    <li><a href="contact.html"><img src="contact (1).jpeg" alt="Contact"></a></li>
-  </ul>
+  <!-- HERO / BANNER -->
+  <img src="contact (1).jpeg" alt="Contact" class="banner">
+
+  <!-- NAV (fixed + matches site) -->
+  <nav class="nav">
+    <ul class="nav-grid">
+      <li><a class="nav-tile" href="index.html" aria-label="Home"><img src="home.jpeg (1).png" alt="home"></a></li>
+      <li><a class="nav-tile" href="skills.html" aria-label="Skills"><img src="skills.jpeg (1).png" alt="skills"></a></li>
+      <li><a class="nav-tile" href="about.html" aria-label="About"><img src="about.jpeg (1).png" alt="about"></a></li>
+      <li><a class="nav-tile" href="contact.html" aria-label="Contact"><img src="contact (1).jpeg" alt="contact"></a></li>
+    </ul>
   </nav>
 
-  <div class="panel panel-center">
-    <h2>&gt; INITIATE_DISPATCH</h2>
-    <p class="subtitle">Send a request for coding, Firebase work, or PC solutions.</p>
-  </div>
-
-  <div class="panel" id="form-container">
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="IDENTIFY_NAME" required>
-      <input type="email" name="email" placeholder="UPLINK_EMAIL" required>
-      <textarea name="message" placeholder="ENTER_DATA" rows="6" required></textarea>
-      <button type="submit" class="btn-red-rounded" id="submit-btn">Execute Dispatch</button>
-    </form>
-  </div>
-
-  <div id="success-msg" class="panel" style="display:none; border-left-color:#00ff00;">
-    <h2 style="color:#00ff00;">&gt; MISCHIEF_MANAGED</h2>
-    <p>Transmission successful from Jacksonville.</p>
-    <a href="index.html" class="btn-red-rounded btn-outline">Return Home</a>
-  </div>
-
+  <!-- DISPATCH PANEL -->
   <div class="panel">
-    <h2>&gt; LINK_UP</h2>
-    <ul class="link-list">
-      <li>📺 YouTube:
-        <a href="https://youtube.com/@hogwildcoding?si=euQ6KlkR5m6Uoa-m" target="_blank" rel="noopener">@hogwildcoding</a>
-      </li>
-      <li>💻 GitHub:
-        <a href="https://github.com/" target="_blank" rel="noopener">View Projects</a>
-        <span class="muted">(replace with your profile link)</span>
-      </li>
-    </ul>
+    <h2>&gt; INITIATE_DISPATCH</h2>
+    <p class="muted-block">Send mission details. I’ll reply with scope, timeline, and the fastest path.</p>
+
+    <!-- NOTE: mailto opens the visitor's email app -->
+    <form class="dispatch-form"
+          action="mailto:lynchbilly09@gmail.com"
+          method="post"
+          enctype="text/plain">
+
+      <div class="form-grid">
+        <label>
+          <span>IDENTIFY_NAME</span>
+          <input type="text" name="name" placeholder="Your name" required>
+        </label>
+
+        <label>
+          <span>UPLINK_EMAIL</span>
+          <input type="email" name="email" placeholder="you@email.com" required>
+        </label>
+      </div>
+
+      <label>
+        <span>ENTER_DATA</span>
+        <textarea name="message" rows="7" placeholder="What do you need built or fixed?" required></textarea>
+      </label>
+
+      <button class="btn btn-primary" type="submit">▶ Execute Dispatch</button>
+    </form>
+
+    <p class="muted-block" style="margin-top: 1rem;">
+      Prefer social? Use uplinks below.
+    </p>
   </div>
 
-  <footer>
-    © 2026 Billy James | Lynch Programmer | Hog Wild Coding
+  <!-- SOCIAL UPLINKS -->
+  <div class="panel">
+    <h2>&gt; SOCIAL_UPLINKS</h2>
+    <div class="button-row">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/billy-lynch-a4bba899/" target="_blank" rel="noopener">
+        ▶ Launch LinkedIn
+      </a>
+      <a class="btn btn-secondary" href="https://youtube.com/@hogwildcoding?si=euQ6KlkR5m6Uoa-m" target="_blank" rel="noopener">
+        ⏵ YouTube Channel
+      </a>
+      <a class="btn btn-secondary" href="https://github.com/lynchbilly" target="_blank" rel="noopener">
+        ⏵ GitHub Projects
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© 2026 Billy James | Lynch Programmer | Wild Hog Coding</div>
     <div class="footer-links">
-      <a href="https://youtube.com/@hogwildcoding?si=euQ6KlkR5m6Uoa-m" target="_blank" rel="noopener">YouTube</a>
-      <span>•</span>
-      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <span>SYSTEM ONLINE</span>
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
-
-
-
