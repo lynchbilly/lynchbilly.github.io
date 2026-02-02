@@ -27,6 +27,7 @@ a{ color: inherit; text-decoration:none; }
 
 /* =========================
    HERO / BANNER (ALL PAGES)
+   - About look everywhere
    - Never crop text/logos
 ========================= */
 .banner{
@@ -39,17 +40,24 @@ a{ color: inherit; text-decoration:none; }
 }
 
 /* =========================
-   NAV GRID TILES (ALL PAGES)
-   - Same layout everywhere
-   - No cropping on icons
+   NAV (ALL PAGES)
+   - Works for:
+     1) <nav class="nav"><ul class="nav-grid">...
+     2) plain <nav><ul>...
+   - About look (breathing room)
 ========================= */
-.nav{
+
+/* Container spacing */
+.nav,
+nav{
   max-width: 980px;
   margin: 0 auto;
   padding: 1.2rem 1rem 0.6rem;
 }
 
-.nav-grid{
+/* Grid layout */
+.nav-grid,
+nav ul{
   list-style:none;
   padding:0;
   margin:0;
@@ -58,13 +66,19 @@ a{ color: inherit; text-decoration:none; }
   gap: 1.1rem;
 }
 
-.nav-grid li{ margin:0; padding:0; }
+.nav-grid li,
+nav ul li{ margin:0; padding:0; }
 
 @media (min-width: 768px){
-  .nav-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .nav-grid,
+  nav ul{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
-.nav-tile{
+/* Tile box */
+.nav-tile,
+nav ul li a{
   position:relative;
   display:block;
   aspect-ratio: 1 / 1;
@@ -76,24 +90,42 @@ a{ color: inherit; text-decoration:none; }
   transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
 
-.nav-tile:hover{
+/* Hover glow */
+.nav-tile:hover,
+nav ul li a:hover{
   transform: scale(1.03);
   border-color: rgba(255,255,255,0.9);
   box-shadow: 0 0 22px rgba(255,0,0,0.35);
 }
 
-.nav-tile img{
+/* THE KEY: icon fits + padding creates About look */
+.nav-tile img,
+nav ul li a img{
   width:100%;
   height:100%;
   display:block;
-  object-fit: contain;          /* IMPORTANT: shows full icon + text */
+
+  object-fit: contain;          /* shows full icon + text */
   object-position: center;
+
+  padding: 18px;                /* About breathing room */
+  background:#000;
   filter: saturate(1.05) contrast(1.03);
+}
+
+@media (max-width: 480px){
+  .nav-tile img,
+  nav ul li a img{
+    padding: 14px;
+  }
 }
 
 /* 🔒 No text overlays anywhere */
 .nav-tile span,
-.nav-label{ display:none !important; }
+.nav-label,
+nav ul li a span{
+  display:none !important;
+}
 
 /* =========================
    PANELS
@@ -194,6 +226,7 @@ a{ color: inherit; text-decoration:none; }
   .button-row{
     flex-direction: row;
     justify-content:center;
+    flex-wrap: wrap;
   }
   .btn{ min-width: 280px; }
 }
@@ -296,12 +329,10 @@ a{ color: inherit; text-decoration:none; }
     inset 0 0 0 1px rgba(255,255,255,0.08);
 }
 
-/* portrait smaller */
 .id-badge{
   width: min(320px, 92vw);
 }
 
-/* family photo fits page */
 .family-snapshot{
   width: min(760px, 94vw);
 }
@@ -353,92 +384,3 @@ footer,
 .footer-links a:hover{
   color: rgba(255,255,255,0.95);
 }
-/* =========================================
-   FORCE "ABOUT LOOK" ACROSS ALL PAGES
-   Put this at the bottom of index.css
-========================================= */
-
-/* 1) BANNER: consistent everywhere */
-.banner{
-  width:100% !important;
-  display:block !important;
-  height: clamp(200px, 26vw, 360px) !important;
-  object-fit: contain !important;   /* never crop */
-  object-position: center !important;
-  background:#000 !important;
-}
-
-/* 2) If some pages use plain <nav><ul> (no classes), normalize it */
-nav{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 1.2rem 1rem 0.6rem;
-}
-
-nav ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.1rem;
-}
-
-@media (min-width: 768px){
-  nav ul{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
-nav ul li{ margin:0; padding:0; }
-
-/* 3) Tile container (works for .nav-tile OR nav ul a) */
-.nav-tile,
-nav ul li a{
-  position:relative;
-  display:block;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  border: 2px solid var(--border-strong);
-  overflow:hidden;
-  background:#000;
-  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
-}
-
-/* Hover glow */
-.nav-tile:hover,
-nav ul li a:hover{
-  transform: scale(1.03);
-  border-color: rgba(255,255,255,0.9);
-  box-shadow: 0 0 22px rgba(255,0,0,0.35);
-}
-
-/* 4) THE KEY: make icons look like ABOUT (smaller inside the square) */
-.nav-tile img,
-nav ul li a img{
-  width:100%;
-  height:100%;
-  display:block;
-
-  object-fit: contain;     /* show full art + text */
-  object-position: center;
-
-  padding: 18px;           /* <-- THIS creates the "About" breathing room */
-  background:#000;
-  filter: saturate(1.05) contrast(1.03);
-}
-
-/* Smaller padding on tiny screens */
-@media (max-width: 480px){
-  .nav-tile img,
-  nav ul li a img{
-    padding: 14px;
-  }
-}
-
-/* 5) Kill any overlay text labels anywhere */
-.nav-tile span,
-.nav-label,
-nav ul li a span{
-  display:none !important;
-}
-
-
