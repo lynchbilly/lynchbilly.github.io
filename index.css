@@ -413,4 +413,65 @@ a{ color: inherit; text-decoration:none; }
     max-width: 92%;
   }
 }
+/* =========================================
+   ABOUT PAGE FIXES (nav tiles + photos)
+   Paste at bottom of index.css
+========================================= */
+
+/* 1) NAV TILES on About: show FULL image (no crop) */
+.page-about .nav-tile{
+  display:block;
+  aspect-ratio: 1 / 1;              /* keeps tiles square */
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+
+.page-about .nav-tile img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;              /* IMPORTANT: no cropping */
+  object-position: center;
+  display: block;
+}
+
+/* Optional: tighten spacing so tiles look like index */
+.page-about .nav-grid{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+  gap: 18px;                        /* if gap exists, this improves */
+}
+
+/* 2) ABOUT PHOTOS: smaller + nice border/frame */
+.id-badge{
+  display:block;
+  width: min(320px, 92vw);          /* smaller portrait */
+  margin: 22px auto;
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.family-snapshot{
+  display:block;
+  width: min(720px, 94vw);          /* fits page, not massive */
+  margin: 18px auto;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px){
+  .id-badge{ width: min(260px, 92vw); }
+  .family-snapshot{ width: 94vw; }
+}
+
 
