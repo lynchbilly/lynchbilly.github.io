@@ -354,3 +354,18 @@ a{ color: inherit; text-decoration:none; }
 @media (min-width: 700px){
   .page-hero{ height: 260px; }
 }
+/* ==================================
+   Page hero (used on Contact/About/etc)
+================================== */
+.page-hero{
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: #000;
+}
+
+@media (min-width: 700px){
+  .page-hero{ height: 260px; }
+}
