@@ -295,3 +295,20 @@ a{ color: inherit; text-decoration:none; }
     max-height: 260px;
   }
 }
+/* ===============================
+   CONTACT HERO FIX (FINAL)
+================================ */
+.page-contact .banner{
+  height: 240px !important;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 480px){
+  .page-contact .banner{
+    height: 200px !important;
+  }
+}
+
