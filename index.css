@@ -369,3 +369,48 @@ a{ color: inherit; text-decoration:none; }
 @media (min-width: 700px){
   .page-hero{ height: 260px; }
 }
+/* ===============================
+   ABOUT PAGE IMAGE STYLING
+================================ */
+
+/* Scope everything to About page */
+.page-about img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ID badge (your portrait) */
+.page-about .id-badge{
+  display: block;
+  max-width: 260px;          /* keeps it reasonable */
+  margin: 1.5rem auto;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.55),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* Family photo */
+.page-about .family-snapshot{
+  display: block;
+  max-width: 420px;          /* prevents full-page takeover */
+  margin: 1.5rem auto;
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* Optional: tighten on mobile */
+@media (max-width: 480px){
+  .page-about .id-badge{
+    max-width: 220px;
+  }
+
+  .page-about .family-snapshot{
+    max-width: 92%;
+  }
+}
+
