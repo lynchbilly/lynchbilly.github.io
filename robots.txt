@@ -6,4 +6,4 @@ Allow: /skills.html
 Allow: /contact.html
 
 # Sitemaps help crawlers find your content faster
-Sitemap: https://razorbackcoding.me/sitemap.xml
+Sitemap: https://hogwildcoding.com/sitemap.xml
