@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red/Black Flash Cards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">RB</div>
+        <div>
+          <h1>Red + Black Flash Cards</h1>
+          <p class="sub">Flip • Learn • Repeat</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="btnShuffle" class="btn ghost" title="Shuffle (S)">Shuffle</button>
+        <button id="btnReset" class="btn ghost" title="Reset session">Reset</button>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="pill">
+        <span class="label">Card</span>
+        <span id="statIndex" class="value">1</span>
+        <span class="muted">/</span>
+        <span id="statTotal" class="value">0</span>
+      </div>
+
+      <div class="pill">
+        <span class="label">✅ Correct</span>
+        <span id="statCorrect" class="value">0</span>
+      </div>
+
+      <div class="pill">
+        <span class="label">❌ Missed</span>
+        <span id="statMissed" class="value">0</span>
+      </div>
+
+      <div class="progressWrap" aria-label="progress">
+        <div id="progressBar" class="progressBar"></div>
+      </div>
+    </section>
+
+    <main class="stage">
+      <div class="cardWrap">
+        <div id="flashcard" class="card" role="button" tabindex="0" aria-label="Flashcard. Click to flip.">
+          <div class="cardFace cardFront">
+            <div class="tag">QUESTION</div>
+            <div id="question" class="bigText"></div>
+            <div class="hint">Click / Space to flip</div>
+          </div>
+
+          <div class="cardFace cardBack">
+            <div class="tag">ANSWER</div>
+            <div id="answer" class="bigText"></div>
+            <div class="hint">1 = Missed • 2 = Correct</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <button id="btnPrev" class="btn" title="Previous (←)">← Prev</button>
+        <button id="btnFlip" class="btn ghost" title="Flip (Space)">Flip</button>
+        <button id="btnNext" class="btn" title="Next (→)">Next →</button>
+      </div>
+
+      <div class="grade">
+        <button id="btnMissed" class="btn danger" title="Mark Missed (1)">❌ Missed</button>
+        <button id="btnCorrect" class="btn good" title="Mark Correct (2)">✅ Correct</button>
+      </div>
+
+      <section class="help">
+        <details>
+          <summary>Keyboard shortcuts</summary>
+          <ul>
+            <li><b>Space</b> = Flip</li>
+            <li><b>← / →</b> = Prev / Next</li>
+            <li><b>1</b> = Missed</li>
+            <li><b>2</b> = Correct</li>
+            <li><b>S</b> = Shuffle</li>
+            <li><b>R</b> = Reset</li>
+          </ul>
+        </details>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="muted">Red/Black deck • built in HTML/CSS/JS</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
