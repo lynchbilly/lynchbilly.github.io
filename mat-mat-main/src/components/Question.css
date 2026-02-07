@@ -1,0 +1,19 @@
+.question {
+  position: relative;
+  z-index: 3;
+  font-size: 4.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.question .icon {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .question {
+    font-size: 3rem;
+  }
+}
