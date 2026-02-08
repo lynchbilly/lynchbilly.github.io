@@ -384,3 +384,18 @@ footer,
 .footer-links a:hover{
   color: rgba(255,255,255,0.95);
 }
+
+/* ===== Contact Form Submit Button Fix ===== */
+.dispatch-form button,
+.dispatch-form .btn-primary {
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  background: transparent !important;
+}
+
+.dispatch-form button:hover,
+.dispatch-form .btn-primary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  transition: 0.25s ease;
+}
