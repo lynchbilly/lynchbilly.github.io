@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="React • Python • Firebase • Automation • PC Builds">
   <meta name="twitter:image" content="https://hogwildcoding.com/images/billy-james-lynch-hog-wild-coding-banner.png">
 
-  <title>Contact | Billy James Lynch The Pyton & Java Programmer | Hog Wild Coding</title>
+  <title>Contact | Billy James Lynch The Python & Java Programmer | Hog Wild Coding</title>
   <link rel="stylesheet" href="/index.css" type="text/css">
 </head>
 
@@ -35,7 +35,7 @@
       <li><a class="nav-tile" href="/index.html" aria-label="Home"><img src="/images/home-tile.png" alt="home"></a></li>
       <li><a class="nav-tile" href="/skills.html" aria-label="Skills"><img src="/images/skills-tile.png" alt="skills"></a></li>
       <li><a class="nav-tile" href="/about.html" aria-label="About"><img src="/images/about-tile.png" alt="about"></a></li>
-      <li><a class="nav-tile" href="/contact.html" aria-label="Contact"><img src="/contact (1).jpeg" alt="contact"></a></li>
+      <li><a class="nav-tile" href="/contact.html" aria-label="Contact"><img src="/images/contact-tile.jpg" alt="contact"></a></li>
     </ul>
   </nav>
 
@@ -44,8 +44,9 @@
     <h2>&gt; INITIATE_DISPATCH</h2>
     <p class="muted-block">Send mission details. I’ll reply with scope, timeline, and the fastest path.</p>
 
-    <!-- ✅ Prevent insecure mailto-submit; JS will show the Marauder success panel -->
-    <form class="dispatch-form" id="dispatchForm" action="#" method="post">
+    <!-- ✅ REAL Formspree submit (GitHub Pages safe) -->
+    <form class="dispatch-form" id="my-form"
+          action="https://formspree.io/f/xkovggwz" method="POST">
 
       <div class="form-grid">
         <label>
@@ -64,17 +65,20 @@
         <textarea name="message" rows="7" placeholder="What do you need built or fixed?" required></textarea>
       </label>
 
-      <button class="btn btn-primary" type="submit">Submit</button>
+      <button class="btn btn-primary" id="my-form-button" type="submit">Submit</button>
+
+      <!-- Status line for transmit/errors -->
+      <p id="my-form-status" class="muted-block" style="margin-top: 1rem;"></p>
     </form>
 
-    <!-- ✅ Marauder-style confirmation (hidden until submit) -->
+    <!-- ✅ Marauder-style confirmation (hidden until submit succeeds) -->
     <div id="dispatchSuccess" class="panel" style="display:none; margin-top: 1rem;">
       <h2>&gt; MARAUDERS_MAP</h2>
       <p class="muted-block">
         ✅ Message transmitted. The map is updating… <strong>I solemnly swear I’m up to no good.</strong>
       </p>
       <div class="button-row">
-        <a class="btn btn-primary"
+        <a class="btn btn-primary" id="mailtoFallback"
            href="mailto:lynchbilly09@gmail.com?subject=Hog%20Wild%20Coding%20Dispatch&body=Name:%20%0AEmail:%20%0AMessage:%20%0A">
           ▶ Open Email App (optional)
         </a>
@@ -113,7 +117,60 @@
     </div>
   </footer>
 
-  <!-- ✅ JS that triggers the Marauder panel -->
-  <script src="/script.js"></script>
+  <!-- ✅ Formspree handler: shows success only on real send -->
+  <script>
+    const form = document.getElementById("my-form");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+
+      const status = document.getElementById("my-form-status");
+      const successPanel = document.getElementById("dispatchSuccess");
+      const mailtoBtn = document.getElementById("mailtoFallback");
+      const data = new FormData(event.target);
+
+      status.textContent = "Transmitting…";
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: { "Accept": "application/json" }
+      }).then(async (response) => {
+        if (response.ok) {
+          status.textContent = "";
+          form.reset();
+
+          // Fill mailto fallback with the user's actual data
+          if (mailtoBtn) {
+            const name = encodeURIComponent(data.get("name") || "");
+            const email = encodeURIComponent(data.get("email") || "");
+            const message = encodeURIComponent(data.get("message") || "");
+
+            const subject = encodeURIComponent("Hog Wild Coding Dispatch");
+            const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}%0A`;
+
+            mailtoBtn.href = `mailto:lynchbilly09@gmail.com?subject=${subject}&body=${body}`;
+          }
+
+          if (successPanel) {
+            successPanel.style.display = "block";
+            successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        } else {
+          const resData = await response.json().catch(() => ({}));
+          if (resData && resData.errors) {
+            status.textContent = resData.errors.map(e => e.message).join(", ");
+          } else {
+            status.textContent = "Oops! There was a problem submitting your form.";
+          }
+        }
+      }).catch(() => {
+        status.textContent = "Oops! There was a problem submitting your form.";
+      });
+    }
+
+    form.addEventListener("submit", handleSubmit);
+  </script>
+
 </body>
 </html>
