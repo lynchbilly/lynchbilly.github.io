@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /index.html
-Allow: /about.html
-Allow: /skills.html
-Allow: /contact.html
-
-# Sitemaps help crawlers find your content faster
-Sitemap: https://hogwildcoding.com/sitemap.xml
