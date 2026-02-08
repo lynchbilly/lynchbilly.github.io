@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mult &amp; Div</title>
+    <link rel="stylesheet" href="styl.css">
+    <style>
+      li{
+        display:inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Let's play!</h1>
+    <h2 id="level"> </h2>
+    <div>
+      <ul id="lives"> </ul>
+    </div>
+    <h2 class="display-number-to-play"> </h2>
+      <input class="input-field"> </input>
+    <div id="result-placeholder"> </div>
+
+  </body>
+
+<script>
+
+    const input = document.querySelector('.input-field')
+    const displayNumberToPlay = document.querySelector('.display-number-to-play')
+    const result = document.getElementById('result-placeholder')
+    const level = document.getElementById('level')
+    const livesList = document.getElementById("lives")
+    var lifeToRemove = livesList.lastChild;
+    var currentLevel = 1;
+
+
+    const level1num = [2,3,4,5]
+    const level2num = [6,7,8,9]
+    const level3num = [11,12,15,20,25,50]
+    const level4num = [13,14,16,17,18,19]
+
+    const gameStages = {1: level1num, 2:level2num, 3:level3num, 4:level4num}
+
+    var numberToPlay = randomElement(gameStages[currentLevel])
+
+    function randomElement(arr){
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    var correctAnswers = 0
+    var wrongAnswers = 0
+    var correctAnswersRequired = 5
+    var lives = 3
+    var live = "0 "
+    replenishLives();
+
+    function replenishLives(){
+      for (var i = 1; i <= lives; i++){
+        document.getElementById("lives").append(live)
+      }
+    }
+
+    function resetGame(){
+      level1numToPlay = randomElement(level1num)
+      console.log(level1numToPlay)
+      displayNumberToPlay.innerHTML = `Enter numbers divisible by ${numberToPlay} which are less than 100:`
+      correctAnswers = 0
+      wrongAnswers = 0
+      correctAnswersRequired = 5
+      lives = 3
+      result.innerHTML = ""
+
+      replenishLives();
+
+      function removeResults(){
+        while (result.hasChildNodes()){
+          result.removeChild(document.lastChild);
+        }
+      }
+
+    }
+
+    var isAnswerCorrect = function(answer){
+        return answer % numberToPlay === 0
+    }
+
+
+    displayNumberToPlay.innerHTML = `Enter numbers divisible by ${numberToPlay} which are less than 100:`
+    level.innerHTML = `Level ${Object.keys(gameStages)[currentLevel-1]}`
+
+    function checkNumber(){
+      if (isAnswerCorrect(input.value)){
+        correctAnswers ++
+        var resultButton = document.createElement("button");
+        resultButton.class = "result-button"
+        resultButton.innerHTML = input.value
+        document.getElementById("result-placeholder").appendChild(resultButton)
+      } else {
+        wrongAnswers ++;
+        livesList.removeChild(livesList.lastChild);
+      }
+      console.log("correctAnswers",correctAnswers, "wrongAnswers", wrongAnswers)
+      input.value="";
+      changeLevel();
+    }
+
+
+    function changeLevel(){
+      if (correctAnswers === correctAnswersRequired){
+        alert("Well done, you've reached a new level.")
+
+        currentLevel ++
+        level.innerHTML = `Level ${Object.keys(gameStages)[currentLevel]}`
+        numberToPlay = numberToPlay.innerHTML = `Enter numbers divisible by ${numberToPlay} which are less than 100:`
+        correctAnswers = 0;
+        wrongAnswers = 0;
+
+      } if (wrongAnswers === lives){
+        alert("GAME OVER")
+        resetGame();
+      }
+    }
+
+
+    input.addEventListener('keypress', function (e) {
+      var key = e.which || e.keyCode;
+      if (key === 13) {
+        checkNumber();
+
+      }
+    });
+
+
+  </script>
+
+<html>
