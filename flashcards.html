@@ -8,8 +8,6 @@
 <style>
   :root{
     --bg:#0b0b0d;
-    --panel:#121216;
-    --panel2:#0f0f13;
     --text:#f2f2f4;
     --muted:#b7b7c0;
     --line:#24242c;
@@ -17,7 +15,6 @@
     --good:#3ddc84;
     --bad:#ff2a2a;
     --shadow: 0 18px 55px rgba(0,0,0,.45);
-    --r:18px;
     --r2:24px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
     --sans: system-ui,-apple-system,Segoe UI,Roboto,Arial;
@@ -90,10 +87,6 @@
   }
   input{width:100%}
   select{width:100%}
-  select:focus, button:focus, input:focus{
-    border-color:rgba(225,6,0,.7);
-    box-shadow:0 0 0 3px rgba(225,6,0,.14);
-  }
   button{
     cursor:pointer;
     background:rgba(10,10,14,.55);
@@ -171,11 +164,17 @@
   }
   .footer span{font-family:var(--mono)}
   .hidden{display:none}
-  .list{
-    margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.45;
+  .list{margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.45}
+  .notice{
+    border:1px solid var(--line);
+    background:rgba(10,10,14,.35);
+    border-radius:16px;
+    padding:10px 12px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.35;
   }
 
-  /* Overlay: name prompt + config */
   .overlay{
     position:fixed; inset:0;
     background: rgba(0,0,0,.62);
@@ -198,39 +197,15 @@
     border-bottom:1px solid var(--line);
     display:flex;align-items:center;justify-content:space-between;gap:10px;
   }
-  .modal .mhd h3{
-    margin:0;
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--muted);
-    letter-spacing:.6px;
-  }
+  .modal .mhd h3{margin:0;font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.6px}
   .modal .mbd{padding:14px 16px}
   .modal .mbd h2{margin:0 0 6px;font-size:20px}
   .modal .mbd p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.4}
-  .notice{
-    border:1px solid var(--line);
-    background:rgba(10,10,14,.35);
-    border-radius:16px;
-    padding:10px 12px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.35;
-  }
 
-  /* Celebration layer */
-  .celebrateLayer{
-    position:fixed; inset:0;
-    pointer-events:none;
-    z-index:2000;
-  }
-  canvas#fx{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-  }
+  .celebrateLayer{position:fixed; inset:0; pointer-events:none; z-index:2000;}
+  canvas#fx{position:absolute; inset:0; width:100%; height:100%;}
   .celebrateMsg{
-    position:absolute;
-    left:50%; top:22%;
+    position:absolute; left:50%; top:22%;
     transform:translate(-50%, -50%);
     text-align:center;
     padding:14px 16px;
@@ -241,20 +216,8 @@
     box-shadow: var(--shadow);
     max-width:min(720px, 90%);
   }
-  .celebrateMsg h2{
-    margin:0 0 6px;
-    font-size:28px;
-    letter-spacing:.6px;
-  }
-  .celebrateMsg p{
-    margin:0;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.35;
-  }
-  .glow{
-    text-shadow: 0 0 18px rgba(225,6,0,.35), 0 0 38px rgba(255,42,42,.18);
-  }
+  .celebrateMsg h2{margin:0 0 6px; font-size:28px; letter-spacing:.6px}
+  .celebrateMsg p{margin:0; color:var(--muted); font-size:14px; line-height:1.35}
 </style>
 </head>
 
@@ -269,84 +232,67 @@
   </header>
 
   <div class="grid">
-    <!-- LEFT -->
     <div class="card">
       <div class="hd">
         <h2>CONTROLS</h2>
-        <span class="pill"><strong id="modeLabel">STUDY</strong></span>
+        <span class="pill"><strong id="modeLabel">MENU</strong></span>
       </div>
       <div class="bd stack">
-        <div class="stack">
-          <label class="pill">User <strong id="userLabel">Guest</strong></label>
+        <label class="pill">User <strong id="userLabel">Guest</strong></label>
 
-          <label class="pill">Category <strong id="catLabel">All</strong></label>
-          <select id="categorySelect"></select>
+        <label class="pill">Category <strong id="catLabel">All</strong></label>
+        <select id="categorySelect"></select>
 
-          <div class="miniGrid">
-            <button class="primary" id="goStudyBtn">Study Mode</button>
-            <button class="primary" id="goExamBtn">Exam Mode</button>
-          </div>
+        <div class="miniGrid">
+          <button type="button" class="primary" id="goStudyBtn">Study Mode</button>
+          <button type="button" class="primary" id="goExamBtn">Exam Mode</button>
+        </div>
 
-          <div class="miniGrid">
-            <button id="prevBtn">Prev (←)</button>
-            <button id="nextBtn">Next (→)</button>
-          </div>
+        <div class="miniGrid">
+          <button type="button" id="prevBtn">Prev (←)</button>
+          <button type="button" id="nextBtn">Next (→)</button>
+        </div>
 
-          <div class="miniGrid">
-            <button id="flipBtn" class="primary">Flip / Reveal (Space)</button>
-            <button id="shuffleBtn" class="ghost">Shuffle (S)</button>
-          </div>
+        <div class="miniGrid">
+          <button type="button" id="flipBtn" class="primary">Flip / Reveal (Space)</button>
+          <button type="button" id="shuffleBtn" class="ghost">Shuffle (S)</button>
+        </div>
 
-          <div class="miniGrid">
-            <button id="backToMenuBtn" class="ghost">Back to Menu</button>
-            <button id="resetBtn" class="ghost">Reset Session (R)</button>
-          </div>
+        <div class="miniGrid">
+          <button type="button" id="backToMenuBtn" class="ghost">Back to Menu</button>
+          <button type="button" id="resetBtn" class="ghost">Reset Session (R)</button>
         </div>
 
         <div class="sep"></div>
 
-        <div class="stack">
-          <div class="row" style="justify-content:space-between">
-            <span class="pill">Card <strong id="posLabel">0/0</strong></span>
-            <span class="pill">Shuffled <strong id="shufLabel">No</strong></span>
-          </div>
-          <div class="row" style="justify-content:space-between">
-            <span class="pill">Correct <strong id="correctLabel">0</strong></span>
-            <span class="pill">Missed <strong id="missedLabel">0</strong></span>
-          </div>
-          <div class="row" style="justify-content:space-between">
-            <span class="pill">Timer <strong id="timerLabel">00:00</strong></span>
-            <span class="pill">Exam Qs <strong id="examTotalLabel">30</strong></span>
-          </div>
-
-          <p class="hint">
-            Shortcuts:
-            <span class="kbd">Space</span> flip/reveal,
-            <span class="kbd">←</span>/<span class="kbd">→</span> prev/next,
-            <span class="kbd">S</span> shuffle,
-            <span class="kbd">R</span> reset.
-          </p>
-
-          <div class="notice">
-            <strong>Session-Based:</strong> Scores and exam results reset if you refresh or close the page.
-            Your <strong>name is remembered</strong> using a cookie.
-          </div>
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Card <strong id="posLabel">0/0</strong></span>
+          <span class="pill">Shuffled <strong id="shufLabel">No</strong></span>
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Correct <strong id="correctLabel">0</strong></span>
+          <span class="pill">Missed <strong id="missedLabel">0</strong></span>
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Timer <strong id="timerLabel">00:00</strong></span>
+          <span class="pill">Exam Qs <strong id="examTotalLabel">30</strong></span>
         </div>
 
-        <div class="sep"></div>
+        <p class="hint">
+          Shortcuts:
+          <span class="kbd">Space</span> flip/reveal,
+          <span class="kbd">←</span>/<span class="kbd">→</span> prev/next,
+          <span class="kbd">S</span> shuffle,
+          <span class="kbd">R</span> reset.
+        </p>
 
-        <div class="stack">
-          <h3 style="margin:0;font-size:13px;font-family:var(--mono);color:var(--muted);letter-spacing:.6px">EXAM MODE HOW-TO</h3>
-          <ul class="list">
-            <li>Exam pulls <strong>30</strong> random questions from your selected category.</li>
-            <li>Reveal the answer, then mark <strong>Correct</strong> or <strong>Missed</strong>.</li>
-            <li>Final score shows <strong>PASS/FAIL</strong>. Passing triggers a celebration.</li>
-          </ul>
+        <div class="notice">
+          <strong>Session-Based:</strong> Scores and exam results reset if you refresh or close the page.
+          Your <strong>name is remembered</strong> using a cookie.
         </div>
       </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="card">
       <div class="hd">
         <h2 id="viewTitle">MENU</h2>
@@ -361,14 +307,12 @@
           </div>
         </div>
 
-        <!-- Exam actions -->
         <div id="examActions" class="row hidden" style="margin-top:12px;justify-content:center">
-          <button class="primary" id="revealBtn">Reveal (Space)</button>
-          <button class="goodBtn" id="markCorrectBtn">Correct</button>
-          <button class="badBtn" id="markMissedBtn">Missed</button>
+          <button type="button" class="primary" id="revealBtn">Reveal (Space)</button>
+          <button type="button" class="goodBtn" id="markCorrectBtn">Correct</button>
+          <button type="button" class="badBtn" id="markMissedBtn">Missed</button>
         </div>
 
-        <!-- Results -->
         <div id="results" class="hidden" style="margin-top:14px">
           <div class="sep"></div>
           <h3 style="margin:0 0 10px;font-family:var(--mono);letter-spacing:.6px;color:var(--muted);font-size:13px">EXAM RESULTS</h3>
@@ -382,8 +326,8 @@
           <div id="missedList"></div>
           <div class="sep"></div>
           <div class="row" style="justify-content:center">
-            <button class="primary" id="studyNowBtn">Back to Study</button>
-            <button class="ghost" id="examAgainBtn">Retake Exam</button>
+            <button type="button" class="primary" id="studyNowBtn">Back to Study</button>
+            <button type="button" class="ghost" id="examAgainBtn">Retake Exam</button>
           </div>
         </div>
       </div>
@@ -395,7 +339,6 @@
   </div>
 </div>
 
-<!-- Overlay (Name + setup) -->
 <div id="overlay" class="overlay hidden" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
     <div class="mhd">
@@ -403,8 +346,8 @@
       <span class="badge"><span class="dot"></span><span>Intro to IT</span></span>
     </div>
     <div class="mbd">
-      <h2 class="glow">Welcome — let’s lock in.</h2>
-      <p>Enter your name. We’ll remember it using a cookie. Then pick a category and mode.</p>
+      <h2>Welcome — let’s lock in.</h2>
+      <p>Enter your name (saved by cookie), pick a category, then start Study or Exam.</p>
 
       <div class="stack">
         <label class="pill">Your Name <strong>(remembered)</strong></label>
@@ -414,8 +357,8 @@
         <select id="overlayCategory"></select>
 
         <div class="miniGrid">
-          <button class="primary" id="startStudyBtn">Start Study</button>
-          <button class="primary" id="startExamBtn">Start Exam</button>
+          <button type="button" class="primary" id="startStudyBtn">Start Study</button>
+          <button type="button" class="primary" id="startExamBtn">Start Exam</button>
         </div>
 
         <div class="notice">
@@ -423,55 +366,53 @@
           Your <strong>name is remembered</strong> using a cookie.
         </div>
 
-        <button class="ghost" id="clearNameBtn">Clear remembered name</button>
+        <button type="button" class="ghost" id="clearNameBtn">Clear remembered name</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Celebration -->
 <div id="celebrateLayer" class="celebrateLayer hidden" aria-hidden="true">
   <canvas id="fx"></canvas>
   <div class="celebrateMsg">
-    <h2 id="celebrateTitle" class="glow">PASS!</h2>
+    <h2 id="celebrateTitle">PASS!</h2>
     <p id="celebrateText">🔥 Great work.</p>
   </div>
 </div>
 
 <script>
-/* =========================
-   COOKIE HELPERS
-   ========================= */
+/* ========= SAFE BIND (fixes your issue) ========= */
+const $ = (id)=>document.getElementById(id);
+function on(id, evt, fn){
+  const el = $(id);
+  if(!el) return; // <- prevents crash that breaks all buttons
+  el.addEventListener(evt, fn);
+}
+
+/* ========= COOKIES ========= */
 function setCookie(name, value, days){
   const d = new Date();
   d.setTime(d.getTime() + (days*24*60*60*1000));
-  const expires = "expires=" + d.toUTCString();
-  document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/;SameSite=Lax";
+  document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
 }
 function getCookie(name){
   const target = name + "=";
   const parts = document.cookie.split(";").map(s=>s.trim());
-  for(const p of parts){
-    if(p.startsWith(target)) return decodeURIComponent(p.substring(target.length));
-  }
+  for(const p of parts) if(p.startsWith(target)) return decodeURIComponent(p.substring(target.length));
   return "";
 }
 function deleteCookie(name){
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
 }
 
-/* =========================
-   DATA (Your deck)
-   ========================= */
+/* ========= DATA (Your deck, includes WBS=Planning) ========= */
 const DECK = [
-  // Computing Generations
   {cat:"Computing Generations", q:"Which generation of computing is associated with microprocessors?", a:"Fourth"},
   {cat:"Computing Generations", q:"Which computing generation is associated with the exclusive use of machine languages and punch cards?", a:"First"},
   {cat:"Computing Generations", q:"Which computing generation is associated with the replacement of machine languages by assembly languages?", a:"Second"},
   {cat:"Computing Generations", q:"Which computing generation is associated with the first use of thousands of integrated circuits on a single silicon chip?", a:"Fourth"},
   {cat:"Computing Generations", q:"Which generation of computing is known for the introduction of handheld devices?", a:"Fourth"},
 
-  // DIKW
   {cat:"DIKW", q:"What is the component of the data-information-knowledge-wisdom (DIKW) hierarchy that includes basic observations?", a:"Data"},
   {cat:"DIKW", q:"Based on the instructions on the package, a frozen pizza should be baked for 18 minutes at 400°F. Which term describes the statement, \"The oven is at 350°F, nearing the needed temperature,\" based on the DIKW hierarchy?", a:"Knowledge"},
   {cat:"DIKW", q:"There are 30 questions on a final exam. The exam will be given in room 126 at 2:00 p.m., and students have one hour to complete it. What is the DIKW component exemplified by the value \"2:00\"?", a:"Data"},
@@ -482,37 +423,31 @@ const DECK = [
   {cat:"DIKW", q:"How are information and knowledge different?", a:"Knowledge involves understanding patterns, but information does not."},
   {cat:"DIKW", q:"Which statement represents a difference between wisdom and information, based on the data pyramid?", a:"Wisdom involves understanding principles, but information does not."},
 
-  // Databases
   {cat:"Databases", q:"Based on an analysis of a company's needs, a database should be installed so that each line of a simple, delimited text document holds exactly one record. What is the name of the database that satisfies this need?", a:"Flat-file"},
   {cat:"Databases", q:"The leader of an IT department has decided to use a database in which access to the data is restricted to the paths in the trees and is, therefore, predictable. Which type of database is described?", a:"Hierarchical"},
   {cat:"Databases", q:"The leader of an IT department has decided to use a database in which data is stored in a variety of tables that can be joined together in logical ways. Which type of database is described?", a:"Relational"},
   {cat:"Databases", q:"Based on an analysis of a company's needs, a database should be installed so that records are stored in structures consisting of data and methods. What is the name of the database that satisfies this need?", a:"Object-oriented"},
 
-  // Data Types
   {cat:"Data Types", q:"An IT department employee is identifying the integer data in a system. What is one example of this type of data?", a:"The year in which a major event happened"},
   {cat:"Data Types", q:"An IT department employee is identifying the floating point data in a system. What is one example of this type of data?", a:"An approximation of π as 3.14159"},
   {cat:"Data Types", q:"A developer is creating an application and needs a variable to store the scientific name of a tree species. Which data type should be used for this purpose?", a:"Character string"},
   {cat:"Data Types", q:"A programmer needs to create a variable that holds an indication of whether a file does or does not have an error in it. What is the name of the data type that should be used?", a:"Boolean"},
   {cat:"Data Types", q:"A database variable needs to be restricted to only accept several alphanumeric characters. What is the name of the appropriate data type?", a:"Character string"},
 
-  // Database App Layers
   {cat:"Database Applications", q:"A developer is updating the application layer of a database application. What does this layer of the database application do?", a:"It communicates with the end user and can be fairly complex."},
 
-  // Operating Systems
   {cat:"Operating Systems", q:"Which operating system is developed by Microsoft, Inc.?", a:"Windows"},
   {cat:"Operating Systems", q:"Which operating system is used for many mobile devices?", a:"iOS"},
   {cat:"Operating Systems", q:"Which factor affects the choice of an operating system?", a:"User interface"},
   {cat:"Operating Systems", q:"Which component of an operating system uses scheduling to control access to shared resources?", a:"Kernel"},
   {cat:"Operating Systems", q:"Which component of an operating system allows an individual to communicate with the operating system?", a:"User interface"},
 
-  // Software
   {cat:"Software", q:"Which category of software is installed as a trial and can be upgraded for a fee?", a:"Shareware"},
   {cat:"Software", q:"What is the purpose of word processing software?", a:"Creating business reports and newsletters"},
   {cat:"Software", q:"Which software provides private or shareable file management via the cloud?", a:"Document storage"},
   {cat:"Software", q:"Which type of software provides the infrastructure needed to run other types of software?", a:"System"},
   {cat:"Software", q:"Which type of software is an application for creating blueprints and 3D renderings of buildings?", a:"Specialized"},
 
-  // Hardware
   {cat:"Hardware", q:"What is an example of computer hardware?", a:"Motherboard"},
   {cat:"Hardware", q:"Which hardware component includes registers, a logic component, and an arithmetic component?", a:"Central processing unit (CPU)"},
   {cat:"Hardware", q:"What is the hardware component that contains the circuitry for coordinating computer activity?", a:"Central processing unit (CPU)"},
@@ -521,7 +456,6 @@ const DECK = [
   {cat:"Hardware", q:"Which part of a computer system contains the instructions for initializing various computer components?", a:"Read-only memory (ROM)"},
   {cat:"Hardware", q:"Which component is part of the system unit?", a:"Power supply"},
 
-  // Networking
   {cat:"Networking", q:"What characterizes a ring network topology?", a:"Every device being connected to exactly two other devices"},
   {cat:"Networking", q:"What is the name of a network that consists of a collection of computers in a single building or building complex?", a:"Local area network (LAN)"},
   {cat:"Networking", q:"Which networking technology converts incoming analog data into digital and outgoing digital data into analog?", a:"Modem"},
@@ -529,7 +463,6 @@ const DECK = [
   {cat:"Networking", q:"What describes a firewall?", a:"Monitors traffic on the network and blocks it if it triggers safety rules"},
   {cat:"Networking", q:"Which wired transmission medium is able to transmit the largest volumes of data when compared with other cables?", a:"Fiber-optic cable"},
 
-  // Programming
   {cat:"Programming", q:"What does a compiler do?", a:"Translates source code into machine language"},
   {cat:"Programming", q:"What does an interpreter do?", a:"Converts instructions one statement at a time when the program is run"},
   {cat:"Programming", q:"What is the appropriate categorization of Visual Basic .NET as a programming language?", a:"Compiled"},
@@ -537,387 +470,310 @@ const DECK = [
   {cat:"Programming", q:"A programmer is working with Python. Which type of language is this?", a:"Interpreted"},
   {cat:"Programming", q:"Which term describes the JavaScript computer coding language?", a:"Interpreted"},
 
-  // Business Continuity / DR
   {cat:"Business Continuity", q:"How can uptime be improved?", a:"By increasing the amount of time that resources are available for use"},
   {cat:"Business Continuity", q:"What is a priority of business continuity?", a:"High availability of resources"},
   {cat:"Business Continuity", q:"Which purpose does business continuity planning have?", a:"Identifying priorities when primary systems are not fully operational"},
   {cat:"Business Continuity", q:"Which component is an important strategy of business continuity?", a:"Data backups"},
+
   {cat:"Disaster Recovery", q:"What is the component of disaster recovery that is characterized by writing copies of data on several devices simultaneously?", a:"Data mirroring"},
   {cat:"Disaster Recovery", q:"Which physical location offers an ideal place for storage that needs to be off-site?", a:"Caves"},
   {cat:"Disaster Recovery", q:"Which factor is a primary criterion for assessing off-site storage possibilities?", a:"Accessibility"},
   {cat:"Disaster Recovery", q:"Which type of storage typically uses innovative equipment?", a:"Hot"},
 
-  // Project Management / Risks
   {cat:"Project Management", q:"What is the phase of the project management life cycle that includes the development of a project charter?", a:"Initiation"},
   {cat:"Project Management", q:"What is the phase of the project management life cycle that includes the development of the work breakdown structure (WBS)?", a:"Planning"},
   {cat:"Project Management", q:"Which category represents one of the three broad types of risks that a project may encounter?", a:"Risks in integration"},
 
-  // Professional Orgs / Ethics / Privacy
   {cat:"Professional Organizations", q:"What is a professional organization that publishes a set of ethical IT guidelines?", a:"Association of Information Technology Professionals (AITP)"},
   {cat:"Professional Organizations", q:"What is one example of a professional organization in the IT industry?", a:"Association for the Advancement of Artificial Intelligence (AAAI)"},
   {cat:"Professional Organizations", q:"What is one of the goals of IT professional organizations?", a:"Raising public awareness"},
   {cat:"Professional Organizations", q:"Which entity helps other organizations design and apply appropriate approaches to personal data collection, use, and disclosure?", a:"International Association of Privacy Professionals (IAPP)"}
 ];
 
-const PASS_THRESHOLD = 80; // percent
+const PASS_THRESHOLD = 80;
 const USER_COOKIE = "wgu_intro_it_user";
 
-/* =========================
-   STATE
-   ========================= */
+/* ========= STATE ========= */
 const state = {
-  user: "Guest",
-  mode: "menu", // menu | study | exam | results
-  category: "All",
-  pool: [],
-  order: [],
-  idx: 0,
-  showingAnswer: false,
-  shuffled: false,
-  timerStart: 0,
-  timerId: null,
-  exam: {
-    total: 30,
-    i: 0,
-    revealed: false,
-    correct: 0,
-    missed: 0,
-    missedCards: [],
-    order: []
-  }
+  user:"Guest",
+  mode:"menu", // menu|study|exam|results
+  category:"All",
+  pool:[],
+  order:[],
+  idx:0,
+  showingAnswer:false,
+  shuffled:false,
+  timerStart:0,
+  timerId:null,
+  exam:{ total:30, i:0, revealed:false, correct:0, missed:0, missedCards:[], order:[] }
 };
 
-/* =========================
-   DOM
-   ========================= */
-const $ = (id)=>document.getElementById(id);
-
-/* =========================
-   UTIL
-   ========================= */
-function escapeHtml(str){
-  return String(str)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+/* ========= UTILS ========= */
+function shuffleArray(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
 }
+function clamp(n,max){ return Math.max(1, Math.min(n, max)); }
 function formatTime(sec){
-  const m = Math.floor(sec/60);
-  const s = sec % 60;
+  const m=Math.floor(sec/60), s=sec%60;
   return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
 }
 function stopTimer(){
   if(state.timerId) clearInterval(state.timerId);
-  state.timerId = null;
-  $("timerLabel").textContent = "00:00";
+  state.timerId=null;
+  $("timerLabel").textContent="00:00";
 }
 function startTimer(){
   stopTimer();
-  state.timerStart = Date.now();
-  state.timerId = setInterval(()=>{
-    const sec = Math.floor((Date.now()-state.timerStart)/1000);
-    $("timerLabel").textContent = formatTime(sec);
+  state.timerStart=Date.now();
+  state.timerId=setInterval(()=>{
+    const sec=Math.floor((Date.now()-state.timerStart)/1000);
+    $("timerLabel").textContent=formatTime(sec);
   }, 250);
 }
-function shuffleArray(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]] = [arr[j],arr[i]];
-  }
-  return arr;
+function applyUser(name){
+  state.user=(name||"Guest").trim()||"Guest";
+  $("userLabel").textContent=state.user;
+  $("welcomeLine").textContent=`Welcome, ${state.user}. Choose a category and mode to start.`;
 }
-function clampExamTotal(n, max){
-  return Math.max(1, Math.min(n, max));
+function setCard(side, text, isAnswer=false){
+  $("sideLabel").textContent = side;
+  const el=$("cardText");
+  el.className = isAnswer ? "a" : "q";
+  el.textContent = text;
 }
 
-/* =========================
-   BUILD CATEGORY SELECTS
-   ========================= */
+/* ========= CATEGORY BUILD ========= */
 function buildCategories(){
-  const cats = Array.from(new Set(DECK.map(c=>c.cat))).sort((a,b)=>a.localeCompare(b));
-  const addOptions = (sel)=>{
-    sel.innerHTML = "";
-    const all = document.createElement("option");
-    all.value="All";
-    all.textContent="All Categories";
+  const cats=[...new Set(DECK.map(c=>c.cat))].sort((a,b)=>a.localeCompare(b));
+  const fill=(sel)=>{
+    sel.innerHTML="";
+    const all=document.createElement("option");
+    all.value="All"; all.textContent="All Categories";
     sel.appendChild(all);
     cats.forEach(c=>{
       const opt=document.createElement("option");
-      opt.value=c;
-      opt.textContent=c;
+      opt.value=c; opt.textContent=c;
       sel.appendChild(opt);
     });
-    sel.value = state.category;
+    sel.value=state.category;
   };
-  addOptions($("categorySelect"));
-  addOptions($("overlayCategory"));
+  fill($("categorySelect"));
+  fill($("overlayCategory"));
 }
 
-/* =========================
-   POOL / RENDER
-   ========================= */
+/* ========= POOL / LABELS ========= */
 function rebuildPool(){
   state.pool = (state.category==="All") ? DECK.slice() : DECK.filter(c=>c.cat===state.category);
   state.order = state.pool.map((_,i)=>i);
-  state.idx = 0;
-  state.showingAnswer = false;
-  state.shuffled = false;
-  $("shufLabel").textContent = "No";
-
-  state.exam.total = clampExamTotal(30, Math.max(1, state.pool.length));
-  $("examTotalLabel").textContent = String(state.exam.total);
-
+  state.idx=0;
+  state.showingAnswer=false;
+  state.shuffled=false;
+  $("shufLabel").textContent="No";
+  state.exam.total = clamp(30, Math.max(1, state.pool.length));
+  $("examTotalLabel").textContent=String(state.exam.total);
   $("activeCategory").textContent = (state.category==="All") ? "All Categories" : state.category;
   $("catLabel").textContent = (state.category==="All") ? "All" : state.category;
-
-  updateStatsLabels();
+  updateLabels();
 }
-
-function updateStatsLabels(){
+function updateLabels(){
+  $("modeLabel").textContent = state.mode.toUpperCase();
   const total = (state.mode==="exam") ? state.exam.total : state.order.length;
   const pos = (state.mode==="exam") ? Math.min(state.exam.i+1, state.exam.total) : (state.order.length ? state.idx+1 : 0);
   $("posLabel").textContent = `${pos}/${total}`;
   $("correctLabel").textContent = String(state.exam.correct);
   $("missedLabel").textContent = String(state.exam.missed);
-  $("modeLabel").textContent = (state.mode==="exam") ? "EXAM" : (state.mode==="study") ? "STUDY" : "MENU";
 }
 
-function setCard(side, text, isAnswer=false){
-  $("sideLabel").textContent = side;
-  const el = $("cardText");
-  el.className = isAnswer ? "a" : "q";
-  el.textContent = text;
-}
-
-function showMenuCard(){
-  state.mode = "menu";
+/* ========= VIEWS ========= */
+function showMenu(){
+  state.mode="menu";
   stopTimer();
-  $("viewTitle").textContent = "MENU";
+  $("viewTitle").textContent="MENU";
   $("examActions").classList.add("hidden");
   $("results").classList.add("hidden");
-  setCard("READY", "Choose a category and click Study or Exam.", false);
-  $("subHint").textContent = "Your name is remembered by cookie. Scores are session-based.";
-  updateStatsLabels();
+  setCard("READY","Choose a category and click Study or Exam.");
+  $("subHint").textContent="Your name is remembered by cookie. Scores are session-based.";
+  updateLabels();
 }
-
 function renderStudy(){
+  state.mode="study";
+  $("viewTitle").textContent="STUDY";
   $("results").classList.add("hidden");
   $("examActions").classList.add("hidden");
-  $("viewTitle").textContent = "STUDY";
-  $("subHint").textContent = "Click the card to flip. Shuffle anytime.";
-
-  if(state.pool.length===0){
-    setCard("EMPTY", "No cards in this category.", false);
-    return;
-  }
-  const card = state.pool[state.order[state.idx]];
-  if(!state.showingAnswer){
-    setCard("QUESTION", card.q, false);
-  }else{
-    setCard("ANSWER", card.a, true);
-  }
-  updateStatsLabels();
+  $("subHint").textContent="Click the card to flip. Shuffle anytime.";
+  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); return; }
+  const card=state.pool[state.order[state.idx]];
+  if(!state.showingAnswer) setCard("QUESTION", card.q, false);
+  else setCard("ANSWER", card.a, true);
+  updateLabels();
 }
-
 function renderExam(){
+  state.mode="exam";
+  $("viewTitle").textContent="EXAM";
   $("results").classList.add("hidden");
   $("examActions").classList.remove("hidden");
-  $("viewTitle").textContent = "EXAM";
-  if(state.pool.length===0){
-    $("examActions").classList.add("hidden");
-    setCard("EMPTY", "No cards in this category.", false);
-    $("subHint").textContent = "";
-    return;
-  }
-  const card = state.pool[state.exam.order[state.exam.i]];
+  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); $("examActions").classList.add("hidden"); return; }
+  const card=state.pool[state.exam.order[state.exam.i]];
   if(!state.exam.revealed){
     setCard("EXAM — QUESTION", card.q, false);
-    $("subHint").textContent = "Reveal the answer, then mark Correct/Missed.";
+    $("subHint").textContent="Reveal the answer, then mark Correct/Missed.";
   }else{
     setCard("EXAM — ANSWER", card.a, true);
-    $("subHint").textContent = "Mark your result to continue.";
+    $("subHint").textContent="Mark your result to continue.";
   }
-  updateStatsLabels();
+  updateLabels();
 }
 
-/* =========================
-   MODE STARTERS
-   ========================= */
-function startStudy(){
-  state.mode = "study";
-  state.showingAnswer = false;
-  state.exam.revealed = false;
-  stopTimer();
-  renderStudy();
-}
-
+/* ========= ACTIONS ========= */
+function startStudy(){ state.showingAnswer=false; state.exam.revealed=false; stopTimer(); renderStudy(); }
 function startExam(){
-  if(state.pool.length===0){
-    state.mode="exam";
-    renderExam();
-    return;
-  }
-  state.mode = "exam";
-  state.exam.correct = 0;
-  state.exam.missed = 0;
-  state.exam.missedCards = [];
-  state.exam.i = 0;
-  state.exam.revealed = false;
-
-  state.exam.total = clampExamTotal(30, state.pool.length);
-  $("examTotalLabel").textContent = String(state.exam.total);
-
-  const indices = Array.from({length: state.pool.length}, (_,i)=>i);
+  if(!state.pool.length){ renderExam(); return; }
+  state.exam.correct=0; state.exam.missed=0; state.exam.missedCards=[]; state.exam.i=0; state.exam.revealed=false;
+  state.exam.total = clamp(30, state.pool.length);
+  $("examTotalLabel").textContent=String(state.exam.total);
+  const indices=Array.from({length:state.pool.length},(_,i)=>i);
   shuffleArray(indices);
-  state.exam.order = indices.slice(0, state.exam.total);
-
+  state.exam.order=indices.slice(0,state.exam.total);
   startTimer();
   renderExam();
 }
-
-/* =========================
-   STUDY ACTIONS
-   ========================= */
 function flip(){
   if(state.mode==="study"){
-    if(state.pool.length===0) return;
-    state.showingAnswer = !state.showingAnswer;
+    if(!state.pool.length) return;
+    state.showingAnswer=!state.showingAnswer;
     renderStudy();
-    return;
-  }
-  if(state.mode==="exam"){
-    if(!state.exam.revealed){
-      state.exam.revealed = true;
-      renderExam();
-    }
+  } else if(state.mode==="exam"){
+    if(!state.exam.revealed){ state.exam.revealed=true; renderExam(); }
   }
 }
-function next(){
-  if(state.mode!=="study") return;
-  if(state.pool.length===0) return;
-  state.idx = (state.idx + 1) % state.order.length;
-  state.showingAnswer = false;
-  renderStudy();
-}
-function prev(){
-  if(state.mode!=="study") return;
-  if(state.pool.length===0) return;
-  state.idx = (state.idx - 1 + state.order.length) % state.order.length;
-  state.showingAnswer = false;
-  renderStudy();
-}
+function next(){ if(state.mode!=="study"||!state.pool.length) return; state.idx=(state.idx+1)%state.order.length; state.showingAnswer=false; renderStudy(); }
+function prev(){ if(state.mode!=="study"||!state.pool.length) return; state.idx=(state.idx-1+state.order.length)%state.order.length; state.showingAnswer=false; renderStudy(); }
 function shuffleNow(){
-  if(state.pool.length===0) return;
+  if(!state.pool.length) return;
   if(state.mode==="study"){
-    state.shuffled = true;
-    $("shufLabel").textContent = "Yes";
-    shuffleArray(state.order);
-    state.idx = 0;
-    state.showingAnswer = false;
+    state.shuffled=true; $("shufLabel").textContent="Yes";
+    shuffleArray(state.order); state.idx=0; state.showingAnswer=false;
     renderStudy();
   } else if(state.mode==="exam"){
     startExam();
   }
 }
-
-/* =========================
-   EXAM ACTIONS
-   ========================= */
-function markCorrect(){
-  if(state.mode!=="exam" || !state.exam.revealed) return;
-  state.exam.correct++;
-  advanceExam();
-}
+function markCorrect(){ if(state.mode!=="exam"||!state.exam.revealed) return; state.exam.correct++; advanceExam(); }
 function markMissed(){
-  if(state.mode!=="exam" || !state.exam.revealed) return;
+  if(state.mode!=="exam"||!state.exam.revealed) return;
   state.exam.missed++;
-  const card = state.pool[state.exam.order[state.exam.i]];
-  state.exam.missedCards.push(card);
+  state.exam.missedCards.push(state.pool[state.exam.order[state.exam.i]]);
   advanceExam();
 }
 function advanceExam(){
-  state.exam.revealed = false;
+  state.exam.revealed=false;
   state.exam.i++;
-  if(state.exam.i >= state.exam.total){
-    endExam();
-  } else {
-    renderExam();
-  }
+  if(state.exam.i>=state.exam.total) endExam();
+  else renderExam();
 }
 
+/* ========= RESULTS + CELEBRATION ========= */
+let fx={canvas:null,ctx:null,w:0,h:0,particles:[],running:false,raf:null,endAt:0};
+function fxResize(){
+  if(!fx.canvas) return;
+  const dpr=Math.max(1, window.devicePixelRatio||1);
+  fx.w=window.innerWidth; fx.h=window.innerHeight;
+  fx.canvas.width=Math.floor(fx.w*dpr);
+  fx.canvas.height=Math.floor(fx.h*dpr);
+  fx.ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+function spawnBurst(x,y,n){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2;
+    const sp=2+Math.random()*6;
+    fx.particles.push({
+      x,y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp-(Math.random()*1.5),
+      g:0.10+Math.random()*0.10, life:60+Math.floor(Math.random()*50),
+      size:2+Math.random()*2.5, color:`hsl(${Math.floor(Math.random()*360)},90%,60%)`
+    });
+  }
+}
+function fxLoop(){
+  if(!fx.running) return;
+  const ctx=fx.ctx;
+  ctx.fillStyle="rgba(0,0,0,0.18)";
+  ctx.fillRect(0,0,fx.w,fx.h);
+  for(let i=fx.particles.length-1;i>=0;i--){
+    const p=fx.particles[i];
+    p.vy+=p.g; p.x+=p.vx; p.y+=p.vy; p.life--;
+    ctx.fillStyle=p.color;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+    if(p.life<=0 || p.y>fx.h+50) fx.particles.splice(i,1);
+  }
+  if(Date.now()>fx.endAt && fx.particles.length===0){ stopCelebrate(); return; }
+  fx.raf=requestAnimationFrame(fxLoop);
+}
+function celebrate(pct){
+  $("celebrateLayer").classList.remove("hidden");
+  $("celebrateTitle").textContent=`PASS — ${state.user}!`;
+  $("celebrateText").textContent=`Score: ${pct}% • Keep that momentum.`;
+
+  fx.canvas=$("fx");
+  fx.ctx=fx.canvas.getContext("2d");
+  fx.particles=[]; fx.running=true; fx.endAt=Date.now()+4000;
+  fxResize();
+
+  // bursts
+  spawnBurst(window.innerWidth*0.25, window.innerHeight*0.35, 90);
+  spawnBurst(window.innerWidth*0.75, window.innerHeight*0.40, 90);
+  spawnBurst(window.innerWidth*0.50, window.innerHeight*0.30, 120);
+
+  if(fx.raf) cancelAnimationFrame(fx.raf);
+  fx.raf=requestAnimationFrame(fxLoop);
+  setTimeout(()=>stopCelebrate(), 5200);
+}
+function stopCelebrate(){
+  if(!fx.running && $("celebrateLayer").classList.contains("hidden")) return;
+  fx.running=false;
+  if(fx.raf) cancelAnimationFrame(fx.raf);
+  fx.raf=null;
+  fx.particles=[];
+  $("celebrateLayer").classList.add("hidden");
+}
 function endExam(){
   stopTimer();
-  state.mode = "results";
+  state.mode="results";
+  $("viewTitle").textContent="RESULTS";
   $("examActions").classList.add("hidden");
   $("results").classList.remove("hidden");
-  $("viewTitle").textContent = "RESULTS";
 
-  const total = state.exam.total || 1;
-  const pct = Math.round((state.exam.correct / total) * 100);
-  $("scoreLabel").textContent = `${pct}%`;
-  $("finalCorrect").textContent = String(state.exam.correct);
-  $("finalMissed").textContent = String(state.exam.missed);
+  const total=state.exam.total||1;
+  const pct=Math.round((state.exam.correct/total)*100);
 
-  const passed = pct >= PASS_THRESHOLD;
-  $("passFailLabel").textContent = passed ? "PASS" : "FAIL";
-  $("passFailLabel").style.color = passed ? "var(--good)" : "var(--bad)";
+  $("scoreLabel").textContent=`${pct}%`;
+  $("finalCorrect").textContent=String(state.exam.correct);
+  $("finalMissed").textContent=String(state.exam.missed);
 
-  // Missed list
-  const box = document.createElement("div");
-  box.className = "card";
-  box.style.borderRadius = "18px";
-  box.style.boxShadow = "none";
-  box.style.background = "rgba(10,10,14,.35)";
-  box.style.border = "1px solid var(--line)";
-  box.style.padding = "12px 14px";
+  const passed=pct>=PASS_THRESHOLD;
+  $("passFailLabel").textContent=passed?"PASS":"FAIL";
+  $("passFailLabel").style.color=passed?"var(--good)":"var(--bad)";
 
-  const h = document.createElement("div");
-  h.style.fontFamily = "var(--mono)";
-  h.style.color = "var(--muted)";
-  h.style.letterSpacing = ".6px";
-  h.style.fontSize = "12px";
-  h.style.marginBottom = "8px";
-  h.textContent = state.exam.missedCards.length ? "MISSED QUESTIONS (Review)" : "MISSED QUESTIONS (None)";
+  // Missed list (simple)
+  const box=document.createElement("div");
+  box.className="notice";
+  box.innerHTML = state.exam.missedCards.length
+    ? "<strong>Missed Questions:</strong><br><br>" + state.exam.missedCards.map(c =>
+        `<div style="margin-bottom:10px"><div style="color:var(--muted)">${c.q}</div><div style="color:#ffd2d2"><strong>Answer:</strong> ${c.a}</div></div>`
+      ).join("")
+    : "<strong>Missed Questions:</strong> None. Clean run.";
 
-  box.appendChild(h);
-
-  if(state.exam.missedCards.length){
-    const ul = document.createElement("ul");
-    ul.className = "list";
-    ul.style.color = "var(--text)";
-    ul.style.margin = "0";
-    ul.style.paddingLeft = "18px";
-
-    state.exam.missedCards.forEach(c=>{
-      const li = document.createElement("li");
-      li.style.marginBottom = "8px";
-      li.innerHTML = `<div style="color:var(--muted);margin-bottom:2px">${escapeHtml(c.q)}</div>
-                      <div style="color:#ffd2d2"><strong>Answer:</strong> ${escapeHtml(c.a)}</div>`;
-      ul.appendChild(li);
-    });
-    box.appendChild(ul);
-  } else {
-    const p = document.createElement("div");
-    p.className = "hint";
-    p.textContent = "No missed questions. Clean run.";
-    box.appendChild(p);
-  }
-
-  $("missedList").innerHTML = "";
+  $("missedList").innerHTML="";
   $("missedList").appendChild(box);
 
-  updateStatsLabels();
-
-  if(passed){
-    celebrate(pct);
-  }
+  updateLabels();
+  if(passed) celebrate(pct);
 }
 
-/* =========================
-   SETUP OVERLAY
-   ========================= */
+/* ========= OVERLAY ========= */
 function openOverlay(){
   $("overlay").classList.remove("hidden");
   $("overlay").setAttribute("aria-hidden","false");
@@ -928,258 +784,86 @@ function closeOverlay(){
   $("overlay").setAttribute("aria-hidden","true");
 }
 
-function applyUser(name){
-  state.user = (name || "Guest").trim() || "Guest";
-  $("userLabel").textContent = state.user;
-  $("welcomeLine").textContent = `Welcome, ${state.user}. Choose a category and mode to start.`;
-}
+/* ========= INIT + WIRE ========= */
+function init(){
+  const saved=getCookie(USER_COOKIE);
+  applyUser(saved||"Guest");
 
-/* =========================
-   FIREWORKS / CONFETTI CELEBRATION
-   ========================= */
-let fx = { canvas:null, ctx:null, w:0, h:0, particles:[], running:false, raf:null, endAt:0 };
+  buildCategories();
+  rebuildPool();
+  $("categorySelect").value=state.category;
+  $("overlayCategory").value=state.category;
 
-function fxResize(){
-  if(!fx.canvas) return;
-  const dpr = Math.max(1, window.devicePixelRatio || 1);
-  fx.w = window.innerWidth;
-  fx.h = window.innerHeight;
-  fx.canvas.width = Math.floor(fx.w * dpr);
-  fx.canvas.height = Math.floor(fx.h * dpr);
-  fx.canvas.style.width = fx.w + "px";
-  fx.canvas.style.height = fx.h + "px";
-  fx.ctx.setTransform(dpr,0,0,dpr,0,0);
-}
+  if(!saved) openOverlay();
+  else closeOverlay();
 
-function spawnBurst(x, y, n){
-  for(let i=0;i<n;i++){
-    const ang = Math.random()*Math.PI*2;
-    const sp = 2 + Math.random()*6;
-    fx.particles.push({
-      x, y,
-      vx: Math.cos(ang)*sp,
-      vy: Math.sin(ang)*sp - (Math.random()*1.5),
-      g: 0.10 + Math.random()*0.10,
-      life: 60 + Math.floor(Math.random()*50),
-      size: 2 + Math.random()*2.5,
-      // random bright-ish color
-      color: `hsl(${Math.floor(Math.random()*360)}, 90%, 60%)`
-    });
-  }
-}
-function spawnConfettiWave(){
-  const topY = fx.h*0.15;
-  const bands = 6;
-  for(let b=0;b<bands;b++){
-    spawnBurst(Math.random()*fx.w, topY + b*12, 40);
-  }
-}
+  showMenu();
 
-function fxLoop(){
-  if(!fx.running) return;
-  const ctx = fx.ctx;
-  ctx.clearRect(0,0,fx.w,fx.h);
-
-  // subtle fade trail
-  ctx.fillStyle = "rgba(0,0,0,0.18)";
-  ctx.fillRect(0,0,fx.w,fx.h);
-
-  for(let i=fx.particles.length-1;i>=0;i--){
-    const p = fx.particles[i];
-    p.vy += p.g;
-    p.x += p.vx;
-    p.y += p.vy;
-    p.life -= 1;
-
-    ctx.fillStyle = p.color;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-    ctx.fill();
-
-    if(p.life <= 0 || p.y > fx.h + 50) fx.particles.splice(i,1);
-  }
-
-  // auto end
-  if(Date.now() > fx.endAt && fx.particles.length===0){
-    stopCelebrate();
-    return;
-  }
-
-  fx.raf = requestAnimationFrame(fxLoop);
-}
-
-function celebrate(scorePct){
-  $("celebrateLayer").classList.remove("hidden");
-  $("celebrateLayer").setAttribute("aria-hidden","false");
-  $("celebrateTitle").textContent = `PASS — ${state.user}!`;
-  $("celebrateText").textContent = `Score: ${scorePct}% • You just leveled up. Keep the momentum.`;
-
-  fx.canvas = $("fx");
-  fx.ctx = fx.canvas.getContext("2d");
-  fx.particles = [];
-  fx.running = true;
-  fx.endAt = Date.now() + 4000;
-
-  fxResize();
-  spawnConfettiWave();
-  // a few fireworks bursts
-  spawnBurst(fx.w*0.25, fx.h*0.35, 90);
-  spawnBurst(fx.w*0.75, fx.h*0.40, 90);
-  spawnBurst(fx.w*0.50, fx.h*0.30, 120);
-
-  if(fx.raf) cancelAnimationFrame(fx.raf);
-  fx.raf = requestAnimationFrame(fxLoop);
-
-  // auto-hide after a bit even if user does nothing
-  setTimeout(()=>stopCelebrate(), 5200);
-}
-
-function stopCelebrate(){
-  if(!fx.running) return;
-  fx.running = false;
-  if(fx.raf) cancelAnimationFrame(fx.raf);
-  fx.raf = null;
-  fx.particles = [];
-
-  $("celebrateLayer").classList.add("hidden");
-  $("celebrateLayer").setAttribute("aria-hidden","true");
-}
-
-/* =========================
-   WIRES
-   ========================= */
-function wire(){
-  // Main category
-  $("categorySelect").addEventListener("change", ()=>{
-    state.category = $("categorySelect").value;
-    $("overlayCategory").value = state.category;
+  on("categorySelect","change",()=>{
+    state.category=$("categorySelect").value;
+    $("overlayCategory").value=state.category;
     rebuildPool();
-    showMenuCard();
+    showMenu();
   });
-
-  // Overlay category
-  $("overlayCategory").addEventListener("change", ()=>{
-    state.category = $("overlayCategory").value;
-    $("categorySelect").value = state.category;
+  on("overlayCategory","change",()=>{
+    state.category=$("overlayCategory").value;
+    $("categorySelect").value=state.category;
     rebuildPool();
   });
 
-  // Buttons
-  $("goStudyBtn").addEventListener("click", ()=>startStudy());
-  $("goExamBtn").addEventListener("click", ()=>startExam());
-  $("backToMenuBtn").addEventListener("click", ()=>showMenuCard());
-  $("resetBtn").addEventListener("click", ()=>resetSession());
+  on("goStudyBtn","click", startStudy);
+  on("goExamBtn","click", startExam);
+  on("backToMenuBtn","click", showMenu);
 
-  $("prevBtn").addEventListener("click", prev);
-  $("nextBtn").addEventListener("click", next);
-  $("flipBtn").addEventListener("click", flip);
-  $("shuffleBtn").addEventListener("click", shuffleNow);
+  on("prevBtn","click", prev);
+  on("nextBtn","click", next);
+  on("flipBtn","click", flip);
+  on("shuffleBtn","click", shuffleNow);
 
-  $("flash").addEventListener("click", ()=>{
-    if(state.mode==="menu") return;
-    flip();
-  });
+  on("flash","click", ()=>{ if(state.mode!=="menu") flip(); });
 
-  $("revealBtn").addEventListener("click", flip);
-  $("markCorrectBtn").addEventListener("click", markCorrect);
-  $("markMissedBtn").addEventListener("click", markMissed);
+  on("revealBtn","click", flip);
+  on("markCorrectBtn","click", markCorrect);
+  on("markMissedBtn","click", markMissed);
 
-  $("studyNowBtn").addEventListener("click", ()=>startStudy());
-  $("examAgainBtn").addEventListener("click", ()=>startExam());
+  on("studyNowBtn","click", startStudy);
+  on("examAgainBtn","click", startExam);
 
-  // Overlay controls
-  $("startStudyBtn").addEventListener("click", ()=>{
-    const name = $("nameInput").value.trim();
+  on("startStudyBtn","click", ()=>{
+    const name=$("nameInput").value.trim();
     if(name) setCookie(USER_COOKIE, name, 365);
     applyUser(name || getCookie(USER_COOKIE) || "Guest");
     closeOverlay();
     startStudy();
   });
-  $("startExamBtn").addEventListener("click", ()=>{
-    const name = $("nameInput").value.trim();
+  on("startExamBtn","click", ()=>{
+    const name=$("nameInput").value.trim();
     if(name) setCookie(USER_COOKIE, name, 365);
     applyUser(name || getCookie(USER_COOKIE) || "Guest");
     closeOverlay();
     startExam();
   });
-  $("clearNameBtn").addEventListener("click", ()=>{
+  on("clearNameBtn","click", ()=>{
     deleteCookie(USER_COOKIE);
-    $("nameInput").value = "";
+    $("nameInput").value="";
     applyUser("Guest");
     openOverlay();
   });
 
-  // Keyboard shortcuts
-  document.addEventListener("keydown", (e)=>{
-    const key = e.key.toLowerCase();
-    if(key === " "){
-      e.preventDefault();
-      if(state.mode!=="menu") flip();
-    } else if(e.key === "ArrowRight"){
-      e.preventDefault();
-      next();
-    } else if(e.key === "ArrowLeft"){
-      e.preventDefault();
-      prev();
-    } else if(key === "s"){
-      shuffleNow();
-    } else if(key === "r"){
-      resetSession();
-    } else if(key === "escape"){
-      // close celebration if open
-      stopCelebrate();
-    }
+  document.addEventListener("keydown",(e)=>{
+    const k=e.key.toLowerCase();
+    if(k===" "){ e.preventDefault(); if(state.mode!=="menu") flip(); }
+    else if(e.key==="ArrowRight"){ e.preventDefault(); next(); }
+    else if(e.key==="ArrowLeft"){ e.preventDefault(); prev(); }
+    else if(k==="s"){ shuffleNow(); }
+    else if(k==="r"){ stopTimer(); rebuildPool(); showMenu(); }
+    else if(k==="escape"){ stopCelebrate(); }
   });
 
   window.addEventListener("resize", fxResize);
 }
 
-/* =========================
-   RESET
-   ========================= */
-function resetSession(){
-  stopTimer();
-  state.exam.correct = 0;
-  state.exam.missed = 0;
-  state.exam.missedCards = [];
-  state.exam.i = 0;
-  state.exam.revealed = false;
-  state.showingAnswer = false;
-  state.shuffled = false;
-  $("shufLabel").textContent = "No";
-  $("results").classList.add("hidden");
-  $("examActions").classList.add("hidden");
-  rebuildPool();
-  showMenuCard();
-}
-
-/* =========================
-   INIT
-   ========================= */
-(function init(){
-  // user from cookie?
-  const saved = getCookie(USER_COOKIE);
-  applyUser(saved || "Guest");
-
-  buildCategories();
-  rebuildPool();
-
-  // Overlay logic: if no cookie, ask name first
-  if(!saved){
-    $("nameInput").value = "";
-    $("overlayCategory").value = state.category;
-    openOverlay();
-  } else {
-    $("overlayCategory").value = state.category;
-    closeOverlay();
-  }
-
-  // default show menu
-  $("categorySelect").value = state.category;
-  showMenuCard();
-
-  wire();
-})();
+document.addEventListener("DOMContentLoaded", init);
 </script>
 </body>
 </html>
