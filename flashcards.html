@@ -4,315 +4,973 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>WGU Intro to IT | Study + Exam</title>
+<meta name="description" content="WGU Intro to IT flashcards + exam simulator. By Billy Lynch." />
 
 <style>
-:root{
-  --bg:#0b0b0d;
-  --panel:#121216;
-  --line:#24242c;
-  --text:#f2f2f4;
-  --muted:#b7b7c0;
-  --red:#e10600;
-  --good:#3ddc84;
-  --bad:#ff2a2a;
-  --r:20px;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,Segoe UI,Roboto;
-  background:
-    radial-gradient(800px 400px at 20% 0%, rgba(225,6,0,.15), transparent 60%),
-    linear-gradient(180deg,var(--bg),#07070a 80%);
-  color:var(--text);
-}
-.wrap{max-width:1100px;margin:auto;padding:20px}
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  padding:15px;
-  background:rgba(20,20,25,.8);
-}
-h1{margin:0;font-size:18px}
-.grid{
-  margin-top:15px;
-  display:grid;
-  grid-template-columns:380px 1fr;
-  gap:15px;
-}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
-.card{
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  background:rgba(20,20,25,.85);
-  padding:15px;
-}
-button,select,input{
-  width:100%;
-  padding:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#111;
-  color:white;
-  cursor:pointer;
-}
-button.primary{
-  border-color:var(--red);
-  background:rgba(225,6,0,.15);
-}
-button:hover{border-color:var(--red)}
-.row{display:flex;gap:10px}
-.hidden{display:none}
+  :root{
+    --bg:#0b0b0d; --text:#f2f2f4; --muted:#b7b7c0; --line:#24242c;
+    --red:#e10600; --good:#3ddc84; --bad:#ff2a2a;
+    --shadow: 0 18px 55px rgba(0,0,0,.45);
+    --r2:24px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    --sans: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:var(--sans); color:var(--text);
+    background:
+      radial-gradient(900px 450px at 20% 0%, rgba(225,6,0,.14), transparent 60%),
+      radial-gradient(900px 450px at 80% 10%, rgba(255,42,42,.08), transparent 65%),
+      linear-gradient(180deg, var(--bg), #07070a 70%);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:18px}
+  header{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(18,18,22,.92), rgba(15,15,19,.82));
+    border-radius:var(--r2);
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+    display:flex; gap:14px; align-items:center; justify-content:space-between;
+    position:sticky; top:12px; z-index:10; backdrop-filter: blur(10px);
+  }
+  .title h1{margin:0;font-size:18px;letter-spacing:.4px}
+  .title p{margin:4px 0 0;color:var(--muted);font-size:12px;line-height:1.3}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 10px;border-radius:999px;
+    border:1px solid rgba(225,6,0,.55);
+    background:rgba(225,6,0,.10);
+    font-family:var(--mono); font-size:12px; white-space:nowrap;
+  }
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 18px rgba(225,6,0,.6)}
+  .grid{margin-top:14px;display:grid;grid-template-columns: 420px 1fr;gap:14px;align-items:start}
+  @media (max-width: 980px){ header{position:relative;top:auto} .grid{grid-template-columns:1fr} }
+  .card{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(18,18,22,.92), rgba(15,15,19,.82));
+    border-radius:var(--r2);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .hd{
+    padding:14px 16px; border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .hd h2{margin:0;font-size:13px;font-family:var(--mono);color:var(--muted);letter-spacing:.6px}
+  .bd{padding:14px 16px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .stack{display:flex;flex-direction:column;gap:10px}
+  .sep{height:1px;background:var(--line);margin:12px 0}
+  select, button, input{
+    padding:10px 12px; border-radius:14px;
+    border:1px solid var(--line);
+    background:rgba(10,10,14,.7);
+    color:var(--text); outline:none; font-family:inherit;
+  }
+  input{width:100%} select{width:100%}
+  button{
+    cursor:pointer; background:rgba(10,10,14,.55);
+    transition:transform .08s ease, border-color .2s ease, filter .2s ease;
+    user-select:none;
+  }
+  button:hover{border-color:rgba(225,6,0,.6); filter:brightness(1.05)}
+  button:active{transform:translateY(1px)}
+  .primary{border-color:rgba(225,6,0,.8); background:linear-gradient(90deg, rgba(225,6,0,.18), rgba(225,6,0,.08))}
+  .ghost{background:transparent}
+  .goodBtn{border-color: rgba(61,220,132,.65)}
+  .badBtn{border-color: rgba(255,42,42,.55)}
+  .miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width: 560px){ .miniGrid{grid-template-columns:1fr} }
+  .pill{
+    display:inline-flex;gap:8px;align-items:center;
+    padding:6px 10px;border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(10,10,14,.35);
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .pill strong{color:var(--text);font-weight:700}
+  .kbd{
+    font-family:var(--mono);
+    border:1px solid var(--line);
+    background:rgba(10,10,14,.7);
+    padding:2px 6px;border-radius:8px;
+    color:var(--text); font-size:11px;
+  }
+  .notice{
+    border:1px solid var(--line);
+    background:rgba(10,10,14,.35);
+    border-radius:16px;
+    padding:10px 12px;
+    color:var(--muted);
+    font-size:12px; line-height:1.35;
+  }
+  .footer{margin-top:14px;color:var(--muted);font-size:12px;text-align:center;opacity:.92}
+  .footer span{font-family:var(--mono)}
 
-.flash{
-  min-height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:30px;
-  cursor:pointer;
-}
-.q{font-size:20px}
-.a{font-size:18px;color:#ffcccc}
+  /* Progress bar */
+  .barWrap{
+    margin-top:10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(10,10,14,.35);
+    height:12px;
+  }
+  .barFill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, rgba(225,6,0,.35), rgba(225,6,0,.12));
+    border-right:1px solid rgba(225,6,0,.65);
+    transition:width .25s ease;
+  }
 
-#studyNav{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
+  /* Flashcard 3D flip + slide */
+  .stage{
+    perspective: 1200px;
+  }
+  .cardShell{
+    position:relative;
+    width:100%;
+    min-height:340px;
+  }
+  .flipCard{
+    position:relative;
+    width:100%;
+    min-height:340px;
+    transform-style: preserve-3d;
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+    cursor:pointer;
+    border-radius:26px;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(700px 250px at 50% 0%, rgba(225,6,0,.10), transparent 60%),
+      linear-gradient(180deg, rgba(15,15,19,.92), rgba(10,10,14,.88));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    overflow:hidden;
+  }
+  .flipCard.flipped{ transform: rotateY(180deg); }
 
-#examActions{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-.goodBtn{border-color:var(--good)}
-.badBtn{border-color:var(--bad)}
+  .face{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    padding:28px; text-align:center;
+    backface-visibility:hidden;
+  }
+  .face.back{ transform: rotateY(180deg); }
 
-.notice{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:15px;
-}
+  .label{
+    display:inline-flex;gap:8px;align-items:center;
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px;
+    padding:6px 10px; background:rgba(10,10,14,.35);
+    margin-bottom:10px;
+  }
+  .q{font-size:22px;line-height:1.35;margin:0}
+  .a{font-size:20px;line-height:1.35;margin:0;color:#ffd2d2}
+  .hint{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.35}
+
+  .slideIn{
+    animation: slideIn .22s ease;
+  }
+  @keyframes slideIn{
+    from{ transform: translateY(8px); opacity:.35; }
+    to{ transform: translateY(0); opacity:1; }
+  }
+
+  /* Under-card nav */
+  .underNav{
+    margin-top:12px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .underNav button{ min-width:140px; }
+  @media (max-width: 640px){
+    .underNav button{ min-width:unset; flex:1 1 45%; }
+  }
+
+  /* Celebration */
+  .celebrateLayer{position:fixed; inset:0; pointer-events:none; z-index:2000;}
+  canvas#fx{position:absolute; inset:0; width:100%; height:100%;}
+  .celebrateMsg{
+    position:absolute; left:50%; top:22%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    padding:14px 16px;
+    border-radius:22px;
+    border:1px solid rgba(225,6,0,.55);
+    background: rgba(10,10,14,.55);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    max-width:min(820px, 92%);
+  }
+  .celebrateMsg h2{margin:0 0 6px; font-size:30px; letter-spacing:.6px}
+  .celebrateMsg p{margin:0; color:var(--muted); font-size:14px; line-height:1.35}
+
+  .hidden{display:none !important}
 </style>
 </head>
 
 <body>
 <div class="wrap">
-<header>
-  <h1>WGU Intro to IT — Study + Exam</h1>
-  <div>By Billy Lynch</div>
-</header>
+  <header>
+    <div class="title">
+      <h1>WGU Intro to IT — Study + Exam</h1>
+      <p id="welcomeLine">Name is optional. Pick a category, then start Study or Exam.</p>
+    </div>
+    <div class="badge"><span class="dot"></span><span>By Billy Lynch</span></div>
+  </header>
 
-<div class="grid">
+  <div class="grid">
+    <!-- LEFT: Setup -->
+    <div class="card">
+      <div class="hd">
+        <h2>SETUP + CONTROLS</h2>
+        <span class="pill"><strong id="modeLabel">MENU</strong></span>
+      </div>
+      <div class="bd stack">
+        <label class="pill">User <strong id="userLabel">Guest</strong></label>
 
-<!-- LEFT PANEL -->
-<div class="card">
+        <div class="stack">
+          <label class="pill">Name <strong>(optional — cookie)</strong></label>
+          <input id="nameInput" placeholder="Type name (optional)..." autocomplete="name" />
+          <div class="miniGrid">
+            <button type="button" class="primary" id="saveNameBtn">Save Name</button>
+            <button type="button" class="ghost" id="clearNameBtn">Clear Name</button>
+          </div>
+        </div>
 
-<label>Name (optional)</label>
-<input id="nameInput" placeholder="Enter name...">
+        <label class="pill">Category <strong id="catLabel">All</strong></label>
+        <select id="categorySelect"></select>
 
-<div class="row" style="margin-top:8px">
-<button id="saveNameBtn" class="primary">Save Name</button>
-<button id="clearNameBtn">Clear</button>
+        <div class="miniGrid">
+          <button type="button" class="primary" id="goStudyBtn">Start Study</button>
+          <button type="button" class="primary" id="goExamBtn">Start Exam</button>
+        </div>
+
+        <div class="miniGrid">
+          <button type="button" class="ghost" id="backToMenuBtn">Back to Menu</button>
+          <button type="button" class="ghost" id="resetBtn">Reset Session (R)</button>
+        </div>
+
+        <div class="sep"></div>
+
+        <h3 style="margin:0;font-family:var(--mono);letter-spacing:.6px;color:var(--muted);font-size:13px">EXAM SETTINGS</h3>
+        <div class="miniGrid">
+          <div class="stack">
+            <label class="pill">Questions <strong>(default 30)</strong></label>
+            <input id="examCountInput" type="number" min="1" value="30" />
+          </div>
+          <div class="stack">
+            <label class="pill">Pass % <strong>(default 80)</strong></label>
+            <input id="passPctInput" type="number" min="1" max="100" value="80" />
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Progress <strong id="posLabel">0/0</strong></span>
+          <span class="pill">Shuffled <strong id="shufLabel">No</strong></span>
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Correct <strong id="correctLabel">0</strong></span>
+          <span class="pill">Missed <strong id="missedLabel">0</strong></span>
+        </div>
+        <div class="row" style="justify-content:space-between">
+          <span class="pill">Timer <strong id="timerLabel">00:00</strong></span>
+          <span class="pill">Exam Qs <strong id="examTotalLabel">30</strong></span>
+        </div>
+
+        <p class="hint">
+          Shortcuts:
+          <span class="kbd">Space</span> flip/reveal,
+          <span class="kbd">←</span>/<span class="kbd">→</span> prev/next (Study),
+          <span class="kbd">S</span> shuffle,
+          <span class="kbd">R</span> reset,
+          <span class="kbd">Esc</span> stop fireworks.
+        </p>
+
+        <div class="notice">
+          <strong>Session-Based:</strong> exam score resets if you refresh/close the page.
+          Name is remembered only if you save it (cookie).
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Flashcard + under-card controls -->
+    <div class="card">
+      <div class="hd">
+        <h2 id="viewTitle">MENU</h2>
+        <span class="pill"><span id="activeCategory">All Categories</span></span>
+      </div>
+      <div class="bd">
+        <div class="stage">
+          <div class="cardShell slideIn" id="cardShell">
+            <div class="flipCard" id="flipCard" tabindex="0" role="button" aria-label="Flashcard (click to flip)">
+              <div class="face front">
+                <div>
+                  <div class="label" id="frontLabel">READY</div>
+                  <p class="q" id="frontText">Click “Start Study” or “Start Exam”.</p>
+                  <div class="hint" id="frontHint">Tip: in Study mode, click the card to flip.</div>
+                </div>
+              </div>
+              <div class="face back">
+                <div>
+                  <div class="label" id="backLabel">—</div>
+                  <p class="a" id="backText">—</p>
+                  <div class="hint" id="backHint">Press Space to flip/reveal.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress bar under the card -->
+        <div class="barWrap" aria-label="Progress bar">
+          <div class="barFill" id="barFill"></div>
+        </div>
+
+        <!-- STUDY NAV (moved under the card) -->
+        <div id="studyNav" class="underNav hidden">
+          <button type="button" id="prevBtn">Prev (←)</button>
+          <button type="button" id="flipBtn" class="primary">Flip (Space)</button>
+          <button type="button" id="nextBtn">Next (→)</button>
+          <button type="button" id="shuffleBtn" class="ghost">Shuffle (S)</button>
+        </div>
+
+        <!-- EXAM NAV (under the card) -->
+        <div id="examActions" class="underNav hidden">
+          <button type="button" class="primary" id="revealBtn">Reveal (Space)</button>
+          <button type="button" class="goodBtn" id="markCorrectBtn">Correct</button>
+          <button type="button" class="badBtn" id="markMissedBtn">Missed</button>
+        </div>
+
+        <!-- Results -->
+        <div id="results" class="hidden" style="margin-top:14px">
+          <div class="sep"></div>
+          <h3 style="margin:0 0 10px;font-family:var(--mono);letter-spacing:.6px;color:var(--muted);font-size:13px">EXAM RESULTS</h3>
+          <div class="row" style="justify-content:space-between">
+            <span class="pill">Score <strong id="scoreLabel">0%</strong></span>
+            <span class="pill">Correct <strong id="finalCorrect">0</strong></span>
+            <span class="pill">Missed <strong id="finalMissed">0</strong></span>
+            <span class="pill">Status <strong id="passFailLabel">—</strong></span>
+          </div>
+          <div class="sep"></div>
+          <div id="missedList"></div>
+          <div class="sep"></div>
+          <div class="row" style="justify-content:center">
+            <button type="button" class="primary" id="studyNowBtn">Back to Study</button>
+            <button type="button" class="ghost" id="examAgainBtn">Retake Exam</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Intro to IT Study System</span> • <span>By Billy Lynch</span> • <span>Decks + Shuffle + Exam</span>
+  </div>
 </div>
 
-<label style="margin-top:12px">Category</label>
-<select id="categorySelect"></select>
-
-<div class="row" style="margin-top:10px">
-<button id="goStudyBtn" class="primary">Start Study</button>
-<button id="goExamBtn" class="primary">Start Exam</button>
-</div>
-
-<div style="margin-top:12px">
-<button id="backToMenuBtn">Back to Menu</button>
-<button id="resetBtn" style="margin-top:8px">Reset Session</button>
-</div>
-
-<div class="notice">
-Session-based scores reset on refresh.
-</div>
-
-</div>
-
-<!-- RIGHT PANEL -->
-<div class="card">
-
-<div id="flash" class="flash">
-<div id="cardText" class="q">Click Start Study or Start Exam.</div>
-</div>
-
-<!-- STUDY NAV (Moved under flashcard) -->
-<div id="studyNav" class="hidden">
-<button id="prevBtn">Prev</button>
-<button id="flipBtn" class="primary">Flip</button>
-<button id="nextBtn">Next</button>
-<button id="shuffleBtn">Shuffle</button>
-</div>
-
-<!-- EXAM NAV -->
-<div id="examActions" class="hidden">
-<button id="revealBtn" class="primary">Reveal</button>
-<button id="markCorrectBtn" class="goodBtn">Correct</button>
-<button id="markMissedBtn" class="badBtn">Missed</button>
-</div>
-
-</div>
-</div>
+<!-- Celebration -->
+<div id="celebrateLayer" class="celebrateLayer hidden" aria-hidden="true">
+  <canvas id="fx"></canvas>
+  <div class="celebrateMsg">
+    <h2 id="celebrateTitle">PASS!</h2>
+    <p id="celebrateText">🔥 Great work.</p>
+  </div>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (id)=>document.getElementById(id);
 
-const $=id=>document.getElementById(id)
+  /* Cookies */
+  const USER_COOKIE="wgu_intro_it_user";
+  function setCookie(name, value, days){
+    const d=new Date(); d.setTime(d.getTime()+days*24*60*60*1000);
+    document.cookie = name+"="+encodeURIComponent(value)+";expires="+d.toUTCString()+";path=/;SameSite=Lax";
+  }
+  function getCookie(name){
+    const t=name+"=";
+    for(const p of document.cookie.split(";").map(s=>s.trim())){
+      if(p.startsWith(t)) return decodeURIComponent(p.slice(t.length));
+    }
+    return "";
+  }
+  function deleteCookie(name){
+    document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
+  }
 
-const DECK=[
-{cat:"Business Continuity",q:"How can uptime be improved?",a:"By increasing the amount of time that resources are available for use"},
-{cat:"Business Continuity",q:"What is a priority of business continuity?",a:"High availability of resources"},
-{cat:"Business Continuity",q:"Which purpose does business continuity planning have?",a:"Identifying priorities when primary systems are not fully operational"}
-]
+  /* FULL DECK (as provided) */
+  const DECK = [
+    {cat:"Computing Generations", q:"Which generation of computing is associated with microprocessors?", a:"Fourth"},
+    {cat:"Computing Generations", q:"Which computing generation is associated with the exclusive use of machine languages and punch cards?", a:"First"},
+    {cat:"Computing Generations", q:"Which computing generation is associated with the replacement of machine languages by assembly languages?", a:"Second"},
+    {cat:"Computing Generations", q:"Which computing generation is associated with the first use of thousands of integrated circuits on a single silicon chip?", a:"Fourth"},
+    {cat:"Computing Generations", q:"Which generation of computing is known for the introduction of handheld devices?", a:"Fourth"},
 
-let state={
-mode:"menu",
-pool:DECK,
-idx:0,
-showing:false,
-examIndex:0,
-correct:0,
-missed:0
-}
+    {cat:"DIKW", q:"What is the component of the data-information-knowledge-wisdom (DIKW) hierarchy that includes basic observations?", a:"Data"},
+    {cat:"DIKW", q:"Based on the instructions on the package, a frozen pizza should be baked for 18 minutes at 400°F. Which term describes the statement, \"The oven is at 350°F, nearing the needed temperature,\" based on the data-information-knowledge-wisdom (DIKW) hierarchy?", a:"Knowledge"},
+    {cat:"DIKW", q:"There are 30 questions on a final exam. The exam will be given in room 126 at 2:00 p.m., and students have one hour to complete it. What is the data-information-knowledge-wisdom (DIKW) pyramid component exemplified by the value \"2:00\"?", a:"Data"},
+    {cat:"DIKW", q:"There are 30 questions on a final exam. The exam will be given in room 126 at 2:00 p.m., and students have one hour to complete it. What is the data-information-knowledge-wisdom (DIKW) pyramid component exemplified by the statement, \"I have extra time, so I should review my answers\"?", a:"Wisdom"},
+    {cat:"DIKW", q:"A final exam has 30 questions, and students have one hour to complete it. The exam is scheduled for 2:00 p.m. in room 126. Which term describes the statement, \"It is 1:50 p.m., so I should head to room 126,\" based on the data-information-knowledge-wisdom (DIKW) hierarchy?", a:"Wisdom"},
+    {cat:"DIKW", q:"A production machine runs from 8:00 a.m. to 5:00 p.m., outputting 1,200 units per hour. Which component of the data-information-knowledge-wisdom (DIKW) hierarchy is exemplified by the value \"1,200\" in this scenario?", a:"Data"},
+    {cat:"DIKW", q:"A production machine runs from 8:00 a.m. to 5:00 p.m., outputting 1,200 units per hour. Which component of the data-information-knowledge-wisdom (DIKW) hierarchy is exemplified by the statement, \"The machine starts at 8:00 a.m.\" in this scenario?", a:"Information"},
+    {cat:"DIKW", q:"How are information and knowledge different?", a:"Knowledge involves understanding patterns, but information does not."},
+    {cat:"DIKW", q:"Which statement represents a difference between wisdom and information, based on the data pyramid?", a:"Wisdom involves understanding principles, but information does not."},
 
-function render(){
-if(state.mode==="menu"){
-$("studyNav").classList.add("hidden")
-$("examActions").classList.add("hidden")
-$("cardText").className="q"
-$("cardText").textContent="Click Start Study or Start Exam."
-return
-}
-if(state.mode==="study"){
-$("studyNav").classList.remove("hidden")
-$("examActions").classList.add("hidden")
-const c=state.pool[state.idx]
-if(!state.showing){
-$("cardText").className="q"
-$("cardText").textContent=c.q
-}else{
-$("cardText").className="a"
-$("cardText").textContent=c.a
-}
-}
-if(state.mode==="exam"){
-$("studyNav").classList.add("hidden")
-$("examActions").classList.remove("hidden")
-const c=state.pool[state.examIndex]
-if(!state.showing){
-$("cardText").className="q"
-$("cardText").textContent=c.q
-}else{
-$("cardText").className="a"
-$("cardText").textContent=c.a
-}
-}
-}
+    {cat:"Databases", q:"Based on an analysis of a company's needs, a database should be installed so that each line of a simple, delimited text document holds exactly one record. What is the name of the database that satisfies this need?", a:"Flat-file"},
+    {cat:"Databases", q:"The leader of an IT department has decided to use a database in which access to the data is restricted to the paths in the trees and is, therefore, predictable. Which type of database is described?", a:"Hierarchical"},
+    {cat:"Databases", q:"The leader of an IT department has decided to use a database in which data is stored in a variety of tables that can be joined together in logical ways. Which type of database is described?", a:"Relational"},
+    {cat:"Databases", q:"Based on an analysis of a company's needs, a database should be installed so that records are stored in structures consisting of data and methods. What is the name of the database that satisfies this need?", a:"Object-oriented"},
 
-$("goStudyBtn").onclick=()=>{
-state.mode="study"
-state.idx=0
-state.showing=false
-render()
-}
+    {cat:"Data Types", q:"An IT department employee is identifying the integer data in a system. What is one example of this type of data?", a:"The year in which a major event happened"},
+    {cat:"Data Types", q:"An IT department employee is identifying the floating point data in a system. What is one example of this type of data?", a:"An approximation of π as 3.14159"},
+    {cat:"Data Types", q:"A developer is creating an application and needs a variable to store the scientific name of a tree species. Which data type should be used for this purpose?", a:"Character string"},
+    {cat:"Data Types", q:"A programmer needs to create a variable that holds an indication of whether a file does or does not have an error in it. What is the name of the data type that should be used?", a:"Boolean"},
+    {cat:"Data Types", q:"A database variable needs to be restricted to only accept several alphanumeric characters. What is the name of the appropriate data type?", a:"Character string"},
 
-$("goExamBtn").onclick=()=>{
-state.mode="exam"
-state.examIndex=0
-state.correct=0
-state.missed=0
-state.showing=false
-render()
-}
+    {cat:"Database Applications", q:"A developer is updating the application layer of a database application. What does this layer of the database application do?", a:"It communicates with the end user and can be fairly complex."},
 
-$("flipBtn").onclick=()=>{
-if(state.mode==="study"){
-state.showing=!state.showing
-render()
-}
-}
+    {cat:"Operating Systems", q:"Which operating system is developed by Microsoft, Inc.?", a:"Windows"},
+    {cat:"Operating Systems", q:"Which operating system is used for many mobile devices?", a:"iOS"},
+    {cat:"Operating Systems", q:"Which factor affects the choice of an operating system?", a:"User interface"},
+    {cat:"Operating Systems", q:"Which component of an operating system uses scheduling to control access to shared resources?", a:"Kernel"},
+    {cat:"Operating Systems", q:"Which component of an operating system allows an individual to communicate with the operating system?", a:"User interface"},
 
-$("prevBtn").onclick=()=>{
-if(state.mode==="study"){
-state.idx=(state.idx-1+state.pool.length)%state.pool.length
-state.showing=false
-render()
-}
-}
+    {cat:"Software", q:"Which category of software is installed as a trial and can be upgraded for a fee?", a:"Shareware"},
+    {cat:"Software", q:"What is the purpose of word processing software?", a:"Creating business reports and newsletters"},
+    {cat:"Software", q:"Which software provides private or shareable file management via the cloud?", a:"Document storage"},
+    {cat:"Software", q:"Which type of software provides the infrastructure needed to run other types of software?", a:"System"},
+    {cat:"Software", q:"Which type of software is an application for creating blueprints and 3D renderings of buildings?", a:"Specialized"},
 
-$("nextBtn").onclick=()=>{
-if(state.mode==="study"){
-state.idx=(state.idx+1)%state.pool.length
-state.showing=false
-render()
-}
-}
+    {cat:"Hardware", q:"What is an example of computer hardware?", a:"Motherboard"},
+    {cat:"Hardware", q:"Which hardware component includes registers, a logic component, and an arithmetic component?", a:"Central processing unit (CPU)"},
+    {cat:"Hardware", q:"What is the hardware component that contains the circuitry for coordinating computer activity?", a:"Central processing unit (CPU)"},
+    {cat:"Hardware", q:"Which hardware component stores data and instructions while they are being used?", a:"Random-access memory (RAM)"},
+    {cat:"Hardware", q:"Which hardware component is specifically used for 3D rendering?", a:"Graphics processing unit (GPU)"},
+    {cat:"Hardware", q:"Which part of a computer system contains the instructions for initializing various computer components?", a:"Read-only memory (ROM)"},
+    {cat:"Hardware", q:"Which component is part of the system unit?", a:"Power supply"},
 
-$("shuffleBtn").onclick=()=>{
-state.pool.sort(()=>Math.random()-.5)
-state.idx=0
-render()
-}
+    {cat:"Networking", q:"What characterizes a ring network topology?", a:"Every device being connected to exactly two other devices"},
+    {cat:"Networking", q:"What is the name of a network that consists of a collection of computers in a single building or building complex?", a:"Local area network (LAN)"},
+    {cat:"Networking", q:"Which networking technology converts incoming analog data into digital and outgoing digital data into analog?", a:"Modem"},
+    {cat:"Networking", q:"What is the name of the networking technology that reduces network traffic on a local area network by management of network messages?", a:"Switch"},
+    {cat:"Networking", q:"What describes a firewall?", a:"Monitors traffic on the network and blocks it if it triggers safety rules"},
+    {cat:"Networking", q:"Which wired transmission medium is able to transmit the largest volumes of data when compared with other cables?", a:"Fiber-optic cable"},
 
-$("revealBtn").onclick=()=>{
-if(state.mode==="exam"){
-state.showing=true
-render()
-}
-}
+    {cat:"Programming", q:"What does a compiler do?", a:"Translates source code into machine language"},
+    {cat:"Programming", q:"What does an interpreter do?", a:"Converts instructions one statement at a time when the program is run"},
+    {cat:"Programming", q:"What is the appropriate categorization of Visual Basic .NET as a programming language?", a:"Compiled"},
+    {cat:"Programming", q:"Which type of language is Java?", a:"Compiled"},
+    {cat:"Programming", q:"A programmer is working with Python. Which type of language is this?", a:"Interpreted"},
+    {cat:"Programming", q:"Which term describes the JavaScript computer coding language?", a:"Interpreted"},
 
-$("markCorrectBtn").onclick=()=>{
-if(state.mode==="exam"){
-state.correct++
-state.examIndex++
-state.showing=false
-if(state.examIndex>=state.pool.length){
-alert("Exam Complete! Score: "+state.correct+"/"+state.pool.length)
-state.mode="menu"
-}
-render()
-}
-}
+    {cat:"Business Continuity", q:"How can uptime be improved?", a:"By increasing the amount of time that resources are available for use"},
+    {cat:"Business Continuity", q:"What is a priority of business continuity?", a:"High availability of resources"},
+    {cat:"Business Continuity", q:"Which purpose does business continuity planning have?", a:"Identifying priorities when primary systems are not fully operational"},
+    {cat:"Business Continuity", q:"Which component is an important strategy of business continuity?", a:"Data backups"},
 
-$("markMissedBtn").onclick=()=>{
-if(state.mode==="exam"){
-state.missed++
-state.examIndex++
-state.showing=false
-if(state.examIndex>=state.pool.length){
-alert("Exam Complete! Score: "+state.correct+"/"+state.pool.length)
-state.mode="menu"
-}
-render()
-}
-}
+    {cat:"Project Management", q:"What is the phase of the project management life cycle that includes the development of a project charter?", a:"Initiation"},
+    {cat:"Project Management", q:"What is the phase of the project management life cycle that includes the development of the work breakdown structure (WBS)?", a:"Risks of the unknown"},
+    {cat:"Project Management", q:"Which category represents one of the three broad types of risks that a project may encounter?", a:"Risks in integration"},
 
-$("flash").onclick=()=>{
-if(state.mode==="study"){
-state.showing=!state.showing
-render()
-}
-}
+    {cat:"Disaster Recovery", q:"What is the component of disaster recovery that is characterized by writing copies of data on several devices simultaneously?", a:"Data mirroring"},
+    {cat:"Disaster Recovery", q:"Which physical location offers an ideal place for storage that needs to be off-site?", a:"Caves"},
+    {cat:"Disaster Recovery", q:"Which factor is a primary criterion for assessing off-site storage possibilities?", a:"Accessibility"},
+    {cat:"Disaster Recovery", q:"Which type of storage typically uses innovative equipment?", a:"Hot"},
 
-render()
+    {cat:"Professional Organizations", q:"What is a professional organization that publishes a set of ethical IT guidelines?", a:"Association of Information Technology Professionals (AITP)"},
+    {cat:"Professional Organizations", q:"What is one example of a professional organization in the IT industry?", a:"Association for the Advancement of Artificial Intelligence (AAAI)"},
+    {cat:"Professional Organizations", q:"What is one of the goals of IT professional organizations?", a:"Raising public awareness"},
+    {cat:"Professional Organizations", q:"Which entity helps other organizations design and apply appropriate approaches to personal data collection, use, and disclosure?", a:"International Association of Privacy Professionals (IAPP)"}
+  ];
 
-})
+  /* State */
+  const state = {
+    user: "Guest",
+    mode: "menu",     // menu | study | exam | results
+    category: "All",
+    pool: [],
+    order: [],
+    idx: 0,
+    flipped: false,
+    shuffled: false,
+    timerStart: 0,
+    timerId: null,
+    exam: {
+      total: 30,
+      passPct: 80,
+      i: 0,
+      revealed: false,
+      correct: 0,
+      missed: 0,
+      missedCards: [],
+      order: []
+    }
+  };
+
+  /* Helpers */
+  function shuffleArray(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+  }
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+  function formatTime(sec){
+    const m=Math.floor(sec/60), s=sec%60;
+    return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  }
+
+  function stopTimer(){
+    if(state.timerId) clearInterval(state.timerId);
+    state.timerId=null;
+    $("timerLabel").textContent="00:00";
+  }
+  function startTimer(){
+    stopTimer();
+    state.timerStart=Date.now();
+    state.timerId=setInterval(()=>{
+      const sec=Math.floor((Date.now()-state.timerStart)/1000);
+      $("timerLabel").textContent=formatTime(sec);
+    }, 250);
+  }
+
+  function applyUser(name){
+    state.user=(name||"Guest").trim()||"Guest";
+    $("userLabel").textContent=state.user;
+    $("welcomeLine").textContent = state.user==="Guest"
+      ? "Name is optional. Pick a category, then start Study or Exam."
+      : `Welcome, ${state.user}. Pick a category, then start Study or Exam.`;
+  }
+
+  function setFront(label, text, hint){
+    $("frontLabel").textContent = label;
+    $("frontText").textContent = text;
+    $("frontHint").textContent = hint || "";
+  }
+  function setBack(label, text, hint){
+    $("backLabel").textContent = label;
+    $("backText").textContent = text;
+    $("backHint").textContent = hint || "";
+  }
+
+  function setFlip(on){
+    state.flipped = !!on;
+    $("flipCard").classList.toggle("flipped", state.flipped);
+  }
+
+  function bumpSlide(){
+    const shell = $("cardShell");
+    shell.classList.remove("slideIn");
+    // force reflow
+    void shell.offsetWidth;
+    shell.classList.add("slideIn");
+  }
+
+  function updateNavVisibility(){
+    $("studyNav").classList.toggle("hidden", state.mode !== "study");
+    $("examActions").classList.toggle("hidden", state.mode !== "exam");
+  }
+
+  function updateLabels(){
+    $("modeLabel").textContent = state.mode.toUpperCase();
+    $("shufLabel").textContent = state.shuffled ? "Yes" : "No";
+    $("correctLabel").textContent = String(state.exam.correct);
+    $("missedLabel").textContent = String(state.exam.missed);
+
+    const total = (state.mode === "exam" || state.mode === "results") ? state.exam.total : state.order.length;
+    const pos = (state.mode === "exam" || state.mode === "results")
+      ? Math.min(state.exam.i + 1, state.exam.total)
+      : (state.order.length ? state.idx + 1 : 0);
+
+    $("posLabel").textContent = `${pos}/${total || 0}`;
+
+    // progress bar
+    const pct = total ? Math.round((pos / total) * 100) : 0;
+    $("barFill").style.width = `${pct}%`;
+  }
+
+  function buildCategories(){
+    const cats=[...new Set(DECK.map(c=>c.cat))].sort((a,b)=>a.localeCompare(b));
+    const sel=$("categorySelect");
+    sel.innerHTML="";
+    const all=document.createElement("option");
+    all.value="All"; all.textContent="All Categories";
+    sel.appendChild(all);
+    cats.forEach(c=>{
+      const opt=document.createElement("option");
+      opt.value=c; opt.textContent=c;
+      sel.appendChild(opt);
+    });
+    sel.value=state.category;
+  }
+
+  function rebuildPool(){
+    state.pool = (state.category==="All") ? DECK.slice() : DECK.filter(c=>c.cat===state.category);
+    state.order = state.pool.map((_,i)=>i);
+    state.idx=0;
+    state.flipped=false;
+    state.shuffled=false;
+    setFlip(false);
+
+    const maxQs = Math.max(1, state.pool.length);
+    const desired = clamp(parseInt($("examCountInput").value || "30", 10), 1, maxQs);
+    state.exam.total = desired;
+    $("examTotalLabel").textContent = String(desired);
+
+    $("activeCategory").textContent = (state.category==="All") ? "All Categories" : state.category;
+    $("catLabel").textContent = (state.category==="All") ? "All" : state.category;
+
+    updateLabels();
+  }
+
+  function showMenu(){
+    state.mode="menu";
+    stopTimer();
+    setFlip(false);
+    $("results").classList.add("hidden");
+    $("viewTitle").textContent="MENU";
+    setFront("READY", "Click “Start Study” or “Start Exam”.", "Tip: in Study mode, click the card to flip.");
+    setBack("—", "—", "");
+    updateNavVisibility();
+    updateLabels();
+    bumpSlide();
+  }
+
+  function renderStudy(){
+    state.mode="study";
+    stopTimer();
+    $("results").classList.add("hidden");
+    $("viewTitle").textContent="STUDY";
+    updateNavVisibility();
+
+    if(!state.pool.length){
+      setFront("EMPTY", "No cards in this category.", "");
+      setBack("—", "—", "");
+      setFlip(false);
+      updateLabels();
+      bumpSlide();
+      return;
+    }
+
+    const card = state.pool[state.order[state.idx]];
+    setFront("QUESTION", card.q, "Click the card (or press Space) to flip.");
+    setBack("ANSWER", card.a, "Use Prev/Next to navigate. Shuffle anytime.");
+    setFlip(false);
+    updateLabels();
+    bumpSlide();
+  }
+
+  function startStudy(){
+    rebuildPool();
+    renderStudy();
+  }
+
+  function renderExam(){
+    state.mode="exam";
+    $("results").classList.add("hidden");
+    $("viewTitle").textContent="EXAM";
+    updateNavVisibility();
+
+    if(!state.pool.length){
+      setFront("EMPTY", "No cards in this category.", "");
+      setBack("—", "—", "");
+      setFlip(false);
+      updateLabels();
+      bumpSlide();
+      return;
+    }
+
+    const idx = state.exam.order[state.exam.i];
+    const card = state.pool[idx];
+
+    setFront("EXAM — QUESTION", card.q, "Press Reveal (or Space) to see the answer.");
+    setBack("EXAM — ANSWER", card.a, "Now mark Correct or Missed to continue.");
+    setFlip(!!state.exam.revealed);
+    updateLabels();
+    bumpSlide();
+  }
+
+  function startExam(){
+    rebuildPool();
+
+    const maxQs = Math.max(1, state.pool.length);
+    const desired = clamp(parseInt($("examCountInput").value || "30", 10), 1, maxQs);
+    const passPct = clamp(parseInt($("passPctInput").value || "80", 10), 1, 100);
+
+    state.exam.total = desired;
+    state.exam.passPct = passPct;
+    $("examTotalLabel").textContent = String(desired);
+
+    state.exam.correct=0;
+    state.exam.missed=0;
+    state.exam.missedCards=[];
+    state.exam.i=0;
+    state.exam.revealed=false;
+
+    const indices = Array.from({length: state.pool.length}, (_,i)=>i);
+    shuffleArray(indices);
+    state.exam.order = indices.slice(0, desired);
+
+    startTimer();
+    renderExam();
+  }
+
+  function flip(){
+    if(state.mode === "study"){
+      setFlip(!state.flipped);
+    } else if(state.mode === "exam"){
+      // reveal only flips to answer
+      if(!state.exam.revealed){
+        state.exam.revealed = true;
+        setFlip(true);
+      }
+    }
+  }
+
+  function next(){
+    if(state.mode !== "study" || !state.pool.length) return;
+    state.idx = (state.idx + 1) % state.order.length;
+    setFlip(false);
+    renderStudy();
+  }
+  function prev(){
+    if(state.mode !== "study" || !state.pool.length) return;
+    state.idx = (state.idx - 1 + state.order.length) % state.order.length;
+    setFlip(false);
+    renderStudy();
+  }
+
+  function shuffleNow(){
+    if(!state.pool.length) return;
+    state.shuffled = true;
+    if(state.mode === "study"){
+      shuffleArray(state.order);
+      state.idx = 0;
+      setFlip(false);
+      renderStudy();
+    } else if(state.mode === "exam"){
+      startExam();
+    }
+  }
+
+  function markCorrect(){
+    if(state.mode !== "exam" || !state.exam.revealed) return;
+    state.exam.correct++;
+    advanceExam();
+  }
+  function markMissed(){
+    if(state.mode !== "exam" || !state.exam.revealed) return;
+    state.exam.missed++;
+    state.exam.missedCards.push(state.pool[state.exam.order[state.exam.i]]);
+    advanceExam();
+  }
+  function advanceExam(){
+    state.exam.revealed = false;
+    setFlip(false);
+    state.exam.i++;
+    if(state.exam.i >= state.exam.total) endExam();
+    else renderExam();
+  }
+
+  /* Fireworks */
+  let fx={canvas:null,ctx:null,w:0,h:0,particles:[],running:false,raf:null,endAt:0};
+  function fxResize(){
+    if(!fx.canvas) return;
+    const dpr=Math.max(1, window.devicePixelRatio||1);
+    fx.w=window.innerWidth; fx.h=window.innerHeight;
+    fx.canvas.width=Math.floor(fx.w*dpr);
+    fx.canvas.height=Math.floor(fx.h*dpr);
+    fx.ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function spawnBurst(x,y,n){
+    for(let i=0;i<n;i++){
+      const a=Math.random()*Math.PI*2;
+      const sp=2+Math.random()*6;
+      fx.particles.push({
+        x,y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp-(Math.random()*1.5),
+        g:0.10+Math.random()*0.10, life:60+Math.floor(Math.random()*50),
+        size:2+Math.random()*2.5, color:`hsl(${Math.floor(Math.random()*360)},90%,60%)`
+      });
+    }
+  }
+  function fxLoop(){
+    if(!fx.running) return;
+    const ctx=fx.ctx;
+    ctx.fillStyle="rgba(0,0,0,0.18)";
+    ctx.fillRect(0,0,fx.w,fx.h);
+    for(let i=fx.particles.length-1;i>=0;i--){
+      const p=fx.particles[i];
+      p.vy+=p.g; p.x+=p.vx; p.y+=p.vy; p.life--;
+      ctx.fillStyle=p.color;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+      if(p.life<=0 || p.y>fx.h+50) fx.particles.splice(i,1);
+    }
+    if(Date.now()>fx.endAt && fx.particles.length===0){ stopCelebrate(); return; }
+    fx.raf=requestAnimationFrame(fxLoop);
+  }
+  function celebrate(scorePct){
+    $("celebrateLayer").classList.remove("hidden");
+    $("celebrateTitle").textContent = state.user==="Guest" ? "PASS!" : `PASS — ${state.user}!`;
+    $("celebrateText").textContent = `Score: ${scorePct}% • You’re cookin’.`;
+
+    fx.canvas=$("fx");
+    fx.ctx=fx.canvas.getContext("2d");
+    fx.particles=[]; fx.running=true; fx.endAt=Date.now()+4200;
+    fxResize();
+    spawnBurst(window.innerWidth*0.25, window.innerHeight*0.35, 110);
+    spawnBurst(window.innerWidth*0.75, window.innerHeight*0.40, 110);
+    spawnBurst(window.innerWidth*0.50, window.innerHeight*0.28, 150);
+    if(fx.raf) cancelAnimationFrame(fx.raf);
+    fx.raf=requestAnimationFrame(fxLoop);
+    setTimeout(()=>stopCelebrate(), 5600);
+  }
+  function stopCelebrate(){
+    fx.running=false;
+    if(fx.raf) cancelAnimationFrame(fx.raf);
+    fx.raf=null;
+    fx.particles=[];
+    $("celebrateLayer").classList.add("hidden");
+  }
+
+  function endExam(){
+    stopTimer();
+    state.mode="results";
+    $("viewTitle").textContent="RESULTS";
+    updateNavVisibility();
+    $("results").classList.remove("hidden");
+
+    const total = state.exam.total || 1;
+    const pct = Math.round((state.exam.correct / total) * 100);
+
+    $("scoreLabel").textContent = `${pct}%`;
+    $("finalCorrect").textContent = String(state.exam.correct);
+    $("finalMissed").textContent = String(state.exam.missed);
+
+    const passed = pct >= state.exam.passPct;
+    $("passFailLabel").textContent = passed ? "PASS" : "FAIL";
+    $("passFailLabel").style.color = passed ? "var(--good)" : "var(--bad)";
+
+    const box=document.createElement("div");
+    box.className="notice";
+    box.innerHTML = state.exam.missedCards.length
+      ? "<strong>Missed Questions:</strong><br><br>" + state.exam.missedCards.map(c =>
+          `<div style="margin-bottom:10px">
+            <div style="color:var(--muted)">${c.q}</div>
+            <div style="color:#ffd2d2"><strong>Answer:</strong> ${c.a}</div>
+          </div>`
+        ).join("")
+      : "<strong>Missed Questions:</strong> None. Clean run.";
+
+    $("missedList").innerHTML="";
+    $("missedList").appendChild(box);
+
+    updateLabels();
+    bumpSlide();
+    if(passed) celebrate(pct);
+  }
+
+  /* Bindings */
+  function saveName(){
+    const v=$("nameInput").value.trim();
+    if(v){
+      setCookie(USER_COOKIE, v, 365);
+      applyUser(v);
+    } else {
+      applyUser(getCookie(USER_COOKIE) || "Guest");
+    }
+  }
+
+  $("saveNameBtn").addEventListener("click", saveName);
+  $("clearNameBtn").addEventListener("click", ()=>{
+    deleteCookie(USER_COOKIE);
+    $("nameInput").value="";
+    applyUser("Guest");
+  });
+
+  $("categorySelect").addEventListener("change", ()=>{
+    state.category=$("categorySelect").value;
+    rebuildPool();
+    showMenu();
+  });
+
+  $("examCountInput").addEventListener("change", ()=>{
+    rebuildPool();
+    showMenu();
+  });
+  $("passPctInput").addEventListener("change", ()=>{
+    rebuildPool();
+    showMenu();
+  });
+
+  $("goStudyBtn").addEventListener("click", startStudy);
+  $("goExamBtn").addEventListener("click", startExam);
+  $("backToMenuBtn").addEventListener("click", showMenu);
+
+  $("resetBtn").addEventListener("click", ()=>{
+    stopTimer();
+    state.exam.correct=0; state.exam.missed=0; state.exam.missedCards=[];
+    state.exam.i=0; state.exam.revealed=false;
+    state.idx=0;
+    state.shuffled=false;
+    setFlip(false);
+    rebuildPool();
+    showMenu();
+  });
+
+  // Under-card Study nav
+  $("prevBtn").addEventListener("click", prev);
+  $("nextBtn").addEventListener("click", next);
+  $("flipBtn").addEventListener("click", flip);
+  $("shuffleBtn").addEventListener("click", shuffleNow);
+
+  // Card click flips in Study; in Exam it reveals if not revealed yet
+  $("flipCard").addEventListener("click", ()=>{
+    if(state.mode === "menu" || state.mode === "results") return;
+    flip();
+  });
+
+  // Exam actions
+  $("revealBtn").addEventListener("click", flip);
+  $("markCorrectBtn").addEventListener("click", markCorrect);
+  $("markMissedBtn").addEventListener("click", markMissed);
+
+  // Results buttons
+  $("studyNowBtn").addEventListener("click", startStudy);
+  $("examAgainBtn").addEventListener("click", startExam);
+
+  // Keyboard shortcuts
+  document.addEventListener("keydown",(e)=>{
+    const k=e.key.toLowerCase();
+    if(k==="escape"){ stopCelebrate(); return; }
+
+    if(k===" "){
+      e.preventDefault();
+      if(state.mode !== "menu" && state.mode !== "results") flip();
+      return;
+    }
+    if(e.key==="ArrowRight"){ e.preventDefault(); next(); return; }
+    if(e.key==="ArrowLeft"){ e.preventDefault(); prev(); return; }
+    if(k==="s"){ shuffleNow(); return; }
+    if(k==="r"){ e.preventDefault(); $("resetBtn").click(); return; }
+  });
+
+  window.addEventListener("resize", fxResize);
+
+  /* Init */
+  buildCategories();
+  applyUser(getCookie(USER_COOKIE) || "Guest");
+  $("nameInput").value = getCookie(USER_COOKIE) || "";
+
+  rebuildPool();
+  showMenu();
+});
 </script>
 </body>
 </html>
