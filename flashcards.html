@@ -3,18 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>WGU Intro to IT | Study + Exam</title>
-<meta name="description" content="WGU Intro to IT study + exam simulator with pass/fail celebration. By Billy Lynch." />
-
+<title>WGU Intro to IT | Flashcards + Exam</title>
+<meta name="description" content="WGU Intro to IT flashcards + exam simulator. By Billy Lynch." />
 <style>
   :root{
-    --bg:#0b0b0d;
-    --text:#f2f2f4;
-    --muted:#b7b7c0;
-    --line:#24242c;
-    --red:#e10600;
-    --good:#3ddc84;
-    --bad:#ff2a2a;
+    --bg:#0b0b0d; --text:#f2f2f4; --muted:#b7b7c0; --line:#24242c;
+    --red:#e10600; --good:#3ddc84; --bad:#ff2a2a;
     --shadow: 0 18px 55px rgba(0,0,0,.45);
     --r2:24px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
@@ -22,13 +16,11 @@
   }
   *{box-sizing:border-box}
   body{
-    margin:0;
-    font-family:var(--sans);
+    margin:0; font-family:var(--sans); color:var(--text);
     background:
       radial-gradient(900px 450px at 20% 0%, rgba(225,6,0,.14), transparent 60%),
       radial-gradient(900px 450px at 80% 10%, rgba(255,42,42,.08), transparent 65%),
       linear-gradient(180deg, var(--bg), #07070a 70%);
-    color:var(--text);
   }
   .wrap{max-width:1100px;margin:0 auto;padding:18px}
   header{
@@ -37,14 +29,8 @@
     border-radius:var(--r2);
     padding:14px 16px;
     box-shadow:var(--shadow);
-    display:flex;
-    gap:14px;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:12px;
-    z-index:10;
-    backdrop-filter: blur(10px);
+    display:flex; gap:14px; align-items:center; justify-content:space-between;
+    position:sticky; top:12px; z-index:10; backdrop-filter: blur(10px);
   }
   .title h1{margin:0;font-size:18px;letter-spacing:.4px}
   .title p{margin:4px 0 0;color:var(--muted);font-size:12px;line-height:1.3}
@@ -53,9 +39,7 @@
     padding:6px 10px;border-radius:999px;
     border:1px solid rgba(225,6,0,.55);
     background:rgba(225,6,0,.10);
-    font-family:var(--mono);
-    font-size:12px;
-    white-space:nowrap;
+    font-family:var(--mono); font-size:12px; white-space:nowrap;
   }
   .dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 18px rgba(225,6,0,.6)}
   .grid{margin-top:14px;display:grid;grid-template-columns: 390px 1fr;gap:14px;align-items:start}
@@ -68,8 +52,7 @@
     overflow:hidden;
   }
   .hd{
-    padding:14px 16px;
-    border-bottom:1px solid var(--line);
+    padding:14px 16px; border-bottom:1px solid var(--line);
     display:flex;align-items:center;justify-content:space-between;gap:10px;
   }
   .hd h2{margin:0;font-size:13px;font-family:var(--mono);color:var(--muted);letter-spacing:.6px}
@@ -78,28 +61,20 @@
   .stack{display:flex;flex-direction:column;gap:10px}
   .sep{height:1px;background:var(--line);margin:12px 0}
   select, button, input{
-    padding:10px 12px;
-    border-radius:14px;
+    padding:10px 12px; border-radius:14px;
     border:1px solid var(--line);
     background:rgba(10,10,14,.7);
-    color:var(--text);
-    outline:none;
-    font-family:inherit;
+    color:var(--text); outline:none; font-family:inherit;
   }
-  input{width:100%}
-  select{width:100%}
+  input{width:100%} select{width:100%}
   button{
-    cursor:pointer;
-    background:rgba(10,10,14,.55);
+    cursor:pointer; background:rgba(10,10,14,.55);
     transition:transform .08s ease, border-color .2s ease;
     user-select:none;
   }
   button:hover{border-color:rgba(225,6,0,.6)}
   button:active{transform:translateY(1px)}
-  .primary{
-    border-color:rgba(225,6,0,.8);
-    background:linear-gradient(90deg, rgba(225,6,0,.18), rgba(225,6,0,.08));
-  }
+  .primary{border-color:rgba(225,6,0,.8); background:linear-gradient(90deg, rgba(225,6,0,.18), rgba(225,6,0,.08))}
   .ghost{background:transparent}
   .goodBtn{border-color: rgba(61,220,132,.65)}
   .badBtn{border-color: rgba(255,42,42,.55)}
@@ -110,19 +85,15 @@
     padding:6px 10px;border-radius:999px;
     border:1px solid var(--line);
     background:rgba(10,10,14,.35);
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--muted);
+    font-family:var(--mono); font-size:12px; color:var(--muted);
   }
   .pill strong{color:var(--text);font-weight:700}
   .kbd{
     font-family:var(--mono);
     border:1px solid var(--line);
     background:rgba(10,10,14,.7);
-    padding:2px 6px;
-    border-radius:8px;
-    color:var(--text);
-    font-size:11px;
+    padding:2px 6px;border-radius:8px;
+    color:var(--text); font-size:11px;
   }
   .flash{
     border:1px solid var(--line);
@@ -131,39 +102,21 @@
       radial-gradient(700px 250px at 50% 0%, rgba(225,6,0,.10), transparent 60%),
       linear-gradient(180deg, rgba(15,15,19,.92), rgba(10,10,14,.88));
     min-height:270px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:26px;
-    text-align:center;
-    user-select:none;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    padding:26px; text-align:center;
+    user-select:none; cursor:pointer; position:relative; overflow:hidden;
   }
   .flash .inner{max-width:820px}
   .frontLabel{
     display:inline-flex;gap:8px;align-items:center;
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:6px 10px;
-    background:rgba(10,10,14,.35);
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px;
+    padding:6px 10px; background:rgba(10,10,14,.35);
     margin-bottom:10px;
   }
   .q{font-size:20px;line-height:1.35;margin:0}
   .a{font-size:18px;line-height:1.35;margin:0;color:#ffd2d2}
   .hint{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.35}
-  .footer{
-    margin-top:14px;
-    color:var(--muted);
-    font-size:12px;
-    text-align:center;
-    opacity:.92;
-  }
-  .footer span{font-family:var(--mono)}
   .hidden{display:none}
   .notice{
     border:1px solid var(--line);
@@ -171,18 +124,17 @@
     border-radius:16px;
     padding:10px 12px;
     color:var(--muted);
-    font-size:12px;
-    line-height:1.35;
+    font-size:12px; line-height:1.35;
   }
+  .footer{margin-top:14px;color:var(--muted);font-size:12px;text-align:center;opacity:.92}
+  .footer span{font-family:var(--mono)}
 
+  /* Overlay */
   .overlay{
     position:fixed; inset:0;
     background: rgba(0,0,0,.62);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:1000;
+    display:flex; align-items:center; justify-content:center;
+    padding:18px; z-index:1000;
   }
   .modal{
     width:min(720px, 100%);
@@ -193,8 +145,7 @@
     overflow:hidden;
   }
   .modal .mhd{
-    padding:14px 16px;
-    border-bottom:1px solid var(--line);
+    padding:14px 16px; border-bottom:1px solid var(--line);
     display:flex;align-items:center;justify-content:space-between;gap:10px;
   }
   .modal .mhd h3{margin:0;font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.6px}
@@ -202,6 +153,7 @@
   .modal .mbd h2{margin:0 0 6px;font-size:20px}
   .modal .mbd p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.4}
 
+  /* Celebration */
   .celebrateLayer{position:fixed; inset:0; pointer-events:none; z-index:2000;}
   canvas#fx{position:absolute; inset:0; width:100%; height:100%;}
   .celebrateMsg{
@@ -218,6 +170,9 @@
   }
   .celebrateMsg h2{margin:0 0 6px; font-size:28px; letter-spacing:.6px}
   .celebrateMsg p{margin:0; color:var(--muted); font-size:14px; line-height:1.35}
+
+  /* tiny debug */
+  .dbg{font-family:var(--mono);font-size:11px;color:var(--muted)}
 </style>
 </head>
 
@@ -283,13 +238,16 @@
           <span class="kbd">Space</span> flip/reveal,
           <span class="kbd">←</span>/<span class="kbd">→</span> prev/next,
           <span class="kbd">S</span> shuffle,
-          <span class="kbd">R</span> reset.
+          <span class="kbd">R</span> reset,
+          <span class="kbd">Esc</span> close overlays.
         </p>
 
         <div class="notice">
           <strong>Session-Based:</strong> Scores and exam results reset if you refresh or close the page.
-          Your <strong>name is remembered</strong> using a cookie.
+          Your <strong>name is optional</strong> and saved via cookie only if you enter it.
         </div>
+
+        <div class="dbg" id="dbg"></div>
       </div>
     </div>
 
@@ -303,7 +261,7 @@
           <div class="inner">
             <div class="frontLabel" id="sideLabel">READY</div>
             <p class="q" id="cardText">Choose a category and click Study or Exam.</p>
-            <div class="hint" id="subHint">Your name is remembered by cookie. Scores are session-based.</div>
+            <div class="hint" id="subHint">Your name is optional. Scores are session-based.</div>
           </div>
         </div>
 
@@ -339,45 +297,46 @@
   </div>
 </div>
 
-<!-- WELCOME OVERLAY -->
+<!-- WELCOME OVERLAY (Name Optional) -->
 <div id="overlay" class="overlay hidden" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
     <div class="mhd">
-      <h3 id="setupTitle">SETUP</h3>
+      <h3 id="setupTitle">WELCOME</h3>
       <span class="badge"><span class="dot"></span><span>Intro to IT</span></span>
     </div>
     <div class="mbd">
-      <h2>Welcome — set your name.</h2>
-      <p>Enter your name (saved by cookie). You can Save & Close without starting a mode.</p>
+      <h2>Quick setup (optional).</h2>
+      <p>Enter a name if you want personalization. Otherwise hit <strong>Skip</strong>. Buttons are wired extra-hard to always work.</p>
 
       <div class="stack">
-        <label class="pill">Your Name <strong>(remembered)</strong></label>
-        <input id="nameInput" placeholder="e.g., Billy" autocomplete="name" />
+        <label class="pill">Your Name <strong>(optional)</strong></label>
+        <input id="nameInput" placeholder="e.g., Billy (optional)" autocomplete="name" />
 
         <label class="pill">Category</label>
         <select id="overlayCategory"></select>
 
         <div class="miniGrid">
-          <button type="button" class="primary" data-action="startStudy">Start Study</button>
-          <button type="button" class="primary" data-action="startExam">Start Exam</button>
+          <button type="button" class="primary" id="startStudyBtn" data-action="startStudy">Start Study</button>
+          <button type="button" class="primary" id="startExamBtn"  data-action="startExam">Start Exam</button>
         </div>
 
         <div class="miniGrid">
-          <button type="button" class="ghost" data-action="saveClose">Save & Close</button>
-          <button type="button" class="ghost" data-action="cancelOverlay">Cancel</button>
+          <button type="button" class="ghost" id="saveCloseBtn" data-action="saveClose">Save & Close</button>
+          <button type="button" class="ghost" id="skipBtn" data-action="skip">Skip</button>
         </div>
+
+        <button type="button" class="ghost" id="clearNameBtn">Clear saved name</button>
 
         <div class="notice">
-          <strong>Session-Based:</strong> Scores and exam results reset if you refresh or close the page.
-          Your <strong>name is remembered</strong> using a cookie.
+          <strong>Session-Based:</strong> exam score resets on refresh/close.
+          Name is saved in a cookie only if you enter it.
         </div>
-
-        <button type="button" class="ghost" id="clearNameBtn">Clear remembered name</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Celebration -->
 <div id="celebrateLayer" class="celebrateLayer hidden" aria-hidden="true">
   <canvas id="fx"></canvas>
   <div class="celebrateMsg">
@@ -387,31 +346,28 @@
 </div>
 
 <script>
-/* ========= SAFE BIND ========= */
+/* ========= helpers ========= */
 const $ = (id)=>document.getElementById(id);
-function on(id, evt, fn){
-  const el = $(id);
-  if(!el) return;
-  el.addEventListener(evt, fn);
-}
+function on(id, evt, fn){ const el=$(id); if(el) el.addEventListener(evt, fn); }
 
-/* ========= COOKIES ========= */
+/* ========= cookies ========= */
+const USER_COOKIE="wgu_intro_it_user";
 function setCookie(name, value, days){
-  const d = new Date();
-  d.setTime(d.getTime() + (days*24*60*60*1000));
-  document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+  const d=new Date(); d.setTime(d.getTime()+days*24*60*60*1000);
+  document.cookie = name+"="+encodeURIComponent(value)+";expires="+d.toUTCString()+";path=/;SameSite=Lax";
 }
 function getCookie(name){
-  const target = name + "=";
-  const parts = document.cookie.split(";").map(s=>s.trim());
-  for(const p of parts) if(p.startsWith(target)) return decodeURIComponent(p.substring(target.length));
+  const t=name+"=";
+  for(const p of document.cookie.split(";").map(s=>s.trim())){
+    if(p.startsWith(t)) return decodeURIComponent(p.slice(t.length));
+  }
   return "";
 }
 function deleteCookie(name){
-  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
+  document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
 }
 
-/* ========= DATA ========= */
+/* ========= deck (your set) ========= */
 const DECK = [
   {cat:"Computing Generations", q:"Which generation of computing is associated with microprocessors?", a:"Fourth"},
   {cat:"Computing Generations", q:"Which computing generation is associated with the exclusive use of machine languages and punch cards?", a:"First"},
@@ -497,9 +453,8 @@ const DECK = [
 ];
 
 const PASS_THRESHOLD = 80;
-const USER_COOKIE = "wgu_intro_it_user";
 
-/* ========= STATE ========= */
+/* ========= state ========= */
 const state = {
   user:"Guest",
   mode:"menu",
@@ -514,7 +469,7 @@ const state = {
   exam:{ total:30, i:0, revealed:false, correct:0, missed:0, missedCards:[], order:[] }
 };
 
-/* ========= UTIL ========= */
+/* ========= core ========= */
 function shuffleArray(arr){
   for(let i=arr.length-1;i>0;i--){
     const j=Math.floor(Math.random()*(i+1));
@@ -522,7 +477,7 @@ function shuffleArray(arr){
   }
   return arr;
 }
-function clampExam(n,max){ return Math.max(1, Math.min(n, max)); }
+function clamp(n,max){ return Math.max(1, Math.min(n, max)); }
 function formatTime(sec){
   const m=Math.floor(sec/60), s=sec%60;
   return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
@@ -543,7 +498,9 @@ function startTimer(){
 function applyUser(name){
   state.user=(name||"Guest").trim()||"Guest";
   $("userLabel").textContent=state.user;
-  $("welcomeLine").textContent=`Welcome, ${state.user}. Choose a category and mode to start.`;
+  $("welcomeLine").textContent = state.user==="Guest"
+    ? "Welcome. Choose a category and mode to start."
+    : `Welcome, ${state.user}. Choose a category and mode to start.`;
 }
 function setCard(side, text, isAnswer=false){
   $("sideLabel").textContent = side;
@@ -551,8 +508,16 @@ function setCard(side, text, isAnswer=false){
   el.className = isAnswer ? "a" : "q";
   el.textContent = text;
 }
+function updateLabels(){
+  $("modeLabel").textContent = state.mode.toUpperCase();
+  const total = (state.mode==="exam") ? state.exam.total : state.order.length;
+  const pos = (state.mode==="exam") ? Math.min(state.exam.i+1, state.exam.total) : (state.order.length ? state.idx+1 : 0);
+  $("posLabel").textContent = `${pos}/${total}`;
+  $("correctLabel").textContent = String(state.exam.correct);
+  $("missedLabel").textContent = String(state.exam.missed);
+  $("shufLabel").textContent = state.shuffled ? "Yes" : "No";
+}
 
-/* ========= CATEGORIES ========= */
 function buildCategories(){
   const cats=[...new Set(DECK.map(c=>c.cat))].sort((a,b)=>a.localeCompare(b));
   const fill=(sel)=>{
@@ -571,30 +536,22 @@ function buildCategories(){
   fill($("overlayCategory"));
 }
 
-/* ========= POOL / LABELS ========= */
 function rebuildPool(){
   state.pool = (state.category==="All") ? DECK.slice() : DECK.filter(c=>c.cat===state.category);
   state.order = state.pool.map((_,i)=>i);
   state.idx=0;
   state.showingAnswer=false;
   state.shuffled=false;
-  $("shufLabel").textContent="No";
-  state.exam.total = clampExam(30, Math.max(1, state.pool.length));
+
+  state.exam.total = clamp(30, Math.max(1, state.pool.length));
   $("examTotalLabel").textContent=String(state.exam.total);
+
   $("activeCategory").textContent = (state.category==="All") ? "All Categories" : state.category;
   $("catLabel").textContent = (state.category==="All") ? "All" : state.category;
+
   updateLabels();
 }
-function updateLabels(){
-  $("modeLabel").textContent = state.mode.toUpperCase();
-  const total = (state.mode==="exam") ? state.exam.total : state.order.length;
-  const pos = (state.mode==="exam") ? Math.min(state.exam.i+1, state.exam.total) : (state.order.length ? state.idx+1 : 0);
-  $("posLabel").textContent = `${pos}/${total}`;
-  $("correctLabel").textContent = String(state.exam.correct);
-  $("missedLabel").textContent = String(state.exam.missed);
-}
 
-/* ========= VIEWS ========= */
 function showMenu(){
   state.mode="menu";
   stopTimer();
@@ -602,7 +559,7 @@ function showMenu(){
   $("examActions").classList.add("hidden");
   $("results").classList.add("hidden");
   setCard("READY","Choose a category and click Study or Exam.");
-  $("subHint").textContent="Your name is remembered by cookie. Scores are session-based.";
+  $("subHint").textContent="Name is optional. Scores are session-based.";
   updateLabels();
 }
 function renderStudy(){
@@ -611,10 +568,13 @@ function renderStudy(){
   $("results").classList.add("hidden");
   $("examActions").classList.add("hidden");
   $("subHint").textContent="Click the card to flip. Shuffle anytime.";
-  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); return; }
+
+  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); updateLabels(); return; }
+
   const card=state.pool[state.order[state.idx]];
   if(!state.showingAnswer) setCard("QUESTION", card.q, false);
   else setCard("ANSWER", card.a, true);
+
   updateLabels();
 }
 function renderExam(){
@@ -622,7 +582,9 @@ function renderExam(){
   $("viewTitle").textContent="EXAM";
   $("results").classList.add("hidden");
   $("examActions").classList.remove("hidden");
-  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); $("examActions").classList.add("hidden"); return; }
+
+  if(!state.pool.length){ setCard("EMPTY","No cards in this category."); $("examActions").classList.add("hidden"); updateLabels(); return; }
+
   const card=state.pool[state.exam.order[state.exam.i]];
   if(!state.exam.revealed){
     setCard("EXAM — QUESTION", card.q, false);
@@ -634,7 +596,6 @@ function renderExam(){
   updateLabels();
 }
 
-/* ========= ACTIONS ========= */
 function startStudy(){
   state.showingAnswer=false;
   state.exam.revealed=false;
@@ -643,15 +604,21 @@ function startStudy(){
 }
 function startExam(){
   if(!state.pool.length){ renderExam(); return; }
-  state.exam.correct=0; state.exam.missed=0; state.exam.missedCards=[]; state.exam.i=0; state.exam.revealed=false;
-  state.exam.total = clampExam(30, state.pool.length);
+
+  state.exam.correct=0; state.exam.missed=0; state.exam.missedCards=[];
+  state.exam.i=0; state.exam.revealed=false;
+
+  state.exam.total = clamp(30, state.pool.length);
   $("examTotalLabel").textContent=String(state.exam.total);
+
   const indices=Array.from({length:state.pool.length},(_,i)=>i);
   shuffleArray(indices);
   state.exam.order=indices.slice(0,state.exam.total);
+
   startTimer();
   renderExam();
 }
+
 function flip(){
   if(state.mode==="study"){
     if(!state.pool.length) return;
@@ -676,7 +643,7 @@ function prev(){
 function shuffleNow(){
   if(!state.pool.length) return;
   if(state.mode==="study"){
-    state.shuffled=true; $("shufLabel").textContent="Yes";
+    state.shuffled=true;
     shuffleArray(state.order);
     state.idx=0;
     state.showingAnswer=false;
@@ -703,7 +670,7 @@ function advanceExam(){
   else renderExam();
 }
 
-/* ========= CELEBRATION ========= */
+/* ========= celebration ========= */
 let fx={canvas:null,ctx:null,w:0,h:0,particles:[],running:false,raf:null,endAt:0};
 function fxResize(){
   if(!fx.canvas) return;
@@ -741,8 +708,8 @@ function fxLoop(){
 }
 function celebrate(pct){
   $("celebrateLayer").classList.remove("hidden");
-  $("celebrateTitle").textContent=`PASS — ${state.user}!`;
-  $("celebrateText").textContent=`Score: ${pct}% • Keep that momentum.`;
+  $("celebrateTitle").textContent = state.user==="Guest" ? `PASS!` : `PASS — ${state.user}!`;
+  $("celebrateText").textContent = `Score: ${pct}% • Keep that momentum.`;
 
   fx.canvas=$("fx");
   fx.ctx=fx.canvas.getContext("2d");
@@ -763,7 +730,7 @@ function stopCelebrate(){
   $("celebrateLayer").classList.add("hidden");
 }
 
-/* ========= RESULTS ========= */
+/* ========= results ========= */
 function endExam(){
   stopTimer();
   state.mode="results";
@@ -797,7 +764,7 @@ function endExam(){
   if(passed) celebrate(pct);
 }
 
-/* ========= OVERLAY ========= */
+/* ========= overlay ========= */
 function openOverlay(){
   $("overlay").classList.remove("hidden");
   $("overlay").setAttribute("aria-hidden","false");
@@ -807,22 +774,38 @@ function closeOverlay(){
   $("overlay").classList.add("hidden");
   $("overlay").setAttribute("aria-hidden","true");
 }
+function overlaySaveNameOptional(){
+  const name=$("nameInput").value.trim();
+  // optional: only save if non-empty
+  if(name){
+    setCookie(USER_COOKIE, name, 365);
+    applyUser(name);
+  }else{
+    // if empty, do not overwrite existing cookie; just reflect current cookie if any
+    applyUser(getCookie(USER_COOKIE) || "Guest");
+  }
+}
+function overlayStartStudy(){ overlaySaveNameOptional(); closeOverlay(); startStudy(); }
+function overlayStartExam(){ overlaySaveNameOptional(); closeOverlay(); startExam(); }
+function overlaySaveClose(){ overlaySaveNameOptional(); closeOverlay(); }
+function overlaySkip(){ closeOverlay(); } // no name changes
 
-/* ========= INIT ========= */
+/* ========= init ========= */
 function init(){
-  const saved=getCookie(USER_COOKIE);
-  applyUser(saved||"Guest");
+  // load saved name (optional)
+  applyUser(getCookie(USER_COOKIE) || "Guest");
 
   buildCategories();
   rebuildPool();
   $("categorySelect").value=state.category;
   $("overlayCategory").value=state.category;
 
-  if(!saved) openOverlay();
-  else closeOverlay();
+  // show overlay only if you want; we’ll show it on first load always
+  openOverlay();
 
   showMenu();
 
+  // category syncing
   on("categorySelect","change",()=>{
     state.category=$("categorySelect").value;
     $("overlayCategory").value=state.category;
@@ -835,6 +818,7 @@ function init(){
     rebuildPool();
   });
 
+  // main controls
   on("goStudyBtn","click", startStudy);
   on("goExamBtn","click", startExam);
   on("backToMenuBtn","click", showMenu);
@@ -854,55 +838,38 @@ function init(){
   on("studyNowBtn","click", startStudy);
   on("examAgainBtn","click", startExam);
 
-  // Clear cookie but keep overlay open (no forced reopen)
+  // overlay direct bindings (guaranteed)
+  on("startStudyBtn","click", overlayStartStudy);
+  on("startExamBtn","click", overlayStartExam);
+  on("saveCloseBtn","click", overlaySaveClose);
+  on("skipBtn","click", overlaySkip);
+
   on("clearNameBtn","click", ()=>{
     deleteCookie(USER_COOKIE);
     $("nameInput").value="";
     applyUser("Guest");
   });
 
-  // ===== EVENT DELEGATION FOR OVERLAY BUTTONS =====
-  document.addEventListener("click", (e)=>{
-    const btn = e.target.closest("[data-action]");
-    if(!btn) return;
-    const action = btn.getAttribute("data-action");
-
-    if(action==="startStudy"){
-      const name = $("nameInput").value.trim();
-      if(name) setCookie(USER_COOKIE, name, 365);
-      applyUser(name || getCookie(USER_COOKIE) || "Guest");
-      closeOverlay();
-      startStudy();
-    }
-    if(action==="startExam"){
-      const name = $("nameInput").value.trim();
-      if(name) setCookie(USER_COOKIE, name, 365);
-      applyUser(name || getCookie(USER_COOKIE) || "Guest");
-      closeOverlay();
-      startExam();
-    }
-    if(action==="saveClose"){
-      const name = $("nameInput").value.trim();
-      if(name) setCookie(USER_COOKIE, name, 365);
-      applyUser(name || getCookie(USER_COOKIE) || "Guest");
-      closeOverlay();
-    }
-    if(action==="cancelOverlay"){
-      closeOverlay();
-    }
-  });
-
-  // Enter key saves + closes
-  on("nameInput","keydown", (e)=>{
+  // overlay enter key => save & close
+  on("nameInput","keydown",(e)=>{
     if(e.key==="Enter"){
       e.preventDefault();
-      const name=$("nameInput").value.trim();
-      if(name) setCookie(USER_COOKIE, name, 365);
-      applyUser(name || getCookie(USER_COOKIE) || "Guest");
-      closeOverlay();
+      overlaySaveClose();
     }
   });
 
+  // CAPTURE delegation too (in case something stops bubbling)
+  document.addEventListener("click",(e)=>{
+    const btn=e.target.closest("[data-action]");
+    if(!btn) return;
+    const a=btn.getAttribute("data-action");
+    if(a==="startStudy") overlayStartStudy();
+    if(a==="startExam") overlayStartExam();
+    if(a==="saveClose") overlaySaveClose();
+    if(a==="skip") overlaySkip();
+  }, true);
+
+  // keyboard shortcuts
   document.addEventListener("keydown",(e)=>{
     const k=e.key.toLowerCase();
     if(k===" "){ e.preventDefault(); if(state.mode!=="menu") flip(); }
@@ -914,6 +881,9 @@ function init(){
   });
 
   window.addEventListener("resize", fxResize);
+
+  // tiny debug readout
+  $("dbg").textContent = "Overlay buttons: direct-bind + capture delegation. Name is optional.";
 }
 
 document.addEventListener("DOMContentLoaded", init);
