@@ -346,8 +346,8 @@
       <span class="badge"><span class="dot"></span><span>Intro to IT</span></span>
     </div>
     <div class="mbd">
-      <h2>Welcome — let’s lock in.</h2>
-      <p>Enter your name (saved by cookie), pick a category, then start Study or Exam.</p>
+      <h2>Welcome — set your name.</h2>
+      <p>Enter your name (saved by cookie). You can Save & Close without starting a mode.</p>
 
       <div class="stack">
         <label class="pill">Your Name <strong>(remembered)</strong></label>
@@ -359,6 +359,11 @@
         <div class="miniGrid">
           <button type="button" class="primary" id="startStudyBtn">Start Study</button>
           <button type="button" class="primary" id="startExamBtn">Start Exam</button>
+        </div>
+
+        <div class="miniGrid">
+          <button type="button" class="ghost" id="saveCloseBtn">Save & Close</button>
+          <button type="button" class="ghost" id="cancelCloseBtn">Cancel</button>
         </div>
 
         <div class="notice">
@@ -381,11 +386,11 @@
 </div>
 
 <script>
-/* ========= SAFE BIND (fixes your issue) ========= */
+/* ========= SAFE BIND ========= */
 const $ = (id)=>document.getElementById(id);
 function on(id, evt, fn){
   const el = $(id);
-  if(!el) return; // <- prevents crash that breaks all buttons
+  if(!el) return;
   el.addEventListener(evt, fn);
 }
 
@@ -405,7 +410,7 @@ function deleteCookie(name){
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=Lax";
 }
 
-/* ========= DATA (Your deck, includes WBS=Planning) ========= */
+/* ========= DATA ========= */
 const DECK = [
   {cat:"Computing Generations", q:"Which generation of computing is associated with microprocessors?", a:"Fourth"},
   {cat:"Computing Generations", q:"Which computing generation is associated with the exclusive use of machine languages and punch cards?", a:"First"},
@@ -496,7 +501,7 @@ const USER_COOKIE = "wgu_intro_it_user";
 /* ========= STATE ========= */
 const state = {
   user:"Guest",
-  mode:"menu", // menu|study|exam|results
+  mode:"menu",
   category:"All",
   pool:[],
   order:[],
@@ -508,7 +513,7 @@ const state = {
   exam:{ total:30, i:0, revealed:false, correct:0, missed:0, missedCards:[], order:[] }
 };
 
-/* ========= UTILS ========= */
+/* ========= UTIL ========= */
 function shuffleArray(arr){
   for(let i=arr.length-1;i>0;i--){
     const j=Math.floor(Math.random()*(i+1));
@@ -516,7 +521,7 @@ function shuffleArray(arr){
   }
   return arr;
 }
-function clamp(n,max){ return Math.max(1, Math.min(n, max)); }
+function clampExam(n,max){ return Math.max(1, Math.min(n, max)); }
 function formatTime(sec){
   const m=Math.floor(sec/60), s=sec%60;
   return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
@@ -546,7 +551,7 @@ function setCard(side, text, isAnswer=false){
   el.textContent = text;
 }
 
-/* ========= CATEGORY BUILD ========= */
+/* ========= CATEGORIES ========= */
 function buildCategories(){
   const cats=[...new Set(DECK.map(c=>c.cat))].sort((a,b)=>a.localeCompare(b));
   const fill=(sel)=>{
@@ -573,7 +578,7 @@ function rebuildPool(){
   state.showingAnswer=false;
   state.shuffled=false;
   $("shufLabel").textContent="No";
-  state.exam.total = clamp(30, Math.max(1, state.pool.length));
+  state.exam.total = clampExam(30, Math.max(1, state.pool.length));
   $("examTotalLabel").textContent=String(state.exam.total);
   $("activeCategory").textContent = (state.category==="All") ? "All Categories" : state.category;
   $("catLabel").textContent = (state.category==="All") ? "All" : state.category;
@@ -629,11 +634,16 @@ function renderExam(){
 }
 
 /* ========= ACTIONS ========= */
-function startStudy(){ state.showingAnswer=false; state.exam.revealed=false; stopTimer(); renderStudy(); }
+function startStudy(){
+  state.showingAnswer=false;
+  state.exam.revealed=false;
+  stopTimer();
+  renderStudy();
+}
 function startExam(){
   if(!state.pool.length){ renderExam(); return; }
   state.exam.correct=0; state.exam.missed=0; state.exam.missedCards=[]; state.exam.i=0; state.exam.revealed=false;
-  state.exam.total = clamp(30, state.pool.length);
+  state.exam.total = clampExam(30, state.pool.length);
   $("examTotalLabel").textContent=String(state.exam.total);
   const indices=Array.from({length:state.pool.length},(_,i)=>i);
   shuffleArray(indices);
@@ -650,19 +660,35 @@ function flip(){
     if(!state.exam.revealed){ state.exam.revealed=true; renderExam(); }
   }
 }
-function next(){ if(state.mode!=="study"||!state.pool.length) return; state.idx=(state.idx+1)%state.order.length; state.showingAnswer=false; renderStudy(); }
-function prev(){ if(state.mode!=="study"||!state.pool.length) return; state.idx=(state.idx-1+state.order.length)%state.order.length; state.showingAnswer=false; renderStudy(); }
+function next(){
+  if(state.mode!=="study"||!state.pool.length) return;
+  state.idx=(state.idx+1)%state.order.length;
+  state.showingAnswer=false;
+  renderStudy();
+}
+function prev(){
+  if(state.mode!=="study"||!state.pool.length) return;
+  state.idx=(state.idx-1+state.order.length)%state.order.length;
+  state.showingAnswer=false;
+  renderStudy();
+}
 function shuffleNow(){
   if(!state.pool.length) return;
   if(state.mode==="study"){
     state.shuffled=true; $("shufLabel").textContent="Yes";
-    shuffleArray(state.order); state.idx=0; state.showingAnswer=false;
+    shuffleArray(state.order);
+    state.idx=0;
+    state.showingAnswer=false;
     renderStudy();
   } else if(state.mode==="exam"){
     startExam();
   }
 }
-function markCorrect(){ if(state.mode!=="exam"||!state.exam.revealed) return; state.exam.correct++; advanceExam(); }
+function markCorrect(){
+  if(state.mode!=="exam"||!state.exam.revealed) return;
+  state.exam.correct++;
+  advanceExam();
+}
 function markMissed(){
   if(state.mode!=="exam"||!state.exam.revealed) return;
   state.exam.missed++;
@@ -676,7 +702,7 @@ function advanceExam(){
   else renderExam();
 }
 
-/* ========= RESULTS + CELEBRATION ========= */
+/* ========= CELEBRATION ========= */
 let fx={canvas:null,ctx:null,w:0,h:0,particles:[],running:false,raf:null,endAt:0};
 function fxResize(){
   if(!fx.canvas) return;
@@ -721,24 +747,22 @@ function celebrate(pct){
   fx.ctx=fx.canvas.getContext("2d");
   fx.particles=[]; fx.running=true; fx.endAt=Date.now()+4000;
   fxResize();
-
-  // bursts
   spawnBurst(window.innerWidth*0.25, window.innerHeight*0.35, 90);
   spawnBurst(window.innerWidth*0.75, window.innerHeight*0.40, 90);
   spawnBurst(window.innerWidth*0.50, window.innerHeight*0.30, 120);
-
   if(fx.raf) cancelAnimationFrame(fx.raf);
   fx.raf=requestAnimationFrame(fxLoop);
   setTimeout(()=>stopCelebrate(), 5200);
 }
 function stopCelebrate(){
-  if(!fx.running && $("celebrateLayer").classList.contains("hidden")) return;
   fx.running=false;
   if(fx.raf) cancelAnimationFrame(fx.raf);
   fx.raf=null;
   fx.particles=[];
   $("celebrateLayer").classList.add("hidden");
 }
+
+/* ========= RESULTS ========= */
 function endExam(){
   stopTimer();
   state.mode="results";
@@ -757,7 +781,6 @@ function endExam(){
   $("passFailLabel").textContent=passed?"PASS":"FAIL";
   $("passFailLabel").style.color=passed?"var(--good)":"var(--bad)";
 
-  // Missed list (simple)
   const box=document.createElement("div");
   box.className="notice";
   box.innerHTML = state.exam.missedCards.length
@@ -784,7 +807,7 @@ function closeOverlay(){
   $("overlay").setAttribute("aria-hidden","true");
 }
 
-/* ========= INIT + WIRE ========= */
+/* ========= INIT ========= */
 function init(){
   const saved=getCookie(USER_COOKIE);
   applyUser(saved||"Guest");
@@ -814,6 +837,7 @@ function init(){
   on("goStudyBtn","click", startStudy);
   on("goExamBtn","click", startExam);
   on("backToMenuBtn","click", showMenu);
+  on("resetBtn","click", ()=>{ stopTimer(); rebuildPool(); showMenu(); });
 
   on("prevBtn","click", prev);
   on("nextBtn","click", next);
@@ -829,6 +853,7 @@ function init(){
   on("studyNowBtn","click", startStudy);
   on("examAgainBtn","click", startExam);
 
+  // Start buttons also save name (if typed), then close overlay
   on("startStudyBtn","click", ()=>{
     const name=$("nameInput").value.trim();
     if(name) setCookie(USER_COOKIE, name, 365);
@@ -843,11 +868,34 @@ function init(){
     closeOverlay();
     startExam();
   });
+
+  // Save & Close (no mode start)
+  on("saveCloseBtn","click", ()=>{
+    const name=$("nameInput").value.trim();
+    if(name) setCookie(USER_COOKIE, name, 365);
+    applyUser(name || getCookie(USER_COOKIE) || "Guest");
+    closeOverlay();
+  });
+
+  // Cancel just closes
+  on("cancelCloseBtn","click", ()=> closeOverlay());
+
+  // Enter key saves + closes
+  on("nameInput","keydown", (e)=>{
+    if(e.key==="Enter"){
+      e.preventDefault();
+      const name=$("nameInput").value.trim();
+      if(name) setCookie(USER_COOKIE, name, 365);
+      applyUser(name || getCookie(USER_COOKIE) || "Guest");
+      closeOverlay();
+    }
+  });
+
+  // Clear cookie but keep overlay open (no forced reopen)
   on("clearNameBtn","click", ()=>{
     deleteCookie(USER_COOKIE);
     $("nameInput").value="";
     applyUser("Guest");
-    openOverlay();
   });
 
   document.addEventListener("keydown",(e)=>{
@@ -857,7 +905,7 @@ function init(){
     else if(e.key==="ArrowLeft"){ e.preventDefault(); prev(); }
     else if(k==="s"){ shuffleNow(); }
     else if(k==="r"){ stopTimer(); rebuildPool(); showMenu(); }
-    else if(k==="escape"){ stopCelebrate(); }
+    else if(k==="escape"){ stopCelebrate(); closeOverlay(); }
   });
 
   window.addEventListener("resize", fxResize);
