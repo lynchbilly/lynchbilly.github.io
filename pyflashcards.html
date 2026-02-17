@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Python Flashcards (Basics → pandas)</title>
+  <meta name="description" content="Python flashcards from fundamentals through libraries like NumPy and pandas. Study mode + Exam mode with autosave." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#121a24;
+      --panel2:#0f1620;
+      --text:#e9eef6;
+      --muted:#a9b4c2;
+      --accent:#7c4dff;
+      --accent2:#22d3ee;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --btn:#1b2636;
+      --good:#22c55e;
+      --bad:#ef4444;
+      --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(900px 500px at 20% 10%, rgba(124,77,255,.20), transparent 60%),
+                  radial-gradient(900px 500px at 85% 30%, rgba(34,211,238,.16), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      padding:22px;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      display:grid;
+      gap:14px;
+    }
+    header{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:16px 16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:linear-gradient(135deg, rgba(124,77,255,.95), rgba(34,211,238,.85));
+      box-shadow:0 12px 25px rgba(124,77,255,.18);
+    }
+    h1{
+      font-size:18px;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+    .top-controls{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.15s transform, .15s background, .15s border-color, .15s opacity;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.18); }
+    .btn:active{ transform: translateY(0px); opacity:.9; }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(124,77,255,.85), rgba(34,211,238,.65));
+      border-color: rgba(124,77,255,.35);
+    }
+    .btn.danger{
+      background:linear-gradient(180deg, rgba(239,68,68,.22), rgba(255,255,255,.02));
+      border-color: rgba(239,68,68,.35);
+    }
+    .btn.good{
+      background:linear-gradient(180deg, rgba(34,197,94,.22), rgba(255,255,255,.02));
+      border-color: rgba(34,197,94,.35);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hdr{
+      padding:14px 16px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .card .hdr .title{
+      font-weight:700;
+      letter-spacing:.2px;
+      font-size:14px;
+    }
+    .mode-tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:var(--muted);
+      cursor:pointer;
+      user-select:none;
+    }
+    .tab.active{
+      color:var(--text);
+      border-color: rgba(124,77,255,.45);
+      background: rgba(124,77,255,.12);
+    }
+
+    /* Flashcard */
+    .flash-area{ padding:16px; }
+    .flash{
+      min-height:260px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(500px 200px at 30% 10%, rgba(124,77,255,.16), transparent 60%),
+        radial-gradient(500px 200px at 80% 30%, rgba(34,211,238,.12), transparent 60%),
+        rgba(0,0,0,.10);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .qtag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(124,77,255,.9), rgba(34,211,238,.9));
+      box-shadow:0 6px 14px rgba(124,77,255,.20);
+    }
+    .prompt{
+      font-size:18px;
+      line-height:1.35;
+      letter-spacing:.2px;
+      white-space:pre-wrap;
+    }
+    .answer{
+      font-size:16px;
+      color: rgba(233,238,246,.92);
+      line-height:1.4;
+      white-space:pre-wrap;
+      padding-top:10px;
+      border-top:1px dashed rgba(255,255,255,.12);
+      display:none;
+    }
+    .flash.show-answer .answer{ display:block; }
+
+    .under-controls{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .group{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 8px;
+      border-radius:10px;
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Right sidebar */
+    .side{ padding:16px; display:grid; gap:12px; }
+    .statbox{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
+      display:grid;
+      gap:8px;
+    }
+    .statrow{ display:flex; justify-content:space-between; gap:10px; font-size:12px; color:var(--muted); }
+    .bar{
+      width:100%;
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .bar > div{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, rgba(124,77,255,.9), rgba(34,211,238,.85));
+    }
+    .small{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
+    }
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:6px 0;
+    }
+
+    /* Exam */
+    .exam{ padding:16px; display:none; }
+    .exam.active{ display:block; }
+    textarea{
+      width:100%;
+      min-height:110px;
+      resize:vertical;
+      border-radius:14px;
+      padding:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+      line-height:1.35;
+    }
+    textarea:focus{
+      border-color: rgba(124,77,255,.45);
+      box-shadow: 0 0 0 3px rgba(124,77,255,.14);
+    }
+    .model-answer{
+      margin-top:12px;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.14);
+      background: rgba(0,0,0,.10);
+      white-space:pre-wrap;
+      display:none;
+    }
+    .model-answer.show{ display:block; }
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      background: rgba(0,0,0,.70);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:12px;
+      box-shadow: var(--shadow);
+      display:none;
+      z-index:50;
+    }
+    .toast.show{ display:block; }
+    footer{
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+      padding:6px 0 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Python Flashcards — Basics → Libraries → NumPy → pandas</h1>
+        <div class="sub">Study + Exam modes • Autosave • No overlays</div>
+      </div>
+    </div>
+    <div class="top-controls">
+      <span class="pill" id="deckInfo">Deck: 0 cards</span>
+      <button class="btn" id="btnShuffleTop" title="Shuffle deck (S)">Shuffle</button>
+      <button class="btn danger" id="btnResetTop" title="Reset progress">Reset</button>
+      <button class="btn primary" id="btnSaveTop" title="Force save">Save</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- Main -->
+    <section class="card">
+      <div class="hdr">
+        <div class="title">Flashcard</div>
+        <div class="mode-tabs">
+          <div class="tab active" id="tabStudy" role="button" tabindex="0">Study</div>
+          <div class="tab" id="tabExam" role="button" tabindex="0">Exam</div>
+        </div>
+      </div>
+
+      <!-- Study -->
+      <div class="flash-area" id="studyPane">
+        <div class="flash" id="flash">
+          <div class="qtag"><span class="dot"></span><span id="cardMeta">Card 1</span></div>
+          <div class="prompt" id="question">Loading…</div>
+          <div class="answer" id="answer"></div>
+        </div>
+
+        <!-- Controls UNDER the card (like you wanted) -->
+        <div class="under-controls">
+          <div class="group">
+            <button class="btn" id="btnPrev" title="Previous (←)">Prev</button>
+            <button class="btn primary" id="btnFlip" title="Flip (Space)">Flip</button>
+            <button class="btn" id="btnNext" title="Next (→)">Next</button>
+          </div>
+          <div class="group">
+            <span class="kbd">← / →</span>
+            <span class="kbd">Space</span>
+            <span class="kbd">S</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam -->
+      <div class="exam" id="examPane">
+        <div class="flash" style="min-height:180px">
+          <div class="qtag"><span class="dot"></span><span id="examMeta">Exam Card</span></div>
+          <div class="prompt" id="examQuestion">Loading…</div>
+        </div>
+
+        <div style="margin-top:12px; display:grid; gap:10px;">
+          <textarea id="examInput" placeholder="Type your answer here (then Reveal)."></textarea>
+          <div class="group">
+            <button class="btn primary" id="btnReveal">Reveal Answer</button>
+            <button class="btn good" id="btnCorrect">I was Correct</button>
+            <button class="btn danger" id="btnWrong">I was Wrong</button>
+            <button class="btn" id="btnSkip">Skip</button>
+          </div>
+          <div class="model-answer" id="modelAnswer"></div>
+          <div class="small">Tip: In Exam mode, you self-grade so you can move fast.</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="card">
+      <div class="hdr">
+        <div class="title">Progress</div>
+        <div class="pill" id="modePill">Mode: Study</div>
+      </div>
+      <div class="side">
+        <div class="statbox">
+          <div class="statrow"><span>Position</span><span id="posText">1 / 1</span></div>
+          <div class="bar"><div id="posBar"></div></div>
+          <div class="statrow"><span>Exam Correct</span><span id="correctText">0</span></div>
+          <div class="statrow"><span>Exam Wrong</span><span id="wrongText">0</span></div>
+        </div>
+
+        <div class="statbox">
+          <div class="small">
+            <b>Shortcuts:</b><br/>
+            • <span class="kbd">Space</span> flip<br/>
+            • <span class="kbd">←</span>/<span class="kbd">→</span> prev/next<br/>
+            • <span class="kbd">S</span> shuffle
+          </div>
+          <div class="divider"></div>
+          <div class="small">
+            <b>Autosave:</b> every change is saved locally (your browser). Use <b>Reset</b> to clear it.
+          </div>
+        </div>
+
+        <div class="statbox">
+          <div class="small"><b>Deck Notes:</b> Starts at fundamentals and ends in pandas + common libraries.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>pyflashcards.html • Built for quick study + exam reps</footer>
+</div>
+
+<div class="toast" id="toast">Saved</div>
+
+<script>
+/* =========================
+   Flashcards Data (100)
+   ========================= */
+const FLASHCARDS = [
+  // Basics
+  {q:"What is Python?", a:"A high-level, interpreted programming language used for automation, web, data, AI, and more."},
+  {q:"What does “interpreted” mean?", a:"Code runs line-by-line through an interpreter instead of being compiled ahead of time."},
+  {q:"How do you print to the console?", a:'print("text")'},
+  {q:"How do you store a value in a variable?", a:"x = 10"},
+  {q:"What are Python’s common basic data types?", a:"int, float, str, bool"},
+  {q:"What is a string?", a:'Text data, like "Billy".'},
+  {q:"How do you get user input?", a:'name = input("Enter name: ")'},
+  {q:"What does len() do?", a:"Returns the number of items (like string length or list size)."},
+  {q:"What is a comment in Python?", a:"Notes that don’t run: # like this"},
+  {q:"What does type() do?", a:"Shows a value’s data type."},
+
+  // Operators & Logic
+  {q:"What are comparison operators?", a:"==, !=, <, >, <=, >="},
+  {q:"What are logical operators?", a:"and, or, not"},
+  {q:"What does == mean?", a:"Equality comparison (checks if values are the same)."},
+  {q:"What does = mean?", a:"Assignment (stores a value in a variable)."},
+
+  // Control Flow
+  {q:"How do you write an if statement?", a:"if x > 5:\n    print('big')"},
+  {q:"What is an elif used for?", a:"Another condition if the previous if was false."},
+  {q:"What is an else used for?", a:"Runs when all previous conditions are false."},
+  {q:"What is a for loop used for?", a:"Iterating over a sequence (list, string, range)."},
+  {q:"What is a while loop used for?", a:"Repeats while a condition is true."},
+  {q:"What does break do?", a:"Exits the loop early."},
+  {q:"What does continue do?", a:"Skips to the next loop iteration."},
+
+  // Collections
+  {q:"What is a list?", a:"Ordered, changeable collection: [1, 2, 3]"},
+  {q:"What is a tuple?", a:"Ordered, unchangeable collection: (1, 2, 3)"},
+  {q:"What is a set?", a:"Unordered collection of unique items: {1, 2, 3}"},
+  {q:"What is a dictionary?", a:'Key-value pairs: {"cpu": "9950X3D", "gpu": "9070 XT"}'},
+  {q:"How do you access a list item?", a:"mylist[0]"},
+  {q:"How do you access a dictionary value?", a:'mydict["cpu"]'},
+  {q:"What does .append() do?", a:"Adds an item to the end of a list."},
+  {q:"What does .pop() do?", a:"Removes and returns an item (default last)."},
+  {q:"What does .get() do on a dict?", a:"Safely returns a value, or None/default if missing."},
+
+  // Functions
+  {q:"What is a function?", a:"A reusable block of code."},
+  {q:"How do you define a function?", a:"def add(a, b):\n    return a + b"},
+  {q:"What is a parameter?", a:"The variable in the function definition."},
+  {q:"What is an argument?", a:"The value passed into the function."},
+  {q:"What does return do?", a:"Sends a value back to the caller and stops the function."},
+  {q:"What is a default parameter?", a:"A parameter with a preset value: def f(x=5): ..."},
+
+  // Strings
+  {q:"What is string concatenation?", a:'Combining strings: "hi" + " there"'},
+  {q:"What does .split() do?", a:"Splits a string into a list by a delimiter."},
+  {q:"What does .strip() do?", a:"Removes leading/trailing whitespace."},
+  {q:"What are f-strings used for?", a:'Easy formatting: f"Temp is {temp}"'},
+
+  // Files
+  {q:"How do you open a file safely?", a:'with open("file.txt", "r") as f:\n    data = f.read()'},
+  {q:'What does "r" mean when opening a file?', a:"Read mode."},
+  {q:'What does "w" mean when opening a file?', a:"Write mode (overwrites file)."},
+  {q:'What does "a" mean when opening a file?', a:"Append mode (adds to end)."},
+  {q:"Why use with open(...) ?", a:"It auto-closes the file, even if an error happens."},
+
+  // Exceptions
+  {q:"What is an exception?", a:"An error that occurs while a program is running."},
+  {q:"How do you handle exceptions?", a:"try:\n    x = int('abc')\nexcept ValueError:\n    print('bad input')"},
+  {q:"What does finally do?", a:"Runs no matter what (error or not)."},
+  {q:"What is a ValueError?", a:"When a value is the right type but invalid (like int('abc'))."},
+
+  // Modules & Packages
+  {q:"What is a module?", a:"A Python file containing code you can import."},
+  {q:"What is a package?", a:"A folder of modules (often installable with pip)."},
+  {q:"How do you import a module?", a:"import math"},
+  {q:"How do you import a specific function?", a:"from math import sqrt"},
+  {q:"What does as do in imports?", a:"Creates an alias: import pandas as pd"},
+
+  // pip & venv
+  {q:"What is pip?", a:"Python’s package installer."},
+  {q:"How do you install a package?", a:"pip install package_name"},
+  {q:"What is a virtual environment?", a:"An isolated Python environment for project dependencies."},
+  {q:"Why use a virtual environment?", a:"Prevents dependency conflicts between projects."},
+  {q:"Common venv creation command?", a:"python -m venv venv"},
+
+  // Standard Library
+  {q:"What does datetime help with?", a:"Dates and times."},
+  {q:"What does os help with?", a:"Working with files, folders, environment variables."},
+  {q:"What does pathlib help with?", a:"Cleaner path handling than raw strings."},
+  {q:"What does random do?", a:"Random numbers/choices."},
+  {q:"What does json do?", a:"Convert between Python objects and JSON text."},
+
+  // Popular Libraries
+  {q:"What is a library in Python?", a:"A collection of code you import to avoid reinventing the wheel."},
+  {q:"What is NumPy used for?", a:"Fast numerical computing and arrays/matrices."},
+  {q:"What is pandas used for?", a:"Data analysis with tables (DataFrames)."},
+  {q:"What is Matplotlib used for?", a:"Plotting and graphs."},
+  {q:"What is Requests used for?", a:"Making HTTP requests to APIs/websites."},
+  {q:"What is BeautifulSoup used for?", a:"Parsing HTML for web scraping."},
+  {q:"What is Flask used for?", a:"Lightweight web apps/APIs."},
+  {q:"What is FastAPI used for?", a:"Fast, modern API building (great with type hints)."},
+
+  // NumPy
+  {q:"What is a NumPy array?", a:"A fast, fixed-type, multi-dimensional data structure."},
+  {q:"Why is NumPy faster than lists for math?", a:"Vectorized operations in optimized C."},
+  {q:"Create a NumPy array?", a:"np.array([1,2,3])"},
+  {q:"What does “vectorized” mean?", a:"Doing operations on whole arrays at once (no Python loop needed)."},
+  {q:"What does np.mean() do?", a:"Returns the average of values."},
+  {q:"What does np.reshape() do?", a:"Changes an array’s shape without changing data."},
+  {q:"What does broadcasting mean?", a:"NumPy auto-expands shapes to perform operations."},
+
+  // pandas
+  {q:"What is pandas?", a:"A Python library for data manipulation and analysis."},
+  {q:"What is a Series?", a:"A one-dimensional labeled array (like a column)."},
+  {q:"What is a DataFrame?", a:"A 2D table of rows and columns."},
+  {q:"Common alias for pandas?", a:"import pandas as pd"},
+  {q:"How do you read a CSV into pandas?", a:'df = pd.read_csv("file.csv")'},
+  {q:"How do you view the first rows of a DataFrame?", a:"df.head()"},
+  {q:"How do you view column names?", a:"df.columns"},
+  {q:"How do you get basic summary stats?", a:"df.describe()"},
+  {q:"How do you select one column?", a:'df["colname"]'},
+  {q:"How do you select multiple columns?", a:'df[["a", "b"]]'},
+  {q:"How do you filter rows by a condition?", a:'df[df["score"] > 80]'},
+  {q:"What does .loc[] do?", a:"Label-based selection: rows/columns by names."},
+  {q:"What does .iloc[] do?", a:"Position-based selection: rows/columns by index numbers."},
+  {q:"How do you sort by a column?", a:'df.sort_values("colname")'},
+  {q:"How do you drop a column?", a:'df.drop(columns=["colname"])'},
+  {q:"How do you handle missing values?", a:"df.isna(), df.dropna(), df.fillna(value)"},
+  {q:"What does groupby() do?", a:"Groups data to aggregate (sum/mean/count) by category."},
+  {q:"Example of groupby mean?", a:'df.groupby("team")["score"].mean()'},
+  {q:"What does merge() do?", a:"Joins two DataFrames like SQL joins."},
+  {q:"What does concat() do?", a:"Stacks DataFrames together (rows or columns)."},
+  {q:"How do you export to CSV?", a:'df.to_csv("out.csv", index=False)'}
+];
+
+/* =========================
+   State + Persistence
+   ========================= */
+const STORAGE_KEY = "pyflashcards_v1";
+const defaultState = {
+  order: [...Array(FLASHCARDS.length).keys()],
+  index: 0,
+  showAnswer: false,
+  mode: "study", // "study" | "exam"
+  exam: { correct: 0, wrong: 0, revealed: false, lastInput: "" }
+};
+let state = loadState();
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return structuredClone(defaultState);
+    const parsed = JSON.parse(raw);
+
+    // Basic validation
+    if(!parsed.order || !Array.isArray(parsed.order) || parsed.order.length !== FLASHCARDS.length){
+      return structuredClone(defaultState);
+    }
+    if(typeof parsed.index !== "number") parsed.index = 0;
+    if(parsed.index < 0) parsed.index = 0;
+    if(parsed.index >= FLASHCARDS.length) parsed.index = FLASHCARDS.length - 1;
+    if(parsed.mode !== "study" && parsed.mode !== "exam") parsed.mode = "study";
+    if(!parsed.exam) parsed.exam = structuredClone(defaultState.exam);
+    return parsed;
+  }catch(e){
+    return structuredClone(defaultState);
+  }
+}
+function saveState(showToast=true){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  if(showToast) toast("Saved");
+}
+function resetState(){
+  state = structuredClone(defaultState);
+  saveState(false);
+  renderAll();
+  toast("Reset");
+}
+
+/* =========================
+   Helpers
+   ========================= */
+function currentCard(){
+  const cardIndex = state.order[state.index];
+  return { ...FLASHCARDS[cardIndex], n: cardIndex };
+}
+function clampIndex(){
+  if(state.index < 0) state.index = 0;
+  if(state.index >= FLASHCARDS.length) state.index = FLASHCARDS.length - 1;
+}
+function shuffleOrder(){
+  // Fisher-Yates on order
+  const arr = state.order.slice();
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  state.order = arr;
+  state.index = 0;
+  state.showAnswer = false;
+  // Exam reveal reset
+  state.exam.revealed = false;
+  state.exam.lastInput = "";
+  saveState(false);
+  renderAll();
+  toast("Shuffled");
+}
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 900);
+}
+
+/* =========================
+   Render
+   ========================= */
+const el = (id)=>document.getElementById(id);
+
+function renderStudy(){
+  const c = currentCard();
+  el("question").textContent = c.q;
+  el("answer").textContent = c.a;
+
+  el("cardMeta").textContent = `Card ${state.index+1} of ${FLASHCARDS.length}`;
+  el("posText").textContent = `${state.index+1} / ${FLASHCARDS.length}`;
+
+  const pct = ((state.index+1)/FLASHCARDS.length)*100;
+  el("posBar").style.width = `${pct}%`;
+
+  const flash = el("flash");
+  if(state.showAnswer) flash.classList.add("show-answer");
+  else flash.classList.remove("show-answer");
+
+  // Update deck info
+  el("deckInfo").textContent = `Deck: ${FLASHCARDS.length} cards`;
+}
+
+function renderExam(){
+  const c = currentCard();
+  el("examQuestion").textContent = c.q;
+  el("examMeta").textContent = `Exam Card ${state.index+1} of ${FLASHCARDS.length}`;
+  el("posText").textContent = `${state.index+1} / ${FLASHCARDS.length}`;
+  el("correctText").textContent = `${state.exam.correct}`;
+  el("wrongText").textContent = `${state.exam.wrong}`;
+
+  const pct = ((state.index+1)/FLASHCARDS.length)*100;
+  el("posBar").style.width = `${pct}%`;
+
+  // input restore
+  el("examInput").value = state.exam.lastInput || "";
+
+  // reveal
+  el("modelAnswer").textContent = c.a;
+  el("modelAnswer").classList.toggle("show", !!state.exam.revealed);
+
+  el("deckInfo").textContent = `Deck: ${FLASHCARDS.length} cards`;
+}
+
+function setMode(mode){
+  state.mode = mode;
+
+  const studyPane = el("studyPane");
+  const examPane  = el("examPane");
+  const tabStudy = el("tabStudy");
+  const tabExam  = el("tabExam");
+
+  if(mode === "study"){
+    studyPane.style.display = "block";
+    examPane.classList.remove("active");
+    tabStudy.classList.add("active");
+    tabExam.classList.remove("active");
+    el("modePill").textContent = "Mode: Study";
+  }else{
+    studyPane.style.display = "none";
+    examPane.classList.add("active");
+    tabStudy.classList.remove("active");
+    tabExam.classList.add("active");
+    el("modePill").textContent = "Mode: Exam";
+  }
+
+  // Clean up mode-specific toggles
+  state.showAnswer = false;
+  state.exam.revealed = false;
+  state.exam.lastInput = "";
+  saveState(false);
+  renderAll();
+}
+
+function renderAll(){
+  clampIndex();
+  renderStudy();
+  renderExam();
+  // Pane visibility based on mode
+  setModeVisualOnly(state.mode);
+}
+function setModeVisualOnly(mode){
+  const studyPane = el("studyPane");
+  const examPane  = el("examPane");
+  const tabStudy = el("tabStudy");
+  const tabExam  = el("tabExam");
+  if(mode === "study"){
+    studyPane.style.display = "block";
+    examPane.classList.remove("active");
+    tabStudy.classList.add("active");
+    tabExam.classList.remove("active");
+    el("modePill").textContent = "Mode: Study";
+  }else{
+    studyPane.style.display = "none";
+    examPane.classList.add("active");
+    tabStudy.classList.remove("active");
+    tabExam.classList.add("active");
+    el("modePill").textContent = "Mode: Exam";
+  }
+}
+
+/* =========================
+   Navigation
+   ========================= */
+function goPrev(){
+  if(state.index > 0){
+    state.index--;
+    state.showAnswer = false;
+    state.exam.revealed = false;
+    state.exam.lastInput = "";
+    saveState(false);
+    renderAll();
+  }else{
+    toast("At start");
+  }
+}
+function goNext(){
+  if(state.index < FLASHCARDS.length - 1){
+    state.index++;
+    state.showAnswer = false;
+    state.exam.revealed = false;
+    state.exam.lastInput = "";
+    saveState(false);
+    renderAll();
+  }else{
+    toast("At end");
+  }
+}
+function flip(){
+  // Only in study
+  if(state.mode !== "study") return;
+  state.showAnswer = !state.showAnswer;
+  saveState(false);
+  renderStudy();
+}
+
+/* =========================
+   Exam actions
+   ========================= */
+function reveal(){
+  if(state.mode !== "exam") return;
+  state.exam.revealed = true;
+  state.exam.lastInput = el("examInput").value || "";
+  saveState(false);
+  renderExam();
+}
+function markCorrect(){
+  if(state.mode !== "exam") return;
+  state.exam.correct++;
+  nextExamCard();
+}
+function markWrong(){
+  if(state.mode !== "exam") return;
+  state.exam.wrong++;
+  nextExamCard();
+}
+function skip(){
+  if(state.mode !== "exam") return;
+  nextExamCard();
+}
+function nextExamCard(){
+  state.exam.revealed = false;
+  state.exam.lastInput = "";
+  el("examInput").value = "";
+  el("modelAnswer").classList.remove("show");
+  goNext();
+}
+
+/* =========================
+   Wire up UI
+   ========================= */
+function init(){
+  // Top buttons
+  el("btnShuffleTop").addEventListener("click", shuffleOrder);
+  el("btnResetTop").addEventListener("click", resetState);
+  el("btnSaveTop").addEventListener("click", ()=>saveState(true));
+
+  // Tabs
+  el("tabStudy").addEventListener("click", ()=>setMode("study"));
+  el("tabExam").addEventListener("click", ()=>setMode("exam"));
+  el("tabStudy").addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" ") setMode("study"); });
+  el("tabExam").addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" ") setMode("exam"); });
+
+  // Study controls
+  el("btnPrev").addEventListener("click", goPrev);
+  el("btnNext").addEventListener("click", goNext);
+  el("btnFlip").addEventListener("click", flip);
+
+  // Flip by clicking card too
+  el("flash").addEventListener("click", flip);
+
+  // Exam controls
+  el("btnReveal").addEventListener("click", reveal);
+  el("btnCorrect").addEventListener("click", markCorrect);
+  el("btnWrong").addEventListener("click", markWrong);
+  el("btnSkip").addEventListener("click", skip);
+
+  el("examInput").addEventListener("input", ()=>{
+    state.exam.lastInput = el("examInput").value || "";
+    saveState(false);
+  });
+
+  // Keyboard shortcuts
+  window.addEventListener("keydown", (e)=>{
+    const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+    const typing = tag === "textarea" || tag === "input";
+
+    if(e.key === "ArrowLeft"){
+      e.preventDefault();
+      goPrev();
+    }
+    if(e.key === "ArrowRight"){
+      e.preventDefault();
+      goNext();
+    }
+    if(e.code === "Space"){
+      if(state.mode === "study" && !typing){
+        e.preventDefault();
+        flip();
+      }
+    }
+    if((e.key === "s" || e.key === "S") && !typing){
+      e.preventDefault();
+      shuffleOrder();
+    }
+  });
+
+  // Initial render
+  renderAll();
+  toast("Loaded");
+}
+
+init();
+</script>
+</body>
+</html>
